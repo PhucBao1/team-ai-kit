@@ -1,0 +1,8 @@
+.generated/
+__pycache__/
+*.pyc
+.DS_Store
+diagrams/drawio/js/
+diagrams/drawio/stencils/
+diagrams/drawio/node_modules/
+docs/security/*.tmp

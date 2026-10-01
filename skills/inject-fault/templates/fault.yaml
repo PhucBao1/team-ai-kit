@@ -1,0 +1,16 @@
+id: t1_parts_reallocated
+type: T1
+description: Linh kiện đã giữ cho lịch hẹn bị điều chuyển sang xưởng khác
+trigger:
+  when: appointment.status == confirmed and hours_to_start in [24, 96]
+  probability: 0.08
+emit:
+  - {type: parts.reservation.cancelled, appointment: $appointment_id, reason: transfer}
+label:
+  is_real_failure: true
+  rescue_deadline: appointment_start - 24h
+  correct_actions: [notify_customer_with_options, propose_reschedule_or_alt_workshop, handoff_if_rejected]
+negative_twin:        # ca gây nhiễu: huỷ giữ hàng nhưng đã có hàng thay thế cùng xưởng
+  emit_extra: [{type: parts.reservation.created, same_part: true, same_workshop: true}]
+  label: {is_real_failure: false}
+source: "Giả định nhóm; tham số tần suất cần hiệu chỉnh khi có dữ liệu thật"

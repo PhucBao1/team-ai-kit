@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Edit(./.ai-log/**)",
+      "Bash(git push --force:*)",
+      "Bash(git push -f:*)",
+      "Bash(terraform apply:*)"
+    ],
+    "ask": [
+      "Bash(git push:*)",
+      "Bash(gcloud run deploy:*)",
+      "Bash(alembic downgrade:*)"
+    ]
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [{ "type": "command", "command": "bash scripts/_pyrun.sh \"__KIT__/guardrails/guardrails.py\" hook-edit" }]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [{ "type": "command", "command": "bash scripts/_pyrun.sh \"__KIT__/guardrails/guardrails.py\" hook-bash" }]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [{ "type": "command", "command": "bash \"__KIT__/guardrails/after_edit.sh\"" }]
+      }
+    ]
+  }
+}

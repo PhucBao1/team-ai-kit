@@ -1,0 +1,11 @@
+# contracts/tools.yaml — thêm một mục vào danh sách tools:
+  - name: get_parts_availability
+    level: 0                    # 0 đọc (src/agents/tools) · 1–2 ghi (src/tools, chỉ executor gọi, level 2 cần confirmation_token)
+    milestone: W1               # MVP | W1 | W2
+    module: src/agents/tools/parts.py
+    description: >
+      Tra tồn kho linh kiện cho một lệnh sửa chữa tại một xưởng. Dùng trước khi đề xuất lịch hẹn.
+      KHÔNG dùng để giữ hàng.
+    input: {workshop_id: str, part_numbers: "list[str]"}
+    output: {items: "list[PartItem]"}
+    errors: [WORKSHOP_NOT_FOUND, UPSTREAM_TIMEOUT]

@@ -1,0 +1,13 @@
+doc_id: warranty_passenger
+version: "2026.03"
+title: Chính sách bảo hành xe du lịch (tóm tắt từ nguồn công khai)
+source_url: https://example.invalid/replace-with-official-url
+accessed_at: 2026-09-27
+effective_from: 2026-03-01
+effective_to: null
+assumed: false
+applies_to:
+  models: [VF8, VF9]
+  usage_type: personal        # personal | commercial
+  sw_min: null
+  sw_max: null

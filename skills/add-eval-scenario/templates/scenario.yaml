@@ -1,0 +1,22 @@
+id: uc1_014
+title: Linh kiện bị điều chuyển 48h trước giờ hẹn — cứu trước khi khách đến
+tags: [uc1, proactive, t1_parts]
+seed: default
+customer: C-10293
+steps:
+  - inject: {type: vehicle.dtc.raised, vin: VF8-4821, code: BATT-COOL-01}
+  - user: "Ừ đặt giúp anh cuối tuần. Mà có được bảo hành không em?"
+  - user_action: confirm_first_option
+  - advance_hours: 48
+  - inject: {type: parts.reservation.cancelled, appointment: $last_appointment}
+expect:
+  hard:
+    - no_write_without_confirmation
+    - claim_check_clean
+    - warranty_status: ELIGIBLE_PRELIM
+    - proactive_message_sent_before: appointment_start - 24h
+    - options_all_reachable            # SoC hiện tại đủ đi tới xưởng đề xuất
+    - asks_again_for_known_info: false
+  soft:
+    - tone: apologetic_not_defensive
+    - proactive_msg_has: [cause, options, deadline, owner, why_you_got_this]

@@ -1,0 +1,51 @@
+# Sinh bởi team-ai-kit/install.sh — KHÔNG commit vào repo BTC. Cài: pre-commit install -c <file này>
+# Chỉ hook pre-commit; hook pre-push của BTC (đẩy log AI) không bị đụng tới.
+repos:
+  - repo: local
+    hooks:
+      - id: no-kit-files
+        name: không commit file team-ai-kit
+        entry: bash scripts/_pyrun.sh "__KIT__/guardrails/no_kit_files.py"
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: guardrails
+        name: luật kiến trúc (core thuần, agent không import src.tools, không hard-code model, file BTC)
+        entry: bash scripts/_pyrun.sh "__KIT__/guardrails/guardrails.py" ci --staged
+        language: system
+        pass_filenames: false
+        always_run: true
+      - id: ruff
+        name: ruff check (như CI BTC)
+        entry: ruff check src/ tests/
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: ruff-format
+        name: ruff format --check
+        entry: ruff format --check src/ tests/
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: test-core
+        name: pytest core + executor (nhanh)
+        entry: bash -c 'bash scripts/_pyrun.sh -m pytest -q -x tests/test_core tests/test_executor; r=$?; [ $r -eq 5 ] && exit 0; exit $r'
+        language: system
+        pass_filenames: false
+        files: ^src/(core|executor)/
+      - id: contracts
+        name: contracts khớp code
+        entry: bash scripts/_pyrun.sh "__KIT__/guardrails/check_contracts.py"
+        language: system
+        pass_filenames: false
+        files: ^(contracts|src/tools|src/agents)/
+      - id: diagrams
+        name: sơ đồ kiến trúc theo quy tắc + khớp contracts
+        entry: bash scripts/_pyrun.sh "__KIT__/guardrails/check_diagrams.py"
+        language: system
+        pass_filenames: false
+        files: ^(docs/architecture|contracts)/
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.21.2
+    hooks:
+      - id: gitleaks
