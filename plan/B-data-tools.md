@@ -13,14 +13,14 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[B1.04](tasks/B1.04.md)** · 3h · 28/9 — Tool đọc `get_vehicle_status`, `explain_dtc`, `check_warranty` (gọi `src/core/warranty` của D), `list_jobs` (`@tool`, `src/agents/tools/`) + test. **mock:** kết quả bảo hành giả cho tới D1.05.
 - [ ] **[B1.05](tasks/B1.05.md)** · 4h · 29/9 — `find_options`: tồn kho + quãng đường (`src/core/range`) + kỹ năng kỹ thuật viên + khoá slot 15'. **Xong khi:** trả 2–3 phương án, xưởng 35 km bị loại khi pin thấp. *(đường găng)*
 - [ ] **[B1.06](tasks/B1.06.md)** · 3h · 29/9 — `src/detect/rules.py` (L0: huỷ giữ linh kiện < 72h trước hẹn → candidate T1; mã CRITICAL → safety) + đồng hồ giả lập + hàm bơm sự kiện (D nối vào `/events/inject`, `/clock/advance`).
-- [ ] **[B1.07](tasks/B1.07.md)** · 2h · 30/9 — Kịch bản demo cố định trong `src/sim/scenarios/` + 2 xe phụ; nội dung Problem / Solution cho README (gửi D).
+- [x] **[B1.07](tasks/B1.07.md)** · 2h · 30/9 — Kịch bản demo cố định trong `src/sim/scenarios/` + 2 xe phụ; nội dung Problem / Solution cho README (gửi D).
 - [ ] **[B1.08](tasks/B1.08.md)** · 0,5h · mỗi ngày — Gom `WORKLOG.md` lúc 17:30 (mọi người tự ghi dòng của mình).
 
 ### 1–4/10
 - [ ] **[B1.09](tasks/B1.09.md)** · 4h — KB: 3 chính sách công khai (bảo hành, bảo dưỡng, sạc) dạng markdown có phiên bản trong `src/kb/docs/` + `src/kb/ingest.py` + retriever hybrid (pgvector + từ khoá) trả đoạn kèm trích dẫn (skill `add-kb-document`).
-- [ ] **[B1.10](tasks/B1.10.md)** · 2h — Lỗi tiêm có nhãn T1 + T2 (ca thật + ca gây nhiễu) + 10 kịch bản eval proactive (skill `inject-fault`).
+- [x] **[B1.10](tasks/B1.10.md)** · 2h — Lỗi tiêm có nhãn T1 + T2 (ca thật + ca gây nhiễu) + 10 kịch bản eval proactive (skill `inject-fault`).
 - [ ] **[B1.11](tasks/B1.11.md)** · 1h — Chủ nhật: `JOURNAL.md` tuần 1 (mục tiêu · xong · khó khăn · bài học · tuần sau).
-- [ ] **[B1.12](tasks/B1.12.md)** · 3h — 20 kịch bản eval hội thoại (skill `add-eval-scenario`): hỏi bảo hành, đổi ý giữa chừng, không dấu, đòi gặp người, prompt injection. *(chuyển từ A1.15)*
+- [x] **[B1.12](tasks/B1.12.md)** · 3h — 20 kịch bản eval hội thoại (skill `add-eval-scenario`): hỏi bảo hành, đổi ý giữa chừng, không dấu, đòi gặp người, prompt injection. *(chuyển từ A1.15)*
 - [ ] **[B1.13](tasks/B1.13.md)** · 1h · 30/9 — README bản đầu theo `README_boilerplate.md` (Problem/Solution, Setup, Live URL). *(report bản 0 chuyển D1.21)*
 
 ## Tuần 2 · 5/10 → 11/10 · ~30,5h
