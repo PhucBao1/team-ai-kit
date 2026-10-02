@@ -1,4 +1,4 @@
-# B — Data & Tools · tên: ______ · tải: VỪA (~27 giờ/tuần · tổng ~82h)
+# B — Data & Tools · tên: Võ Doanh Nhân · tải: VỪA (~27 giờ/tuần · tổng ~82h)
 
 Sở hữu: `src/sim/ detect/ kb/` (trừ reranker tuần 2), `src/agents/tools/` (tool đọc), `README.md` (tuần 1), `JOURNAL.md`, kịch bản eval UC1/upsell. **Phần agent/platform:** subgraph `charging` (B2.14), `post_repair` (B2.15), Pub/Sub worker (B2.16), PhoBERT + MLflow (B3.08, B3.09). Review chéo với C.
 Skill hay dùng: `start-task` · `add-mcp-tool` · `add-kb-document` · `inject-fault` · `add-eval-scenario` · `update-deliverables`.
@@ -8,7 +8,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 
 ### MVP (28–30/9)
 - [x] **[B1.01](tasks/B1.01.md)** · 0,5h · 28/9 — Hook log AI + `install.sh`. **Xong khi:** `.ai-log/` có dòng mới; `git status` sạch.
-- [ ] **[B1.02](tasks/B1.02.md)** · 1,5h · 28/9 trước 11:00 — Cùng A, D **duyệt** interface `src/sim/world.py` + `contracts/fixtures/demo_world.yaml` (đã có khung trong PR bootstrap: `get_world()`, `reset_world()`, `SimClock`) — sửa nếu thiếu trường, rồi đóng băng. **Xong khi:** `tests/test_fixtures.py` + `tests/test_interfaces.py` xanh. *(đường găng)*
+- [x] **[B1.02](tasks/B1.02.md)** · 1,5h · 28/9 trước 11:00 — Cùng A, D **duyệt** interface `src/sim/world.py` + `contracts/fixtures/demo_world.yaml` (đã có khung trong PR bootstrap: `get_world()`, `reset_world()`, `SimClock`) — sửa nếu thiếu trường, rồi đóng băng. **Xong khi:** `tests/test_fixtures.py` + `tests/test_interfaces.py` xanh. *(đường găng)*
 - [ ] **[B1.03](tasks/B1.03.md)** · 4h · 28/9 — `src/sim/seed.py`: anh Minh (VF 8, 38.420 km, pin 42%), 20 khách / 24 xe, 3 xưởng (4 km · 6 km có kỹ thuật viên pin · 35 km), 8 mã lỗi, 3 chính sách, ~60 slot; `python -m src.sim.seed --reset` < 1 giây. *(đường găng)*
 - [ ] **[B1.04](tasks/B1.04.md)** · 3h · 28/9 — Tool đọc `get_vehicle_status`, `explain_dtc`, `check_warranty` (gọi `src/core/warranty` của D), `list_jobs` (`@tool`, `src/agents/tools/`) + test. **mock:** kết quả bảo hành giả cho tới D1.05.
 - [ ] **[B1.05](tasks/B1.05.md)** · 4h · 29/9 — `find_options`: tồn kho + quãng đường (`src/core/range`) + kỹ năng kỹ thuật viên + khoá slot 15'. **Xong khi:** trả 2–3 phương án, xưởng 35 km bị loại khi pin thấp. *(đường găng)*
