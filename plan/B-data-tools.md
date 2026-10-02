@@ -17,7 +17,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[B1.08](tasks/B1.08.md)** · 0,5h · mỗi ngày — Gom `WORKLOG.md` lúc 17:30 (mọi người tự ghi dòng của mình).
 
 ### 1–4/10
-- [ ] **[B1.09](tasks/B1.09.md)** · 4h — KB: 3 chính sách công khai (bảo hành, bảo dưỡng, sạc) dạng markdown có phiên bản trong `src/kb/docs/` + `src/kb/ingest.py` + retriever hybrid (pgvector + từ khoá) trả đoạn kèm trích dẫn (skill `add-kb-document`).
+- [x] **[B1.09](tasks/B1.09.md)** · 4h — KB: 3 chính sách công khai (bảo hành, bảo dưỡng, sạc) dạng markdown có phiên bản trong `src/kb/docs/` + `src/kb/ingest.py` + retriever hybrid (pgvector + từ khoá) trả đoạn kèm trích dẫn (skill `add-kb-document`).
 - [x] **[B1.10](tasks/B1.10.md)** · 2h — Lỗi tiêm có nhãn T1 + T2 (ca thật + ca gây nhiễu) + 10 kịch bản eval proactive (skill `inject-fault`).
 - [ ] **[B1.11](tasks/B1.11.md)** · 1h — Chủ nhật: `JOURNAL.md` tuần 1 (mục tiêu · xong · khó khăn · bài học · tuần sau).
 - [x] **[B1.12](tasks/B1.12.md)** · 3h — 20 kịch bản eval hội thoại (skill `add-eval-scenario`): hỏi bảo hành, đổi ý giữa chừng, không dấu, đòi gặp người, prompt injection. *(chuyển từ A1.15)*
