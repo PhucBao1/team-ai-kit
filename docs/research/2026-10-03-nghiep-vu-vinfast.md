@@ -3,7 +3,7 @@
 > Người rà: A (lead) cùng AI coding agent. Nguồn truy cập ngày **03/10/2026** (danh sách cuối file). Dữ liệu dự án là
 > GIẢ LẬP; mục đích là để luật nghiệp vụ trong giả lập **khớp thực tế công khai**, không đại diện quy trình nội bộ VinFast.
 > Kết luận dùng cho: `plan/PLAN.md` (phạm vi "UC1 làm gọn"), card A2.18–A2.19, B2.17–B2.19, C2.14, D2.15–D2.16,
-> mục "Bổ sung 3/10" của D2.01, và PR sửa nghiệp vụ trong P-073 (`a/w2-business-fixes`).
+> mục "Bổ sung 3/10" của D2.01, và PR sửa nghiệp vụ trong P-073 (**PR #27, đã merge 03/10** — lỗi #1, #2, #3, #5, #8, #9).
 
 ## 1. Sai sót nghiệp vụ tìm thấy trong P-073 (develop ngày 03/10)
 
@@ -17,6 +17,11 @@
 | 6 | Thấp | Thời hạn bảo hành **pin** chưa thống nhất (fixture ghi "8 năm là pin" cho VF 3/5/6/7; một nguồn tổng hợp nói pin mua đứt 10 năm không giới hạn km) | Trang chính thức chặn truy cập tự động (HTTP 403) → **chưa xác nhận** [V1] | Agent có thể nói sai thời hạn pin | Mở trang bằng trình duyệt, ghi ngày truy cập vào KB — **B2.18** |
 | 7 | Thấp | Ticket khiếu nại chưa có hạn theo luật | Luật BVQLNTD 2023 (hiệu lực 01/7/2024): doanh nghiệp **thông báo đã tiếp nhận khiếu nại trong 3 ngày làm việc** [L3] | `create_ticket` (D2.01) chưa có | Ticket loại khiếu nại `sla_due_at` ≤ 3 ngày làm việc — **D2.01 (bổ sung)** |
 | 8 | Thấp | SLA chuyển người lệch: card của agent 15' / 5', tool của D theo cảm xúc (2 h / 1 h / 30' / 15') | Proposal §08: "CVDV gọi anh trong 15 phút" | Hai luật khác nhau cho cùng một lời hứa với khách | Một bảng SLA thuần trong `src/core/sla.py` (15' thường, 5' an toàn) — **lead sửa** |
+
+| 9 | Thấp | `claim_check` coi cụm **"24/7"** là ngày 24 tháng 7 (tìm ra khi sửa mẫu an toàn) | — | Câu "cứu hộ 24/7" bị Critic chặn nhầm là ngày không nguồn | Bỏ qua "24/7" đứng riêng — **lead sửa** (PR #27) |
+
+**Trạng thái (03/10):** lỗi #1, #2 (phía agent), #3, #5, #8, #9 **đã sửa** ở P-073 PR #27; #2 (validator), #7 → D2.01 bổ sung;
+#4 → B2.18 + D2.15; #6 → B2.18.
 
 **Đã đúng:** bảo hành xe VF 8 / VF 9 **10 năm / 200.000 km**, VF 3 / 5 / 6 / 7 **7 năm / 160.000 km** [V1] (fixture đã sửa
 ngày 02/10) · chỉ nói "đủ điều kiện **sơ bộ**" · luôn tự giới thiệu là AI — đúng Luật Trí tuệ nhân tạo 2025 (hiệu lực
