@@ -16,16 +16,17 @@
 | Retrieval | Recall@5, MRR, nDCG; context precision | 150 câu hỏi chính sách có đoạn đúng gán nhãn | Ragas / tự viết | Recall@5 ≥ 90% |
 | Trả lời chính sách | Faithfulness, answer relevancy, trích dẫn đúng | Cùng bộ trên | Ragas / DeepEval + người kiểm 5% | Faithfulness ≥ 0,95 |
 | Tool calling | Chọn đúng tool; tham số đúng; trajectory khớp | 100 lượt có trajectory mẫu | So trajectory từ state LangGraph (runner của nhóm / agentevals) | ≥ 95% |
-| Scheduler | Phương án hợp lệ; khách chọn phương án đầu | Kịch bản UC1 | Tự động + online | 100% hợp lệ |
+| Scheduler | Phương án hợp lệ; mọi phương án bị loại có lý do; khách chọn phương án đầu | Kịch bản UC3 | Tự động + online | 100% hợp lệ |
 | Writer (tin chủ động) | Đủ 5 phần; giọng văn; độ dài | 100 tin | Rubric LLM, hiệu chỉnh với người | 5/5 phần · giọng ≥ 4/5 |
 | Handoff card | Đủ trường; đúng nguồn; Re-ask Rate | 50 hội thoại | Tự động + NV chấm | Re-ask ≤ 5% |
 | Tầng 3 · End-to-end agent | | | | |
 | Hội thoại theo đề | Task success, pass^k (k=3), số lượt tới xong | ~150 kịch bản, khách ảo | Runner kịch bản | ≥ 85% · pass^3 ≥ 75% |
+| Detector + Agent chọn lọc (UC1) | Detector P/R trên bộ có nhãn + kịch bản đối chứng (1 lần đơn lẻ, đã có case); llm_call_rate = L2 / event; token mỗi event không phải candidate = 0 | Lỗi tiêm có nhãn + kịch bản đối chứng | Runner | Không candidate sai từ CRITICAL · 0 token ngoài candidate |
 | Proactive UC1 | Pre-chase recovery, time-to-recovery | Lỗi tiêm + tua thời gian | Runner | ≥ 70% |
 | Hard gates | Grounding violation, ghi không xác nhận, unsafe action | Tất cả kịch bản + nhóm tấn công | Tự động | 0 |
 | Tầng 4 · Hệ thống | | | | |
 | Hiệu năng | p50/p95 độ trễ, lỗi, throughput | Tải Locust | Tải + SLO | §29 |
-| Chi phí | Token / lượt, ACRC | Trace thật | Langfuse | Theo ngân sách |
+| Chi phí | Token / lượt, ACRC, llm_call_rate theo use case | Trace thật | Langfuse | Theo ngân sách |
 | Chống chịu | Hành vi khi model / MCP lỗi | Chaos | Fault injection | Suy giảm có kiểm soát |
 | Tầng 5 · Người dùng & kinh doanh | | | | |
 | Trải nghiệm | CES, SUS, thời gian hoàn thành | 5 người dùng thử (tuần 2) | Kiểm thử người dùng | — |

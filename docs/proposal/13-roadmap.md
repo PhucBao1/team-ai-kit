@@ -8,15 +8,15 @@ Journey State Graph hợp nhất lịch, kho, lệnh sửa chữa, claim, dữ l
 
 #### Level 1 — MVP
 
-Lõi hội thoại đạt đủ yêu cầu đề + UC1 với 6 quyết định đặc thù xe điện (phân loại từ xa, bảo hành, phiên bản phần mềm, dự đoán linh kiện, xếp lịch theo quãng đường, xác minh bằng dữ liệu xe) + UC3 quick win, trên thế giới giả lập có nhãn. Triển khai thật bắt đầu bằng **copilot cho CVDV**, tự động hoá bật dần theo ngưỡng.
+Lõi hội thoại đạt đủ yêu cầu đề + UC1 (flagship) với 6 quyết định đặc thù xe điện (phân loại từ xa, bảo hành, phiên bản phần mềm, dự đoán linh kiện, xếp lịch theo quãng đường, xác minh bằng dữ liệu xe) + UC2, UC3 demo-ready, trên thế giới giả lập có nhãn. Triển khai thật bắt đầu bằng **copilot cho CVDV**, tự động hoá bật dần theo ngưỡng.
 
 #### Level 2 — Hậu mãi đầy đủ
 
-UC2 lời hứa báo giá, UC5 comeback verify bằng telematics; báo cáo root cause cho kho và xưởng. **Pilot copilot kỹ thuật viên tại 1 xưởng:** chẩn đoán trước khi xe đến, giữ linh kiện sớm.
+UC6 tái phát verify bằng telematics (khép vòng chăm sóc); lời hứa báo giá (ý tưởng ngoài sáu UC); báo cáo root cause cho kho và xưởng. **Pilot copilot kỹ thuật viên tại 1 xưởng:** chẩn đoán trước khi xe đến, giữ linh kiện sớm.
 
 #### Level 3 — Tiền & bảo hành
 
-UC4 phí sạc (có người duyệt), UC6 claim bảo hành; SLA Care trên trạng thái đã xác minh. **Insights / VoC agent:** bản tin vấn đề mới nổi hằng tuần cho đội chất lượng; copilot kỹ thuật viên mở rộng toàn mạng lưới xưởng.
+UC4 phí sạc (có người duyệt), UC5 claim bảo hành; SLA Care trên trạng thái đã xác minh. **Insights / VoC agent:** bản tin vấn đề mới nổi hằng tuần cho đội chất lượng; copilot kỹ thuật viên mở rộng toàn mạng lưới xưởng.
 
 #### Level 4 — Education & chiến dịch
 

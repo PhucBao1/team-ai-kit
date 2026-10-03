@@ -60,9 +60,9 @@ Luồng lệnh sửa chữa, giữ linh kiện, duyệt claim giữa đại lý 
 | Giai đoạn | Tín hiệu có sẵn | Yêu cầu thường gặp | Điểm gãy ngầm | Use case |
 | --- | --- | --- | --- | --- |
 | **1. Mua & nhận xe** | Đơn hàng, đăng ký, bàn giao | Tiến độ giao xe, giấy tờ | Sang tên / loại hình sử dụng không đồng bộ sang tài khoản sạc | UC4 |
-| **2. Sử dụng & sạc** | Telematics, CSMS trạm sạc | Trạm gần nhất, sạc không nhận, phí sạc | Trạm lỗi khi khách đang kẹt; handoff ngoài giờ rơi; tính phí sai | UC3 · UC4 |
-| **3. Bảo dưỡng định kỳ** | Odometer, lịch hẹn | Đặt lịch, báo giá, tiến độ | Lời hứa báo giá bị quên; xe nằm chờ | UC2 |
-| **4. Sự cố & bảo hành** | Mã lỗi, lệnh sửa chữa, kho, claim | "Có được bảo hành không?", đặt lịch sửa | Lịch lệch kho linh kiện; claim bị hãng trả về không ai nhận; lỗi quay lại sau sửa | UC1 · UC5 · UC6 |
+| **2. Sử dụng & sạc** | Telematics, CSMS trạm sạc | Trạm gần nhất, sạc không nhận, phí sạc | Trạm lỗi khi khách đang kẹt; handoff ngoài giờ rơi; tính phí sai | UC2 · UC4 |
+| **3. Bảo dưỡng định kỳ** | Odometer, lịch hẹn | Đặt lịch, báo giá, tiến độ | Lời hứa báo giá bị quên; xe nằm chờ | Backlog §49 |
+| **4. Sự cố & bảo hành** | Mã lỗi, lệnh sửa chữa, kho, claim | "Có được bảo hành không?", đặt lịch sửa | Lịch lệch kho linh kiện; claim bị hãng trả về không ai nhận; lỗi quay lại sau sửa | UC1 · UC3 · UC5 · UC6 |
 | **5. Triệu hồi / cập nhật phần mềm** | Danh sách số khung, OTA | "Xe tôi có trong diện triệu hồi không?" | Chủ xe chưa liên hệ được; lịch triệu hồi thiếu linh kiện | Spectrum |
 
 ### Vòng đời lệnh sửa chữa — xương sống của hậu mãi
@@ -73,13 +73,13 @@ Mỗi lần xe vào xưởng là một lệnh sửa chữa (RO) đi qua 9 trạn
 | --- | --- | --- | --- | --- | --- |
 | 1. Tiếp nhận | CVDV | 15 phút sau khi xe đến | "Xe tôi đã được nhận chưa?" | Khách đến đúng hẹn nhưng lịch không có trong DMS | Lịch hẹn ↔ check-in |
 | 2. Chẩn đoán | Kỹ thuật viên | 2 giờ | "Xe bị gì?" | Chờ kỹ thuật viên có chứng chỉ pin cao áp | Thời gian ở trạng thái, kỹ năng |
-| 3. Báo giá | CVDV | 1 giờ sau chẩn đoán | "Hết bao nhiêu, có bảo hành không?" | Báo giá lập xong nhưng không ai liên hệ (UC2) | RO chờ duyệt + liên lạc ra |
+| 3. Báo giá | CVDV | 1 giờ sau chẩn đoán | "Hết bao nhiêu, có bảo hành không?" | Báo giá lập xong nhưng không ai liên hệ (ngoài sáu UC — backlog §49) | RO chờ duyệt + liên lạc ra |
 | 4. Khách duyệt | Khách | Trong ngày | "Tôi duyệt thế nào?" | Khách duyệt qua điện thoại, không ghi vào DMS | Duyệt trong app / ghi nhận |
-| 5. Chờ linh kiện | Kho | Theo ETA | "Khi nào có linh kiện?" | Linh kiện bị điều đi, ETA đổi không báo (UC1) | Reservation ↔ RO |
-| 6. Chờ duyệt bảo hành | Bảo hành hãng | 2 ngày làm việc | "Có được bảo hành không?" | Claim bị trả về, không ai nhận (UC6) | Trạng thái claim |
+| 5. Chờ linh kiện | Kho | Theo ETA | "Khi nào có linh kiện?" | Linh kiện bị điều đi, ETA đổi không báo (UC3 · nhánh lập lại) | Reservation ↔ RO |
+| 6. Chờ duyệt bảo hành | Bảo hành hãng | 2 ngày làm việc | "Có được bảo hành không?" | Claim bị trả về, không ai nhận (UC5) | Trạng thái claim |
 | 7. Sửa chữa | Kỹ thuật viên | Theo định mức | "Bao giờ xong?" | Vượt định mức không cập nhật giờ trả xe | Giờ công thực tế vs định mức |
 | 8. Kiểm tra chất lượng | Tổ trưởng | 30 phút | — | Bỏ qua chạy thử khi xưởng đông | Có bản ghi QC |
-| 9. Bàn giao & theo dõi | CVDV | Theo hẹn | "Lấy xe lúc mấy giờ?" · "Đã hết lỗi chưa?" | Lỗi quay lại sau khi đóng RO (UC5) | Telematics 14–30 ngày |
+| 9. Bàn giao & theo dõi | CVDV | Theo hẹn | "Lấy xe lúc mấy giờ?" · "Đã hết lỗi chưa?" | Lỗi quay lại sau khi đóng RO (UC6) | Telematics 14–30 ngày |
 
 Quy tắc hỗ trợ đi lại (giả định): xe nằm xưởng quá **3 ngày** vì lỗi thuộc bảo hành hoặc chờ linh kiện → agent đề xuất cho CVDV phương án hỗ trợ đi lại (xe thay thế hoặc chuyến đi) theo chính sách, và báo khách chủ động. Đây là yếu tố CX lớn nhất khi sửa lâu.
 
@@ -91,10 +91,10 @@ Luật Bảo vệ quyền lợi người tiêu dùng 2023 (hiệu lực 1/7/2024
 
 | Bộ phận | KPI thường gặp | Hành vi hợp lý theo KPI | Lỗi ngầm với khách |
 | --- | --- | --- | --- |
-| Kho phụ tùng | Vòng quay tồn kho, ưu tiên triệu hồi | Điều linh kiện cho xe ưu tiên cao | Lịch hẹn của khách khác mất linh kiện (UC1) |
-| Cố vấn dịch vụ | Số xe tiếp nhận, doanh thu dịch vụ | Ưu tiên khách đang đứng trước mặt | Lời hứa gọi lại bị quên (UC2) |
-| Kỹ thuật viên | Giờ công, số xe hoàn thành | Đóng lệnh nhanh | Lỗi quay lại sau sửa (UC5) |
-| Bảo hành hãng | Tỷ lệ claim hợp lệ, chi phí bảo hành | Trả về claim thiếu chứng từ | Xe nằm xưởng chờ (UC6) |
+| Kho phụ tùng | Vòng quay tồn kho, ưu tiên triệu hồi | Điều linh kiện cho xe ưu tiên cao | Lịch hẹn của khách khác mất linh kiện (UC3) |
+| Cố vấn dịch vụ | Số xe tiếp nhận, doanh thu dịch vụ | Ưu tiên khách đang đứng trước mặt | Lời hứa gọi lại bị quên (ngoài sáu UC — backlog §49) |
+| Kỹ thuật viên | Giờ công, số xe hoàn thành | Đóng lệnh nhanh | Lỗi quay lại sau sửa (UC6) |
+| Bảo hành hãng | Tỷ lệ claim hợp lệ, chi phí bảo hành | Trả về claim thiếu chứng từ | Xe nằm xưởng chờ (UC5) |
 | CSKH | AHT, CSAT cuộc gọi | Kết thúc cuộc gọi nhanh, lịch sự | Không ai theo việc đến cùng |
 
 Mỗi bộ phận đều làm đúng theo KPI của mình. Lỗi nằm ở chỗ **không ai có KPI "việc của khách đã thật sự xong"** — đó là vai trò promise keeper của agent, và là lý do metric Contacts per Job, Promise Kept Rate nên được báo cáo cấp liên phòng ban.

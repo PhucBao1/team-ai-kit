@@ -83,7 +83,7 @@ VinFast bàn giao **175.099 ô tô điện tại Việt Nam trong năm 2025** (c
 | Contact phát sinh (giả định 2 / lượt: gọi hỏi + khiếu nại) | ~7.000 | ~14.000 | ~28.000 |
 | Slot xưởng bị lãng phí | ~3.500 | ~7.000 | ~14.000 |
 
-Chỉ tính một use case (UC1), một lứa xe, chỉ bảo dưỡng định kỳ. Tỷ lệ 1–4% là giả định — kiểm chứng bằng phỏng vấn cố vấn dịch vụ và stall audit. Không tách được xe cá nhân và đội xe dịch vụ từ số liệu công khai.
+Chỉ tính một nhóm friction (lịch hẹn lệch kho — nhánh lập lại của UC3), một lứa xe, chỉ bảo dưỡng định kỳ. Tỷ lệ 1–4% là giả định — kiểm chứng bằng phỏng vấn cố vấn dịch vụ và stall audit. Không tách được xe cá nhân và đội xe dịch vụ từ số liệu công khai.
 
 ### Đây là bài CSKH và CX — vận hành chỉ là phương tiện
 
@@ -93,13 +93,13 @@ Chỉ tính một use case (UC1), một lứa xe, chỉ bảo dưỡng định k
 | **Customer Experience** | Chủ động, in-flight, giữ lời hứa end-to-end, giảm công sức của khách | Khách có phải đi giục, đi lại, lo lắng không? |
 | Service operations | Xưởng, kho, bảo hành, trạm sạc — agent chạm vào để tạo kết quả cho khách | Việc phía sau có thật sự xong không? |
 
-**Nguyên tắc trình bày:** mọi use case bắt đầu bằng trải nghiệm của khách ("đến xưởng rồi phải về"), không bằng sự kiện hệ thống ("reservation bị huỷ") — và kết thúc bằng một kết quả khách cảm nhận được: một tin nhắn đúng lúc, một lịch hẹn giữ được, một lần không phải đi giục.
+**Nguyên tắc trình bày:** mọi use case được *mô tả* bằng trải nghiệm của khách ("đèn cảnh báo cứ lặp lại", "đến xưởng rồi phải về") nhưng được **kích hoạt bởi tín hiệu hệ thống, không bởi hành động của khách** — và kết thúc bằng một kết quả khách cảm nhận được và đã được xác minh: một tin nhắn đúng lúc, một lịch hẹn giữ được, một lần không phải đi giục.
 
 ### Bài này nằm ở đâu trên bản đồ 8 chức năng CSKH
 
 | Chức năng | Sắc thái | Trong bài |
 | --- | --- | --- |
-| **Customer Support** | Xử lý sự cố, ticket, kỹ thuật | Lõi — UC1, luồng 6 quyết định |
+| **Customer Support** | Xử lý sự cố, ticket, kỹ thuật | Lõi — UC1 → UC3, luồng 6 quyết định |
 | **Customer Service** | Phục vụ nói chung | Lõi — hội thoại theo đề, 4 tool |
 | **Customer Operations** | Quy trình, dữ liệu, hiệu quả | Lõi — lệnh sửa chữa, kho, SLA, QA |
 | **Customer Experience** | Toàn bộ hành trình | Kết quả mà ba lõi tạo ra — đo bằng CES, Contacts per Job |

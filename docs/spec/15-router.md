@@ -6,7 +6,7 @@
 | --- | --- | --- | --- | --- |
 | Triage ý định, mức khẩn, cảm xúc | Nhỏ / nhanh | Thấp | JSON schema | ~800 |
 | Hội thoại thường, tra cứu, giải thích | Nhanh | Thấp–trung bình | Text + tool call | ~3.000 / lượt |
-| Lập phương án UC1, hội thoại mơ hồ nhiều mục đích | Suy luận | Cao | Options (JSON) | ~6.000 |
+| Can thiệp nhiều nguồn (UC1), lập phương án đa ràng buộc (UC3), hội thoại mơ hồ nhiều mục đích | Suy luận | Cao | Options (JSON) | ~6.000 |
 | Soạn tin chủ động từ mẫu | Nhỏ | Thấp | Điền slot mẫu | ~600 |
 | Tóm tắt 1 câu + sentiment cho handoff | Nhỏ | Thấp | JSON | ~1.200 |
 | Chấm rubric (eval, QA mẫu) | Suy luận | Trung bình | Điểm + lý do | ~2.500 |

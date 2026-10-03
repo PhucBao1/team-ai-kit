@@ -8,6 +8,18 @@ Xem tiến độ: `python3 plan/progress.py` (đếm task đã tick theo ngườ
 Card: tuần 1 chi tiết (62), tuần 2–3 bản nháp (78) — soát tối Chủ nhật trước tuần. Buổi tập pitch: mỗi người ghi file riêng `presentation/rehearsals/<A|B|C|D>.md`.
 Kịch bản demo cố định: [demo MVP 30/9](demo-mvp.md) · [demo đủ phạm vi 11/10](demo-full.md) — mọi task tuần 1 phải phục vụ một bước trong đó.
 
+## Định hướng sản phẩm — Proactive AI Customer Care (cập nhật)
+
+AI chủ động phát hiện, điều tra và xử lý customer friction đang hình thành **trước khi khách phải hỏi**: detector tất định (0 token) → arbitration → agent chọn lọc → validator → Executor → **xác minh**. *LLM là tầng leo thang, không phải tầng xử lý event.* Appointment **không** phải điểm bắt đầu — chỉ là hành động xuôi dòng (UC3). Chi tiết sáu use case: `docs/proposal/usecases.md` + `ucs1…ucs6-*.md`.
+
+| Mức Final MVP | Use case |
+|---|---|
+| **FULL** | UC1 Preemptive Service Friction Rescue (flagship) |
+| **Demo-ready** | UC2 Charging Friction Prevention · UC3 Service Readiness / Intervention Orchestration |
+| **Spec + kịch bản khung** (chưa build) | UC4 Billing Mismatch · UC5 Claim Follow-up · UC6 Recurrence |
+
+**Đổi số UC (card viết trước 3/10 dùng số cũ):** UC1 cũ *Service Appointment Rescue* → bộ máy nằm ở **UC3** (nhánh lập lại), flagship là **UC1 mới** · UC2 cũ (lời hứa báo giá) → bỏ khỏi sáu UC · UC3 cũ (kẹt ở trạm sạc) → **UC2** · UC4 giữ · UC5 cũ (comeback) → **UC6** · UC6 cũ (claim) → **UC5**. Các card dưới đây đã đổi nhãn; chưa có card cho engine chăm sóc chủ động (epic E15–E17 ở spec §44).
+
 > Điền tên thật: A = ______ · B = ______ · C = ______ · D = ______ · Demo Day BTC = ______ (lộ trình sách BTC ghi 6 tuần — hỏi BTC).
 
 ## 1. Mốc
@@ -15,8 +27,8 @@ Kịch bản demo cố định: [demo MVP 30/9](demo-mvp.md) · [demo đủ ph�
 | Mốc | Ngày | Cổng (phải đạt) |
 |---|---|---|
 | Khởi động | **T2 28/9** | Mỗi người: hook log AI chạy · `install.sh` xong · PR bootstrap merge · `develop` tạo · Live URL `/health` |
-| **Demo MVP** | **T4 30/9** | Chat tra xe + bảo hành sơ bộ có trích dẫn · UC1: phương án → khách xác nhận → đặt / đổi lịch · 1 tin proactive · handoff có card · deploy · video dự phòng |
-| Cổng tuần 1 | CN 4/10 | Tách multi-agent · 6 quyết định UC1 · Postgres + checkpoint · 40 kịch bản eval tự động, 0 vi phạm "hard" · coverage ≥ 60% · RAG có phiên bản |
+| **Demo MVP** | **T4 30/9** | Chat tra xe + bảo hành sơ bộ có trích dẫn · UC1 → UC3: tín hiệu lặp → agent chủ động → khách xác nhận → đặt / đổi lịch (UC3) · 1 tin proactive · handoff có card · deploy · video dự phòng |
+| Cổng tuần 1 | CN 4/10 | Tách multi-agent · 6 quyết định (UC1 → UC3) · Postgres + checkpoint · 40 kịch bản eval tự động, 0 vi phạm "hard" · coverage ≥ 60% · RAG có phiên bản |
 | **Demo đầy đủ** | **CN 11/10** | Đủ 4 workflow PRD (tra đơn/việc, đặt lịch, đổi/trả + ticket, cập nhật thông tin) + proactive + copilot · 150 kịch bản + baseline B0–B2 · 5 người dùng thử · dark mode · pitch nháp |
 | Chốt | CN 18/10 | Chỉ cải thiện (PhoBERT triage, tối ưu, ablation) · **10/10 deliverables hoàn chỉnh** · tập pitch ≥ 3 lần |
 | Demo Day | ___ | URL sống tới Demo Day + 7 ngày (min-instances 1) |
@@ -40,8 +52,8 @@ Hai người **gánh chính**: A và D — giữ đường găng (graph chính, 
 
 | Task | Từ → sang | Vì sao hợp |
 |---|---|---|
-| B2.14 subgraph UC3 trạm sạc | A → B | B đã viết `find_chargers` + dữ liệu SoC |
-| B2.15 subgraph UC5 xác minh sau sửa | A → B | B nắm detector + đồng hồ giả lập |
+| B2.14 subgraph UC2 trạm sạc | A → B | B đã viết `find_chargers` + dữ liệu SoC |
+| B2.15 subgraph UC6 xác minh sau sửa | A → B | B nắm detector + đồng hồ giả lập |
 | B3.08 PhoBERT triage | A → B | B làm dataset `triage_vi_v1` |
 | C2.13 node gợi ý upsell | A → C | C làm cả node lẫn thẻ gợi ý → hiểu trọn luồng |
 | B2.16 Pub/Sub + worker detector | D → B | Worker chạy detector của B |

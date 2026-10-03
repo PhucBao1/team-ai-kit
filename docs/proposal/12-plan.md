@@ -2,7 +2,7 @@
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
-Khi có dữ liệu thật, bước 0 là **stall audit**: chạy detector L0 hồi tố trên 3–6 tháng dữ liệu (không tốn LLM) để đếm lịch hẹn lệch kho, claim bị trả về, comeback — ra chi phí lỗi ngầm mỗi tháng trước khi xây. Trong cuộc thi, thế giới giả lập đóng vai trò này. Nguyên tắc chia việc: **2 tuần đầu phải phủ toàn bộ nội dung của bài** (mọi yêu cầu đề + UC1 đủ 6 quyết định + proactive + đánh giá); **tuần 3 chỉ làm phần cải thiện**, bỏ đi thì demo vẫn đủ.
+Khi có dữ liệu thật, bước 0 là **stall audit**: chạy detector L0 hồi tố trên 3–6 tháng dữ liệu (không tốn LLM) để đếm lịch hẹn lệch kho, claim bị trả về, comeback — ra chi phí lỗi ngầm mỗi tháng trước khi xây. Trong cuộc thi, thế giới giả lập đóng vai trò này. Nguyên tắc chia việc: **2 tuần đầu phải phủ toàn bộ nội dung của bài** (mọi yêu cầu đề + engine chăm sóc chủ động: UC1 đầy đủ, UC2 / UC3 demo-ready, UC4–UC6 có spec và kịch bản + đánh giá); **tuần 3 chỉ làm phần cải thiện**, bỏ đi thì demo vẫn đủ.
 
 28–30/9
 
@@ -11,7 +11,7 @@ Khi có dữ liệu thật, bước 0 là **stall audit**: chạy detector L0 h�
 - KB chính sách công khai (bảo hành, bảo dưỡng, sạc, triệu hồi) có phiên bản
 - Thế giới giả lập tối thiểu (xe, chủ xe, xưởng, kho, trạm sạc) + lỗi T1 có nhãn
 - Chat: tra đơn/lịch, xác nhận trước khi ghi, handoff card
-- UC1 lát mỏng: detector → đề xuất → khách xác nhận → đổi lịch
+- UC1 lát mỏng: tín hiệu lặp → detector → agent → tin chủ động → khách xác nhận → đặt lịch (UC3)
 
 → Demo MVP 30/9Tuần 1 · 28/9–4/10
 
@@ -29,7 +29,7 @@ Khi có dữ liệu thật, bước 0 là **stall audit**: chạy detector L0 h�
 
 #### Đủ phạm vi
 
-- UC1 đủ 6 quyết định + UC3, UC5 verify
+- UC1 FULL (đủ 6 quyết định) · UC2, UC3 demo-ready · UC4–UC6 spec + kịch bản khung · verify bằng đồng hồ giả lập
 - Writer ⇄ Critic, "Việc của tôi", màn hình nhân viên, copilot
 - Eval 5 tầng: RAG, agent (pass^k), E2E ~300 hội thoại + lỗi tiêm chạy k lần, red-team; hồi quy tự động khi KB/SOP đổi
 - Đo 9 metric + ACRC; báo cáo cho vòng chấm
@@ -65,4 +65,4 @@ Xem §05.1: năm vòng lặp, harness, stack theo lớp cho MVP và production. 
 | Chính sách công khai thay đổi | KB phiên bản, ghi ngày truy cập |
 | Giả lập không giống thực tế | Neo vào VED/ACN/NHTSA; ghi rõ giới hạn |
 | Hội thoại tiếng Việt thiếu tự nhiên | Người review; biến thể không dấu |
-| Phạm vi phình to | 2 tuần đầu chỉ UC1 (6 quyết định) + UC3 + lõi hội thoại; ML/tối ưu để tuần 3; use case còn lại ở phụ lục |
+| Phạm vi phình to | 2 tuần đầu chỉ UC1 đầy đủ + UC2, UC3 demo-ready + lõi hội thoại; UC4–UC6 chỉ spec và kịch bản; ML/tối ưu để tuần 3 |

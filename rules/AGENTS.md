@@ -11,7 +11,7 @@ Thư mục con có `AGENTS.md` riêng → luật ở đó bổ sung / ưu tiên 
 
 ## 1. Dự án trong 3 câu
 AI agent CSKH hậu mãi xe điện: hiểu ý định cả cuộc hội thoại, tra KB có trích dẫn, dùng tool có phân quyền,
-chủ động phát hiện việc bị kẹt (proactive), chuyển nhân viên kèm tóm tắt. Ràng buộc gốc: KHÔNG bịa chính sách /
+chủ động phát hiện, điều tra và xử lý friction đang hình thành trước khi khách phải hỏi (proactive: detector tất định trước, LLM chỉ là tầng leo thang; appointment là hành động xuôi dòng, không phải trigger), chuyển nhân viên kèm tóm tắt. Ràng buộc gốc: KHÔNG bịa chính sách /
 giá / trạng thái; hành động ảnh hưởng khách phải được khách XÁC NHẬN trước. Dữ liệu là GIẢ LẬP.
 
 ## 2. Lệnh chuẩn
@@ -32,6 +32,7 @@ giá / trạng thái; hành động ảnh hưởng khách phải được khách
 4. **Hợp đồng là nguồn sự thật:** `contracts/tools.yaml`, `contracts/api.yaml`, `contracts/events.yaml`. Đổi mục đã có = PR riêng + ADR.
 5. **Một framework điều phối: LangGraph.** LLM lấy qua `src/services/llm.py::get_llm(kind)`; không hard-code tên model ngoài `src/config.py`.
 6. **Giữ cấu trúc template BTC:** code trong `src/`, test trong `tests/test_<module>/`, frontend trong `frontend/`, eval trong `eval/`.
+7. **Detector ≠ Agent ≠ Executor; LLM là tầng leo thang.** Mọi event đi qua `src/detect/` (rule tất định + contact arbitration, 0 token) trước; chỉ candidate cần suy luận đa nguồn mới tới Agent. Không thiết kế "event nào cũng gọi LLM". Appointment là hành động xuôi dòng (UC3), không phải trigger.
 
 ## 4. Cấm
 - Sửa file của BTC: `docs/guide/`, `.github/`, `scripts/log_*.py`, `scripts/setup_hooks*`, `scripts/_pyrun*`, các file hook

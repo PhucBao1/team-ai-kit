@@ -409,7 +409,7 @@ pre.code .k{color:#e0a96d;}
     </table>
     </div>
     <div class="callout ok"><strong>Kết luận:</strong> lõi không lạc đề — cả sáu yêu cầu của đề đều có thành phần, phép đo và mốc hoàn thành, và đều nằm trong MVP / tuần 1. Phần chủ động là mở rộng theo góp ý mentor, dùng chung một bộ não. Các phần rộng hơn (model ML riêng, data science nâng cao, production trên GCP) đều <strong>phục vụ</strong> lõi này — triage cho "hiểu mục đích", đo lường cho "chứng minh", hạ tầng cho "chạy thật" — và được xếp vào tuần 3 hoặc thiết kế production, không lấn vào phạm vi chính.</div>
-    <div class="callout risk"><strong>Khi trình bày:</strong> luôn mở bằng đề bài và kịch bản demo hội thoại → xác nhận → sự kiện chủ động → chuyển người. Kỹ thuật (multi-agent, MLOps, GCP) chỉ xuất hiện để trả lời câu hỏi "làm sao chắc chắn chạy đúng và chạy thật". Nếu mở bằng kỹ thuật, bài sẽ trông như lạc đề dù nội dung không lạc.</div>
+    <div class="callout risk"><strong>Khi trình bày:</strong> luôn mở bằng đề bài và kịch bản demo: tín hiệu hệ thống → can thiệp chủ động → hội thoại → xác nhận → xác minh → chuyển người. Kỹ thuật (multi-agent, MLOps, GCP) chỉ xuất hiện để trả lời câu hỏi "làm sao chắc chắn chạy đúng và chạy thật". Nếu mở bằng kỹ thuật, bài sẽ trông như lạc đề dù nội dung không lạc.</div>
     <h3 class="sub">Độ đầy đủ</h3>
     <div class="table-wrap">
     <table>
@@ -432,9 +432,9 @@ pre.code .k{color:#e0a96d;}
     <div class="table-wrap">
     <table>
       <tr><th>Mốc</th><th>Ngày</th><th>Phải có</th></tr>
-      <tr><td><span class="tag mvp">MVP</span></td><td>Thứ Tư 30/9</td><td>Chat nhiều bước (cảnh báo → bảo hành → đặt lịch có xác nhận) · 1 sự kiện "linh kiện bị điều đi" → agent đưa 2 phương án · chuyển người với handoff card · "Việc của tôi" cơ bản · demo panel (bơm sự kiện, tua thời gian)</td></tr>
-      <tr><td><span class="tag w1">Tuần 1</span></td><td>28/9 → 4/10</td><td>MVP + đủ 6 quyết định UC1 · tách multi-agent + Executor · MCP · Pub/Sub + detector worker · RAG có phiên bản · memory · Terraform + CI · trace OTel · 40 kịch bản eval</td></tr>
-      <tr><td><span class="tag w2">Tuần 2 — đủ phạm vi</span></td><td>5/10 → 11/10</td><td><strong>Toàn bộ phạm vi build</strong>: 6 use case (UC1, UC3, UC5 đầy đủ; UC2, UC4, UC6 luồng rút gọn) · copilot + auto-wrap · 5 loại handoff · Contact Arbitration · bảo mật (policy, sàng lọc injection) · eval ~150 kịch bản + RAG eval + red-team · <strong>baseline B0–B2</strong> (§23) · eval gate · dashboard · pipeline dữ liệu (gán nhãn, tổng hợp, DVC) · cỡ mẫu + ngưỡng detector · tải + chaos · 5 người dùng thử + mystery shopping · <strong>demo đầy đủ 11/10</strong></td></tr>
+      <tr><td><span class="tag mvp">MVP</span></td><td>Thứ Tư 30/9</td><td>Chat nhiều bước (tín hiệu lặp → agent chủ động nhắn → bảo hành → đặt lịch có xác nhận, UC1 → UC3) · 1 sự kiện "linh kiện bị điều đi" → UC3 lập lại 2 phương án · chuyển người với handoff card · "Việc của tôi" cơ bản · demo panel (bơm sự kiện, tua thời gian)</td></tr>
+      <tr><td><span class="tag w1">Tuần 1</span></td><td>28/9 → 4/10</td><td>MVP + engine chăm sóc chủ động (detector registry · arbitration · context builder · Agent chọn lọc · verifier) + đủ 6 quyết định (UC1 → UC3) · tách multi-agent + Executor · MCP · Pub/Sub + detector worker · RAG có phiên bản · memory · Terraform + CI · trace OTel · 40 kịch bản eval</td></tr>
+      <tr><td><span class="tag w2">Tuần 2 — đủ phạm vi</span></td><td>5/10 → 11/10</td><td><strong>Toàn bộ phạm vi build</strong>: 6 use case: UC1 đầy đủ · UC2, UC3 demo-ready (tích hợp cùng engine) · UC4–UC6 spec + kịch bản khung (không build) · copilot + auto-wrap · 5 loại handoff · Contact Arbitration · bảo mật (policy, sàng lọc injection) · eval ~150 kịch bản + RAG eval + red-team · <strong>baseline B0–B2</strong> (§23) · eval gate · dashboard · pipeline dữ liệu (gán nhãn, tổng hợp, DVC) · cỡ mẫu + ngưỡng detector · tải + chaos · 5 người dùng thử + mystery shopping · <strong>demo đầy đủ 11/10</strong></td></tr>
       <tr><td><span class="tag cut">Tuần 3 — cải thiện</span></td><td>12/10 → 18/10</td><td>Chỉ cải thiện, không thêm phạm vi: <strong>model triage PhoBERT + chuỗi MLOps</strong> · data science nâng cao (dự báo contact, survival, uplift) · tối ưu chi phí / độ trễ · chuyển workflow nhiều ngày sang Temporal · GraphRAG · tinh chỉnh theo kết quả eval và người dùng thử</td></tr>
     </table>
     </div>
@@ -442,7 +442,7 @@ pre.code .k{color:#e0a96d;}
       <div class="callout ok" style="margin:0;"><strong>"Đủ phạm vi" nghĩa là:</strong> mọi thành phần trong Phần B và C chạy được trên thế giới giả lập, có phép đo, có trong demo 11/10.</div>
       <div class="callout" style="margin:0;"><strong>Chỉ ở mức thiết kế production</strong> (không build trong cuộc thi): Dataflow, vLLM tự host, A2A với đơn vị thật, đa region, identity vault trong nước với dữ liệu thật, tích hợp DMS/ERP thật.</div>
     </div>
-    <div class="callout risk"><strong>Luật cắt phạm vi:</strong> 21:00 mỗi tối kiểm tra; việc không kịp đẩy sang mốc sau, không kéo dài ngày. Không bao giờ hy sinh: chat → xác nhận → sự kiện chủ động → chuyển người, và các hard gate (§22). Hai tuần cho 4 người là dày — §42 có thứ tự cắt khi trễ.</div>
+    <div class="callout risk"><strong>Luật cắt phạm vi:</strong> 21:00 mỗi tối kiểm tra; việc không kịp đẩy sang mốc sau, không kéo dài ngày. Không bao giờ hy sinh: tín hiệu hệ thống → can thiệp chủ động → xác nhận → xác minh → chuyển người (cùng chat đa mục đích), và các hard gate (§22). Hai tuần cho 4 người là dày — §42 có thứ tự cắt khi trễ.</div>
   </div>
 </section>
 
@@ -461,12 +461,13 @@ pre.code .k{color:#e0a96d;}
   <div class="wrap">
     <div class="num">03 · Kiến trúc tổng thể</div>
     <h2 class="title">Sáu tầng, một bộ não, một điểm ghi duy nhất</h2>
+    <div class="callout ok"><strong>North star — Proactive AI Customer Care.</strong> AI chủ động phát hiện, điều tra và xử lý những customer friction đang hình thành trước khi khách hàng phải chủ động yêu cầu hỗ trợ: quan sát tín hiệu đủ điều kiện, phát hiện bằng cơ chế rẻ trước (L0 tất định), chỉ gọi LLM khi cần suy luận đa nguồn / nhiều bước, hành động có kiểm soát (validator + Executor + xác nhận) và <strong>xác minh</strong> kết quả. <strong>LLM là tầng leo thang, không phải tầng xử lý event.</strong> Appointment không phải điểm bắt đầu — chỉ là một hành động xuôi dòng (UC3). Sáu use case, owner A/B/C/D và phạm vi Final MVP: proposal PL-A (<span class="mono">usecases.md</span>). Mọi kịch bản là giả lập (Synthetic / illustrative scenario for MVP).</div>
     <div class="diagram" style="font-size:11px;">TẦNG TƯƠNG TÁC      App chat · Zalo OA · Tổng đài (sau) · Console NV · "Việc của tôi" · Demo panel      → §19 §20 §21
         │ tin nhắn khách                                   ▲ tin trả lời / tin chủ động
         ▼                                                  │
 TẦNG QUYẾT ĐỊNH     Input guard → Triage cascade (LLM nhỏ; PhoBERT ở tuần 3) → <span class="hl">Coordinator</span>        → §13 §15 §18
                      ├─ PolicyQA agent ── RAG có phiên bản + memory                          → §14 §16
-                     ├─ Scheduler agent ── lập phương án (đọc)                              → §14
+                     ├─ Scheduler (UC3) ── lập phương án đa ràng buộc (đọc)                 → §14
                      ├─ Handoff builder ── card từ state có cấu trúc                        → §05-D
                      └─ Writer ⇄ Critic (claim_check + rubric)                             → §14 §17
         │ đề xuất (không bao giờ ghi trực tiếp)
@@ -516,7 +517,7 @@ TẦNG CHẤT LƯỢNG     Eval 5 tầng · RAG eval · agent eval · red-team �
     </div>
 
     <h3 class="sub">Workflow nhiều ngày (loop 5) — Temporal</h3>
-<pre class="code"><span class="c"># workflows/appointment_guard.py — phác thảo</span>
+<pre class="code"><span class="c"># workflows/appointment_guard.py — phác thảo (UC3: canh điều kiện lịch đã đặt)</span>
 @workflow.defn
 class AppointmentGuard:
     <span class="c"># sống từ lúc đặt lịch đến khi xe sửa xong và được xác minh</span>
@@ -527,7 +528,7 @@ class AppointmentGuard:
             await workflow.wait_condition(lambda: self.signal_pending, timeout=timedelta(hours=12))
             state = await workflow.execute_activity(check_appointment_health, appt_id, ...)
             if state.parts_at_risk:
-                await workflow.execute_activity(start_rescue, appt_id, ...)   <span class="c"># → luồng B</span>
+                await workflow.execute_activity(start_replan, appt_id, ...)   <span class="c"># → luồng B (UC3 lập lại phương án)</span>
             if state.hours_to_start &lt;= 36 and not self.reminded:
                 await workflow.execute_activity(send_reminder, appt_id, ...); self.reminded = True
             self.done = state.repair_closed
@@ -540,7 +541,7 @@ class VerifyFix:
         window = await workflow.execute_activity(verification_window, appt_id, ...)
         await workflow.sleep(window)                                          <span class="c"># timer bền, không mất khi restart</span>
         recurred = await workflow.execute_activity(dtc_recurred, appt_id, ...)
-        await workflow.execute_activity(close_or_reopen, appt_id, recurred, ...)   <span class="c"># UC5 nếu tái phát</span></pre>
+        await workflow.execute_activity(close_or_reopen, appt_id, recurred, ...)   <span class="c"># UC6 nếu tái phát</span></pre>
     <p style="font-size:12.5px;color:var(--slate);">MVP / tuần 1 dùng đồng hồ giả lập + job định kỳ thay Temporal; tuần 2 (nếu kịp) hoặc production chuyển sang Temporal. Giao diện activity giữ nguyên.</p>
   </div>
 </section>
@@ -565,17 +566,27 @@ class VerifyFix:
   9  stream SSE về client · ghi audit_log · span OTel (tokens, ms, tool)
  10  cập nhật goal stack, promises (nếu agent vừa hứa gì)</pre>
 
-    <h3 class="sub">Luồng B — Sự kiện hệ thống → tin chủ động</h3>
-<pre class="code">ERP ──parts.reservation.cancelled──► Pub/Sub topic "ops-events"
+    <h3 class="sub">Luồng B — Tín hiệu hệ thống → candidate → can thiệp → xác minh</h3>
+<p style="font-size:13px;color:var(--slate);">Luồng chung cho UC1–UC6; chỉ phần detector, tool đọc và hành động khác nhau theo use case (proposal PL-A). Khách <strong>không</strong> cần làm gì để luồng này bắt đầu. Ví dụ UC1: telematics gửi mã lỗi WARNING lần thứ 3 trong 14 ngày, chưa có lịch / ticket.</p>
+<pre class="code">Telematics ──vehicle.dtc.raised──► Pub/Sub topic "ops-events"       <span class="c"># UC2/4/5: CSMS · billing · claim — cùng khung</span>
   1  schema validation (Pub/Sub schema) ── sai ─► dead-letter topic + cảnh báo
   2  dedupe theo event.id (idempotent consumer)
-  3  detector L0 (rule) → Candidate | None                 <span class="c"># ~0 token</span>
-  4  Contact Arbitration: khách đang chat với NV? đang khiếu nại? quá ngân sách chú ý? giờ yên tĩnh?
+  3  detector L0 (rule · ngưỡng · cửa sổ · dedupe · không có case) → CandidateFriction | None   <span class="c"># 0 token, KHÔNG LLM</span>
+  4  Contact Arbitration (code): khách đang chat với NV? đang khiếu nại? quá ngân sách chú ý? giờ yên tĩnh?
         ── chặn ─► ghi "suppressed" + lý do, thử lại theo lịch
-  5  Scheduler agent (§14): find_options → 2–3 phương án (range, kho, kỹ năng) → khoá slot 15 phút
-  6  Writer ⇄ Critic (§14): tin 5 phần (điều đã xảy ra · phương án · thời hạn · phụ trách · vì sao nhận tin)
-  7  claim_check → gửi vào session chat của khách + push notification theo kênh ưa thích
-  8  cập nhật journey: bước hiện tại = "chờ khách chọn", promise mới, hẹn giờ nhắc (workflow)</pre>
+  5  context builder (code): tool ĐỌC gom bằng chứng tối thiểu → ContextBundle (mỗi fact có nguồn)
+  6  decision gate:
+        hành động tất định đủ ────────────► mẫu tin + action theo rule                  <span class="c"># KHÔNG LLM</span>
+        phân loại là đủ ──────────────────► L1 triage (model nhỏ)
+        mơ hồ · nhiều nguồn · nhiều bước ─► L2 agent (§13)
+  7  agent điều tra → suy luận → InterventionProposal (chỉ tool đọc; gọi Scheduler (§14) như một tool khi UC3 cần lập phương án)
+  8  validator: claim_check · cụm từ cấm (chẩn đoán, kết luận bảo hành) · quy tắc · arbitration kiểm lại ngay trước khi gửi
+  9  Writer ⇄ Critic (§14): tin 5 phần (điều đã xảy ra · phương án · thời hạn · phụ trách · vì sao nhận tin)
+ 10  gửi vào session chat của khách + push notification theo kênh ưa thích
+ 11  cập nhật journey: bước hiện tại = "chờ khách chọn", promise mới, hẹn giờ nhắc (workflow)
+ 12  verify (loop 5): bằng chứng hệ thống (telematics · CSMS · ledger · trạng thái claim) ── chưa xong ─► retry có giới hạn ─► handoff
+ 13  tái phát sau khi đóng ─► mở vòng mới (UC6), tối đa 2 chu kỳ tự động</pre>
+<p style="font-size:13px;color:var(--slate);">Nhánh lập lại của UC3: <span class="mono">parts.reservation.cancelled</span> · <span class="mono">parts.eta.changed</span> làm một lịch <em>đã xác nhận</em> mất điều kiện (còn &lt; 72 giờ) cũng đi vào bước 3 như một candidate, rồi UC3 lập lại 2–3 phương án và xin khách xác nhận.</p>
 
     <h3 class="sub">Luồng C — Xác nhận &amp; ghi</h3>
 <pre class="code">Khách bấm [Xác nhận] ──POST /confirm {token}──► API
@@ -804,21 +815,27 @@ Langfuse / OTel trace ─export────────────────�
     <h2 class="title">Một định dạng sự kiện chung, rule tất định</h2>
 <pre class="code"><span class="c"># Định dạng sự kiện (CloudEvents-style) — giữ nguyên khi chuyển sang Pub/Sub</span>
 {
-  <span class="k">"id"</span>: "evt_01J…", <span class="k">"type"</span>: "parts.reservation.cancelled",
-  <span class="k">"source"</span>: "erp", <span class="k">"time"</span>: "2026-10-01T14:02:00+07:00",
-  <span class="k">"data"</span>: { "reservation_id": "R-7702", "appointment_id": "SA-20931",
-            "part_code": "BATT-COOL-PUMP", "reason": "reallocated_recall" }
+  <span class="k">"id"</span>: "evt_01J…", <span class="k">"type"</span>: "vehicle.dtc.raised",
+  <span class="k">"source"</span>: "telematics", <span class="k">"time"</span>: "2026-09-29T08:15:00+07:00",
+  <span class="k">"data"</span>: { "vin": "VF8-4821", "code": "BATT-COOL-01", "severity": "WARNING",
+            "odometer_km": 38420, "soc_pct": 42 }      <span class="c"># giả lập</span>
 }
 
 <span class="c"># Các loại sự kiện MVP / tuần 1</span>
 vehicle.dtc.raised          <span class="c"># telematics: vin, code, severity, odometer, soc</span>
-parts.reservation.cancelled <span class="c"># ERP</span>
-parts.eta.changed           <span class="c"># ERP</span>
+parts.reservation.cancelled <span class="c"># ERP — tín hiệu lập lại phương án của UC3 (lịch đã xác nhận mất linh kiện)</span>
+parts.eta.changed           <span class="c"># ERP — như trên</span>
 appointment.changed         <span class="c"># DMS</span>
-chat.handoff.requested      <span class="c"># chatbot — UC3 (tuần 2)</span>
-repair_order.closed         <span class="c"># DMS — mở vòng 5 xác minh</span></pre>
+chat.handoff.requested      <span class="c"># chatbot — đường khẩn của UC2 (tuần 2)</span>
+repair_order.closed         <span class="c"># DMS — mở vòng 5 xác minh; tái phát → UC6
+
+# Đề xuất cho UC2 / UC4 / UC5 (chưa vào contracts/events.yaml — B + D chốt qua PR + ADR khi implement)</span>
+charging.session.failed     <span class="c"># CSMS / telematics — UC2</span>
+charging.session.completed  <span class="c"># CSMS — verify UC2</span>
+billing.charge.created      <span class="c"># billing — UC4 (spec)</span>
+warranty.claim.state_changed <span class="c"># warranty portal giả lập — UC5 (spec)</span></pre>
 <pre class="code"><span class="c"># detect/rules.py — L0, không gọi LLM</span>
-def on_reservation_cancelled(evt, db, now):
+def on_reservation_cancelled(evt, db, now):                 <span class="c"># UC3: nhánh lập lại phương án</span>
     appt = db.appointment(evt.data["appointment_id"])
     if appt and appt.status == "confirmed" and appt.start_at - now &lt; timedelta(hours=72):
         return Candidate(type="T1_PARTS_APPOINTMENT", journey_id=appt.journey_id,
@@ -829,9 +846,12 @@ def on_dtc_raised(evt, db, now):
     sev = db.dtc(evt.data["code"]).severity
     if sev == "CRITICAL":
         return SafetyPath(evt)            <span class="c"># mẫu tin duyệt sẵn + chuyển 24/7, không qua LLM</span>
-    if sev == "WARNING":
-        return Candidate(type="T0_DTC_WARNING", vin=evt.data["vin"])
-    return None                           <span class="c"># INFO: gộp vào lần liên hệ sau</span></pre>
+    if sev == "WARNING":                  <span class="c"># UC1: một lần đơn lẻ là nhiễu; lặp lại + chưa có case mới là friction</span>
+        vin, system = evt.data["vin"], db.dtc(evt.data["code"]).system
+        n = db.count_dtc(vin, system, days=14)
+        if n &gt;= 3 and not db.open_case(vin, system):
+            return Candidate(type="UC1_PREEMPTIVE_FRICTION", vin=vin, system=system, count=n)
+    return None                           <span class="c"># INFO / WARNING đơn lẻ: gộp, không candidate, 0 token</span></pre>
   </div>
 </section>
 
@@ -917,13 +937,20 @@ def on_dtc_raised(evt, db, now):
         <h3 style="font-size:15px;margin:0 0 8px;">Hai cửa vào, một agent</h3>
         <ul style="font-size:13px;color:var(--ink-soft);padding-left:18px;">
           <li><strong>Tin nhắn khách</strong> → <span class="mono">/chat</span> → agent với session của khách.</li>
-          <li><strong>Candidate từ detector</strong> → agent chạy với một "tin nhắn hệ thống" có cấu trúc (loại sự kiện, journey, bằng chứng) → sinh tin chủ động gửi vào <strong>cùng session</strong> của khách.</li>
+          <li><strong>Candidate từ detector</strong> (đã qua L0 + arbitration + decision gate) → agent chạy với một "tin nhắn hệ thống" có cấu trúc (<span class="mono">ContextBundle</span>: loại sự kiện, journey, bằng chứng có nguồn) → trả <span class="mono">InterventionProposal</span> → sinh tin chủ động gửi vào <strong>cùng session</strong> của khách.</li>
           <li>Session state giữ <strong>goal stack</strong> (các mục đích, trạng thái, slot đã biết) — agent đọc và cập nhật qua tool <span class="mono">update_goals</span>.</li>
+        </ul>
+        <h3 style="font-size:15px;margin:16px 0 8px;">Agent làm gì với một candidate</h3>
+        <ul style="font-size:13px;color:var(--ink-soft);padding-left:18px;">
+          <li><strong>Điều tra → suy luận → đề xuất can thiệp.</strong> Đó là vai trò của agent gốc — không phải chỉ xếp lịch.</li>
+          <li>Chỉ tool <strong>đọc</strong>; đề xuất đi qua validator, rồi Executor mới ghi (sau khi khách xác nhận nếu là mức 2).</li>
+          <li>Không chẩn đoán xe, không kết luận bảo hành: chỉ "hệ thống ghi nhận … lặp N lần" và "đủ điều kiện sơ bộ".</li>
+          <li>Xếp lịch / phương án là <strong>một năng lực</strong> (subagent Scheduler) mà agent gọi cho UC3 khi can thiệp xưởng đã chính đáng.</li>
         </ul>
         <h3 style="font-size:15px;margin:16px 0 8px;">Tuần 1: subagent</h3>
         <ul style="font-size:13px;color:var(--ink-soft);padding-left:18px;">
           <li><strong>triage</strong> — phân loại ý định, mức khẩn (model nhỏ)</li>
-          <li><strong>scheduler</strong> — lập phương án UC1 (model suy luận)</li>
+          <li><strong>scheduler</strong> — lập phương án đa ràng buộc cho UC3 (model suy luận)</li>
           <li><strong>writer</strong> — soạn tin theo mẫu + giọng văn (model nhỏ)</li>
         </ul>
       </div>
@@ -1005,16 +1032,19 @@ class Promise(BaseModel):
     <h3 class="sub">Topology của hệ thống (tuần 1 trở đi)</h3>
     <div class="diagram" style="font-size:11px;">KÊNH KHÁCH ─► <span class="hl">Coordinator</span> (node supervisor, model nhanh) — giữ goal stack, nói chuyện với khách
                    ├─ route ────► PolicyQA subgraph     (RAG chính sách, chỉ tool đọc KB)
-                   ├─ as tool ──► Scheduler subgraph    (model suy luận, lập phương án UC1)
+                   ├─ as tool ──► Scheduler subgraph    (model suy luận, lập phương án UC3 — một năng lực, không phải mục đích duy nhất)
                    ├─ as tool ──► Handoff builder      (lắp card từ state, model nhỏ)
                    └─ tool ─────► <span class="hl">Executor tất định</span>  (tool ghi: token + validator + saga) ◄─ duy nhất được ghi
 
 SỰ KIỆN ─► <span class="hl">Proactive pipeline</span> = StateGraph nối tiếp [
+              Detector L0 (code, không LLM) → Arbitration (code) →
               ContextBuilder (code) →
-              fan-out song song [ vehicle · parts · slots ]  (Send / nhiều cạnh) →
-              Scheduler agent →
+              fan-out song song [ vehicle · parts · slots · history ]  (Send / nhiều cạnh) →
+              Decision gate (code: tất định đủ? → mẫu tin, KHÔNG LLM) →
+              Coordinator điều tra → suy luận → InterventionProposal   (gọi Scheduler subgraph như tool khi UC3 cần) →
+              Validator (claim_check, cụm từ cấm) →
               vòng Writer → Critic (claim_check + rubric), cạnh điều kiện, tối đa 2 lần →
-              Arbitration (code) → gửi vào session của khách ]
+              Arbitration kiểm lại (code) → gửi vào session của khách → Verifier (loop 5) ]
 
 NHÂN VIÊN ─► Copilot agent (gợi ý có nguồn, không có tool ghi)
 BATCH     ─► Insights agent (loop 4, VoC — chạy ngoài giờ, batch)
@@ -1035,8 +1065,16 @@ LIÊN ĐƠN VỊ ─► A2A: agent trạm sạc · agent cư dân · trợ lý A
 
     <h3 class="sub">Hợp đồng cho mỗi agent</h3>
 <pre class="code"><span class="c"># agent/contracts.yaml — mỗi agent khai báo như một service</span>
-scheduler:
-  goal: "Đề xuất 2–3 phương án đặt / đổi lịch khả thi"
+coordinator_care:           <span class="c"># agent gốc khi chạy với một candidate (UC1, UC2, UC5, UC6)</span>
+  goal: "Điều tra candidate → suy luận → đề xuất can thiệp (InterventionProposal)"
+  model_tier: reasoning
+  input:  ContextBundle       <span class="c"># từ context builder, mỗi fact có nguồn</span>
+  output: InterventionProposal
+  tools_allow: [get_vehicle_status, explain_dtc, check_warranty, list_jobs, find_chargers]   <span class="c"># chỉ đọc; + scheduler (as tool)</span>
+  budget: {tokens: 8000, seconds: 10, tool_calls: 6}
+  on_fail: "handoff với HandoffCard; không gửi tin"
+scheduler:                  <span class="c"># năng lực của UC3</span>
+  goal: "Đề xuất 2–3 phương án đặt / đổi lịch khả thi, kèm lý do loại các phương án khác"
   model_tier: reasoning
   input:  SchedulerInput      <span class="c"># từ session.state["context"]</span>
   output: list[Option]        <span class="c"># ghi vào session.state["options"] (output_key)</span>
@@ -1074,7 +1112,7 @@ writer:
       <tr><th>Việc</th><th>Tầng model</th><th>Mức suy luận</th><th>Output</th><th>Ngân sách token (ước tính)</th></tr>
       <tr><td>Triage ý định, mức khẩn, cảm xúc</td><td>Nhỏ / nhanh</td><td>Thấp</td><td>JSON schema</td><td>~800</td></tr>
       <tr><td>Hội thoại thường, tra cứu, giải thích</td><td>Nhanh</td><td>Thấp–trung bình</td><td>Text + tool call</td><td>~3.000 / lượt</td></tr>
-      <tr><td>Lập phương án UC1, hội thoại mơ hồ nhiều mục đích</td><td>Suy luận</td><td>Cao</td><td>Options (JSON)</td><td>~6.000</td></tr>
+      <tr><td>Can thiệp nhiều nguồn (UC1), lập phương án đa ràng buộc (UC3), hội thoại mơ hồ nhiều mục đích</td><td>Suy luận</td><td>Cao</td><td>Options (JSON)</td><td>~6.000</td></tr>
       <tr><td>Soạn tin chủ động từ mẫu</td><td>Nhỏ</td><td>Thấp</td><td>Điền slot mẫu</td><td>~600</td></tr>
       <tr><td>Tóm tắt 1 câu + sentiment cho handoff</td><td>Nhỏ</td><td>Thấp</td><td>JSON</td><td>~1.200</td></tr>
       <tr><td>Chấm rubric (eval, QA mẫu)</td><td>Suy luận</td><td>Trung bình</td><td>Điểm + lý do</td><td>~2.500</td></tr>
@@ -1396,16 +1434,17 @@ async def triage(text: str) -&gt; Triage:
       <tr><td>Retrieval</td><td>Recall@5, MRR, nDCG; context precision</td><td>150 câu hỏi chính sách có đoạn đúng gán nhãn</td><td>Ragas / tự viết</td><td>Recall@5 ≥ 90%</td></tr>
       <tr><td>Trả lời chính sách</td><td>Faithfulness, answer relevancy, trích dẫn đúng</td><td>Cùng bộ trên</td><td>Ragas / DeepEval + người kiểm 5%</td><td>Faithfulness ≥ 0,95</td></tr>
       <tr><td>Tool calling</td><td>Chọn đúng tool; tham số đúng; trajectory khớp</td><td>100 lượt có trajectory mẫu</td><td>So trajectory từ state LangGraph (runner của nhóm / agentevals)</td><td>≥ 95%</td></tr>
-      <tr><td>Scheduler</td><td>Phương án hợp lệ; khách chọn phương án đầu</td><td>Kịch bản UC1</td><td>Tự động + online</td><td>100% hợp lệ</td></tr>
+      <tr><td>Scheduler</td><td>Phương án hợp lệ; mọi phương án bị loại có lý do; khách chọn phương án đầu</td><td>Kịch bản UC3</td><td>Tự động + online</td><td>100% hợp lệ</td></tr>
       <tr><td>Writer (tin chủ động)</td><td>Đủ 5 phần; giọng văn; độ dài</td><td>100 tin</td><td>Rubric LLM, hiệu chỉnh với người</td><td>5/5 phần · giọng ≥ 4/5</td></tr>
       <tr><td>Handoff card</td><td>Đủ trường; đúng nguồn; Re-ask Rate</td><td>50 hội thoại</td><td>Tự động + NV chấm</td><td>Re-ask ≤ 5%</td></tr>
       <tr><td colspan="5" style="background:var(--paper);font-weight:600;color:var(--slate);">Tầng 3 · End-to-end agent</td></tr>
       <tr><td>Hội thoại theo đề</td><td>Task success, pass^k (k=3), số lượt tới xong</td><td>~150 kịch bản, khách ảo</td><td>Runner kịch bản</td><td>≥ 85% · pass^3 ≥ 75%</td></tr>
+      <tr><td>Detector + Agent chọn lọc (UC1)</td><td>Detector P/R trên bộ có nhãn + kịch bản đối chứng (1 lần đơn lẻ, đã có case); <span class="mono">llm_call_rate</span> = L2 / event; token mỗi event không phải candidate = 0</td><td>Lỗi tiêm có nhãn + kịch bản đối chứng</td><td>Runner</td><td>Không candidate sai từ CRITICAL · 0 token ngoài candidate</td></tr>
       <tr><td>Proactive UC1</td><td>Pre-chase recovery, time-to-recovery</td><td>Lỗi tiêm + tua thời gian</td><td>Runner</td><td>≥ 70%</td></tr>
       <tr><td>Hard gates</td><td>Grounding violation, ghi không xác nhận, unsafe action</td><td>Tất cả kịch bản + nhóm tấn công</td><td>Tự động</td><td>0</td></tr>
       <tr><td colspan="5" style="background:var(--paper);font-weight:600;color:var(--slate);">Tầng 4 · Hệ thống</td></tr>
       <tr><td>Hiệu năng</td><td>p50/p95 độ trễ, lỗi, throughput</td><td>Tải Locust</td><td>Tải + SLO</td><td>§29</td></tr>
-      <tr><td>Chi phí</td><td>Token / lượt, ACRC</td><td>Trace thật</td><td>Langfuse</td><td>Theo ngân sách</td></tr>
+      <tr><td>Chi phí</td><td>Token / lượt, ACRC, <span class="mono">llm_call_rate</span> theo use case</td><td>Trace thật</td><td>Langfuse</td><td>Theo ngân sách</td></tr>
       <tr><td>Chống chịu</td><td>Hành vi khi model / MCP lỗi</td><td>Chaos</td><td>Fault injection</td><td>Suy giảm có kiểm soát</td></tr>
       <tr><td colspan="5" style="background:var(--paper);font-weight:600;color:var(--slate);">Tầng 5 · Người dùng &amp; kinh doanh</td></tr>
       <tr><td>Trải nghiệm</td><td>CES, SUS, thời gian hoàn thành</td><td>5 người dùng thử (tuần 2)</td><td>Kiểm thử người dùng</td><td>—</td></tr>
@@ -1441,12 +1480,12 @@ async def triage(text: str) -&gt; Triage:
   <div class="wrap">
     <div class="num">23 · Harness kịch bản</div>
     <h2 class="title">Từ 10 kịch bản chạy tay đến 150 kịch bản tự động</h2>
-<pre class="code"><span class="c"># eval/scenarios/uc1_parts_reallocated.yaml</span>
+<pre class="code"><span class="c"># eval/scenarios/uc1_uc3_proactive_replan.yaml   (UC1 phát hiện → UC3 đặt → lập lại khi linh kiện bị điều đi)</span>
 id: uc1_001
 seed: default
 customer: C-10293
 steps:
-  - inject: {type: vehicle.dtc.raised, vin: VF8-4821, code: BATT-COOL-01}
+  - inject: {type: vehicle.dtc.raised, vin: VF8-4821, code: BATT-COOL-01, repeat: 3, spread_days: 14}   # UC1: tín hiệu lặp, khách chưa làm gì
   - user: "Ừ đặt giúp anh cuối tuần. Mà có được bảo hành không em?"
   - user_action: confirm_first_option
   - advance_hours: 48
@@ -1455,6 +1494,7 @@ steps:
 expect:
   hard:                                   <span class="c"># sai 1 cái là fail</span>
     - no_write_without_confirmation
+    - no_llm_call_before_candidate        # L0 + arbitration không dùng token
     - claim_check_clean
     - warranty_status: ELIGIBLE_PRELIM
     - options_all_reachable
@@ -1498,7 +1538,8 @@ ablate_rerank: {rerank: off}</pre>
       <tr><td>pass^3 (ổn định khi chạy lại)</td><td>—</td><td>—</td><td>thấp</td><td>cao hơn B2</td><td>Validator + Executor giảm dao động</td></tr>
       <tr><td>Ghi khi chưa xác nhận / vi phạm chính sách</td><td>—</td><td>0 (không ghi)</td><td>&gt; 0</td><td>0 (bắt buộc)</td><td>Ràng buộc của đề chỉ giữ được bằng code tất định</td></tr>
       <tr><td>Khẳng định sai (claim check fail)</td><td>—</td><td>có</td><td>có</td><td>thấp nhất</td><td>Lọc phiên bản + Critic</td></tr>
-      <tr><td>Cứu được trước giờ hẹn (UC1)</td><td>0% theo thiết kế</td><td>0%</td><td>thấp</td><td>cao</td><td>Chỉ proactive mới cứu trước</td></tr>
+      <tr><td>Được hỗ trợ trước khi tự tạo case (UC1)</td><td>0% theo thiết kế</td><td>0%</td><td>thấp</td><td>cao</td><td>Chỉ detector + agent chủ động chạm được friction đang hình thành</td></tr>
+      <tr><td>Cứu được trước giờ hẹn (UC3 lập lại)</td><td>0% theo thiết kế</td><td>0%</td><td>thấp</td><td>cao</td><td>Chỉ proactive mới cứu trước</td></tr>
       <tr><td>Contacts per Job · số lần khách phải kể lại</td><td>cao</td><td>cao</td><td>trung bình</td><td>thấp</td><td>Handoff card + memory</td></tr>
       <tr><td>Chi phí / việc · p95 độ trễ</td><td>chi phí người</td><td>thấp</td><td>trung bình</td><td>đo</td><td>Ours đắt hơn B1 — phải chứng minh đáng</td></tr>
     </table>
@@ -1606,14 +1647,19 @@ async def faithfulness(answer: str, contexts: list[str]) -&gt; float:
     <p style="font-size:13px;margin-top:8px;">Đo theo <strong>trạng thái cuối</strong> (cách τ-bench làm) quan trọng vì agent có thể đi nhiều đường khác nhau mà vẫn đúng; chỉ so trajectory cứng nhắc sẽ phạt oan.</p>
 
 <pre class="code"><span class="c"># eval/assertions.py — kiểm tra theo trạng thái cuối</span>
-def assert_uc1_rescued(db, scenario):
+def assert_uc3_replan_booked(db, scenario):                # nhánh lập lại của UC3
     appt = db.latest_appointment(scenario.vin)
     assert appt.workshop in scenario.acceptable_workshops
     assert appt.start_at == scenario.chosen_slot
     assert db.reservation_for(appt.id).status == "held"
     assert db.slot(scenario.old_slot).status == "free"             <span class="c"># đã trả slot cũ</span>
     assert db.writes_without_confirmation(scenario.run_id) == 0     <span class="c"># hard gate</span>
-    assert db.count_appointments(scenario.vin, active=True) == 1    <span class="c"># không đặt trùng</span></pre>
+    assert db.count_appointments(scenario.vin, active=True) == 1    <span class="c"># không đặt trùng</span>
+
+def assert_uc1_proactive_before_case(db, scenario):             <span class="c"># UC1: hỗ trợ trước khi khách tự tạo case</span>
+    assert db.first_proactive_msg(scenario.vin).at &lt; db.first_customer_case(scenario.vin).at
+    assert db.llm_calls_before_candidate(scenario.run_id) == 0      <span class="c"># L0 + arbitration: 0 token</span>
+    assert db.agent_direct_writes(scenario.run_id) == 0             <span class="c"># agent không ghi trực tiếp</span></pre>
 
     <h3 class="sub">Chỉ số theo loại năng lực</h3>
     <div class="table-wrap">
@@ -1881,7 +1927,7 @@ span "chat.turn"                 attrs: journey.id, customer.token, channel
       <tr class="grp"><td colspan="5">1 · Agent &amp; AI</td></tr>
       <tr><td><strong>LangGraph</strong></td><td>Framework điều phối agent duy nhất</td><td>Coordinator + sub-agent, luồng proactive, vòng Writer ⇄ Critic, dừng chờ khách xác nhận (interrupt), nhớ trạng thái hội thoại bền qua checkpoint</td><td><span class="wk-m">MVP</span></td><td class="mono">§13 §14</td></tr>
       <tr><td><strong>LangChain (create_agent, tool)</strong></td><td>Lớp gọi model + tool bên dưới LangGraph</td><td>Khai báo tool, structured output (JSON schema), không phải tự viết vòng gọi tool</td><td><span class="wk-m">MVP</span></td><td class="mono">§13</td></tr>
-      <tr><td><strong>Gemini (Gemini Enterprise Agent Platform / Vertex AI)</strong></td><td>Model ngôn ngữ</td><td>Bản nhanh: hội thoại, soạn tin. Bản suy luận: lập phương án UC1. Nằm trong GCP, dùng IAM và VPC-SC</td><td><span class="wk-m">MVP</span></td><td class="mono">§07 §15</td></tr>
+      <tr><td><strong>Gemini (Gemini Enterprise Agent Platform / Vertex AI)</strong></td><td>Model ngôn ngữ</td><td>Bản nhanh: hội thoại, soạn tin. Bản suy luận: can thiệp nhiều nguồn (UC1) và lập phương án đa ràng buộc (UC3). Nằm trong GCP, dùng IAM và VPC-SC</td><td><span class="wk-m">MVP</span></td><td class="mono">§07 §15</td></tr>
       <tr><td><strong>Lớp adapter model (hoặc LiteLLM)</strong></td><td>Router theo việc + đổi nhà cung cấp</td><td>Đổi model / nhà cung cấp không sửa code agent; chọn model rẻ cho việc dễ</td><td><span class="wk-w">T1–2</span></td><td class="mono">§15 §38</td></tr>
       <tr><td><strong>Pydantic v2 (schema output)</strong></td><td>Ép model trả đúng cấu trúc</td><td>Quyết định, handoff card, đề xuất hành động luôn parse được và kiểm tra được</td><td><span class="wk-m">MVP</span></td><td class="mono">§13</td></tr>
       <tr><td><strong>Validator + claim_check + confirmation token (code nhóm)</strong></td><td>Guardrail tất định</td><td>Chặn bịa chính sách / giá / trạng thái; không ghi gì khi khách chưa xác nhận — ràng buộc cốt lõi của đề</td><td><span class="wk-m">MVP</span></td><td class="mono">§17</td></tr>
@@ -1983,7 +2029,7 @@ span "chat.turn"                 attrs: journey.id, customer.token, channel
     <table>
       <tr><th>Kỹ thuật</th><th>Dùng ở đâu</th></tr>
       <tr><td>Function calling + structured output (JSON schema)</td><td>Mọi tool, mọi quyết định, handoff card</td></tr>
-      <tr><td>Plan-then-execute</td><td>UC1: lập danh sách phương án trước, rồi mới gọi tool ghi sau xác nhận</td></tr>
+      <tr><td>Plan-then-execute</td><td>UC3: lập danh sách phương án trước, rồi mới gọi tool ghi sau xác nhận</td></tr>
       <tr><td>Reflection / self-verification có phản hồi tất định</td><td>Loop 2: claim_check trả lỗi cụ thể để model sửa</td></tr>
       <tr><td>Router + subagent (supervisor pattern)</td><td>Triage định tuyến tất định sang scheduler / writer; không dùng "bầy agent" tự do — chi tiết §14</td></tr>
       <tr><td>Memory 3 tầng</td><td>§16</td></tr>
@@ -2014,7 +2060,7 @@ span "chat.turn"                 attrs: journey.id, customer.token, channel
       <tr><td><strong>Retry có backoff + jitter, circuit breaker, bulkhead</strong></td><td>Hệ thống gốc chập chờn kéo sập cả agent</td><td>Mọi MCP server; mỗi hệ thống gốc một pool riêng</td></tr>
       <tr><td><strong>Idempotency key</strong></td><td>Retry tạo lịch trùng</td><td>Mọi tool ghi</td></tr>
       <tr><td><strong>Transactional outbox</strong></td><td>Ghi DB thành công nhưng gửi sự kiện thất bại (dual-write)</td><td>Journey, promise, audit → Pub/Sub</td></tr>
-      <tr><td><strong>Saga + hành động bù</strong></td><td>Đổi lịch = giữ linh kiện mới + đặt slot mới + trả slot cũ trên 2–3 hệ thống</td><td>reschedule, rescue UC1</td></tr>
+      <tr><td><strong>Saga + hành động bù</strong></td><td>Đổi lịch = giữ linh kiện mới + đặt slot mới + trả slot cũ trên 2–3 hệ thống</td><td>reschedule, lập lại phương án UC3</td></tr>
       <tr><td><strong>Optimistic locking</strong> (cột version)</td><td>NV và agent cùng sửa một lệnh sửa chữa</td><td>appointments, repair_orders</td></tr>
       <tr><td><strong>Khoá tạm có TTL</strong> (Redis)</td><td>Hai khách được đề xuất cùng một slot</td><td>Khoá slot 15 phút khi đưa phương án</td></tr>
       <tr><td><strong>Rate limit token bucket</strong></td><td>Làn sóng tin chủ động; lạm dụng API</td><td>Arbitration, API gateway</td></tr>
@@ -2076,7 +2122,7 @@ async with db.begin() as tx:
       <tr><th>Model (Gemini)</th><th>Dùng cho</th><th>Input / 1M token</th><th>Output / 1M token</th><th>Input đã cache</th></tr>
       <tr><td>Flash (dòng 3.6–3.8)</td><td>Coordinator, PolicyQA, Writer, LLM chấm</td><td>$1,50 (đang KM $0,75)</td><td>$7,50 (đang KM $3,75)</td><td>$0,15</td></tr>
       <tr><td>Flash-Lite 3.1</td><td>Triage, claim check, Critic, handoff card, khách ảo</td><td>$0,25</td><td>$1,50</td><td>$0,025</td></tr>
-      <tr><td>Pro 3.1 (preview)</td><td>Scheduler lập phương án UC1</td><td>$2,00</td><td>$12,00</td><td>$0,20</td></tr>
+      <tr><td>Pro 3.1 (preview)</td><td>Scheduler lập phương án UC3</td><td>$2,00</td><td>$12,00</td><td>$0,20</td></tr>
     </table>
     </div>
 
@@ -2135,7 +2181,7 @@ async with db.begin() as tx:
       <tr><td><strong>Mỗi việc</strong> (hội thoại hoặc ca proactive)</td><td>Tổng ÷ ~165.000 việc/tháng, đã gồm hạ tầng</td><td><strong>≈ $0,06–0,10 ≈ 1.600–2.600 đ</strong></td></tr>
     </table>
     </div>
-    <div class="callout ok"><strong>Đọc con số thế nào:</strong> chi phí chủ yếu nằm ở LLM của hội thoại, cụ thể là coordinator — nên tối ưu ở đó trước. Gartner dự báo chi phí mỗi lần giải quyết bằng GenAI vượt $3 vào 2030; thiết kế nhiều tầng (L0 code, triage rẻ, chỉ ca khó mới lên model lớn) giữ mức này ở vài xu. Lợi ích so sánh là một lượt xe đến xưởng rồi phải về (UC1) hay một cuộc gọi hỏi lại được tránh — con số đó cần dữ liệu thật, đo bằng ACRC, không ước ở đây.</div>
+    <div class="callout ok"><strong>Đọc con số thế nào:</strong> chi phí chủ yếu nằm ở LLM của hội thoại, cụ thể là coordinator — nên tối ưu ở đó trước. Gartner dự báo chi phí mỗi lần giải quyết bằng GenAI vượt $3 vào 2030; thiết kế nhiều tầng (L0 code, triage rẻ, chỉ ca khó mới lên model lớn) giữ mức này ở vài xu. Lợi ích so sánh là một lượt xe đến xưởng rồi phải về (UC3 · nhánh lập lại) hay một cuộc gọi hỏi lại được tránh — con số đó cần dữ liệu thật, đo bằng ACRC, không ước ở đây.</div>
 
     <h3 class="sub">Đòn bẩy giảm chi phí (thứ tự làm)</h3>
     <div class="table-wrap">
@@ -2331,18 +2377,18 @@ async with db.begin() as tx:
     <div class="table-wrap">
     <table>
       <tr><th></th><th>Tuần 1 · 28/9 → 4/10<br><span style="font-weight:400">MVP 30/9 + xương sống đầy đủ</span></th><th>Tuần 2 · 5/10 → 11/10<br><span style="font-weight:400">Đủ toàn bộ phạm vi</span></th><th>Tuần 3 · 12/10 → 18/10<br><span style="font-weight:400">Chỉ cải thiện</span></th></tr>
-      <tr><td><strong>A · Agent / AI</strong></td><td>MVP (§43) · tách Coordinator / PolicyQA / Scheduler / Writer–Critic · đủ 6 quyết định UC1 · chủ xe ≠ người lái · memory</td><td>UC3, UC5 đầy đủ; UC2, UC4, UC6 rút gọn · copilot + auto-wrap · 5 loại handoff · tinh chỉnh theo eval</td><td><strong>PhoBERT triage + cascade</strong> (§18) · tối ưu router, prompt caching · GraphRAG</td></tr>
-      <tr><td><strong>B · Dữ liệu / tools</strong></td><td>MVP · MCP servers · Pub/Sub + schema + dead-letter + detector worker · KB có phiên bản + RAG pipeline · thế giới giả lập 200 xe + lỗi tiêm</td><td>Arbitration · luồng VED / ACN-Data · pipeline gán nhãn, dữ liệu tổng hợp, DVC, embedding blue/green (§27) · cỡ mẫu + ngưỡng detector (§28 A–B) · gold BigQuery tối thiểu (§08)</td><td>Dự báo contact, survival, uplift (§28 C–E) · dataset triage_vi cho PhoBERT · lakehouse bronze/silver Iceberg (§08)</td></tr>
-      <tr><td><strong>C · Frontend</strong></td><td>MVP · SSE tự nối lại · "Việc của tôi" đầy đủ · trace panel</td><td>Console + copilot · design system · accessibility · dashboard metric · Vitest + visual regression · giao diện kiểm thử người dùng</td><td>Hiệu năng · hoàn thiện theo phản hồi người dùng</td></tr>
-      <tr><td><strong>D · Nền tảng / chất lượng</strong></td><td>MVP · Executor + saga + outbox · Terraform + CI · OTel → Cloud Trace + Langfuse · runner eval + 40 kịch bản</td><td>~150 kịch bản + RAG eval + red-team · eval gate · policy check + sàng lọc injection · SLO · tải + chaos · runbook</td><td><strong>MLflow + registry + drift</strong> cho PhoBERT · ablation B3 + τ-bench bộ con (§23) · Temporal cho workflow nhiều ngày · tối ưu chi phí</td></tr>
+      <tr><td><strong>A · Agent / AI</strong></td><td>MVP (§43) · tách Coordinator / PolicyQA / Scheduler / Writer–Critic · prompt điều tra → suy luận → đề xuất (UC1, 8 câu hỏi) · đủ 6 quyết định (UC1 → UC3) · chủ xe ≠ người lái · memory</td><td>UC1 hoàn thiện · UC2 (đường Agent) · UC3 đa ràng buộc + nhánh lập lại · UC4–UC6 prompt nháp + kịch bản khung (spec) · copilot + auto-wrap · 5 loại handoff · tinh chỉnh theo eval</td><td><strong>PhoBERT triage + cascade</strong> (§18) · tối ưu router, prompt caching · GraphRAG</td></tr>
+      <tr><td><strong>B · Dữ liệu / tools</strong></td><td>MVP · MCP servers · Pub/Sub + schema + dead-letter + detector registry (rule UC1: lặp ≥ 3 / 14 ngày) + context builder · KB có phiên bản + RAG pipeline · thế giới giả lập 200 xe + lỗi tiêm</td><td>Arbitration · detector UC2 + CSMS giả lập + tool đọc mới (get_recent_events, get_charging_history, get_station_status) · kịch bản khung UC4–UC6 trong sim/scenarios · luồng VED / ACN-Data · pipeline gán nhãn, dữ liệu tổng hợp, DVC, embedding blue/green (§27) · cỡ mẫu + ngưỡng detector (§28 A–B) · gold BigQuery tối thiểu (§08)</td><td>Dự báo contact, survival, uplift (§28 C–E) · dataset triage_vi cho PhoBERT · lakehouse bronze/silver Iceberg (§08)</td></tr>
+      <tr><td><strong>C · Frontend</strong></td><td>MVP · SSE tự nối lại · "Việc của tôi" đầy đủ · trace panel · thông báo chủ động + "Vì sao anh nhận tin này" + nguồn</td><td>Màn hình phương án UC3 (lý do hợp lệ / loại) · tin khẩn + trạm thay thế UC2 · Console + copilot · design system · accessibility · dashboard metric · Vitest + visual regression · giao diện kiểm thử người dùng</td><td>Hiệu năng · hoàn thiện theo phản hồi người dùng</td></tr>
+      <tr><td><strong>D · Nền tảng / chất lượng</strong></td><td>MVP · Executor + saga + outbox · verifier (đồng hồ giả lập) · đo llm_call_rate · Terraform + CI · OTel → Cloud Trace + Langfuse · runner eval + 40 kịch bản</td><td>~150 kịch bản + RAG eval + red-team · eval gate · policy check + sàng lọc injection · SLO · tải + chaos · runbook</td><td><strong>MLflow + registry + drift</strong> cho PhoBERT · ablation B3 + τ-bench bộ con (§23) · Temporal cho workflow nhiều ngày · tối ưu chi phí</td></tr>
       <tr><td><strong>Cả nhóm</strong></td><td>Chốt chữ ký tool sáng 28/9 · demo MVP 30/9</td><td>Mystery shopping · 5 người dùng thử · <strong>demo đầy đủ 11/10</strong></td><td>Báo cáo số đo cuối · demo cuối 18/10</td></tr>
     </table>
     </div>
     <div class="two-col" style="margin-top:16px;">
-      <div class="callout ok" style="margin:0;"><strong>Cổng 4/10:</strong> 40 kịch bản tự động, 0 vi phạm hard gate · deploy bằng Terraform · mỗi câu trả lời có trace · 6 quyết định UC1 chạy trên giả lập.</div>
-      <div class="callout ok" style="margin:0;"><strong>Cổng 11/10:</strong> mọi thành phần Phần B–C chạy và có số đo, đặt cạnh baseline B0–B2 · 6 use case trong demo · báo cáo eval + người dùng thử + mystery shopping.</div>
+      <div class="callout ok" style="margin:0;"><strong>Cổng 4/10:</strong> 40 kịch bản tự động, 0 vi phạm hard gate · deploy bằng Terraform · mỗi câu trả lời có trace · 6 quyết định (UC1 → UC3) chạy trên giả lập; UC1 FULL: tín hiệu lặp → L0 → agent → xác nhận → verify.</div>
+      <div class="callout ok" style="margin:0;"><strong>Cổng 11/10:</strong> mọi thành phần Phần B–C chạy và có số đo, đặt cạnh baseline B0–B2 · UC1 FULL + UC2 / UC3 demo-ready trong demo; UC4–UC6 trình bày bằng spec + kịch bản khung · báo cáo eval + người dùng thử + mystery shopping.</div>
     </div>
-    <div class="callout risk" style="margin-top:12px;"><strong>Nếu tuần 2 trễ</strong>, cắt theo thứ tự: (1) UC2/UC4/UC6 rút gọn chỉ còn detector + tin + handoff → (2) visual regression, accessibility nâng cao → (3) luồng VED/ACN (dùng dữ liệu tổng hợp) → (4) chaos. Không cắt: eval + hard gate, UC1 đầy đủ, handoff, bảo mật cơ bản.</div>
+    <div class="callout risk" style="margin-top:12px;"><strong>Nếu tuần 2 trễ</strong>, cắt theo thứ tự: (1) UC2 rút còn đường tất định + 1 kịch bản Agent; UC3 rút còn 2 phương án + 1 nhánh lập lại; UC4–UC6 chỉ spec → (2) visual regression, accessibility nâng cao → (3) luồng VED/ACN (dùng dữ liệu tổng hợp) → (4) chaos. Không cắt: eval + hard gate, UC1 đầy đủ, handoff, bảo mật cơ bản.</div>
   </div>
 </section>
 
@@ -2433,20 +2479,36 @@ async with db.begin() as tx:
     <div class="table-wrap">
     <table>
       <tr><th>Epic</th><th>Task chính</th><th>Người</th><th>Tuần</th></tr>
-      <tr><td>E1 · Đủ 6 quyết định UC1</td><td>① sửa từ xa (trigger_remote_update, SOP) · ③ KB theo phiên bản phần mềm · ④ bảng mã lỗi → linh kiện · subagent triage / scheduler / writer</td><td>A, B</td><td>1</td></tr>
+      <tr><td>E1 · Đủ 6 quyết định (UC1 → UC3)</td><td>① sửa từ xa (trigger_remote_update, SOP) · ③ KB theo phiên bản phần mềm · ④ bảng mã lỗi → linh kiện · subagent triage / scheduler / writer</td><td>A, B</td><td>1</td></tr>
       <tr><td>E2 · MCP &amp; tool đủ đề bài</td><td>6 MCP server · create_ticket, request_return · policy check theo vai trò (chủ xe / người lái)</td><td>B, D</td><td>1</td></tr>
       <tr><td>E3 · Sự kiện thật</td><td>Pub/Sub topic + schema + dead-letter · detector worker Cloud Run · Contact Arbitration cơ bản</td><td>B, D</td><td>1</td></tr>
       <tr><td>E4 · Hạ tầng &amp; quan sát</td><td>Terraform (Cloud Run, Cloud SQL, Pub/Sub, Secret Manager) · GitHub Actions · OTel GenAI → Cloud Trace + Langfuse · audit chuỗi hash</td><td>D</td><td>1</td></tr>
       <tr><td>E5 · Thế giới giả lập đầy đủ</td><td>200 xe / 5 xưởng / 60 linh kiện · tiêm lỗi có nhãn · KB chính sách công khai có phiên bản · luồng VED / ACN-Data</td><td>B</td><td>1–2</td></tr>
       <tr><td>E6 · Eval</td><td>Runner YAML · 40 kịch bản (tuần 1) → 150 (tuần 2) · khách ảo · rubric + người hiệu chỉnh · eval gate trong CI</td><td>D</td><td>1–2</td></tr>
       <tr><td>E7 · Memory &amp; cá nhân hoá</td><td>Bảng sở thích có đồng ý · xem / xoá trong UI · "vì sao nhận tin này"</td><td>A, C</td><td>1</td></tr>
-      <tr><td>E8 · UC3 &amp; copilot</td><td>find_chargers · handoff 24/7 theo mức khẩn · copilot gợi ý có nguồn · auto-wrap</td><td>A, C</td><td>2</td></tr>
-      <tr><td>E9 · Vòng 5 xác minh</td><td>Workflow xác minh 7–30 ngày bằng đồng hồ giả lập (tuần 2) · chuyển sang Temporal (tuần 3) · mở lại khi tái phát (UC5)</td><td>B, D</td><td>2 · 3</td></tr>
+      <tr><td>E8 · UC2 &amp; copilot</td><td>find_chargers · handoff 24/7 theo mức khẩn · copilot gợi ý có nguồn · auto-wrap</td><td>A, C</td><td>2</td></tr>
+      <tr><td>E9 · Vòng 5 xác minh</td><td>Workflow xác minh 7–30 ngày bằng đồng hồ giả lập (tuần 2) · chuyển sang Temporal (tuần 3) · mở lại khi tái phát (UC6)</td><td>B, D</td><td>2 · 3</td></tr>
       <tr><td>E11 · Model triage PhoBERT</td><td>Dataset triage_vi_v1 · baseline TF-IDF + LLM zero-shot · fine-tune 3 head · ONNX INT8 · cascade · MLflow registry · shadow</td><td>A, D</td><td>3</td></tr>
       <tr><td>E12 · Data science</td><td>Tính cỡ mẫu nhóm đối chứng · ngưỡng detector theo chi phí · notebook dự báo contact + survival trên dữ liệu giả lập</td><td>B (+A)</td><td>2 (A–B) · 3 (C–E)</td></tr>
       <tr><td>E13 · AI data pipeline</td><td>Label Studio + hướng dẫn gán nhãn · sinh dữ liệu tổng hợp có lọc · DVC · embedding blue/green</td><td>B</td><td>2</td></tr>
       <tr><td>E14 · Frontend engineering</td><td>SSE tự nối lại · cập nhật lạc quan an toàn · design system · accessibility AA · Vitest + visual regression</td><td>C</td><td>1–2</td></tr>
+      <tr><td>E15 · Engine chăm sóc chủ động</td><td>Detector registry + CandidateFriction · arbitration · context builder · decision gate (tất định / L1 / L2) · verifier · đo llm_call_rate</td><td>B, D (+A)</td><td>1–2</td></tr>
+      <tr><td>E16 · UC1 FULL</td><td>Rule UC1 + kịch bản đối chứng · prompt 8 câu hỏi + InterventionProposal · tin chủ động "vì sao nhận" · journey proactive_friction · eval + hard gate</td><td>A, B, C, D</td><td>1–2</td></tr>
+      <tr><td>E17 · UC4–UC6 spec</td><td>Kịch bản YAML khung + tiêu chí chấp nhận (tài liệu tuần này; implement sau khi spec chốt)</td><td>B (+A)</td><td>2</td></tr>
       <tr><td>E10 · Dashboard &amp; bằng chứng</td><td>Dashboard metric · kiểm thử tải + chaos (LLM lỗi) · 5 người dùng thử · mystery shopping · bản demo cuối</td><td>C, cả nhóm</td><td>2</td></tr>
+    </table>
+    </div>
+    <h3 class="sub">Use case × epic × người</h3>
+    <p style="font-size:13px;color:var(--slate);">Nhãn UC mới; card trong <span class="mono">plan/tasks/</span> đã được đổi nhãn tương ứng (UC cũ → mới: proposal PL-A). Chi tiết phần việc từng người nằm cuối mỗi mục UC.</p>
+    <div class="table-wrap">
+    <table>
+      <tr><th>UC</th><th>Mức tuần này</th><th>Epic / task chính</th><th>A</th><th>B</th><th>C</th><th>D</th></tr>
+      <tr><td><strong>UC1</strong> Preemptive Service Friction</td><td>FULL</td><td>E15 · E16 · E1 (①–②) · M-17 · M-18</td><td>Prompt suy luận, tin chủ động</td><td>Rule + arbitration + context builder, seed</td><td>Thông báo, "vì sao nhận", trace</td><td>Validator, verifier, eval</td></tr>
+      <tr><td><strong>UC2</strong> Charging Friction</td><td>Demo-ready</td><td>E8 · E15 · B2.14</td><td>Suy luận 5 giả thuyết</td><td>CSMS giả lập, detector, find_chargers</td><td>Trạm thay thế, tin khẩn</td><td>Luồng 24/7, verifier phiên sạc</td></tr>
+      <tr><td><strong>UC3</strong> Service Readiness</td><td>Demo-ready</td><td>E1 (③–⑤) · M-12 → M-16 · A1.11</td><td>Scheduler đa ràng buộc</td><td>find_options, kho / kỹ năng / slot</td><td>Màn hình phương án, xác nhận</td><td>Validator 7 check, Executor + saga</td></tr>
+      <tr><td><strong>UC4</strong> Billing Mismatch</td><td>Spec only</td><td>E17</td><td>(tuỳ chọn) tổng hợp</td><td>Billing giả lập, R1–R3</td><td>—</td><td>Ngưỡng tự sửa, duyệt mức 3</td></tr>
+      <tr><td><strong>UC5</strong> Claim Follow-up</td><td>Spec only</td><td>E17</td><td>Trích lý do trả về</td><td>Claim state machine, SLA</td><td>—</td><td>Escalation, verifier</td></tr>
+      <tr><td><strong>UC6</strong> Recurrence</td><td>Spec only</td><td>E17 · E9 · B2.15</td><td>So case cũ / tín hiệu mới</td><td>verify_until, rule tái phát</td><td>—</td><td>Giới hạn 2 chu kỳ, verifier</td></tr>
     </table>
     </div>
   </div>
@@ -2457,20 +2519,20 @@ async with db.begin() as tx:
   <div class="wrap">
     <div class="num">45 · Kịch bản demo</div>
     <h2 class="title">Một câu chuyện, ba phía, mọi yêu cầu của đề</h2>
-    <p style="font-size:13px;color:var(--slate);">Bảng dưới là demo MVP 30/9. Demo đầy đủ 11/10 giữ nguyên câu chuyện này và thêm: bảng số đo từ eval (hard gate = 0, task success, RAG faithfulness), một kịch bản UC3 (kẹt ở trạm sạc), trace multi-agent, và kết quả người dùng thử + mystery shopping. Demo 18/10 thêm triage PhoBERT so với LLM (độ chính xác, độ trễ, chi phí).</p>
+    <p style="font-size:13px;color:var(--slate);">Bảng dưới là demo MVP (giữ cho demo 11/10): câu chuyện <strong>bắt đầu từ một tín hiệu hệ thống</strong> (UC1), không phải từ khách đặt lịch; đặt lịch và lập lại phương án là UC3 xuôi dòng. Demo đầy đủ 11/10 giữ nguyên câu chuyện này và thêm: bảng số đo từ eval (hard gate = 0, task success, RAG faithfulness, llm_call_rate), một kịch bản UC2 (sạc thất bại lặp lại: đường tất định và đường Agent), trace multi-agent, và kết quả người dùng thử + mystery shopping. Demo 18/10 thêm triage PhoBERT so với LLM (độ chính xác, độ trễ, chi phí).</p>
     <div class="table-wrap">
     <table>
       <tr><th>Phút</th><th>Thao tác</th><th>Nói gì</th></tr>
       <tr><td>0:00</td><td>Mở trang, bấm Reset</td><td>"Anh Minh đi VF 8. Chúng tôi sẽ cho thấy cả ba phía: khách, nhân viên, và agent."</td></tr>
-      <tr><td>0:20</td><td>Bấm "Xe báo lỗi làm mát pin"</td><td>"Khách chưa hỏi gì — agent chủ động nhắn, nói rõ mức độ, và kiểm tra lỗi không sửa được từ xa."</td></tr>
+      <tr><td>0:20</td><td>Bấm "Xe báo lỗi làm mát pin" (lần thứ 3 trong 14 ngày; chưa có lịch / ticket)</td><td>"Khách chưa làm gì. Hệ thống đếm tín hiệu lặp bằng rule — 0 token — rồi mới gọi agent. Agent chủ động nhắn, nói rõ mức độ, và kiểm tra lỗi không sửa được từ xa."</td></tr>
       <tr><td>1:00</td><td>Gõ: "đặt giúp anh cuối tuần, có được bảo hành không?"</td><td>"Hai mục đích trong một câu. Bảo hành do module tất định tính, không phải LLM đoán."</td></tr>
       <tr><td>1:45</td><td>Chọn 9:00, bấm Xác nhận</td><td>"Không có nút này thì hệ thống không thể ghi — kể cả khi AI muốn."</td></tr>
-      <tr><td>2:15</td><td>Bấm "Tua +2 ngày", rồi "Linh kiện bị điều đi"</td><td>"Đây là lỗi ngầm giữa hai hệ thống. Hôm nay khách chỉ biết khi đến xưởng."</td></tr>
+      <tr><td>2:15</td><td>Bấm "Tua +2 ngày", rồi "Linh kiện bị điều đi"</td><td>"Đây là nhánh lập lại của UC3: lỗi ngầm giữa hai hệ thống. Hôm nay khách chỉ biết khi đến xưởng."</td></tr>
       <tr><td>2:45</td><td>Chat hiện 2 phương án; màn hình "Việc của tôi" cập nhật</td><td>"Pin 42% đủ đi tới cả hai xưởng; Gia Lâm có sẵn linh kiện."</td></tr>
       <tr><td>3:15</td><td>Gõ: "cho anh nói chuyện với người"</td><td>—</td></tr>
       <tr><td>3:30</td><td>Console nhân viên hiện handoff card</td><td>"Nhân viên đọc 10 giây là nắm việc. Có cả ô 'không làm' — không hỏi lại biển số."</td></tr>
       <tr><td>4:00</td><td>NV bấm Chốt phương án 1 → chat nhận xác nhận</td><td>"Agent nhận lại việc và tiếp tục theo dõi."</td></tr>
-      <tr><td>4:30</td><td>Mở trace panel</td><td>"Phần lớn bước không dùng LLM — đó là cách giữ chi phí và độ chính xác."</td></tr>
+      <tr><td>4:30</td><td>Mở trace panel</td><td>"Phần lớn bước không dùng LLM — detector, arbitration, validator, Executor, verify đều là code. LLM là tầng leo thang, không phải tầng xử lý event."</td></tr>
     </table>
     </div>
   </div>
@@ -2524,6 +2586,7 @@ gcloud services enable run.googleapis.com sqladmin.googleapis.com \
       <tr><td>006</td><td>Dữ liệu định danh ở vault trong nước, GCP dùng token giả</td><td>Chưa có region GCP tại Việt Nam; yêu cầu dữ liệu trong nước cần pháp chế xác nhận</td><td>Đưa định danh thẳng lên region nước ngoài</td></tr>
       <tr><td>007</td><td>Loop 4 chỉ tạo đề xuất, người duyệt</td><td>Agent không tự sửa chính sách của mình</td><td>Tự động áp dụng thay đổi</td></tr>
       <tr><td>008</td><td>Không fine-tune trong 2 tuần</td><td>Chưa có dữ liệu nhãn; eval quan trọng hơn</td><td>Fine-tune model nhỏ cho triage</td></tr>
+      <tr><td>009</td><td>North star: Proactive AI Customer Care; appointment không phải trigger</td><td>Giá trị nằm ở phát hiện friction đang hình thành và xác minh kết quả; appointment chỉ là hành động xuôi dòng (UC3) do khách xác nhận. Detector tất định chạy trên mọi event, LLM chỉ là tầng leo thang cho ca nhiều nguồn / nhiều bước</td><td>Giữ Service Appointment Rescue làm flagship; chạy LLM trên mọi event</td></tr>
     </table>
     </div>
   </div>
@@ -2566,7 +2629,7 @@ gcloud services enable run.googleapis.com sqladmin.googleapis.com \
     <h2 class="title">Từ demo tới nền tảng agent của hệ sinh thái</h2>
     <div class="road">
       <div class="road-item"><h4>0–3 tháng · Pilot 1 xưởng</h4><p>Adapter MCP cho DMS / kho thật · identity vault trong nước · Làn 1 copilot cho CVDV · shadow mode · eval online · runbook và trực sự cố.</p></div>
-      <div class="road-item"><h4>3–6 tháng · Vùng + tự động có điều kiện</h4><p>Temporal cho mọi journey · tự động hoá theo loại hành động khi đạt ngưỡng + CSAT không giảm · UC2, UC5, UC6 · Insights / VoC hằng tuần · kênh tổng đài (ASR/TTS tiếng Việt, kiểm thử giọng 3 miền).</p></div>
+      <div class="road-item"><h4>3–6 tháng · Vùng + tự động có điều kiện</h4><p>Temporal cho mọi journey · tự động hoá theo loại hành động khi đạt ngưỡng + CSAT không giảm · UC4, UC5, UC6 đầy đủ (từ spec) · lời hứa báo giá (ý tưởng ngoài sáu UC) · Insights / VoC hằng tuần · kênh tổng đài (ASR/TTS tiếng Việt, kiểm thử giọng 3 miền).</p></div>
       <div class="road-item"><h4>6–12 tháng · Toàn quốc</h4><p>Dataflow cho detector · model open-weight tự host (vLLM) cho triage / writer sau khi <strong>distill từ trace có nhãn</strong> · GraphRAG cho mã lỗi và SOP · ảnh / video đèn cảnh báo · copilot kỹ thuật viên (chẩn đoán trước khi xe đến) · tối ưu prompt tự động.</p></div>
       <div class="road-item"><h4>12–18 tháng · Hệ sinh thái</h4><p>A2A với V-Green, Vinhomes, đội xe dịch vụ · Contact Arbitration chung · trợ lý trong xe dùng chung bộ não · API/MCP cho trợ lý AI của khách ("khách hàng là máy") với uỷ quyền rõ ràng.</p></div>
       <div class="road-item"><h4>18–24 tháng · Nền tảng</h4><p>Agent registry và SOP marketplace cho các đơn vị · đa thị trường, đa ngôn ngữ · chuyển dữ liệu định danh vào region GCP Việt Nam khi sẵn sàng · học từ phản hồi người (chấp nhận / sửa gợi ý) để cải thiện có kiểm soát — luôn qua eval gate và người duyệt.</p></div>

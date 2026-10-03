@@ -19,20 +19,32 @@ Khách ──POST /chat──► API
  10  cập nhật goal stack, promises (nếu agent vừa hứa gì)
 ```
 
-### Luồng B — Sự kiện hệ thống → tin chủ động
+### Luồng B — Tín hiệu hệ thống → candidate → can thiệp → xác minh
+
+Luồng chung cho UC1–UC6; chỉ phần detector, tool đọc và hành động khác nhau theo use case (proposal PL-A). Khách **không** cần làm gì để luồng này bắt đầu. Ví dụ UC1: telematics gửi mã lỗi WARNING lần thứ 3 trong 14 ngày, chưa có lịch / ticket.
 
 ```text
-ERP ──parts.reservation.cancelled──► Pub/Sub topic "ops-events"
+Telematics ──vehicle.dtc.raised──► Pub/Sub topic "ops-events"       # UC2/4/5: CSMS · billing · claim — cùng khung
   1  schema validation (Pub/Sub schema) ── sai ─► dead-letter topic + cảnh báo
   2  dedupe theo event.id (idempotent consumer)
-  3  detector L0 (rule) → Candidate | None                 # ~0 token
-  4  Contact Arbitration: khách đang chat với NV? đang khiếu nại? quá ngân sách chú ý? giờ yên tĩnh?
+  3  detector L0 (rule · ngưỡng · cửa sổ · dedupe · không có case) → CandidateFriction | None   # 0 token, KHÔNG LLM
+  4  Contact Arbitration (code): khách đang chat với NV? đang khiếu nại? quá ngân sách chú ý? giờ yên tĩnh?
         ── chặn ─► ghi "suppressed" + lý do, thử lại theo lịch
-  5  Scheduler agent (§14): find_options → 2–3 phương án (range, kho, kỹ năng) → khoá slot 15 phút
-  6  Writer ⇄ Critic (§14): tin 5 phần (điều đã xảy ra · phương án · thời hạn · phụ trách · vì sao nhận tin)
-  7  claim_check → gửi vào session chat của khách + push notification theo kênh ưa thích
-  8  cập nhật journey: bước hiện tại = "chờ khách chọn", promise mới, hẹn giờ nhắc (workflow)
+  5  context builder (code): tool ĐỌC gom bằng chứng tối thiểu → ContextBundle (mỗi fact có nguồn)
+  6  decision gate:
+        hành động tất định đủ ────────────► mẫu tin + action theo rule                  # KHÔNG LLM
+        phân loại là đủ ──────────────────► L1 triage (model nhỏ)
+        mơ hồ · nhiều nguồn · nhiều bước ─► L2 agent (§13)
+  7  agent điều tra → suy luận → InterventionProposal (chỉ tool đọc; gọi Scheduler (§14) như một tool khi UC3 cần lập phương án)
+  8  validator: claim_check · cụm từ cấm (chẩn đoán, kết luận bảo hành) · quy tắc · arbitration kiểm lại ngay trước khi gửi
+  9  Writer ⇄ Critic (§14): tin 5 phần (điều đã xảy ra · phương án · thời hạn · phụ trách · vì sao nhận tin)
+ 10  gửi vào session chat của khách + push notification theo kênh ưa thích
+ 11  cập nhật journey: bước hiện tại = "chờ khách chọn", promise mới, hẹn giờ nhắc (workflow)
+ 12  verify (loop 5): bằng chứng hệ thống (telematics · CSMS · ledger · trạng thái claim) ── chưa xong ─► retry có giới hạn ─► handoff
+ 13  tái phát sau khi đóng ─► mở vòng mới (UC6), tối đa 2 chu kỳ tự động
 ```
+
+Nhánh lập lại của UC3: parts.reservation.cancelled · parts.eta.changed làm một lịch *đã xác nhận* mất điều kiện (còn < 72 giờ) cũng đi vào bước 3 như một candidate, rồi UC3 lập lại 2–3 phương án và xin khách xác nhận.
 
 ### Luồng C — Xác nhận & ghi
 

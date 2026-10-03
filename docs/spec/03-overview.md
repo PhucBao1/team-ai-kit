@@ -2,13 +2,13 @@
 
 > Trích từ Technical spec & kế hoạch build. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
-```text
+**North star — Proactive AI Customer Care.** AI chủ động phát hiện, điều tra và xử lý những customer friction đang hình thành trước khi khách hàng phải chủ động yêu cầu hỗ trợ: quan sát tín hiệu đủ điều kiện, phát hiện bằng cơ chế rẻ trước (L0 tất định), chỉ gọi LLM khi cần suy luận đa nguồn / nhiều bước, hành động có kiểm soát (validator + Executor + xác nhận) và **xác minh** kết quả. **LLM là tầng leo thang, không phải tầng xử lý event.** Appointment không phải điểm bắt đầu — chỉ là một hành động xuôi dòng (UC3). Sáu use case, owner A/B/C/D và phạm vi Final MVP: proposal PL-A (usecases.md). Mọi kịch bản là giả lập (Synthetic / illustrative scenario for MVP).```text
 TẦNG TƯƠNG TÁC      App chat · Zalo OA · Tổng đài (sau) · Console NV · "Việc của tôi" · Demo panel      → §19 §20 §21
         │ tin nhắn khách                                   ▲ tin trả lời / tin chủ động
         ▼                                                  │
 TẦNG QUYẾT ĐỊNH     Input guard → Triage cascade (LLM nhỏ; PhoBERT ở tuần 3) → Coordinator        → §13 §15 §18
                      ├─ PolicyQA agent ── RAG có phiên bản + memory                          → §14 §16
-                     ├─ Scheduler agent ── lập phương án (đọc)                              → §14
+                     ├─ Scheduler (UC3) ── lập phương án đa ràng buộc (đọc)                 → §14
                      ├─ Handoff builder ── card từ state có cấu trúc                        → §05-D
                      └─ Writer ⇄ Critic (claim_check + rubric)                             → §14 §17
         │ đề xuất (không bao giờ ghi trực tiếp)
