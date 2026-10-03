@@ -28,7 +28,7 @@ Câu hỏi về **trạng thái** (lịch, kho, xe, bảo hành của xe này) l
 | Kỹ thuật | Dùng ở đâu |
 | --- | --- |
 | Function calling + structured output (JSON schema) | Mọi tool, mọi quyết định, handoff card |
-| Plan-then-execute | UC1: lập danh sách phương án trước, rồi mới gọi tool ghi sau xác nhận |
+| Plan-then-execute | UC3: lập danh sách phương án trước, rồi mới gọi tool ghi sau xác nhận |
 | Reflection / self-verification có phản hồi tất định | Loop 2: claim_check trả lỗi cụ thể để model sửa |
 | Router + subagent (supervisor pattern) | Triage định tuyến tất định sang scheduler / writer; không dùng "bầy agent" tự do — chi tiết §14 |
 | Memory 3 tầng | §16 |

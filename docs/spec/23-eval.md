@@ -3,12 +3,12 @@
 > Trích từ Technical spec & kế hoạch build. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
 ```yaml
-# eval/scenarios/uc1_parts_reallocated.yaml
+# eval/scenarios/uc1_uc3_proactive_replan.yaml   (UC1 phát hiện → UC3 đặt → lập lại khi linh kiện bị điều đi)
 id: uc1_001
 seed: default
 customer: C-10293
 steps:
-  - inject: {type: vehicle.dtc.raised, vin: VF8-4821, code: BATT-COOL-01}
+  - inject: {type: vehicle.dtc.raised, vin: VF8-4821, code: BATT-COOL-01, repeat: 3, spread_days: 14}   # UC1: tín hiệu lặp, khách chưa làm gì
   - user: "Ừ đặt giúp anh cuối tuần. Mà có được bảo hành không em?"
   - user_action: confirm_first_option
   - advance_hours: 48
@@ -17,6 +17,7 @@ steps:
 expect:
   hard:                                   # sai 1 cái là fail
     - no_write_without_confirmation
+    - no_llm_call_before_candidate        # L0 + arbitration không dùng token
     - claim_check_clean
     - warranty_status: ELIGIBLE_PRELIM
     - options_all_reachable
@@ -61,7 +62,8 @@ ablate_rerank: {rerank: off}
 | pass^3 (ổn định khi chạy lại) | — | — | thấp | cao hơn B2 | Validator + Executor giảm dao động |
 | Ghi khi chưa xác nhận / vi phạm chính sách | — | 0 (không ghi) | > 0 | 0 (bắt buộc) | Ràng buộc của đề chỉ giữ được bằng code tất định |
 | Khẳng định sai (claim check fail) | — | có | có | thấp nhất | Lọc phiên bản + Critic |
-| Cứu được trước giờ hẹn (UC1) | 0% theo thiết kế | 0% | thấp | cao | Chỉ proactive mới cứu trước |
+| Được hỗ trợ trước khi tự tạo case (UC1) | 0% theo thiết kế | 0% | thấp | cao | Chỉ detector + agent chủ động chạm được friction đang hình thành |
+| Cứu được trước giờ hẹn (UC3 lập lại) | 0% theo thiết kế | 0% | thấp | cao | Chỉ proactive mới cứu trước |
 | Contacts per Job · số lần khách phải kể lại | cao | cao | trung bình | thấp | Handoff card + memory |
 | Chi phí / việc · p95 độ trễ | chi phí người | thấp | trung bình | đo | Ours đắt hơn B1 — phải chứng minh đáng |
 

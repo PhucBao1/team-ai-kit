@@ -8,7 +8,7 @@ Adapter MCP cho DMS / kho thật · identity vault trong nước · Làn 1 copil
 
 #### 3–6 tháng · Vùng + tự động có điều kiện
 
-Temporal cho mọi journey · tự động hoá theo loại hành động khi đạt ngưỡng + CSAT không giảm · UC2, UC5, UC6 · Insights / VoC hằng tuần · kênh tổng đài (ASR/TTS tiếng Việt, kiểm thử giọng 3 miền).
+Temporal cho mọi journey · tự động hoá theo loại hành động khi đạt ngưỡng + CSAT không giảm · UC4, UC5, UC6 đầy đủ (từ spec) · lời hứa báo giá (ý tưởng ngoài sáu UC) · Insights / VoC hằng tuần · kênh tổng đài (ASR/TTS tiếng Việt, kiểm thử giọng 3 miền).
 
 #### 6–12 tháng · Toàn quốc
 

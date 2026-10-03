@@ -1,26 +1,26 @@
-# 08 · MVP & kịch bản demo — Service Appointment Rescue — một kịch bản bao trọn đề bài
+# 08 · MVP & kịch bản demo — Preemptive Service Friction Rescue — một kịch bản bao trọn đề bài
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
-Demo đi từ cảnh báo trên xe → hội thoại nhiều mục đích → đặt lịch có xác nhận → agent tự phát hiện lịch bị lệch kho → đề xuất phương án → khách bực → chuyển người kèm tóm tắt. Mọi yêu cầu của đề xuất hiện trong một câu chuyện.
+Demo bắt đầu từ **tín hiệu hệ thống**, không phải từ khách: mã lỗi lặp lại → L0 phát hiện (UC1) → agent điều tra và chủ động nhắn → hội thoại nhiều mục đích → UC3 lập phương án đa ràng buộc, đặt lịch có xác nhận → linh kiện bị điều đi → lập lại phương án → khách bực → chuyển người kèm tóm tắt → xác minh bằng dữ liệu xe. Mọi yêu cầu của đề xuất hiện trong một câu chuyện. *Synthetic / illustrative scenario for MVP.*
 
-Thứ Ba 08:15 · telematics · VF 8 …4821 · mã lỗi hệ thống làm mát pin · severity = WARNINGChào anh Minh, xe VF 8 của anh vừa ghi nhận cảnh báo ở hệ thống làm mát pin, mức **cảnh báo** (chưa nguy hiểm). Theo hướng dẫn của hãng cho mã lỗi này, anh vẫn di chuyển được nhưng nên kiểm tra sớm. Em đã kiểm tra: lỗi này **không khắc phục được bằng cập nhật phần mềm từ xa**, cần kiểm tra tại xưởng. Anh có muốn em đặt lịch không?  
-*Vì sao anh nhận tin này: xe gửi cảnh báo và anh đã bật thông báo dịch vụ.*nguồn: KB mã lỗi v3.2 (giả định) · telematics 08:15Ừ đặt giúp anh cuối tuần. Mà cái này có được bảo hành không em?Về bảo hành: xe anh mua 14/03/2024, hiện 38.420 km, đăng ký sử dụng cá nhân — trong thời hạn 10 năm hoặc 200.000 km của VF 8. Anh bảo dưỡng đúng lịch tại xưởng ủy quyền (gần nhất 02/2026), nên đủ điều kiện **sơ bộ**; xưởng sẽ kết luận sau khi kiểm tra.  
+Thứ Ba 08:15 · telematics · VF 8 …4821 · mã lỗi hệ thống làm mát pin · severity = WARNING · lần thứ 3 trong 14 ngày · chưa có lịch / ticket → L0 tạo candidate UC1 (0 token) → arbitration qua → Agent được gọiChào anh Minh, xe VF 8 của anh đã ghi nhận cảnh báo ở hệ thống làm mát pin 3 lần trong 14 ngày, mức **cảnh báo** (chưa nguy hiểm). Theo hướng dẫn của hãng cho mã lỗi này, anh vẫn di chuyển được nhưng nên kiểm tra sớm. Em đã kiểm tra: lỗi này **không khắc phục được bằng cập nhật phần mềm từ xa**, cần kiểm tra tại xưởng. Anh có muốn em đặt lịch không?  
+*Vì sao anh nhận tin này: xe gửi cảnh báo lặp lại 3 lần trong 14 ngày và anh đã bật thông báo dịch vụ.*nguồn: KB mã lỗi v3.2 (giả định) · telematics 08:15Ừ đặt giúp anh cuối tuần. Mà cái này có được bảo hành không em?Về bảo hành: xe anh mua 14/03/2024, hiện 38.420 km, đăng ký sử dụng cá nhân — trong thời hạn 10 năm hoặc 200.000 km của VF 8. Anh bảo dưỡng đúng lịch tại xưởng ủy quyền (gần nhất 02/2026), nên đủ điều kiện **sơ bộ**; xưởng sẽ kết luận sau khi kiểm tra.  
   
-Về lịch: thứ Bảy 3/10, xưởng Long Biên (4 km từ nhà anh) đã có sẵn linh kiện dự kiến cho mã lỗi này, còn 9:00 hoặc 14:00. Pin xe hiện 42%, đủ đi tới xưởng.nguồn: chính sách bảo hành công bố · hồ sơ xe · odometer · DMS · ERP kho9h nhéEm xác nhận: **kiểm tra hệ thống làm mát pin · VF 8 30A-xxx.xx · 9:00 thứ Bảy 3/10 · xưởng Long Biên · dự kiến 2 giờ**. Anh bấm Xác nhận để em đặt nhé.Xác nhậnĐổi giờĐã đặt lịch SA-20931. Linh kiện đã được giữ cho xe anh. Em sẽ nhắc anh tối thứ Sáu.— hai ngày sau, khách không làm gì —Thứ Năm 14:02 · ERP kho · reservation linh kiện cho SA-20931 bị huỷ (điều chuyển cho xe triệu hồi)Chào anh Minh, linh kiện cho lịch 9:00 thứ Bảy của anh tại Long Biên vừa bị điều chuyển nên chưa kịp về. Em rất tiếc. Bên em có 2 phương án:  
+Về lịch: thứ Bảy 3/10, xưởng Long Biên (4 km từ nhà anh) đã có sẵn linh kiện dự kiến cho mã lỗi này, còn 9:00 hoặc 14:00. Pin xe hiện 42%, đủ đi tới xưởng.nguồn: chính sách bảo hành công bố · hồ sơ xe · odometer · DMS · ERP kho9h nhéEm xác nhận: **kiểm tra hệ thống làm mát pin · VF 8 30A-xxx.xx · 9:00 thứ Bảy 3/10 · xưởng Long Biên · dự kiến 2 giờ**. Anh bấm Xác nhận để em đặt nhé.Xác nhậnĐổi giờĐã đặt lịch SA-20931. Linh kiện đã được giữ cho xe anh. Em sẽ nhắc anh tối thứ Sáu.— hai ngày sau, khách không làm gì —Thứ Năm 14:02 · ERP kho (UC3 · nhánh lập lại) · reservation linh kiện cho SA-20931 bị huỷ (điều chuyển cho xe triệu hồi)Chào anh Minh, linh kiện cho lịch 9:00 thứ Bảy của anh tại Long Biên vừa bị điều chuyển nên chưa kịp về. Em rất tiếc. Bên em có 2 phương án:  
 (1) Giữ nguyên 9:00 thứ Bảy, chuyển sang **xưởng Gia Lâm** (cách nhà anh 6 km) đã có sẵn linh kiện.  
 (2) Dời sang **9:00 thứ Ba 6/10** tại Long Biên khi linh kiện về.Phương án 1Phương án 2Gặp nhân viênnguồn: ERP kho 14:02 · DMS slot · khoảng cách từ địa chỉ đã đăng kýSao lại thế, anh sắp xếp hết rồi. Cho anh nói chuyện với người.Em hiểu, và xin lỗi anh vì sự bất tiện này. Em chuyển anh cho CVDV Hải ngay — anh Hải đã có đầy đủ thông tin, anh không cần kể lại. Anh Hải sẽ gọi anh trong 15 phút.chuyển người → CVDV Hải nhận handoff card lúc 14:07 · xem "Phía nhân viên" bên dướiAnh Hải đã nhận thông tin và sẽ gọi anh ngay. Đây là cuộc trò chuyện với nhân viên, em sẽ cập nhật lại lịch ở đây sau khi anh chốt.14:11 · CVDV Hải gọi · khách chọn phương án 1 · agent gửi xác nhận lịch mới vào chatLịch mới đã được xác nhận: **9:00 thứ Bảy 3/10 · xưởng Gia Lâm** · linh kiện đã giữ cho xe anh · người phụ trách: CVDV Hải. Em sẽ nhắc anh tối thứ Sáu.nguồn: DMS SA-20931 (cập nhật 14:18) · ERP reservation #R-7702— thứ Bảy + 14 ngày —Verify · xe sửa xong 11:30 thứ Bảy · telematics 14 ngày không ghi nhận lại mã lỗi → RECOVERED
 
 | Khoảnh khắc trong demo | Thể hiện |
 | --- | --- |
-| Cảnh báo lúc 08:15 | Proactive T0; L0 lọc + KB mã lỗi; ① phân loại từ xa: không sửa được qua phần mềm |
+| UC1 · tín hiệu lặp lúc 08:15 (khách chưa làm gì) | L0 đếm 3 lần / 14 ngày, 0 token; arbitration; agent điều tra; ① phân loại từ xa: không sửa được qua phần mềm |
 | "Có được bảo hành không" | Goal stack (2 mục đích); ② bộ tính bảo hành tất định; không kết luận thay xưởng |
-| "Đã có sẵn linh kiện… pin 42% đủ đi" | ④ dự đoán linh kiện; ⑤ xếp lịch theo quãng đường |
+| "Đã có sẵn linh kiện… pin 42% đủ đi" | UC3 · ④ dự đoán linh kiện; ⑤ xếp lịch theo quãng đường; phương án bị loại đều có lý do |
 | Nút Xác nhận | Xác nhận mức 2, nhắc lại đủ tham số |
-| Thứ Năm 14:02 | In-flight T1–T2; phát hiện lệch lịch – kho trước khi khách đến xưởng |
+| Thứ Năm 14:02 | UC3 · nhánh lập lại: lịch đã xác nhận mất linh kiện; phát hiện lệch lịch – kho trước khi khách đến xưởng |
 | 2 phương án | L2 lập phương án; validator kiểm tra; không tự đổi lịch |
 | Khách bực → gặp người | Handoff card lắp từ dữ liệu có cấu trúc; copilot trong cuộc gọi; auto-wrap; agent nhận lại việc sau khi chốt |
-| 14 ngày sau | ⑥ xác minh bằng dữ liệu xe, không chỉ "đã đóng lệnh" |
+| 14 ngày sau | ⑥ xác minh bằng dữ liệu xe, không chỉ "đã đóng lệnh"; tái phát → UC6 |
 
 ### Màn hình "Việc của tôi" — khách tự thấy lời hứa đang mở
 
@@ -100,7 +100,7 @@ Tin nhắn chủ động và màn hình này dùng chung một nguồn dữ li�
 | --- | --- | --- |
 | **Chat → nhân viên** (như trên) | Khách yêu cầu, bực, agent không chắc | Handoff card + copilot; agent nhận lại việc sau khi chốt |
 | **Tổng đài giọng nói → tổng đài viên** | Khách gọi, AI không xử lý được | **Chuyển máy có giới thiệu:** tổng đài viên nghe bản tóm tắt 1 câu và thấy handoff card *trước khi* nối máy, nên câu đầu tiên đã đúng việc |
-| **Ngoài giờ** (UC3) | Không có nhân viên trực chat | Việc khẩn → tổng đài 24/7 ngay; việc thường → ticket kèm card, khách được hẹn giờ cụ thể |
+| **Ngoài giờ** (UC2) | Không có nhân viên trực chat | Việc khẩn → tổng đài 24/7 ngay; việc thường → ticket kèm card, khách được hẹn giờ cụ thể |
 | **Khiếu nại chính thức** | Bộ phát hiện khiếu nại kích hoạt | Card + toàn bộ lịch sử chuyển bộ phận xử lý khiếu nại; agent không gửi tin bán hàng, không tự giải quyết cho xong |
 | **An toàn** | Mã lỗi CRITICAL, mô tả nguy hiểm | Chuyển 24/7 ngay với vị trí (có đồng ý), tình trạng pin, mã lỗi — không chờ tóm tắt đầy đủ |
 

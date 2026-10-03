@@ -5,13 +5,20 @@
 ### Hai cửa vào, một agent
 
 - **Tin nhắn khách** → /chat → agent với session của khách.
-- **Candidate từ detector** → agent chạy với một "tin nhắn hệ thống" có cấu trúc (loại sự kiện, journey, bằng chứng) → sinh tin chủ động gửi vào **cùng session** của khách.
+- **Candidate từ detector** (đã qua L0 + arbitration + decision gate) → agent chạy với một "tin nhắn hệ thống" có cấu trúc (ContextBundle: loại sự kiện, journey, bằng chứng có nguồn) → trả InterventionProposal → sinh tin chủ động gửi vào **cùng session** của khách.
 - Session state giữ **goal stack** (các mục đích, trạng thái, slot đã biết) — agent đọc và cập nhật qua tool update_goals.
+
+### Agent làm gì với một candidate
+
+- **Điều tra → suy luận → đề xuất can thiệp.** Đó là vai trò của agent gốc — không phải chỉ xếp lịch.
+- Chỉ tool **đọc**; đề xuất đi qua validator, rồi Executor mới ghi (sau khi khách xác nhận nếu là mức 2).
+- Không chẩn đoán xe, không kết luận bảo hành: chỉ "hệ thống ghi nhận … lặp N lần" và "đủ điều kiện sơ bộ".
+- Xếp lịch / phương án là **một năng lực** (subagent Scheduler) mà agent gọi cho UC3 khi can thiệp xưởng đã chính đáng.
 
 ### Tuần 1: subagent
 
 - **triage** — phân loại ý định, mức khẩn (model nhỏ)
-- **scheduler** — lập phương án UC1 (model suy luận)
+- **scheduler** — lập phương án đa ràng buộc cho UC3 (model suy luận)
 - **writer** — soạn tin theo mẫu + giọng văn (model nhỏ)
 ```python
 # agent/graph.py — phác thảo, kiểm tra theo docs LangGraph / LangChain hiện hành

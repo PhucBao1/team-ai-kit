@@ -1,5 +1,7 @@
 # Kịch bản demo MVP — T4 30/9 (≈ 5 phút) = bài kiểm end-to-end của tuần đầu
 
+> **Lưu ý (định hướng Proactive AI Customer Care):** kịch bản này là demo MVP 30/9 và vẫn đúng như bài kiểm. Từ định hướng mới, câu chuyện flagship **bắt đầu từ tín hiệu hệ thống** (UC1) — xem `demo-full.md` dòng 0. Bước 2 (`uc1_parts_cancelled`) nay là **nhánh lập lại của UC3**, không còn là điểm khởi đầu của sản phẩm.
+
 Mọi task MVP phục vụ kịch bản này. Dữ liệu: `contracts/fixtures/demo_world.yaml` (đồng hồ giả lập bắt đầu 30/9 09:00).
 Chạy trên **Live URL**; dự phòng: video quay trước 15:00 (C1.08). LLM: OpenAI `gpt-4o-mini`.
 

@@ -18,9 +18,9 @@ HÃNG    ── Insights / VoC agent          vấn đề lặp lại theo dòng
 
 ### Trụ cột 2 — Copilot kỹ thuật viên
 
-**Vấn đề nghiệp vụ:** kỹ thuật viên chẩn đoán xe điện phải đọc log mã lỗi, lịch sử xe, tài liệu sửa chữa và thông báo kỹ thuật của hãng ở nhiều nơi. Chẩn đoán lâu hoặc sai → xe nằm xưởng lâu, thay nhầm linh kiện, lỗi quay lại (UC5).
+**Vấn đề nghiệp vụ:** kỹ thuật viên chẩn đoán xe điện phải đọc log mã lỗi, lịch sử xe, tài liệu sửa chữa và thông báo kỹ thuật của hãng ở nhiều nơi. Chẩn đoán lâu hoặc sai → xe nằm xưởng lâu, thay nhầm linh kiện, lỗi quay lại (UC6).
 
-**Điểm nối với lõi:** khi xe báo mã lỗi và khách đặt lịch, copilot **chẩn đoán sơ bộ trước khi xe đến** → dự đoán linh kiện cần → giữ linh kiện sớm. Đây là cách ngăn UC1 từ gốc thay vì chỉ cứu khi đã lệch.
+**Điểm nối với lõi:** khi xe báo mã lỗi và khách đặt lịch, copilot **chẩn đoán sơ bộ trước khi xe đến** → dự đoán linh kiện cần → giữ linh kiện sớm. Đây là cách ngăn friction từ gốc (UC1) thay vì chỉ cứu khi đã lệch (nhánh lập lại UC3).
 
 | Thành phần | Nội dung |
 | --- | --- |

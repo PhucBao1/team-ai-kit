@@ -75,7 +75,7 @@ Bảng trên là tóm tắt theo lớp. Danh sách đầy đủ ~50 công nghệ
 | Kỹ thuật | Dùng ở đâu |
 | --- | --- |
 | Structured output (JSON schema) | Mọi quyết định của Decision Engine, handoff card, lời hứa trích từ transcript |
-| Điều chỉnh mức suy luận theo việc | Suy luận sâu chỉ ở lập phương án UC1 và hội thoại mơ hồ; triage và soạn tin dùng mức thấp |
+| Điều chỉnh mức suy luận theo việc | Suy luận sâu chỉ ở can thiệp nhiều nguồn (UC1), lập phương án đa ràng buộc (UC3) và hội thoại mơ hồ; triage và soạn tin dùng mức thấp |
 | Prompt caching | Chính sách, SOP, mô tả tool — phần tĩnh lớn, dùng lại liên tục |
 | Self-verification có phản hồi (vòng 2) | Claim check thất bại → trả lỗi cụ thể cho model sửa, tối đa 2 lần → chuyển người |
 | Human-in-the-loop interrupt | Xác nhận của khách, duyệt hoàn tiền, duyệt đề xuất sửa SOP (vòng 4) |

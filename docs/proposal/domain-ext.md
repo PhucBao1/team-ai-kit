@@ -16,10 +16,10 @@
 Khách báo tai nạn ─► Cứu hộ kéo xe ─► Xưởng đồng sơn tiếp nhận ─► Giám định bảo hiểm
       ─► Báo giá gửi hãng bảo hiểm ─► Bảo hiểm duyệt (có thể trả về) ─► Chờ linh kiện ─► Sửa ─► Bàn giao
 Bên tham gia: khách · cứu hộ · xưởng · hãng bảo hiểm · giám định viên · kho · (ngân hàng nếu xe trả góp)
-Lỗi ngầm: hồ sơ nằm chờ giám định; bảo hiểm trả về báo giá không ai nhận — cùng dạng T3 như UC6
+Lỗi ngầm: hồ sơ nằm chờ giám định; bảo hiểm trả về báo giá không ai nhận — cùng dạng T3 như UC5
 ```
 
-Đặt ở Wave 3: cùng cơ chế với UC6 nhưng thêm một tổ chức bên ngoài (hãng bảo hiểm), cần thoả thuận chia sẻ trạng thái hồ sơ.
+Đặt ở Wave 3: cùng cơ chế với UC5 nhưng thêm một tổ chức bên ngoài (hãng bảo hiểm), cần thoả thuận chia sẻ trạng thái hồ sơ.
 
 ### Customer Success cho khách cá nhân — "90 ngày đầu làm chủ xe điện"
 
@@ -39,7 +39,7 @@ Chỉ số: tỷ lệ bảo dưỡng lần đầu đúng hạn, CES 90 ngày, t�
 | Khách B2B | Họ cần | Agent hỗ trợ |
 | --- | --- | --- |
 | **Đội xe dịch vụ** (taxi, gọi xe, giao hàng) | Thời gian xe chạy được; báo cáo; một đầu mối | Báo cáo thời gian xe dừng theo xe / tuần cho account manager; ưu tiên slot ngoài giờ chạy; gom nhiều xe một lượt; sửa từ xa trước |
-| **Mạng lưới đại lý / xưởng** (khách B2B của hãng) | Claim được duyệt nhanh, linh kiện đúng hẹn, thông tin kỹ thuật mới | UC6 chính là bài toán Client Services giữa hãng và đại lý: claim bị trả về có người nhận, bằng chứng tự đính kèm, thông báo kỹ thuật đến đúng xưởng |
+| **Mạng lưới đại lý / xưởng** (khách B2B của hãng) | Claim được duyệt nhanh, linh kiện đúng hẹn, thông tin kỹ thuật mới | UC5 chính là bài toán Client Services giữa hãng và đại lý: claim bị trả về có người nhận, bằng chứng tự đính kèm, thông báo kỹ thuật đến đúng xưởng |
 
 ### Đặc thù xe điện & Việt Nam
 

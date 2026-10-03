@@ -20,7 +20,7 @@ Tỷ giá dùng: 1 USD ≈ 26.200 đ (giá bán Vietcombank 25/9/2026 là 26.180
 | --- | --- | --- | --- | --- |
 | Flash (dòng 3.6–3.8) | Coordinator, PolicyQA, Writer, LLM chấm | $1,50 (đang KM $0,75) | $7,50 (đang KM $3,75) | $0,15 |
 | Flash-Lite 3.1 | Triage, claim check, Critic, handoff card, khách ảo | $0,25 | $1,50 | $0,025 |
-| Pro 3.1 (preview) | Scheduler lập phương án UC1 | $2,00 | $12,00 | $0,20 |
+| Pro 3.1 (preview) | Scheduler lập phương án UC3 | $2,00 | $12,00 | $0,20 |
 
 ### Một hội thoại (6 lượt)
 
@@ -71,7 +71,7 @@ Giảm: dùng giá Flash khuyến mãi đến hết 2026; LLM chấm chạy qua 
 | **Tổng** |  | **≈ $10.000–16.000 ≈ 270–430 triệu đ / tháng** |
 | **Mỗi việc** (hội thoại hoặc ca proactive) | Tổng ÷ ~165.000 việc/tháng, đã gồm hạ tầng | **≈ $0,06–0,10 ≈ 1.600–2.600 đ** |
 
-**Đọc con số thế nào:** chi phí chủ yếu nằm ở LLM của hội thoại, cụ thể là coordinator — nên tối ưu ở đó trước. Gartner dự báo chi phí mỗi lần giải quyết bằng GenAI vượt $3 vào 2030; thiết kế nhiều tầng (L0 code, triage rẻ, chỉ ca khó mới lên model lớn) giữ mức này ở vài xu. Lợi ích so sánh là một lượt xe đến xưởng rồi phải về (UC1) hay một cuộc gọi hỏi lại được tránh — con số đó cần dữ liệu thật, đo bằng ACRC, không ước ở đây.
+**Đọc con số thế nào:** chi phí chủ yếu nằm ở LLM của hội thoại, cụ thể là coordinator — nên tối ưu ở đó trước. Gartner dự báo chi phí mỗi lần giải quyết bằng GenAI vượt $3 vào 2030; thiết kế nhiều tầng (L0 code, triage rẻ, chỉ ca khó mới lên model lớn) giữ mức này ở vài xu. Lợi ích so sánh là một lượt xe đến xưởng rồi phải về (UC3 · nhánh lập lại) hay một cuộc gọi hỏi lại được tránh — con số đó cần dữ liệu thật, đo bằng ACRC, không ước ở đây.
 
 ### Đòn bẩy giảm chi phí (thứ tự làm)
 

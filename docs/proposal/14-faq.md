@@ -14,7 +14,7 @@ Agent không kết luận bảo hành — chỉ nói đủ điều kiện sơ b�
 
 Không qua LLM. Mức CRITICAL dùng mẫu tin do hãng duyệt, chuyển tổng đài 24/7 ngay, đề nghị cứu hộ khi khách đồng ý. Agent không chẩn đoán, không trấn an.
 
-Đo bằng ACRC — chi phí trên mỗi việc được giải quyết và xác minh. L0 tất định lọc phần lớn event; nhiều use case (UC3, UC6) gần như không cần LLM. Ước tính theo giá Gemini niêm yết 9/2026: một hội thoại 6 lượt ≈ 1.300–2.700 đ, một ca proactive ≈ 1.200 đ; ở quy mô ~165.000 việc/tháng, tổng cả hạ tầng GCP ≈ 270–430 triệu đ/tháng, tức ≈ 1.600–2.600 đ mỗi việc. Ba tuần cuộc thi ≈ 13–26 triệu đ, phần lớn là chạy eval. Cách tính chi tiết: file technical §36.
+Đo bằng ACRC — chi phí trên mỗi việc được giải quyết và xác minh. L0 tất định lọc phần lớn event; nhiều ca (UC4, đường tất định của UC2, claim có cấu trúc ở UC5) gần như không cần LLM. Ước tính theo giá Gemini niêm yết 9/2026: một hội thoại 6 lượt ≈ 1.300–2.700 đ, một ca proactive ≈ 1.200 đ; ở quy mô ~165.000 việc/tháng, tổng cả hạ tầng GCP ≈ 270–430 triệu đ/tháng, tức ≈ 1.600–2.600 đ mỗi việc. Ba tuần cuộc thi ≈ 13–26 triệu đ, phần lớn là chạy eval. Cách tính chi tiết: file technical §36.
 
 Upsell cho khách đang có việc kẹt làm mất niềm tin; phần lớn upsell không cần LLM agent; tin marketing cần đồng ý riêng. Nền móng (hội thoại + Recovery) và Arbitration phải có trước.
 
@@ -28,7 +28,7 @@ Không đặt mục tiêu đó. Bài học Klarna: giảm nhân sự theo tỷ l
 
 Xe có kết nối: ứng dụng VinFast công khai các tính năng xem pin, trạng thái sạc, vị trí từ xa, E-call và cập nhật phần mềm từ xa (FOTA). Phạm vi chi tiết — mã lỗi có gửi về theo thời gian thực không, tần suất — không công khai, nên bài ghi rõ là giả định và cần hãng xác nhận (§07).
 
-Phần chính chỉ đào sâu một luồng — UC1 với sáu quyết định đặc thù xe điện — đến mức prototype và bằng chứng. Các use case, trụ cột và nghiệp vụ khác nằm ở phụ lục như tầm nhìn, không phải phạm vi xây.
+Phần chính đào sâu một engine chăm sóc chủ động: UC1 (flagship, sáu quyết định đặc thù xe điện) đến mức prototype và bằng chứng; UC2, UC3 dùng chung engine ở mức demo-ready; UC4–UC6 là spec và kịch bản. Các trụ cột và nghiệp vụ khác nằm ở phụ lục như tầm nhìn, không phải phạm vi xây.
 
 Có. Theo Luật Trí tuệ nhân tạo (hiệu lực 1/3/2026), agent tự giới thiệu là AI, tin tự động có nhãn, và luôn có lựa chọn gặp nhân viên. Khách có thể chọn không nhận tin chủ động do AI soạn.
 

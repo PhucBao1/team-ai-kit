@@ -13,7 +13,7 @@
 ### Workflow nhiều ngày (loop 5) — Temporal
 
 ```python
-# workflows/appointment_guard.py — phác thảo
+# workflows/appointment_guard.py — phác thảo (UC3: canh điều kiện lịch đã đặt)
 @workflow.defn
 class AppointmentGuard:
     # sống từ lúc đặt lịch đến khi xe sửa xong và được xác minh
@@ -24,7 +24,7 @@ class AppointmentGuard:
             await workflow.wait_condition(lambda: self.signal_pending, timeout=timedelta(hours=12))
             state = await workflow.execute_activity(check_appointment_health, appt_id, ...)
             if state.parts_at_risk:
-                await workflow.execute_activity(start_rescue, appt_id, ...)   # → luồng B
+                await workflow.execute_activity(start_replan, appt_id, ...)   # → luồng B (UC3 lập lại phương án)
             if state.hours_to_start <= 36 and not self.reminded:
                 await workflow.execute_activity(send_reminder, appt_id, ...); self.reminded = True
             self.done = state.repair_closed
@@ -37,7 +37,7 @@ class VerifyFix:
         window = await workflow.execute_activity(verification_window, appt_id, ...)
         await workflow.sleep(window)                                          # timer bền, không mất khi restart
         recurred = await workflow.execute_activity(dtc_recurred, appt_id, ...)
-        await workflow.execute_activity(close_or_reopen, appt_id, recurred, ...)   # UC5 nếu tái phát
+        await workflow.execute_activity(close_or_reopen, appt_id, recurred, ...)   # UC6 nếu tái phát
 ```
 
 MVP / tuần 1 dùng đồng hồ giả lập + job định kỳ thay Temporal; tuần 2 (nếu kịp) hoặc production chuyển sang Temporal. Giao diện activity giữ nguyên.

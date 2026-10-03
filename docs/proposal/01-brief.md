@@ -13,6 +13,6 @@
 | Không tự tạo chính sách, giá, trạng thái | Bảng nguồn sự thật + bước kiểm tra tất định: mọi con số, ngày, mã trong câu trả lời phải có trong kết quả tool/KB | §06 |
 | Hành động ảnh hưởng khách phải được xác nhận | 4 mức xác nhận; nhắc lại chính xác tham số; đổi tham số thì xác nhận cũ mất hiệu lực | §06 · §09 |
 | Tuân thủ pháp lý Việt Nam | Minh bạch "đang nói chuyện với AI" (Luật Trí tuệ nhân tạo, hiệu lực 1/3/2026); khiếu nại theo Luật Bảo vệ quyền lợi người tiêu dùng 2023; dữ liệu xe và vị trí theo đồng ý | §03 · §09 |
-| *Mở rộng theo mentor:* chủ động, không chờ khách hỏi | Tín hiệu từ xe, trạm sạc, xưởng, kho, bảo hành đi vào cùng Decision Engine; agent theo dõi mọi việc tạo trong chat đến khi xong | §04 · §07 · PL-A |
+| *Mở rộng theo mentor:* chủ động, không chờ khách hỏi | Tín hiệu từ xe, trạm sạc, xưởng, kho, bảo hành đi vào cùng Decision Engine: L0 tất định phát hiện friction đang hình thành trước khi khách mở case, chỉ ca nhiều nguồn mới tới Agent; agent theo dõi mọi việc đến khi được **xác minh** | §04 · §07 · PL-A |
 
 Bối cảnh lấy cảm hứng từ hệ sinh thái VinFast / V-Green. Thông tin chính sách lấy từ nguồn công khai (ghi nguồn ở §11 và cuối trang). Mọi quy trình nội bộ, hệ thống, số liệu vận hành là **giả định** — không đại diện cho quy trình chính thức của VinFast.

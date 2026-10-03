@@ -36,7 +36,7 @@ Agent: cảnh báo + đề xuấtT1 → T2
 
 Đã đặt lịch, xe đang ở xưởng, claim đang chờ duyệt, lời hứa gọi lại. Workflow âm thầm dừng.
 
-← Khác biệt chínhT2
+← Khác biệt chính (cùng với T0 đang hình thành)T2
 
 #### Khách phải giục
 
@@ -48,7 +48,7 @@ Chatbot thông thườngT3
 
 Khiếu nại, mạng xã hội, mất niềm tin vào thương hiệu.
 
-Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến từ xe, trạm sạc, xưởng, kho, bảo hành. Nhưng giá trị lớn nhất nằm ở cửa sổ **T1–T2**: khách đã hành động, doanh nghiệp đã hứa, và việc đang âm thầm dừng. Đây là nơi proactive outreach (T0) và chatbot (T2) đều không nhắm tới.
+Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến từ xe, trạm sạc, xưởng, kho, bảo hành. Giá trị nằm ở hai cửa sổ: **T0 đang hình thành** — friction nổi lên từ nhiều tín hiệu lặp lại khi khách chưa tạo case nào (UC1, UC2); và **T1–T2** — việc đã chạy dở, doanh nghiệp đã hứa, workflow âm thầm dừng (UC3 lập lại, UC5, UC6). Khác với outreach cho sự kiện đã biết: không gửi tin cho mọi event, mà phát hiện friction bằng cơ chế rẻ, chỉ gọi LLM khi cần suy luận, và xác minh kết quả.
 
 | Trục | Chatbot CSKH | Proactive outreach | Đề xuất này |
 | --- | --- | --- | --- |
@@ -69,7 +69,7 @@ Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến
 | **Klarna** (2024–2026) | AI làm việc tương đương 700 nhân viên, giảm nhân sự ngoài từ 3.000 xuống 2.300 → CSAT giảm mạnh ở ca phức tạp → tuyển lại đội 100 chuyên gia | Không hứa cắt người; CSAT là điều kiện cứng |
 | **Ngân hàng Việt Nam** | Chatbot Vietcombank ~500.000 yêu cầu/tháng, đáp ứng ~70% nhu cầu cơ bản; ~15% ngân hàng dùng AI ở mức trung bình, chưa ai triển khai AI agent quy mô lớn; 65% chưa có kho dữ liệu tập trung (Tạp chí Ngân hàng) | Khoảng trống có thật ở Việt Nam; dữ liệu phân mảnh là rào cản chính |
 
-**Nói thẳng:** chẩn đoán từ xa, gửi trước linh kiện và ưu tiên dịch vụ lưu động là **thực hành đã được chứng minh** ở BMW, Tesla, Rivian — đề xuất dùng lại chúng có chủ đích. Điểm mới của đề xuất nằm ở bốn chỗ: **(1)** cứu việc đang chạy dở giữa các hệ thống (in-flight: lịch lệch kho, claim kẹt, lời hứa bị quên) — các hãng trên chủ yếu dừng ở phát hiện lỗi xe; **(2)** một bộ não cho cả hội thoại theo đề bài lẫn chủ động, với xác nhận và guardrail tất định; **(3)** "xong" được xác minh bằng dữ liệu xe; **(4)** bối cảnh Việt Nam và hệ sinh thái nhiều đơn vị.
+**Nói thẳng:** chẩn đoán từ xa, gửi trước linh kiện và ưu tiên dịch vụ lưu động là **thực hành đã được chứng minh** ở BMW, Tesla, Rivian — đề xuất dùng lại chúng có chủ đích. Điểm mới của đề xuất nằm ở bốn chỗ: **(1)** phát hiện friction đang hình thành từ tín hiệu lặp lại *và* cứu việc đang chạy dở giữa các hệ thống (in-flight: lịch lệch kho, claim kẹt, tín hiệu quay lại sau sửa) — các hãng trên chủ yếu dừng ở phát hiện lỗi xe; **(2)** một bộ não cho cả hội thoại theo đề bài lẫn chủ động, với xác nhận và guardrail tất định; **(3)** "xong" được xác minh bằng dữ liệu xe; **(4)** bối cảnh Việt Nam và hệ sinh thái nhiều đơn vị.
 
 ### Reactive AI vs Proactive AI — và đề xuất này ở đâu
 
@@ -81,4 +81,4 @@ Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến
 | Logic quyết định | Rule if-then | Lập kế hoạch theo mục tiêu + dự đoán | Rule tất định trước, LLM chỉ khi mơ hồ, validator trước khi ghi |
 | Học | Rule tĩnh, sửa tay | Vòng phản hồi liên tục | Learn có người duyệt: đề xuất ngưỡng, SOP, root cause — không tự sửa policy |
 | Thời gian phản hồi | Tức thì | Vài giây, có tính toán trước | Hội thoại: 1–3 giây · Proactive: bất đồng bộ, đúng thời điểm (không cần tức thì, cần *kịp*) |
-| Phạm vi vấn đề | Câu hỏi của khách | Sự kiện đã biết (churn, outage, fraud) | Thêm lỗi ngầm liên hệ thống trong cửa sổ in-flight |
+| Phạm vi vấn đề | Câu hỏi của khách | Sự kiện đã biết (churn, outage, fraud) | Thêm friction đang hình thành (T0) và lỗi ngầm liên hệ thống trong cửa sổ in-flight |

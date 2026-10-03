@@ -9,16 +9,19 @@ Nguyên tắc: bắt đầu bằng một agent (MVP). Chỉ tách khi thoả ít
 ```text
 KÊNH KHÁCH ─► Coordinator (node supervisor, model nhanh) — giữ goal stack, nói chuyện với khách
                    ├─ route ────► PolicyQA subgraph     (RAG chính sách, chỉ tool đọc KB)
-                   ├─ as tool ──► Scheduler subgraph    (model suy luận, lập phương án UC1)
+                   ├─ as tool ──► Scheduler subgraph    (model suy luận, lập phương án UC3 — một năng lực, không phải mục đích duy nhất)
                    ├─ as tool ──► Handoff builder      (lắp card từ state, model nhỏ)
                    └─ tool ─────► Executor tất định  (tool ghi: token + validator + saga) ◄─ duy nhất được ghi
 
 SỰ KIỆN ─► Proactive pipeline = StateGraph nối tiếp [
+              Detector L0 (code, không LLM) → Arbitration (code) →
               ContextBuilder (code) →
-              fan-out song song [ vehicle · parts · slots ]  (Send / nhiều cạnh) →
-              Scheduler agent →
+              fan-out song song [ vehicle · parts · slots · history ]  (Send / nhiều cạnh) →
+              Decision gate (code: tất định đủ? → mẫu tin, KHÔNG LLM) →
+              Coordinator điều tra → suy luận → InterventionProposal   (gọi Scheduler subgraph như tool khi UC3 cần) →
+              Validator (claim_check, cụm từ cấm) →
               vòng Writer → Critic (claim_check + rubric), cạnh điều kiện, tối đa 2 lần →
-              Arbitration (code) → gửi vào session của khách ]
+              Arbitration kiểm lại (code) → gửi vào session của khách → Verifier (loop 5) ]
 
 NHÂN VIÊN ─► Copilot agent (gợi ý có nguồn, không có tool ghi)
 BATCH     ─► Insights agent (loop 4, VoC — chạy ngoài giờ, batch)
@@ -39,8 +42,16 @@ LIÊN ĐƠN VỊ ─► A2A: agent trạm sạc · agent cư dân · trợ lý A
 
 ```yaml
 # agent/contracts.yaml — mỗi agent khai báo như một service
-scheduler:
-  goal: "Đề xuất 2–3 phương án đặt / đổi lịch khả thi"
+coordinator_care:           # agent gốc khi chạy với một candidate (UC1, UC2, UC5, UC6)
+  goal: "Điều tra candidate → suy luận → đề xuất can thiệp (InterventionProposal)"
+  model_tier: reasoning
+  input:  ContextBundle       # từ context builder, mỗi fact có nguồn
+  output: InterventionProposal
+  tools_allow: [get_vehicle_status, explain_dtc, check_warranty, list_jobs, find_chargers]   # chỉ đọc; + scheduler (as tool)
+  budget: {tokens: 8000, seconds: 10, tool_calls: 6}
+  on_fail: "handoff với HandoffCard; không gửi tin"
+scheduler:                  # năng lực của UC3
+  goal: "Đề xuất 2–3 phương án đặt / đổi lịch khả thi, kèm lý do loại các phương án khác"
   model_tier: reasoning
   input:  SchedulerInput      # từ session.state["context"]
   output: list[Option]        # ghi vào session.state["options"] (output_key)

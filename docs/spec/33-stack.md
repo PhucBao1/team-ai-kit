@@ -9,7 +9,7 @@ Nguyên tắc: **một framework điều phối agent (LangGraph)**; mọi thứ
 | 1 · Agent & AI | | | | |
 | **LangGraph** | Framework điều phối agent duy nhất | Coordinator + sub-agent, luồng proactive, vòng Writer ⇄ Critic, dừng chờ khách xác nhận (interrupt), nhớ trạng thái hội thoại bền qua checkpoint | MVP | §13 §14 |
 | **LangChain (create_agent, tool)** | Lớp gọi model + tool bên dưới LangGraph | Khai báo tool, structured output (JSON schema), không phải tự viết vòng gọi tool | MVP | §13 |
-| **Gemini (Gemini Enterprise Agent Platform / Vertex AI)** | Model ngôn ngữ | Bản nhanh: hội thoại, soạn tin. Bản suy luận: lập phương án UC1. Nằm trong GCP, dùng IAM và VPC-SC | MVP | §07 §15 |
+| **Gemini (Gemini Enterprise Agent Platform / Vertex AI)** | Model ngôn ngữ | Bản nhanh: hội thoại, soạn tin. Bản suy luận: can thiệp nhiều nguồn (UC1) và lập phương án đa ràng buộc (UC3). Nằm trong GCP, dùng IAM và VPC-SC | MVP | §07 §15 |
 | **Lớp adapter model (hoặc LiteLLM)** | Router theo việc + đổi nhà cung cấp | Đổi model / nhà cung cấp không sửa code agent; chọn model rẻ cho việc dễ | T1–2 | §15 §38 |
 | **Pydantic v2 (schema output)** | Ép model trả đúng cấu trúc | Quyết định, handoff card, đề xuất hành động luôn parse được và kiểm tra được | MVP | §13 |
 | **Validator + claim_check + confirmation token (code nhóm)** | Guardrail tất định | Chặn bịa chính sách / giá / trạng thái; không ghi gì khi khách chưa xác nhận — ràng buộc cốt lõi của đề | MVP | §17 |

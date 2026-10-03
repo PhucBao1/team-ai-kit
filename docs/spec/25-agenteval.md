@@ -15,7 +15,7 @@
 
 ```python
 # eval/assertions.py — kiểm tra theo trạng thái cuối
-def assert_uc1_rescued(db, scenario):
+def assert_uc3_replan_booked(db, scenario):                # nhánh lập lại của UC3
     appt = db.latest_appointment(scenario.vin)
     assert appt.workshop in scenario.acceptable_workshops
     assert appt.start_at == scenario.chosen_slot
@@ -23,6 +23,11 @@ def assert_uc1_rescued(db, scenario):
     assert db.slot(scenario.old_slot).status == "free"             # đã trả slot cũ
     assert db.writes_without_confirmation(scenario.run_id) == 0     # hard gate
     assert db.count_appointments(scenario.vin, active=True) == 1    # không đặt trùng
+
+def assert_uc1_proactive_before_case(db, scenario):             # UC1: hỗ trợ trước khi khách tự tạo case
+    assert db.first_proactive_msg(scenario.vin).at < db.first_customer_case(scenario.vin).at
+    assert db.llm_calls_before_candidate(scenario.run_id) == 0      # L0 + arbitration: 0 token
+    assert db.agent_direct_writes(scenario.run_id) == 0             # agent không ghi trực tiếp
 ```
 
 ### Chỉ số theo loại năng lực

@@ -42,17 +42,33 @@ Tổng ~80 giờ cho 4 người × 3 ngày — vừa sức nếu không phát si
 
 | Epic | Task chính | Người | Tuần |
 | --- | --- | --- | --- |
-| E1 · Đủ 6 quyết định UC1 | ① sửa từ xa (trigger_remote_update, SOP) · ③ KB theo phiên bản phần mềm · ④ bảng mã lỗi → linh kiện · subagent triage / scheduler / writer | A, B | 1 |
+| E1 · Đủ 6 quyết định (UC1 → UC3) | ① sửa từ xa (trigger_remote_update, SOP) · ③ KB theo phiên bản phần mềm · ④ bảng mã lỗi → linh kiện · subagent triage / scheduler / writer | A, B | 1 |
 | E2 · MCP & tool đủ đề bài | 6 MCP server · create_ticket, request_return · policy check theo vai trò (chủ xe / người lái) | B, D | 1 |
 | E3 · Sự kiện thật | Pub/Sub topic + schema + dead-letter · detector worker Cloud Run · Contact Arbitration cơ bản | B, D | 1 |
 | E4 · Hạ tầng & quan sát | Terraform (Cloud Run, Cloud SQL, Pub/Sub, Secret Manager) · GitHub Actions · OTel GenAI → Cloud Trace + Langfuse · audit chuỗi hash | D | 1 |
 | E5 · Thế giới giả lập đầy đủ | 200 xe / 5 xưởng / 60 linh kiện · tiêm lỗi có nhãn · KB chính sách công khai có phiên bản · luồng VED / ACN-Data | B | 1–2 |
 | E6 · Eval | Runner YAML · 40 kịch bản (tuần 1) → 150 (tuần 2) · khách ảo · rubric + người hiệu chỉnh · eval gate trong CI | D | 1–2 |
 | E7 · Memory & cá nhân hoá | Bảng sở thích có đồng ý · xem / xoá trong UI · "vì sao nhận tin này" | A, C | 1 |
-| E8 · UC3 & copilot | find_chargers · handoff 24/7 theo mức khẩn · copilot gợi ý có nguồn · auto-wrap | A, C | 2 |
-| E9 · Vòng 5 xác minh | Workflow xác minh 7–30 ngày bằng đồng hồ giả lập (tuần 2) · chuyển sang Temporal (tuần 3) · mở lại khi tái phát (UC5) | B, D | 2 · 3 |
+| E8 · UC2 & copilot | find_chargers · handoff 24/7 theo mức khẩn · copilot gợi ý có nguồn · auto-wrap | A, C | 2 |
+| E9 · Vòng 5 xác minh | Workflow xác minh 7–30 ngày bằng đồng hồ giả lập (tuần 2) · chuyển sang Temporal (tuần 3) · mở lại khi tái phát (UC6) | B, D | 2 · 3 |
 | E11 · Model triage PhoBERT | Dataset triage_vi_v1 · baseline TF-IDF + LLM zero-shot · fine-tune 3 head · ONNX INT8 · cascade · MLflow registry · shadow | A, D | 3 |
 | E12 · Data science | Tính cỡ mẫu nhóm đối chứng · ngưỡng detector theo chi phí · notebook dự báo contact + survival trên dữ liệu giả lập | B (+A) | 2 (A–B) · 3 (C–E) |
 | E13 · AI data pipeline | Label Studio + hướng dẫn gán nhãn · sinh dữ liệu tổng hợp có lọc · DVC · embedding blue/green | B | 2 |
 | E14 · Frontend engineering | SSE tự nối lại · cập nhật lạc quan an toàn · design system · accessibility AA · Vitest + visual regression | C | 1–2 |
+| E15 · Engine chăm sóc chủ động | Detector registry + CandidateFriction · arbitration · context builder · decision gate (tất định / L1 / L2) · verifier · đo llm_call_rate | B, D (+A) | 1–2 |
+| E16 · UC1 FULL | Rule UC1 + kịch bản đối chứng · prompt 8 câu hỏi + InterventionProposal · tin chủ động "vì sao nhận" · journey proactive_friction · eval + hard gate | A, B, C, D | 1–2 |
+| E17 · UC4–UC6 spec | Kịch bản YAML khung + tiêu chí chấp nhận (tài liệu tuần này; implement sau khi spec chốt) | B (+A) | 2 |
 | E10 · Dashboard & bằng chứng | Dashboard metric · kiểm thử tải + chaos (LLM lỗi) · 5 người dùng thử · mystery shopping · bản demo cuối | C, cả nhóm | 2 |
+
+### Use case × epic × người
+
+Nhãn UC mới; card trong plan/tasks/ đã được đổi nhãn tương ứng (UC cũ → mới: proposal PL-A). Chi tiết phần việc từng người nằm cuối mỗi mục UC.
+
+| UC | Mức tuần này | Epic / task chính | A | B | C | D |
+| --- | --- | --- | --- | --- | --- | --- |
+| **UC1** Preemptive Service Friction | FULL | E15 · E16 · E1 (①–②) · M-17 · M-18 | Prompt suy luận, tin chủ động | Rule + arbitration + context builder, seed | Thông báo, "vì sao nhận", trace | Validator, verifier, eval |
+| **UC2** Charging Friction | Demo-ready | E8 · E15 · B2.14 | Suy luận 5 giả thuyết | CSMS giả lập, detector, find_chargers | Trạm thay thế, tin khẩn | Luồng 24/7, verifier phiên sạc |
+| **UC3** Service Readiness | Demo-ready | E1 (③–⑤) · M-12 → M-16 · A1.11 | Scheduler đa ràng buộc | find_options, kho / kỹ năng / slot | Màn hình phương án, xác nhận | Validator 7 check, Executor + saga |
+| **UC4** Billing Mismatch | Spec only | E17 | (tuỳ chọn) tổng hợp | Billing giả lập, R1–R3 | — | Ngưỡng tự sửa, duyệt mức 3 |
+| **UC5** Claim Follow-up | Spec only | E17 | Trích lý do trả về | Claim state machine, SLA | — | Escalation, verifier |
+| **UC6** Recurrence | Spec only | E17 · E9 · B2.15 | So case cũ / tín hiệu mới | verify_until, rule tái phát | — | Giới hạn 2 chu kỳ, verifier |

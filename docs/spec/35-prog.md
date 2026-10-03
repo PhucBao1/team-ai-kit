@@ -10,7 +10,7 @@
 | **Retry có backoff + jitter, circuit breaker, bulkhead** | Hệ thống gốc chập chờn kéo sập cả agent | Mọi MCP server; mỗi hệ thống gốc một pool riêng |
 | **Idempotency key** | Retry tạo lịch trùng | Mọi tool ghi |
 | **Transactional outbox** | Ghi DB thành công nhưng gửi sự kiện thất bại (dual-write) | Journey, promise, audit → Pub/Sub |
-| **Saga + hành động bù** | Đổi lịch = giữ linh kiện mới + đặt slot mới + trả slot cũ trên 2–3 hệ thống | reschedule, rescue UC1 |
+| **Saga + hành động bù** | Đổi lịch = giữ linh kiện mới + đặt slot mới + trả slot cũ trên 2–3 hệ thống | reschedule, lập lại phương án UC3 |
 | **Optimistic locking** (cột version) | NV và agent cùng sửa một lệnh sửa chữa | appointments, repair_orders |
 | **Khoá tạm có TTL** (Redis) | Hai khách được đề xuất cùng một slot | Khoá slot 15 phút khi đưa phương án |
 | **Rate limit token bucket** | Làn sóng tin chủ động; lạm dụng API | Arbitration, API gateway |

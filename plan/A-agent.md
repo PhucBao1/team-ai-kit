@@ -19,7 +19,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 
 ### 1–4/10
 - [ ] **[A1.10](tasks/A1.10.md)** · 4h — Tách **Coordinator** + subgraph **PolicyQA** (RAG có trích dẫn, lọc phiên bản) dùng retriever của B. **Chờ:** B1.09 · **mock:** retriever trả 3 đoạn cố định.
-- [ ] **[A1.11](tasks/A1.11.md)** · 4h — Subgraph **Scheduler**: 6 quyết định UC1 (sửa từ xa trước · bảo hành sơ bộ · KB theo phiên bản phần mềm · linh kiện · quãng đường · xác minh sau sửa) gọi `src/core` của D.
+- [ ] **[A1.11](tasks/A1.11.md)** · 4h — Subgraph **Scheduler** (năng lực của UC3): 6 quyết định UC1 → UC3 (sửa từ xa trước · bảo hành sơ bộ · KB theo phiên bản phần mềm · linh kiện · quãng đường · xác minh sau sửa) gọi `src/core` của D.
 - [ ] **[A1.12](tasks/A1.12.md)** · 3h — **Writer ⇄ Critic**: `claim_check` (D1.10) + rubric, tối đa 2 vòng rồi handoff. **Xong khi:** câu có số không nguồn bị chặn trong test.
 - [ ] **[A1.13](tasks/A1.13.md)** · 2h — Node **triage** (rule → `get_llm("lite")`) + **safety path** (mã CRITICAL, "khói, mùi khét" → mẫu duyệt sẵn + handoff, không LLM).
 - [ ] **[A1.14](tasks/A1.14.md)** · 2h — Checkpoint Postgres theo `thread_id` (cùng D1.14) + chủ xe ≠ người lái (quyền theo xe).
@@ -30,14 +30,14 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 
 - [ ] **[A2.01](tasks/A2.01.md)** · 4h — Đủ 4 workflow PRD trong hội thoại: tra việc/đơn (`list_jobs`), đặt/đổi lịch, **đổi/trả + ticket** (`request_return`, `create_ticket`), **cập nhật thông tin** (`update_contact_info`) — đều qua xác nhận. **Chờ:** D2.01.
 - [ ] **[A2.02](tasks/A2.02.md)** · 3h — Đổi mục đích giữa chừng không mất ngữ cảnh (goal stack): 5 kịch bản chuyển ý.
-- [ ] **[A2.05](tasks/A2.05.md)** · 1,5h — UC2 bản rút gọn: detector → tin → handoff (UC4/UC6 cắt, chỉ nêu trong pitch — dành giờ cho upsell).
+- [ ] **[A2.05](tasks/A2.05.md)** · 1,5h — UC2 đường Agent (sạc thất bại lặp lại, trạm khoẻ: giả thuyết + trạm thay thế + handoff khẩn); UC4–UC6 chỉ spec + prompt nháp (không build — dành giờ cho upsell).
 - [ ] **[A2.06](tasks/A2.06.md)** · 3,5h — **Copilot** cho nhân viên: hàm gợi ý bước tiếp theo có nguồn + auto-wrap ghi chú (route do D2.14 mở cho C2.01).
 - [ ] **[A2.07](tasks/A2.07.md)** · 2h — 5 loại handoff (khách yêu cầu · bực · thất bại 2 lần · an toàn · khiếu nại) + định tuyến ngoài giờ.
 - [ ] **[A2.08](tasks/A2.08.md)** · 3h — Router model theo việc + prompt caching phần tĩnh; đo token / độ trễ trên LangSmith (p95 < 3s cho câu đơn giản — tiêu chí BTC).
 - [ ] **[A2.10](tasks/A2.10.md)** · 4h — Sửa theo eval 150 kịch bản (D2.05): 5 lỗi nặng nhất; không overfit prompt cho 1 kịch bản.
 - [ ] **[A2.11](tasks/A2.11.md)** · 2h — Rubric LLM chấm + 20 mẫu người chấm để hiệu chỉnh (cùng D).
 - [ ] **[A2.12](tasks/A2.12.md)** · 3h — Nội dung pitch: slide Problem · Solution · Architecture · Traction (số eval) — gửi C thiết kế.
-- [ ] **[A2.13](tasks/A2.13.md)** · 2h — Kịch bản demo 11/10 (UC1 proactive + 1 workflow PRD + handoff) + chạy thử 2 lần trên Live URL.
+- [ ] **[A2.13](tasks/A2.13.md)** · 2h — Kịch bản demo 11/10 (UC1 proactive → UC3, UC2 + 1 workflow PRD + handoff) + chạy thử 2 lần trên Live URL.
 - [ ] **[A2.15](tasks/A2.15.md)** · 3h — KB thêm FAQ + SOP (đổi/trả, đặt lịch, cập nhật thông tin — đúng 4 workflow PRD) + reranker; `rag_golden` 50 câu có đáp án + đoạn nguồn. *(đổi: B → A: chất lượng tìm kiếm quyết định PolicyQA)*
 - [ ] **[A2.09](tasks/A2.09.md)** · 3h — Thêm 40 kịch bản (tổng hội thoại ~60): đa bước, đổi/trả, cập nhật thông tin, red-team. *(trả lại)*
 - [ ] **[A2.17](tasks/A2.17.md)** · 1h — Nối subgraph `charging` (B2.14), `post_repair` (B2.15), node `offer` (C2.13) vào `graph.py` — chỉ A sửa `graph.py` / `state.py`. **Chờ:** B2.14, B2.15, C2.13.

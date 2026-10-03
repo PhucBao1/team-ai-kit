@@ -26,7 +26,7 @@ Tin nhắn của khách và tín hiệu hệ thống cùng đi vào một Decisi
        ┌───────────────────────────────────────────┐
        │ L2 COORDINATOR AGENT (LangGraph)          │
        │  ├ PolicyQA   RAG có phiên bản + trích dẫn│
-       │  ├ Scheduler  6 quyết định UC1            │
+       │  ├ Scheduler  đa ràng buộc · UC3          │
        │  ├ Handoff    thẻ tóm tắt cho nhân viên   │
        │  └ Proactive  Writer ⇄ Critic (tối đa 2)  │
        │  chỉ ĐỀ XUẤT — không tự ghi hệ thống      │
@@ -48,7 +48,7 @@ L0
 
 #### Rule / detector tất định
 
-Ví dụ: ON part_reservation.cancelled → IF appointment.status = confirmed AND start − now < 72h THEN candidate. Cảnh báo an toàn mức nguy hiểm đi thẳng luồng mẫu tin đã duyệt, không qua LLM.
+Ví dụ (UC1): ON vehicle.dtc.raised → IF severity = WARNING AND count(cùng hệ thống, 14 ngày) ≥ 3 AND không có case mở THEN candidate. Ví dụ (nhánh lập lại của UC3): ON part_reservation.cancelled → IF appointment.status = confirmed AND start − now < 72h THEN candidate. Cảnh báo an toàn mức nguy hiểm đi thẳng luồng mẫu tin đã duyệt, không qua LLM.
 
 L1
 
@@ -67,6 +67,8 @@ L3
 #### Con người
 
 Hoàn tiền, ngoại lệ bảo hành, khách đang bực, lỗi an toàn, khiếu nại pháp lý. Tối ưu cho outcome, không phải tự chủ tối đa.
+
+**LLM là tầng leo thang, không phải tầng xử lý event.** Mọi event đi qua L0 (0 token); chỉ candidate đã qua arbitration và cần suy luận đa nguồn mới lên L1 / L2. Hệ thống chỉ tiêu trí thông minh ở nơi nó tạo thêm giá trị — bảng cost tier theo từng use case ở PL-A.
 
 ### Cửa vào của khách: đa kênh, đa phương thức
 

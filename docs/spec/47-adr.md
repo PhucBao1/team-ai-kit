@@ -12,3 +12,4 @@
 | 006 | Dữ liệu định danh ở vault trong nước, GCP dùng token giả | Chưa có region GCP tại Việt Nam; yêu cầu dữ liệu trong nước cần pháp chế xác nhận | Đưa định danh thẳng lên region nước ngoài |
 | 007 | Loop 4 chỉ tạo đề xuất, người duyệt | Agent không tự sửa chính sách của mình | Tự động áp dụng thay đổi |
 | 008 | Không fine-tune trong 2 tuần | Chưa có dữ liệu nhãn; eval quan trọng hơn | Fine-tune model nhỏ cho triage |
+| 009 | North star: Proactive AI Customer Care; appointment không phải trigger | Giá trị nằm ở phát hiện friction đang hình thành và xác minh kết quả; appointment chỉ là hành động xuôi dòng (UC3) do khách xác nhận. Detector tất định chạy trên mọi event, LLM chỉ là tầng leo thang cho ca nhiều nguồn / nhiều bước | Giữ Service Appointment Rescue làm flagship; chạy LLM trên mọi event |
