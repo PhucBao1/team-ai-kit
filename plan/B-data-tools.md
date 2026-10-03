@@ -35,7 +35,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [x] **[B2.12](tasks/B2.12.md)** · 2h — **Upsell**: danh mục 4 gói giả lập (`src/kb/docs/offers/`) + mục `offers` trong fixture + 8 kịch bản eval (4 nên gợi ý · 4 cấm gợi ý).
 - [ ] **[B2.13](tasks/B2.13.md)** · 3h — Eval RAG (Ragas: faithfulness, context precision/recall, version accuracy) trên `rag_golden` của B. *(từ D2.04 — B sở hữu KB nên tự đo KB của mình)*
 - [ ] **[B2.14](tasks/B2.14.md)** · 3h — UC3 trạm sạc (`find_chargers`, mức khẩn khi SoC thấp) · **Chờ:** B2.03. *(đổi: A → B: B viết subgraph độc lập, A2.17 nối)*
-- [ ] **[B2.15](tasks/B2.15.md)** · 3h — UC5 xác minh sau sửa (telematics sạch 14–30 ngày → đóng; tái phát → mở lại) dùng đồng hồ giả lập. *(đổi: A → B: B nắm detector + đồng hồ giả lập)*
+- [x] **[B2.15](tasks/B2.15.md)** · 3h — UC5 xác minh sau sửa (telematics sạch 14–30 ngày → đóng; tái phát → mở lại) dùng đồng hồ giả lập. *(đổi: A → B: B nắm detector + đồng hồ giả lập)*
 - [ ] **[B2.16](tasks/B2.16.md)** · 3h — Pub/Sub topic + schema + dead-letter; detector worker Cloud Run (cùng B2.04). *(đổi: D → B: worker chạy detector của B)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~22h — cải thiện + deliverables
