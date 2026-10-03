@@ -61,6 +61,16 @@ tool-calling, xác nhận trước khi ghi, handover kèm tóm tắt, đo lườ
 
 Kịch bản demo 11/10 — 7 màn: xem `plan/demo-full.md`.
 
+## 5. Quy tắc gửi tin chủ động (lead chốt 03/10)
+
+| Loại tin | Giờ gửi | Ngân sách | Căn cứ |
+|---|---|---|---|
+| **An toàn** (khói, mùi khét, mã CRITICAL) | Bất kỳ lúc nào | Không giới hạn | An toàn ưu tiên |
+| **Dịch vụ** (UC1 cảnh báo lặp, UC3 cứu lịch) | 08:00–21:00 (giờ yên tĩnh 21:00–08:00 → hoãn) | ≤ 1 tin / việc / ngày · ≤ 2 tin / khách / ngày | Chặt hơn khung NĐ 91/2020; khớp B2.04 (PR #18). Không áp trần theo tuần để không chặn tin cứu lịch khẩn |
+| **Upsell / quảng cáo** | Trong 07:00–22:00 **và** ngoài giờ yên tĩnh | Theo NĐ 91: ≤ 3 tin / 24 h; nhóm tự đặt thêm ≤ 3 tin / khách / tuần | NĐ 91/2020 [L4]: chỉ gửi 07:00–22:00, ≤ 3 tin / 24 h, phải được đồng ý trước (`consent_marketing`) |
+
+Đã làm khớp: spec UC1 (`docs/proposal/ucs1-preemptive-friction.md`) trước ghi 21:00–07:00 · ≤ 1 tin / việc / ngày · ≤ 3 tin / khách / tuần.
+
 ## Nguồn tham khảo (truy cập 03/10/2026)
 
 **VinFast**
@@ -77,6 +87,7 @@ Kịch bản demo 11/10 — 7 màn: xem `plan/demo-full.md`.
 **Pháp luật Việt Nam**
 - [L1] Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân — https://xaydungchinhsach.chinhphu.vn/toan-van-nghi-dinh-13-2023-nd-cp-bao-ve-du-lieu-ca-nhan-119230516104357809.htm
 - [L2] Luật Trí tuệ nhân tạo 2025 (số 134/2025/QH15, hiệu lực 01/3/2026) — https://luatvietnam.vn/linh-vuc-khac/luat-tri-tue-nhan-tao-2025-va-diem-dang-chu-y-883-105846-article.html
+- [L4] Nghị định 91/2020/NĐ-CP chống tin nhắn rác — chỉ gửi quảng cáo khi người nhận đồng ý: https://luatvietnam.vn/tin-van-ban-moi/tu-1-10-chi-duoc-nhan-tin-quang-cao-khi-nguoi-nhan-dong-y-186-26419-article.html · khung giờ 07:00–22:00: https://thuvienphapluat.vn/phap-luat-doanh-nghiep/cau-hoi-thuong-gap/thoi-gian-nao-trong-ngay-duoc-phep-gui-tin-nhan-quang-cao-qua-sms-7140.html
 - [L3] Một số quy định mới tại Luật Bảo vệ quyền lợi người tiêu dùng 2023 — Bộ Công Thương — https://moit.gov.vn/tin-tuc/bao-chi-voi-nguoi-dan/mot-so-quy-dinh-moi-tai-luat-bao-ve-quyen-loi-nguoi-tieu-dung-nam-2023.html
 
 **Hãng nước ngoài**

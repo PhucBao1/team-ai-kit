@@ -18,7 +18,9 @@ AI chủ động phát hiện, điều tra và xử lý customer friction đang 
 | **Demo-ready** | UC2 Charging Friction Prevention · UC3 Service Readiness / Intervention Orchestration |
 | **Spec + kịch bản khung** (chưa build) | UC4 Billing Mismatch · UC5 Claim Follow-up · UC6 Recurrence |
 
-**Đổi số UC (card viết trước 3/10 dùng số cũ):** UC1 cũ *Service Appointment Rescue* → bộ máy nằm ở **UC3** (nhánh lập lại), flagship là **UC1 mới** · UC2 cũ (lời hứa báo giá) → bỏ khỏi sáu UC · UC3 cũ (kẹt ở trạm sạc) → **UC2** · UC4 giữ · UC5 cũ (comeback) → **UC6** · UC6 cũ (claim) → **UC5**. Các card dưới đây đã đổi nhãn; chưa có card cho engine chăm sóc chủ động (epic E15–E17 ở spec §44).
+> **Đã thay bằng mục "Phạm vi build — lead chốt 03/10" bên dưới** (UC1 làm gọn; UC2 hoãn tuần 3; "8 câu hỏi" chỉ bản nhẹ). Bảng trên giữ để thấy định hướng gốc.
+
+**Đổi số UC (card viết trước 3/10 dùng số cũ):** UC1 cũ *Service Appointment Rescue* → bộ máy nằm ở **UC3** (nhánh lập lại), flagship là **UC1 mới** · UC2 cũ (lời hứa báo giá) → bỏ khỏi sáu UC · UC3 cũ (kẹt ở trạm sạc) → **UC2** · UC4 giữ · UC5 cũ (comeback) → **UC6** · UC6 cũ (claim) → **UC5**. Các card dưới đây đã đổi nhãn. Epic ở spec §44 → card: E15 / E16 (engine + UC1) → **B2.17 · A2.18 · C2.14** (+ B2.04 arbitration); E17 (UC4–UC6) → chỉ pitch.
 
 ### Phạm vi build — lead chốt 03/10 ("UC1 làm gọn")
 

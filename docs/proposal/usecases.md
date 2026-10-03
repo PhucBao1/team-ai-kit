@@ -119,7 +119,7 @@ MVP phải chứng minh **một engine proactive-care thống nhất**, không p
 | Mức | Use case | Phải chạy được | Cắt gì nếu trễ |
 | --- | --- | --- | --- |
 | **FULL — implement đầy đủ** | **UC1** | Bơm tín hiệu giả lập → L0 → arbitration → context → (L1) → L2 → validator → tin chủ động → khách xác nhận → verify bằng đồng hồ giả lập → handoff. Có eval tự động + hard gate + trace panel | Không cắt — flagship |
-| **DEMO-READY — tích hợp, chạy end-to-end ở happy path + 1 nhánh lỗi** | **UC2** | Thất bại sạc lặp lại → đường tất định (trạm hỏng) **và** đường Agent (trạm khoẻ) → verify bằng phiên sạc kế tiếp | Rút còn đường tất định + 1 kịch bản Agent |
+| **DEMO-READY — tích hợp, chạy end-to-end ở happy path + 1 nhánh lỗi** | **UC2** | Thất bại sạc lặp lại → đường tất định (trạm hỏng) **và** đường Agent (trạm khoẻ) → verify bằng phiên sạc kế tiếp | Rút còn đường tất định + 1 kịch bản Agent **(lead 03/10: UC2 hoãn tuần 3, làm nếu dư giờ — xem `plan/PLAN.md`)** |
 |  | **UC3** | Từ can thiệp đã được chấp nhận → 2–3 phương án có lý do loại → xác nhận → validator → Executor → verify; nhánh lập lại phương án khi reservation bị huỷ | Rút còn 2 phương án + 1 nhánh lập lại |
 | **SPEC / SCENARIO ONLY — chưa implement** | **UC4, UC5, UC6** | Tài liệu đủ: trigger, detector, trách nhiệm Agent, action, verify, kịch bản khung, tiêu chí chấp nhận, backlog | Chỉ cần kịch bản khung YAML trong `sim/scenarios` nếu B còn giờ |
 

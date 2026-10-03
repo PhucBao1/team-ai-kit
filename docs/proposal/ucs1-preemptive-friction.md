@@ -47,7 +47,7 @@ Rule tất định, đăng ký trong `detect/rules.py`. **Không gọi LLM.** Ng
 | 4. Dedupe | `dedupe_key = (vin, system, iso_week)`; cooldown 7 ngày sau một tin UC1 cho cùng khoá | Dừng, ghi `suppressed: duplicate` |
 | 5. Không có case | Không có appointment / RO / ticket / handoff mở cho cùng hệ thống; không có khiếu nại trong 7 ngày | Dừng, ghi `suppressed: active_case` |
 
-Kết quả: `CandidateFriction(uc_type=UC1)`. Sau đó **Contact Arbitration** (cũng không LLM): khách không đang chat với nhân viên · không trong giờ yên tĩnh (21:00–07:00, trừ an toàn) · ngân sách chú ý ≤ 1 tin / việc / ngày và ≤ 3 tin / khách / tuần · đã đồng ý nhận thông báo dịch vụ. Bị chặn → ghi `suppressed` + lý do, thử lại theo lịch.
+Kết quả: `CandidateFriction(uc_type=UC1)` (trong code: `Candidate` ở `src/models/schemas.py`, `type="UC1_SERVICE_FRICTION"`, agent giữ alias `T0_DTC_WARNING` — B2.17, A2.18). Sau đó **Contact Arbitration** (cũng không LLM): khách không đang chat với nhân viên · không trong giờ yên tĩnh (**21:00–08:00**, trừ an toàn) · ngân sách chú ý **≤ 1 tin / việc / ngày** và **≤ 2 tin / khách / ngày** (khớp B2.04; trần theo tuần chỉ áp cho upsell để không chặn tin cứu lịch khẩn; tin quảng cáo còn phải theo NĐ 91/2020: 07:00–22:00, ≤ 3 tin / 24 h, có đồng ý trước — xem `../research/2026-10-03-nghiep-vu-vinfast.md`) · đã đồng ý nhận thông báo dịch vụ. Bị chặn → ghi `suppressed` + lý do, thử lại theo lịch.
 
 ### Context / Evidence Required
 
@@ -56,7 +56,7 @@ Kết quả: `CandidateFriction(uc_type=UC1)`. Sau đó **Contact Arbitration** 
 - Trạng thái xe: model, odometer, SoC, `sw_version`, DTC đang có (`get_vehicle_status`)
 - Các lần xuất hiện gần đây của tín hiệu: thời điểm, odometer, SoC (`get_recent_events`)
 - Giải thích mã: severity, `remote_fixable`, `self_help`, `kb_ref` (`explain_dtc`)
-- Lịch sử dịch vụ / bảo dưỡng liên quan hệ thống đó (`get_maintenance_history`)
+- Lịch sử dịch vụ / bảo dưỡng liên quan hệ thống đó (`get_maintenance_history` — **sau MVP**; MVP dùng lý do bảo dưỡng trong kết quả `check_warranty`)
 - Hành trình của khách và lời hứa đang mở (`list_jobs`); chuyến đi sắp tới nếu có đồng ý
 - Bảo hành **sơ bộ** nếu cần cho quyết định (`check_warranty` → "đủ điều kiện sơ bộ" + lý do, không kết luận)
 - Năng lực dịch vụ / linh kiện / slot — **chỉ** khi Agent cân nhắc can thiệp xưởng (qua `find_options`, thuộc UC3)
@@ -70,7 +70,7 @@ Detector chỉ biết "lặp 3 lần, chưa có case". Quyết định *làm gì
 - Phải chọn kênh, giọng điệu, mức chi tiết, và quyết định có nên đề xuất phương án xưởng hay chỉ giải thích.
 - Phải nhận ra khi bằng chứng không đủ → hỏi thêm hoặc chuyển người thay vì đoán.
 
-**Nếu rule đủ** (ví dụ mã cho phép sửa từ xa bằng cập nhật phần mềm, khách đã đồng ý trước đó) → đi đường tất định, **không gọi Agent**.
+**Nếu rule đủ** (ví dụ mã cho phép sửa từ xa bằng cập nhật phần mềm **và xe đủ điều kiện FOTA của VinFast: pin > 20 %, đỗ, không sạc** — pin thấp thì hướng dẫn sạc trước; khách đã đồng ý trước đó) → đi đường tất định, **không gọi Agent**.
 
 ### Exact Agent Reasoning Task
 

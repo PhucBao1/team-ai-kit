@@ -4,6 +4,8 @@
 
 ```yaml
 # eval/scenarios/uc1_uc3_proactive_replan.yaml   (UC1 phát hiện → UC3 đặt → lập lại khi linh kiện bị điều đi)
+# Ánh xạ thư mục thật trong P-073: eval/scenarios/uc0/ = UC1 (trước khi đặt lịch) · eval/scenarios/uc1/ = cứu lịch, nay là UC3 lập lại.
+# `repeat` / `spread_days` là cú pháp đề xuất — runner (D) chưa hỗ trợ; hiện viết `inject` nhiều lần + `advance_hours`.
 id: uc1_001
 seed: default
 customer: C-10293

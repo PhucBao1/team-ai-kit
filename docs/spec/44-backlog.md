@@ -56,7 +56,7 @@ Tổng ~80 giờ cho 4 người × 3 ngày — vừa sức nếu không phát si
 | E13 · AI data pipeline | Label Studio + hướng dẫn gán nhãn · sinh dữ liệu tổng hợp có lọc · DVC · embedding blue/green | B | 2 |
 | E14 · Frontend engineering | SSE tự nối lại · cập nhật lạc quan an toàn · design system · accessibility AA · Vitest + visual regression | C | 1–2 |
 | E15 · Engine chăm sóc chủ động | Detector registry + CandidateFriction · arbitration · context builder · decision gate (tất định / L1 / L2) · verifier · đo llm_call_rate | B, D (+A) | 1–2 |
-| E16 · UC1 FULL | Rule UC1 + kịch bản đối chứng · prompt 8 câu hỏi + InterventionProposal · tin chủ động "vì sao nhận" · journey proactive_friction · eval + hard gate | A, B, C, D | 1–2 |
+| E16 · UC1 FULL | Rule UC1 + kịch bản đối chứng · InterventionProposal 8 câu hỏi **bản nhẹ** (điền tất định, LLM chỉ viết câu — lead 03/10) · tin chủ động "vì sao nhận" · journey proactive_friction · eval + hard gate | A, B, C, D | 1–2 |
 | E17 · UC4–UC6 spec | Kịch bản YAML khung + tiêu chí chấp nhận (tài liệu tuần này; implement sau khi spec chốt) | B (+A) | 2 |
 | E10 · Dashboard & bằng chứng | Dashboard metric · kiểm thử tải + chaos (LLM lỗi) · 5 người dùng thử · mystery shopping · bản demo cuối | C, cả nhóm | 2 |
 
@@ -67,7 +67,7 @@ Nhãn UC mới; card trong plan/tasks/ đã được đổi nhãn tương ứng 
 | UC | Mức tuần này | Epic / task chính | A | B | C | D |
 | --- | --- | --- | --- | --- | --- | --- |
 | **UC1** Preemptive Service Friction | FULL | E15 · E16 · E1 (①–②) · M-17 · M-18 | Prompt suy luận, tin chủ động | Rule + arbitration + context builder, seed | Thông báo, "vì sao nhận", trace | Validator, verifier, eval |
-| **UC2** Charging Friction | Demo-ready | E8 · E15 · B2.14 | Suy luận 5 giả thuyết | CSMS giả lập, detector, find_chargers | Trạm thay thế, tin khẩn | Luồng 24/7, verifier phiên sạc |
+| **UC2** Charging Friction | Tuần 3 nếu dư giờ (lead 03/10) | E8 · E15 · B2.14 | Suy luận 5 giả thuyết | CSMS giả lập, detector, find_chargers | Trạm thay thế, tin khẩn | Luồng 24/7, verifier phiên sạc |
 | **UC3** Service Readiness | Demo-ready | E1 (③–⑤) · M-12 → M-16 · A1.11 | Scheduler đa ràng buộc | find_options, kho / kỹ năng / slot | Màn hình phương án, xác nhận | Validator 7 check, Executor + saga |
 | **UC4** Billing Mismatch | Spec only | E17 | (tuỳ chọn) tổng hợp | Billing giả lập, R1–R3 | — | Ngưỡng tự sửa, duyệt mức 3 |
 | **UC5** Claim Follow-up | Spec only | E17 | Trích lý do trả về | Claim state machine, SLA | — | Escalation, verifier |

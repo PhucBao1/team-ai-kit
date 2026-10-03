@@ -57,7 +57,7 @@ Rule biết "cùng hệ thống, trong 30 ngày". Rule **không biết** lần c
 
 ### Tools the Agent May Call
 
-Mức 0: `get_vehicle_status` · `explain_dtc` · `list_jobs` · `get_maintenance_history` **[mới]** · `get_repair_order(ro_id)` **[mới]** · `find_options` (khi cân nhắc mở lại → UC3). Mức 1: `reopen_case` (chuẩn bị, trạng thái *chờ khách / chờ xưởng*) · `create_handoff`.
+Mức 0: `get_vehicle_status` · `explain_dtc` · `list_jobs` · `get_maintenance_history` (sau MVP) **[mới]** · `get_repair_order(ro_id)` **[mới]** · `find_options` (khi cân nhắc mở lại → UC3). Mức 1: `reopen_case` (chuẩn bị, trạng thái *chờ khách / chờ xưởng*) · `create_handoff`.
 
 ### Decision / Intervention Options
 
