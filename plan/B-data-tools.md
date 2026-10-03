@@ -25,14 +25,14 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 
 ## Tuần 2 · 5/10 → 11/10 · ~30,5h
 
-- [ ] **[B2.01](tasks/B2.01.md)** · 3h — Thế giới mở rộng: 200 xe / 5 xưởng / 60 linh kiện; lỗi T3–T5 có nhãn.
+- [x] **[B2.01](tasks/B2.01.md)** · 3h — Thế giới mở rộng: 200 xe / 5 xưởng / 60 linh kiện; lỗi T3–T5 có nhãn.
 - [ ] **[B2.03](tasks/B2.03.md)** · 2h — `find_chargers` (UC3: trạm còn cổng, đi tới được với SoC) + test.
-- [ ] **[B2.04](tasks/B2.04.md)** · 2h — Contact arbitration (đang chat với NV? giờ yên tĩnh? ngân sách chú ý?) trong detector; hỗ trợ B2.16 (Pub/Sub).
+- [x] **[B2.04](tasks/B2.04.md)** · 2h — Contact arbitration (đang chat với NV? giờ yên tĩnh? ngân sách chú ý?) trong detector; hỗ trợ B2.16 (Pub/Sub).
 - [ ] **[B2.05](tasks/B2.05.md)** · 1,5h — Ngưỡng detector theo chi phí (precision / recall trên lỗi tiêm) → 1 bảng cho report (bỏ phần cỡ mẫu pilot — dành giờ cho upsell).
 - [ ] **[B2.07](tasks/B2.07.md)** · 4h — Chạy 5 buổi test (cùng C), tổng hợp feedback + điểm hài lòng → gửi D cho `eval/results/report.md`, gửi A lỗi hiểu sai.
 - [ ] **[B2.08](tasks/B2.08.md)** · 3h — Nội dung Product cho pitch & README: thị trường (xe điện bàn giao, lượt dịch vụ/năm), đối thủ / cách làm hiện tại, mô hình kinh doanh.
 - [ ] **[B2.09](tasks/B2.09.md)** · 1h — `JOURNAL.md` tuần 2; WORKLOG hằng ngày.
-- [ ] **[B2.12](tasks/B2.12.md)** · 2h — **Upsell**: danh mục 4 gói giả lập (`src/kb/docs/offers/`) + mục `offers` trong fixture + 8 kịch bản eval (4 nên gợi ý · 4 cấm gợi ý).
+- [x] **[B2.12](tasks/B2.12.md)** · 2h — **Upsell**: danh mục 4 gói giả lập (`src/kb/docs/offers/`) + mục `offers` trong fixture + 8 kịch bản eval (4 nên gợi ý · 4 cấm gợi ý).
 - [ ] **[B2.13](tasks/B2.13.md)** · 3h — Eval RAG (Ragas: faithfulness, context precision/recall, version accuracy) trên `rag_golden` của B. *(từ D2.04 — B sở hữu KB nên tự đo KB của mình)*
 - [ ] **[B2.14](tasks/B2.14.md)** · 3h — UC3 trạm sạc (`find_chargers`, mức khẩn khi SoC thấp) · **Chờ:** B2.03. *(đổi: A → B: B viết subgraph độc lập, A2.17 nối)*
 - [ ] **[B2.15](tasks/B2.15.md)** · 3h — UC5 xác minh sau sửa (telematics sạch 14–30 ngày → đóng; tái phát → mở lại) dùng đồng hồ giả lập. *(đổi: A → B: B nắm detector + đồng hồ giả lập)*
