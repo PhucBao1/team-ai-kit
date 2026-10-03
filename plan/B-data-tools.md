@@ -37,6 +37,9 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[B2.14](tasks/B2.14.md)** · 3h — UC2 trạm sạc (`find_chargers`, đường tất định + mức khẩn khi SoC thấp) · **Chờ:** B2.03. *(đổi: A → B: B viết subgraph độc lập, A2.17 nối)*
 - [x] **[B2.15](tasks/B2.15.md)** · 3h — UC6 xác minh sau sửa (telematics sạch 14–30 ngày → đóng; tái phát → mở lại, tối đa 2 chu kỳ) dùng đồng hồ giả lập. *(đổi: A → B: B nắm detector + đồng hồ giả lập)*
 - [ ] **[B2.16](tasks/B2.16.md)** · 3h — Pub/Sub topic + schema + dead-letter; detector worker Cloud Run (cùng B2.04). *(đổi: D → B: worker chạy detector của B)*
+- [ ] **[B2.17](tasks/B2.17.md)** · 3h — UC1 detector: WARNING cùng hệ thống ≥ 3 lần / 14 ngày, dedupe, không có case mở; lịch sử sự kiện; tool `get_recent_events`. *(mới 03/10)*
+- [ ] **[B2.18](tasks/B2.18.md)** · 3h — Đơn hàng / phụ kiện + tool tra đơn; `battery_ownership`; xác nhận thời hạn bảo hành pin; KB lịch bảo dưỡng ô tô. *(mới 03/10)*
+- [ ] **[B2.19](tasks/B2.19.md)** · 1h — Xưởng ưa thích được ưu tiên trong `find_options`. *(mới 03/10)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~22h — cải thiện + deliverables
 

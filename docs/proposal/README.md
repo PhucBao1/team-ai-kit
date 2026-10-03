@@ -29,3 +29,4 @@
 - [PL-D · Enterprise & Proactive Spectrum — Sâu theo hành trình, rộng theo nền tảng — ở quy mô hệ sinh thái](enterprise.md)
 - [PL-E · Nghiệp vụ mở rộng — Phân khúc, bảo hiểm, Customer Success, Client Services, đặc thù xe điện & Việt Nam](domain-ext.md)
 - [Use case chi tiết (từng bước, trace)](usecases-detail.md)
+- [Rà nghiệp vụ VinFast + so sánh hãng nước ngoài (03/10, có nguồn)](../research/2026-10-03-nghiep-vu-vinfast.md)

@@ -20,6 +20,24 @@ AI chủ động phát hiện, điều tra và xử lý customer friction đang 
 
 **Đổi số UC (card viết trước 3/10 dùng số cũ):** UC1 cũ *Service Appointment Rescue* → bộ máy nằm ở **UC3** (nhánh lập lại), flagship là **UC1 mới** · UC2 cũ (lời hứa báo giá) → bỏ khỏi sáu UC · UC3 cũ (kẹt ở trạm sạc) → **UC2** · UC4 giữ · UC5 cũ (comeback) → **UC6** · UC6 cũ (claim) → **UC5**. Các card dưới đây đã đổi nhãn; chưa có card cho engine chăm sóc chủ động (epic E15–E17 ở spec §44).
 
+### Phạm vi build — lead chốt 03/10 ("UC1 làm gọn")
+
+**Proactive là cửa vào, hội thoại đa bước là thân bài.** Lõi đề BTC (FAQ RAG có trích dẫn, phân loại ý định, 4 workflow
+tool-calling, xác nhận trước khi ghi, handover kèm tóm tắt, đo lường) **không giảm**; UC1 là cú mở màn của demo.
+Chi tiết, so sánh hãng nước ngoài, sai sót nghiệp vụ và nguồn: [`docs/research/2026-10-03-nghiep-vu-vinfast.md`](../docs/research/2026-10-03-nghiep-vu-vinfast.md).
+
+| Hạng mục | Quyết định | Lý do |
+|---|---|---|
+| UC1: detector lặp ≥ 3 lần / 14 ngày + đường tất định | **Làm** (B2.17, A2.18, C2.14) | Dùng lại T0 / Scheduler / executor đã có |
+| "InterventionProposal 8 câu hỏi" | **Bản nhẹ:** schema có `evidence_refs`, điền tất định, LLM chỉ viết câu | Luật đã trả lời phần lớn; LLM tự đánh giá mức khẩn dễ suy diễn; spec UC1: "rule đủ → không gọi Agent" |
+| UC2 trạm sạc | **Hoãn tuần 3** (B2.14 giữ, làm nếu dư giờ) | Dữ liệu + tool + detector mới; không thuộc 4 workflow đề chấm |
+| UC4 / UC5 / UC6 | **Chỉ pitch** (UC6 một phần qua B2.15) | Mỗi UC là miền dữ liệu mới |
+| Sai sót nghiệp vụ (lịch bảo dưỡng ô tô, FOTA khi pin thấp, consent, SLA, mẫu an toàn) | **Lead sửa** (PR P-073 `a/w2-business-fixes`) | Xem research §1 |
+
+**Card mới 03/10** (không sửa card cũ; việc chồng lên card đang có ghi ở mục "Bổ sung 3/10" cuối card D2.01, A2.13):
+[A2.18](tasks/A2.18.md) · [A2.19](tasks/A2.19.md) · [B2.17](tasks/B2.17.md) · [B2.18](tasks/B2.18.md) · [B2.19](tasks/B2.19.md) ·
+[C2.14](tasks/C2.14.md) · [D2.15](tasks/D2.15.md) · [D2.16](tasks/D2.16.md). Kịch bản demo 11/10: [7 màn](demo-full.md).
+
 > Điền tên thật: A = ______ · B = ______ · C = ______ · D = ______ · Demo Day BTC = ______ (lộ trình sách BTC ghi 6 tuần — hỏi BTC).
 
 ## 1. Mốc

@@ -3,6 +3,7 @@
 
 ## Phần 0 — Định hướng — bám đề, phạm vi, mốc thời gian
 
+- [Rà nghiệp vụ VinFast + so sánh hãng nước ngoài (03/10, có nguồn)](../research/2026-10-03-nghiep-vu-vinfast.md)
 - [01 · Bám đề — Có lạc đề không? — truy vết từ yêu cầu của đề đến code và phép đo](01-bamde.md)
 - [02 · Phạm vi & mốc — Hai tuần làm đủ, tuần 3 chỉ cải thiện](02-scope.md)
 

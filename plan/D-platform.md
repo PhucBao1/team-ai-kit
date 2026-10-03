@@ -42,6 +42,8 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[D2.12](tasks/D2.12.md)** · 2h — Buffer sửa lỗi tích hợp trước demo 11/10.
 - [ ] **[D2.13](tasks/D2.13.md)** · 3h — **Upsell**: `src/core/offers.py` (điều kiện + luật chặn) + tool ghi `create_quote` qua executor + sự kiện `offer_shown` / `offer_declined` trong contracts. **Chờ:** B2.12 · **mock:** offer viết tay.
 - [ ] **[D2.14](tasks/D2.14.md)** · 2,5h — Route copilot/wrap (gọi hàm của A2.06) + CORS + deploy frontend; mọi sửa `src/api/`, `src/main.py`, `contracts/api.yaml` tuần 2 gom về D. *(từ C2.06 + phần route của A2.06)*
+- [ ] **[D2.15](tasks/D2.15.md)** · 1,5h — `core.warranty`: pin thuê không thuộc bảo hành xe. **Chờ:** B2.18. *(mới 03/10)*
+- [ ] **[D2.16](tasks/D2.16.md)** · 2h — Phiếu tiền chẩn đoán đính kèm lịch hẹn khi executor ghi. *(mới 03/10)*
 - [ ] **[D2.09](tasks/D2.09.md)** · 3h — README đầy đủ (screenshot của C, bảng eval của D, API docs, Team, link video của C2.09). *(trả lại)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~21h — chỉ cải thiện

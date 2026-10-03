@@ -38,6 +38,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[C2.11](tasks/C2.11.md)** · 2h — **Upsell**: OfferCard trong chat (nhãn Gợi ý, lý do, nguồn, Xem báo giá / Không quan tâm) + chỉ số upsell trên Dashboard. **Chờ:** C2.13 · **mock:** JSON.
 - [ ] **[C2.12](tasks/C2.12.md)** · 3h — Tuyển 5 người dùng thử (chủ xe / người lái), phiếu câu hỏi (CES, 1–5 sao, 3 câu mở), lịch test. *(từ B2.06 — nghiên cứu UX)*
 - [ ] **[C2.13](tasks/C2.13.md)** · 3h — **Upsell**: node `offer` sau `respond` — tối đa 1 gợi ý/hội thoại, sau câu trả lời chính, có nguồn + "Không quan tâm"; báo giá qua Xác nhận. **Chờ:** D2.13 · **mock:** `eligible_offers` giả. *(đổi: A → C: C làm cả node lẫn thẻ gợi ý)*
+- [ ] **[C2.14](tasks/C2.14.md)** · 2h — Demo panel nút UC1 (cảnh báo lặp), UI nhiều event `options`, phiếu tiền chẩn đoán trên console. *(mới 03/10)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~24h — cải thiện + deliverables
 

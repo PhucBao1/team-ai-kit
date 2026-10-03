@@ -2,6 +2,27 @@
 
 Thêm vào kịch bản MVP (`demo-mvp.md`). Mỗi dòng có kịch bản eval tự động tương ứng trong `eval/scenarios/`.
 
+## Kịch bản trình diễn 11/10 — 7 màn (lead chốt 03/10)
+
+Một câu chuyện liền mạch: **proactive là cửa vào, hội thoại đa bước là thân bài** (lý do + nguồn:
+[`docs/research/2026-10-03-nghiep-vu-vinfast.md`](../docs/research/2026-10-03-nghiep-vu-vinfast.md)). Nhân vật: anh Minh,
+VF8-4821, **chưa có lịch hẹn** (bối cảnh: bơm `appointment.changed` huỷ A-20931 trước khi bắt đầu). Bảng kiểm bên dưới vẫn
+là danh sách tình huống phải chạy được (mỗi dòng có kịch bản eval).
+
+| Màn | Người trình bày | Hệ thống phải làm (kiểm được) | Chứng minh yêu cầu đề | Task |
+|---|---|---|---|---|
+| 1 · UC1 nhắn trước | Demo panel: bơm `vehicle.dtc.raised` BATT-COOL-01 (WARNING) 3 lần, tua đồng hồ giữa các lần | Lần 1–2: không làm gì (0 token). Lần 3: detector đủ ngưỡng, không có case mở, qua arbitration → tin 5 phần: "cảnh báo làm mát pin lặp 3 lần trong X ngày" · 2 phương án đã kiểm quãng đường + linh kiện · hạn giữ chỗ · người phụ trách · vì sao nhận tin; trích dẫn KB | Proactive (mở rộng theo mentor), detector trước LLM | B2.17 · A2.18 · B2.04 · C2.14 |
+| 2 · Hai mục đích | Khách: "Lỗi này có được bảo hành không? À mà đơn bộ sạc tuần trước tới đâu rồi?" | "Đủ điều kiện bảo hành sơ bộ" + lý do + trích dẫn; trạng thái đơn từ tool; rồi tự quay lại việc dở: "anh chọn phương án nào ạ?" — không hỏi lại VIN | Hiểu mục đích xuyên suốt, intent routing, RAG có trích dẫn, workflow **tra đơn** | A2.01 · A2.02 · B2.18 · D1.05 |
+| 3 · Đặt lịch | Khách gõ: "Chọn Gia Lâm sáng thứ 7 nhé" → bấm Xác nhận | Thu hẹp đúng phương án, thẻ xác nhận đủ việc · xe · giờ · xưởng, chưa ghi; bấm → token + validator 7 kiểm tra → ghi; "Việc của tôi" có lịch; xưởng nhận **phiếu tiền chẩn đoán**. Phụ: bấm lại không đặt trùng, token sửa bị từ chối | Workflow **đặt lịch**, xác nhận trước khi hành động | A1.06 · D1.09 · A2.19 · D2.16 |
+| 4 · Đổi / trả + ticket | Khách: "Bộ sạc mới nhận bị lỗi đèn, anh muốn đổi" | Trích chính sách đổi / trả từ KB, đề xuất yêu cầu đổi (tham số từ đơn) → Xác nhận → ticket có mã + hạn xử lý | Workflow **đổi / trả + ticket** | A2.01 · D2.01 · A2.15 |
+| 5 · Đổi thông tin | Khách: "Đổi số điện thoại liên hệ giúp anh" | Nhắc lại thay đổi (số che bớt) → Xác nhận → ghi | Workflow **thay đổi thông tin**, che PII | A2.01 · D2.01 |
+| 6 · Sự cố + chuyển người | Demo panel: `parts.reservation.cancelled`; khách: "Sao lại thế… cho anh gặp người" | Tin chủ động phương án mới (UC3); HandoffCard đủ trường (tóm tắt, mục tiêu xong / dở, sự thật có nguồn, đã hứa gì, không được làm gì, hạn gọi lại 15') ở Console; nhân viên Nhận, copilot gợi ý có nguồn | **Handover kèm tóm tắt** | A1.08 · A2.06 · C2.01 |
+| 7 · Minh bạch + đo lường | Mở trace LangSmith + dashboard eval | Bước 0 token / bước gọi LLM / bước ghi qua executor; số eval: task accuracy, handover đúng lúc, tỉ lệ có trích dẫn, so baseline | **Đo lường được** (tiêu chí 1.7 của đề) | A2.08 · D2.05 · C2.04 |
+
+**Không trình diễn (chỉ nêu trong pitch):** UC2 trạm sạc (làm tuần 3 nếu dư giờ), UC4 / UC5 / UC6.
+
+## Bảng kiểm tình huống (giữ từ trước 03/10)
+
 | # | Tình huống | Hệ thống phải làm | Task giao |
 |---|---|---|---|
 | 1 | Đổi ý giữa chừng: hỏi bảo hành → *"à mà đơn phụ kiện hôm trước tới đâu rồi"* → quay lại đặt lịch | Không mất ngữ cảnh, không hỏi lại VIN | A2.02 |
