@@ -63,8 +63,8 @@ Gỡ: `bash ../team-ai-kit/uninstall.sh`.
 | Gemini CLI | thêm vào `~/.gemini/settings.json` của bạn: `"context": {"fileName": ["AGENTS.md", "GEMINI.md"]}` (kiểm tên khoá theo bản đang dùng) — KHÔNG sửa `.gemini/settings.json` của repo | — | pre-commit |
 
 ## Trong repo này
-- `rules/` luật (AGENTS.md) · `skills/` 22 skill (4 skill gốc ngoài đã vá + tài liệu tham khảo ngoài — xem `THIRD_PARTY.md`) · `plan/` kế hoạch, 140 task card (tuần 1 chi tiết, tuần 2–3 nháp), `verify.py` · `guardrails/` hook, pre-commit, kiểm contracts / sơ đồ · `kit.mk` (`make -f ../team-ai-kit/kit.mk check`)
-- `plan/` **kế hoạch & task từng người** (tick `[x]`, `python3 plan/progress.py`) · `docs/` spec 49 mục, proposal, quy ước, gap analysis · `diagrams/` script sinh sơ đồ
+- `rules/` luật (AGENTS.md) · `skills/` 26 skill (4 skill gốc ngoài đã vá + 4 skill thiết kế frontend ghim commit — `docs/frontend/skill-stack.md` + tài liệu tham khảo ngoài — xem `THIRD_PARTY.md`) · `plan/` kế hoạch, 140 task card (tuần 1 chi tiết, tuần 2–3 nháp), `verify.py` · `guardrails/` hook, pre-commit, kiểm contracts / sơ đồ · `kit.mk` (`make -f ../team-ai-kit/kit.mk check`)
+- `plan/` **kế hoạch & task từng người** (tick `[x]`, `python3 plan/progress.py`) · `design-system/proactive-care/` design system frontend (MASTER, token, ngoại lệ theo bề mặt) · `docs/` spec 49 mục, proposal, quy ước, gap analysis, `docs/frontend/` (skill stack, governance, screen map, journeys) · `diagrams/` script sinh sơ đồ
 
 ## Cái gì push lên P-073, cái gì không
 | Push lên P-073 (BTC chấm) | Chỉ ở team-ai-kit |
