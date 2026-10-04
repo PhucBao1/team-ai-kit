@@ -4,6 +4,10 @@ import subprocess
 import sys
 from fnmatch import fnmatch
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows console cp1252 không in được tiếng Việt → UTF-8
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 KIT_PATTERNS = [
     "AGENTS.md", "*/AGENTS.md", "CLAUDE.md", "*/CLAUDE.md", "CLAUDE.local.md",
     ".claude/skills/*", ".agents/skills/*", ".github/skills/*",

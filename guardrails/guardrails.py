@@ -19,6 +19,10 @@ import subprocess
 import sys
 from fnmatch import fnmatch
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows console cp1252 không in được tiếng Việt → UTF-8
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 # --- Luật đường dẫn ---------------------------------------------------------
 BTC = "File của BTC — AI không sửa; cần đổi thì hỏi người (và hỏi BTC nếu là .github/, docs/guide/)."
 PROTECTED = {

@@ -6,6 +6,10 @@ import re, sys, unicodedata
 from bs4 import BeautifulSoup
 from markdownify import markdownify as md
 
+if hasattr(sys.stdout, "reconfigure"):  # Windows console cp1252 không in được tiếng Việt → UTF-8
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 def slug(t):
     t=unicodedata.normalize('NFD',t); t=''.join(c for c in t if unicodedata.category(c)!='Mn').replace('đ','d').replace('Đ','D')
     return re.sub(r'[^a-z0-9]+','-',t.lower()).strip('-')[:40]

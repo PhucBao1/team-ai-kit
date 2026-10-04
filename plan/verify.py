@@ -16,9 +16,39 @@ import argparse
 import os
 import re
 import subprocess
+import shutil
 import sys
 import time
 from pathlib import Path
+
+if hasattr(sys.stdout, "reconfigure"):  # Windows console cp1252 không in được tiếng Việt → UTF-8
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
+
+# Windows: không có /bin/bash, thường không có `make` và `python3` (Git Bash) → tìm bash thật, đổi lệnh tương đương.
+BASH = shutil.which("bash") or "/bin/bash"
+KIT_DIR = "../team-ai-kit"
+MAKE_TARGETS = {  # đúng các target của kit.mk mà card dùng
+    "guardrails": f"python {KIT_DIR}/guardrails/guardrails.py ci $(git rev-parse -q --verify origin/develop >/dev/null && echo origin/develop || echo origin/main)",
+    "contracts": f"python {KIT_DIR}/guardrails/check_contracts.py",
+    "diagrams": f"python {KIT_DIR}/guardrails/check_diagrams.py",
+    "diagrams-export": f"python {KIT_DIR}/diagrams/export_langgraph.py",
+    "ci-local": "ruff check src/ tests/ && pytest tests/ -v --tb=short",
+    "plan-check": f"python {KIT_DIR}/plan/check_conflicts.py",
+}
+MAKE_TARGETS["check"] = " && ".join(MAKE_TARGETS[t] for t in ("guardrails", "contracts", "diagrams"))
+
+
+def portable(cmd: str) -> str:
+    """Lệnh của card chạy được cả khi máy không có `make` / `python3` (Windows); máy có thì giữ nguyên."""
+    if shutil.which("make") is None:
+        cmd = re.sub(
+            r"make -s -f \.\./team-ai-kit/kit\.mk ([a-z-]+)", lambda m: MAKE_TARGETS.get(m.group(1), m.group(0)), cmd
+        )
+    if os.name == "nt" or shutil.which("python3") is None:  # Windows: python3 thường là lối tắt Store rỗng
+        cmd = re.sub(r"\bpython3\b", "python", cmd)
+    return cmd
 
 TASKS = Path(__file__).resolve().parent / "tasks"
 DEFAULT_ENV = {"APP_ENV": "test", "OPENAI_API_KEY": "test-key"}
@@ -52,15 +82,15 @@ def run_card(task_id: str, verbose: bool) -> bool:
         print("  ✗ card không có lệnh '$ ' nào trong 'Kiểm xong' — sửa card trước")
         return False
     env = {**DEFAULT_ENV, **os.environ}
-    venv_bin = Path(".venv/bin").resolve()
+    venv_bin = Path(".venv/Scripts" if os.name == "nt" else ".venv/bin").resolve()  # Windows: .venv/Scripts
     if venv_bin.is_dir() and "VIRTUAL_ENV" not in os.environ:
         env["PATH"] = f"{venv_bin}{os.pathsep}{env.get('PATH', '')}"  # dùng .venv của repo nếu chưa activate
     ok = True
     for cmd in cmds:
         t0 = time.time()
         try:
-            r = subprocess.run(cmd, shell=True, env=env, capture_output=True, text=True,
-                               timeout=TIMEOUT_S, executable="/bin/bash")
+            r = subprocess.run([BASH, "-c", portable(cmd)], env=env, capture_output=True, text=True,
+                               encoding="utf-8", errors="replace", timeout=TIMEOUT_S)
             code, out = r.returncode, (r.stdout + r.stderr)
         except subprocess.TimeoutExpired:
             code, out = 124, f"quá {TIMEOUT_S}s"

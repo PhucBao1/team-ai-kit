@@ -1,7 +1,12 @@
 """Đếm task đã tick theo người và tuần. Dùng: python3 plan/progress.py"""
 
+import sys
 import pathlib
 import re
+
+if hasattr(sys.stdout, "reconfigure"):  # Windows console cp1252 không in được tiếng Việt → UTF-8
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
 HERE = pathlib.Path(__file__).parent
 for f in sorted(HERE.glob("[A-D]-*.md")):
