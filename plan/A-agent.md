@@ -40,9 +40,9 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[A2.13](tasks/A2.13.md)** · 2h — Kịch bản demo 11/10 (UC1 proactive → UC3, UC2 + 1 workflow PRD + handoff) + chạy thử 2 lần trên Live URL.
 - [x] **[A2.15](tasks/A2.15.md)** · 3h — KB thêm FAQ + SOP (đổi/trả, đặt lịch, cập nhật thông tin — đúng 4 workflow PRD) + reranker; `rag_golden` 50 câu có đáp án + đoạn nguồn. *(đổi: B → A: chất lượng tìm kiếm quyết định PolicyQA)*
 - [ ] **[A2.09](tasks/A2.09.md)** · 3h — Thêm 40 kịch bản (tổng hội thoại ~60): đa bước, đổi/trả, cập nhật thông tin, red-team. *(trả lại)*
-- [ ] **[A2.17](tasks/A2.17.md)** · 1h — Nối subgraph `charging` (B2.14), `post_repair` (B2.15), node `offer` (C2.13) vào `graph.py` — chỉ A sửa `graph.py` / `state.py`. **Chờ:** B2.14, B2.15, C2.13.
-- [ ] **[A2.18](tasks/A2.18.md)** · 3h — UC1 agent làm gọn: candidate UC1 (alias `T0_DTC_WARNING`), tin chủ động "lặp N lần trong X ngày" từ `get_recent_events`, `InterventionProposal` điền tất định. **Chờ:** B2.17. *(mới 03/10)*
-- [ ] **[A2.19](tasks/A2.19.md)** · 1,5h — Nội dung phiếu tiền chẩn đoán khi khách xác nhận lịch (ký trong params cho D2.16). *(mới 03/10)*
+- [ ] **[A2.17](tasks/A2.17.md)** · 1h — Nối subgraph `charging` (B2.14), `post_repair` (B2.15), node `offer` (C2.13) vào `graph.py` — chỉ A sửa `graph.py` / `state.py`. **Chờ:** B2.14, B2.15, C2.13. · **4/10:** đã nối `post_repair` (#29); còn `charging` (UC2 hoãn tuần 3) + `offer` (chờ C2.13).
+- [x] **[A2.18](tasks/A2.18.md)** · 3h — UC1 agent làm gọn: candidate UC1 (alias `T0_DTC_WARNING`), tin chủ động "lặp N lần trong X ngày" từ `get_recent_events`, `InterventionProposal` điền tất định. **Chờ:** B2.17. *(mới 03/10)*
+- [x] **[A2.19](tasks/A2.19.md)** · 1,5h — Nội dung phiếu tiền chẩn đoán khi khách xác nhận lịch (ký trong params cho D2.16). *(mới 03/10)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~30h — chỉ cải thiện
 
