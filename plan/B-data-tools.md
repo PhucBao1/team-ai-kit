@@ -14,7 +14,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [x] **[B1.05](tasks/B1.05.md)** · 4h · 29/9 — `find_options`: tồn kho + quãng đường (`src/core/range`) + kỹ năng kỹ thuật viên + khoá slot 15'. **Xong khi:** trả 2–3 phương án, xưởng 35 km bị loại khi pin thấp. *(đường găng)*
 - [x] **[B1.06](tasks/B1.06.md)** · 3h · 29/9 — `src/detect/rules.py` (L0: huỷ giữ linh kiện < 72h trước hẹn → candidate T1; mã CRITICAL → safety) + đồng hồ giả lập + hàm bơm sự kiện (D nối vào `/events/inject`, `/clock/advance`).
 - [x] **[B1.07](tasks/B1.07.md)** · 2h · 30/9 — Kịch bản demo cố định trong `src/sim/scenarios/` + 2 xe phụ; nội dung Problem / Solution cho README (gửi D).
-- [ ] **[B1.08](tasks/B1.08.md)** · 0,5h · mỗi ngày — Gom `WORKLOG.md` lúc 17:30 (mọi người tự ghi dòng của mình).
+- [x] **[B1.08](tasks/B1.08.md)** · 0,5h · mỗi ngày — Gom `WORKLOG.md` lúc 17:30 (mọi người tự ghi dòng của mình).
 
 ### 1–4/10
 - [x] **[B1.09](tasks/B1.09.md)** · 4h — KB: 3 chính sách công khai (bảo hành, bảo dưỡng, sạc) dạng markdown có phiên bản trong `src/kb/docs/` + `src/kb/ingest.py` + retriever hybrid (pgvector + từ khoá) trả đoạn kèm trích dẫn (skill `add-kb-document`).
@@ -37,7 +37,7 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[B2.14](tasks/B2.14.md)** · 3h — UC2 trạm sạc (`find_chargers`, đường tất định + mức khẩn khi SoC thấp) · **Chờ:** B2.03. *(đổi: A → B: B viết subgraph độc lập, A2.17 nối)*
 - [x] **[B2.15](tasks/B2.15.md)** · 3h — UC6 xác minh sau sửa (telematics sạch 14–30 ngày → đóng; tái phát → mở lại, tối đa 2 chu kỳ) dùng đồng hồ giả lập. *(đổi: A → B: B nắm detector + đồng hồ giả lập)*
 - [ ] **[B2.16](tasks/B2.16.md)** · 3h — Pub/Sub topic + schema + dead-letter; detector worker Cloud Run (cùng B2.04). *(đổi: D → B: worker chạy detector của B)*
-- [ ] **[B2.17](tasks/B2.17.md)** · 3h — UC1 detector: WARNING cùng hệ thống ≥ 3 lần / 14 ngày, dedupe, không có case mở; lịch sử sự kiện; tool `get_recent_events`. *(mới 03/10)*
+- [x] **[B2.17](tasks/B2.17.md)** · 3h — UC1 detector: WARNING cùng hệ thống ≥ 3 lần / 14 ngày, dedupe, không có case mở; lịch sử sự kiện; tool `get_recent_events`. *(mới 03/10)*
 - [ ] **[B2.18](tasks/B2.18.md)** · 3h — Đơn hàng / phụ kiện + tool tra đơn; `battery_ownership`; xác nhận thời hạn bảo hành pin; KB lịch bảo dưỡng ô tô. *(mới 03/10)*
 - [ ] **[B2.19](tasks/B2.19.md)** · 1h — Xưởng ưa thích được ưu tiên trong `find_options`. *(mới 03/10)*
 

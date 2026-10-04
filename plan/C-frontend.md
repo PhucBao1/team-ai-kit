@@ -10,17 +10,17 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 ### MVP (28–30/9)
 - [ ] **[C1.01](tasks/C1.01.md)** · 0,5h · 28/9 — Hook log AI + `install.sh` (chạy lại sau C1.02 để gắn `frontend/AGENTS.md`).
 - [ ] **[C1.02](tasks/C1.02.md)** · 2h · 28/9 — Dựng `frontend/` (Vite + React + TS strict + Tailwind + TanStack Query) theo skill `bootstrap-module`; `npm run gen:api` sinh kiểu từ `contracts/api.yaml`; **dark mode ngay từ đầu**.
-- [ ] **[C1.03](tasks/C1.03.md)** · 5h · 28–29/9 — Màn **Chat khách**: SSE (mock) · nút phương án · nút **Xác nhận hiển thị đủ tham số** (việc, xe, giờ, xưởng) · trích dẫn nguồn · nhãn "Trợ lý AI" · loading.
-- [ ] **[C1.04](tasks/C1.04.md)** · 3h · 29/9 — Màn **"Việc của tôi"** từ `/api/v1/jobs/{id}` (bước hiện tại, lời hứa, người phụ trách, thay đổi gần nhất).
-- [ ] **[C1.05](tasks/C1.05.md)** · 2h · 29/9 — **Demo panel**: reset · bơm 2 sự kiện · tua +2 / +14 ngày.
-- [ ] **[C1.06](tasks/C1.06.md)** · 4h · 30/9 — Màn **Console nhân viên**: danh sách handoff + HandoffCard (tóm tắt 1 dòng, mục tiêu, sự thật có nguồn, đã hứa gì, không được làm gì, hạn gọi lại) + nút nhận.
-- [ ] **[C1.07](tasks/C1.07.md)** · 2h · 30/9 — Chuyển mock → API thật (D1.11), giữ cờ `VITE_USE_MOCK` để demo được khi backend lỗi.
+- [x] **[C1.03](tasks/C1.03.md)** · 5h · 28–29/9 — Màn **Chat khách**: SSE (mock) · nút phương án · nút **Xác nhận hiển thị đủ tham số** (việc, xe, giờ, xưởng) · trích dẫn nguồn · nhãn "Trợ lý AI" · loading.
+- [x] **[C1.04](tasks/C1.04.md)** · 3h · 29/9 — Màn **"Việc của tôi"** từ `/api/v1/jobs/{id}` (bước hiện tại, lời hứa, người phụ trách, thay đổi gần nhất).
+- [x] **[C1.05](tasks/C1.05.md)** · 2h · 29/9 — **Demo panel**: reset · bơm 2 sự kiện · tua +2 / +14 ngày.
+- [x] **[C1.06](tasks/C1.06.md)** · 4h · 30/9 — Màn **Console nhân viên**: danh sách handoff + HandoffCard (tóm tắt 1 dòng, mục tiêu, sự thật có nguồn, đã hứa gì, không được làm gì, hạn gọi lại) + nút nhận.
+- [x] **[C1.07](tasks/C1.07.md)** · 2h · 30/9 — Chuyển mock → API thật (D1.11), giữ cờ `VITE_USE_MOCK` để demo được khi backend lỗi.
 - [ ] **[C1.08](tasks/C1.08.md)** · 1h · 30/9 — Quay **video dự phòng** demo MVP (trước 15:00, cùng A).
 
 ### 1–4/10
-- [ ] **[C1.09](tasks/C1.09.md)** · 3h — Responsive mobile cho cả 4 màn + skeleton / spinner cho mọi lời gọi LLM + thông báo lỗi thân thiện (không hiện exception).
-- [ ] **[C1.10](tasks/C1.10.md)** · 2h — Accessibility cơ bản: tương phản AA, focus bàn phím, `aria-live` cho tin mới, cỡ chữ lớn cho người lớn tuổi.
-- [ ] **[C1.11](tasks/C1.11.md)** · 2h — SSE tự nối lại + trạng thái "đang kết nối lại"; test Vitest cho hook chat.
+- [x] **[C1.09](tasks/C1.09.md)** · 3h — Responsive mobile cho cả 4 màn + skeleton / spinner cho mọi lời gọi LLM + thông báo lỗi thân thiện (không hiện exception).
+- [x] **[C1.10](tasks/C1.10.md)** · 2h — Accessibility cơ bản: tương phản AA, focus bàn phím, `aria-live` cho tin mới, cỡ chữ lớn cho người lớn tuổi.
+- [x] **[C1.11](tasks/C1.11.md)** · 2h — SSE tự nối lại + trạng thái "đang kết nối lại"; test Vitest cho hook chat.
 - [ ] **[C1.12](tasks/C1.12.md)** · 0,5h — Chủ nhật: screenshot 4 màn (sáng + tối) gửi D cho README.
 - [ ] **[C1.14](tasks/C1.14.md)** · 1,5h — Cloud Build trigger deploy từ `main` (CI/CD ngoài repo, không sửa `.github/`) + `min-instances 1`. *(chuyển từ D1.19)*
 - [ ] **[C1.15](tasks/C1.15.md)** · 1h · 30/9 trước 14:00 — Chạy tay 10 kịch bản MVP trên giao diện (local rồi Live URL), ghi lỗi giao A/D. *(tách từ D1.12)*

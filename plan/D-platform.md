@@ -8,30 +8,30 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 
 ### MVP (28–30/9)
 - [ ] **[D1.01](tasks/D1.01.md)** · 0,5h · 28/9 — Hook log AI + `install.sh`. **Xong khi:** `.ai-log/` có dòng mới; `git status` sạch.
-- [ ] **[D1.02](tasks/D1.02.md)** · 1h · 28/9 sáng — Squash-merge PR bootstrap (`git fetch bootstrap.bundle` → `git merge --squash`) vào `main`, tạo `develop`. **Xong khi:** CI BTC xanh trên GitHub.
-- [ ] **[D1.03](tasks/D1.03.md)** · 1h · 28/9 sáng — Cùng A, B đóng băng `contracts/`. *(đường găng)*
+- [x] **[D1.02](tasks/D1.02.md)** · 1h · 28/9 sáng — Squash-merge PR bootstrap (`git fetch bootstrap.bundle` → `git merge --squash`) vào `main`, tạo `develop`. **Xong khi:** CI BTC xanh trên GitHub.
+- [x] **[D1.03](tasks/D1.03.md)** · 1h · 28/9 sáng — Cùng A, B đóng băng `contracts/`. *(đường găng)*
 - [ ] **[D1.04](tasks/D1.04.md)** · 2h · 28/9 — GCP project + billing + Secret Manager; deploy `/health` lên Cloud Run (skill `deploy-live`). **Xong khi:** Live URL trả `{"status":"ok"}` (deliverable #5 từ ngày 1).
-- [ ] **[D1.05](tasks/D1.05.md)** · 2h · 28/9 — `src/core/warranty.py` + test (xe cá nhân 10 năm/200.000 km VF8/9 · 8 năm/160.000 km · xe dịch vụ 3 năm/100.000 km · lỡ bảo dưỡng). Trả `ELIGIBLE_PRELIM / NEEDS_WORKSHOP / EXPIRED / UNKNOWN` + lý do.
-- [ ] **[D1.06](tasks/D1.06.md)** · 1,5h · 28/9 — `src/core/range.py` (xưởng đi tới được với pin hiện tại, hệ số an toàn 1,3) + property test.
-- [ ] **[D1.07](tasks/D1.07.md)** · 1h · 28/9 — **Kiểm lại** endpoint mock đã có trong PR bootstrap (`src/api/mocks.py`, đánh dấu `MOCK — D1.11`) khớp `contracts/api.yaml`; chạy thử bằng Swagger cùng C. **Xong khi:** C gọi được mọi endpoint mock từ frontend.
-- [ ] **[D1.08](tasks/D1.08.md)** · 3h · 29/9 — Tool ghi `book_appointment`, `reschedule` trong `src/tools/service.py` (idempotent, giải phóng slot cũ, ghi promise) trên thế giới của B. **Chờ:** B1.02 · **mock:** dict trong test. *(đường găng)*
-- [ ] **[D1.09](tasks/D1.09.md)** · 4h · 29/9 — Confirmation token HMAC (hạn 10', gắn `params_hash`, `customer_id`) + `/api/v1/confirm` + validator 7 kiểm tra + `executor.run`. **Xong khi:** đổi 1 tham số → token vô hiệu (có test). *(đường găng)*
-- [ ] **[D1.10](tasks/D1.10.md)** · 2h · 29/9 — `src/core/claim_check.py` (ngày, giờ, km, tiền, %, mã lịch, biển số không có trong bằng chứng → chặn) + test.
+- [x] **[D1.05](tasks/D1.05.md)** · 2h · 28/9 — `src/core/warranty.py` + test (xe cá nhân 10 năm/200.000 km VF8/9 · 8 năm/160.000 km · xe dịch vụ 3 năm/100.000 km · lỡ bảo dưỡng). Trả `ELIGIBLE_PRELIM / NEEDS_WORKSHOP / EXPIRED / UNKNOWN` + lý do.
+- [x] **[D1.06](tasks/D1.06.md)** · 1,5h · 28/9 — `src/core/range.py` (xưởng đi tới được với pin hiện tại, hệ số an toàn 1,3) + property test.
+- [x] **[D1.07](tasks/D1.07.md)** · 1h · 28/9 — **Kiểm lại** endpoint mock đã có trong PR bootstrap (`src/api/mocks.py`, đánh dấu `MOCK — D1.11`) khớp `contracts/api.yaml`; chạy thử bằng Swagger cùng C. **Xong khi:** C gọi được mọi endpoint mock từ frontend.
+- [x] **[D1.08](tasks/D1.08.md)** · 3h · 29/9 — Tool ghi `book_appointment`, `reschedule` trong `src/tools/service.py` (idempotent, giải phóng slot cũ, ghi promise) trên thế giới của B. **Chờ:** B1.02 · **mock:** dict trong test. *(đường găng)*
+- [x] **[D1.09](tasks/D1.09.md)** · 4h · 29/9 — Confirmation token HMAC (hạn 10', gắn `params_hash`, `customer_id`) + `/api/v1/confirm` + validator 7 kiểm tra + `executor.run`. **Xong khi:** đổi 1 tham số → token vô hiệu (có test). *(đường găng)*
+- [x] **[D1.10](tasks/D1.10.md)** · 2h · 29/9 — `src/core/claim_check.py` (ngày, giờ, km, tiền, %, mã lịch, biển số không có trong bằng chứng → chặn) + test.
 - [ ] **[D1.11](tasks/D1.11.md)** · 3h · 30/9 — Nối endpoint thật với agent (A) và sim (B): SSE `/chat/stream`, `/stream/{id}`, `/jobs`, `/handoffs` + accept, `/trace/{id}`.
 - [ ] **[D1.12](tasks/D1.12.md)** · 1h · 30/9 — Sửa lỗi C1.15 báo; deploy MVP; `develop → main`. **Xong khi:** demo MVP chạy trên Live URL.
 
 ### 1–4/10
 - [ ] **[D1.14](tasks/D1.14.md)** · 4h — Postgres thật: Alembic + `src/db/models.py` (journeys, appointments, reservations, promises, handoffs, audit_log) + LangGraph checkpoint Postgres; `docker compose up` chạy đủ backend + db + redis.
 - [ ] **[D1.15](tasks/D1.15.md)** · 4h — Runner eval `eval/run.py` (YAML, kiểm "hard" bằng trạng thái thế giới, k lần, pass^k) + chạy 40 kịch bản (20 của B1.12, 10 của B, 10 của D).
-- [ ] **[D1.16](tasks/D1.16.md)** · 2h — Saga + transactional outbox + `audit_log` append-only cho thao tác ghi nhiều bước.
-- [ ] **[D1.17](tasks/D1.17.md)** · 2h — Structured logging (JSON, `trace_id` middleware, không log PII) — điểm DevOps.
+- [x] **[D1.16](tasks/D1.16.md)** · 2h — Saga + transactional outbox + `audit_log` append-only cho thao tác ghi nhiều bước.
+- [x] **[D1.17](tasks/D1.17.md)** · 2h — Structured logging (JSON, `trace_id` middleware, không log PII) — điểm DevOps.
 - [ ] **[D1.18](tasks/D1.18.md)** · 2h — Coverage ≥ 60% (`make test-cov`) + `make typecheck` sạch; bổ sung test chỗ thiếu.
-- [ ] **[D1.20](tasks/D1.20.md)** · 1,5h — ADR 001–003 trong `docs/adr/` (executor duy nhất ghi · pgvector · LangGraph) + bảng Design Decisions.
-- [ ] **[D1.21](tasks/D1.21.md)** · 1,5h · 30/9 + CN 4/10 — `eval/results/report.md`: bản 0 (pytest + coverage) ngày 30/9; báo cáo 40 kịch bản + soát cổng 4/10. *(trả lại)*
+- [x] **[D1.20](tasks/D1.20.md)** · 1,5h — ADR 001–003 trong `docs/adr/` (executor duy nhất ghi · pgvector · LangGraph) + bảng Design Decisions.
+- [x] **[D1.21](tasks/D1.21.md)** · 1,5h · 30/9 + CN 4/10 — `eval/results/report.md`: bản 0 (pytest + coverage) ngày 30/9; báo cáo 40 kịch bản + soát cổng 4/10. *(trả lại)*
 
 ## Tuần 2 · 5/10 → 11/10 · ~38,5h — đủ phạm vi
 
-- [ ] **[D2.01](tasks/D2.01.md)** · 4h — Tool ghi `create_ticket`, `request_return`, `update_contact_info`, `trigger_remote_update` + nhánh executor + test. Bật `CONTRACT_STRICT` cho mốc MVP.
+- [x] **[D2.01](tasks/D2.01.md)** · 4h — Tool ghi `create_ticket`, `request_return`, `update_contact_info`, `trigger_remote_update` + nhánh executor + test. Bật `CONTRACT_STRICT` cho mốc MVP. · *(lead làm thay 04/10, D duyệt)*
 - [ ] **[D2.02](tasks/D2.02.md)** · 4h — MCP servers (FastMCP) bọc tool theo contracts; policy check theo vai trò (chủ xe / người lái).
 - [ ] **[D2.05](tasks/D2.05.md)** · 5h — Suite `full` ≥ 150 kịch bản (A, B viết trong thư mục của mình) + chạy + báo cáo lỗi theo nhóm cho A.
 - [ ] **[D2.06](tasks/D2.06.md)** · 4h — Baseline **B0** không AI · **B1** chatbot FAQ · **B2** single agent (cờ cấu hình) → bảng so sánh có khoảng tin cậy.
