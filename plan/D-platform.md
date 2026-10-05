@@ -17,12 +17,12 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [x] **[D1.08](tasks/D1.08.md)** · 3h · 29/9 — Tool ghi `book_appointment`, `reschedule` trong `src/tools/service.py` (idempotent, giải phóng slot cũ, ghi promise) trên thế giới của B. **Chờ:** B1.02 · **mock:** dict trong test. *(đường găng)*
 - [x] **[D1.09](tasks/D1.09.md)** · 4h · 29/9 — Confirmation token HMAC (hạn 10', gắn `params_hash`, `customer_id`) + `/api/v1/confirm` + validator 7 kiểm tra + `executor.run`. **Xong khi:** đổi 1 tham số → token vô hiệu (có test). *(đường găng)*
 - [x] **[D1.10](tasks/D1.10.md)** · 2h · 29/9 — `src/core/claim_check.py` (ngày, giờ, km, tiền, %, mã lịch, biển số không có trong bằng chứng → chặn) + test.
-- [ ] **[D1.11](tasks/D1.11.md)** · 3h · 30/9 — Nối endpoint thật với agent (A) và sim (B): SSE `/chat/stream`, `/stream/{id}`, `/jobs`, `/handoffs` + accept, `/trace/{id}`.
+- [x] **[D1.11](tasks/D1.11.md)** · 3h · 30/9 — Nối endpoint thật với agent (A) và sim (B): SSE `/chat/stream`, `/stream/{id}`, `/jobs`, `/handoffs` + accept, `/trace/{id}`.
 - [ ] **[D1.12](tasks/D1.12.md)** · 1h · 30/9 — Sửa lỗi C1.15 báo; deploy MVP; `develop → main`. **Xong khi:** demo MVP chạy trên Live URL.
 
 ### 1–4/10
 - [ ] **[D1.14](tasks/D1.14.md)** · 4h — Postgres thật: Alembic + `src/db/models.py` (journeys, appointments, reservations, promises, handoffs, audit_log) + LangGraph checkpoint Postgres; `docker compose up` chạy đủ backend + db + redis.
-- [ ] **[D1.15](tasks/D1.15.md)** · 4h — Runner eval `eval/run.py` (YAML, kiểm "hard" bằng trạng thái thế giới, k lần, pass^k) + chạy 40 kịch bản (20 của B1.12, 10 của B, 10 của D).
+- [x] **[D1.15](tasks/D1.15.md)** · 4h — Runner eval `eval/run.py` (YAML, kiểm "hard" bằng trạng thái thế giới, k lần, pass^k) + chạy 40 kịch bản (20 của B1.12, 10 của B, 10 của D).
 - [x] **[D1.16](tasks/D1.16.md)** · 2h — Saga + transactional outbox + `audit_log` append-only cho thao tác ghi nhiều bước.
 - [x] **[D1.17](tasks/D1.17.md)** · 2h — Structured logging (JSON, `trace_id` middleware, không log PII) — điểm DevOps.
 - [ ] **[D1.18](tasks/D1.18.md)** · 2h — Coverage ≥ 60% (`make test-cov`) + `make typecheck` sạch; bổ sung test chỗ thiếu.
@@ -32,15 +32,15 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 ## Tuần 2 · 5/10 → 11/10 · ~38,5h — đủ phạm vi
 
 - [x] **[D2.01](tasks/D2.01.md)** · 4h — Tool ghi `create_ticket`, `request_return`, `update_contact_info`, `trigger_remote_update` + nhánh executor + test. Bật `CONTRACT_STRICT` cho mốc MVP. · *(lead làm thay 04/10, D duyệt)*
-- [ ] **[D2.02](tasks/D2.02.md)** · 4h — MCP servers (FastMCP) bọc tool theo contracts; policy check theo vai trò (chủ xe / người lái).
+- [x] **[D2.02](tasks/D2.02.md)** · 4h — MCP servers (FastMCP) bọc tool theo contracts; policy check theo vai trò (chủ xe / người lái).
 - [ ] **[D2.05](tasks/D2.05.md)** · 5h — Suite `full` ≥ 150 kịch bản (A, B viết trong thư mục của mình) + chạy + báo cáo lỗi theo nhóm cho A.
-- [ ] **[D2.06](tasks/D2.06.md)** · 4h — Baseline **B0** không AI · **B1** chatbot FAQ · **B2** single agent (cờ cấu hình) → bảng so sánh có khoảng tin cậy.
-- [ ] **[D2.07](tasks/D2.07.md)** · 3h — Load test (Locust, 20 người đồng thời) + chaos (LLM timeout / lỗi → không ghi, báo đúng) + health check chi tiết. *(load test trả lại)*
-- [ ] **[D2.08](tasks/D2.08.md)** · 3h — `eval/results/report.md` đủ 4 metric BTC (accuracy, latency < 3s, satisfaction, coverage) + baseline + feedback (từ B).
-- [ ] **[D2.10](tasks/D2.10.md)** · 2h — ADR 004–007 (confirmation token · proactive arbitration · baseline · upsell có kiểm soát).
+- [x] **[D2.06](tasks/D2.06.md)** · 4h — Baseline **B0** không AI · **B1** chatbot FAQ · **B2** single agent (cờ cấu hình) → bảng so sánh có khoảng tin cậy.
+- [x] **[D2.07](tasks/D2.07.md)** · 3h — Load test (Locust, 20 người đồng thời) + chaos (LLM timeout / lỗi → không ghi, báo đúng) + health check chi tiết. *(load test trả lại)*
+- [x] **[D2.08](tasks/D2.08.md)** · 3h — `eval/results/report.md` đủ 4 metric BTC (accuracy, latency < 3s, satisfaction, coverage) + baseline + feedback (từ B).
+- [x] **[D2.10](tasks/D2.10.md)** · 2h — ADR 004–007 (confirmation token · proactive arbitration · baseline · upsell có kiểm soát).
 - [ ] **[D2.11](tasks/D2.11.md)** · 3h — Deploy bản đầy đủ + frontend (cùng C) + smoke 3 kịch bản demo trên URL thật; `develop → main` 11/10.
 - [ ] **[D2.12](tasks/D2.12.md)** · 2h — Buffer sửa lỗi tích hợp trước demo 11/10.
-- [ ] **[D2.13](tasks/D2.13.md)** · 3h — **Upsell**: `src/core/offers.py` (điều kiện + luật chặn) + tool ghi `create_quote` qua executor + sự kiện `offer_shown` / `offer_declined` trong contracts. **Chờ:** B2.12 · **mock:** offer viết tay.
+- [x] **[D2.13](tasks/D2.13.md)** · 3h — **Upsell**: `src/core/offers.py` (điều kiện + luật chặn) + tool ghi `create_quote` qua executor + sự kiện `offer_shown` / `offer_declined` trong contracts. **Chờ:** B2.12 · **mock:** offer viết tay.
 - [ ] **[D2.14](tasks/D2.14.md)** · 2,5h — Route copilot/wrap (gọi hàm của A2.06) + CORS + deploy frontend; mọi sửa `src/api/`, `src/main.py`, `contracts/api.yaml` tuần 2 gom về D. *(từ C2.06 + phần route của A2.06)*
 - [ ] **[D2.15](tasks/D2.15.md)** · 1,5h — `core.warranty`: pin thuê không thuộc bảo hành xe. **Chờ:** B2.18. *(mới 03/10)*
 - [ ] **[D2.16](tasks/D2.16.md)** · 2h — Phiếu tiền chẩn đoán đính kèm lịch hẹn khi executor ghi. *(mới 03/10)*
