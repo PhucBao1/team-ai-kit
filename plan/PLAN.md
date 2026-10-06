@@ -59,8 +59,10 @@ nhiều lần theo ngày mua. Phần "phát hiện lỗi rồi báo khách" **kh
 | 5 | A2.26 | Quá hạn chưa ai nhận → chuyển tới hàng chờ "Trưởng ca CSKH" (kiểm lại, vẫn chưa nhận) + báo khách đúng tình trạng (cắt đầu tiên nếu trễ) |
 | 6 | A2.13 | Demo xuyên suốt có nhánh lỗi; đo hứa sai = 0, đóng sai = 0; tách proactive khỏi LLM |
 
+**Chốt 06/10 (phương án A):** giữ A2.26; nhánh "xưởng chưa tái hiện được lỗi" và hồ sơ xuyên suốt đầy đủ (bổ sung A2.19 / D2.16) sang roadmap. Nhánh "khách còn triệu chứng dù không có mã lỗi" làm trong A2.23. Số liệu khảo sát dùng InsightAsia 2025 công khai (n=762); PDF "2026" chưa xác minh — không dùng. Mã lỗi `BATT-COOL-01` và mọi ngưỡng demo là giả lập.
+
 **Roadmap riêng (không vào chuỗi chính trước 11/10):** giao nhận xe tận nhà (A2.24) · kênh Zalo thật · gọi điện bằng AI · chụp ảnh đèn taplo ·
-sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM · upsell · kiểm lại xưởng sẵn sàng định kỳ trước giờ hẹn · duyệt phạm vi sửa + chi phí riêng ·
+"xưởng chưa tái hiện được lỗi" · hồ sơ xuyên suốt đầy đủ · sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM · upsell · kiểm lại xưởng sẵn sàng định kỳ trước giờ hẹn · duyệt phạm vi sửa + chi phí riêng ·
 "đã nhận nhưng không tiến triển" (cần dữ liệu cam kết cập nhật) · "đã xác minh" sau sửa (cần khách xác nhận hết triệu chứng).
 **Không pitch như pain:** UC4 hoá đơn, UC6 tái phát (chưa có bằng chứng). Upsell: ngoài lõi đề (quyết định phạm vi).
 
