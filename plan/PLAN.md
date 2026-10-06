@@ -40,6 +40,23 @@ Chi tiết, so sánh hãng nước ngoài, sai sót nghiệp vụ và nguồn: [
 [A2.18](tasks/A2.18.md) · [A2.19](tasks/A2.19.md) · [B2.17](tasks/B2.17.md) · [B2.18](tasks/B2.18.md) · [B2.19](tasks/B2.19.md) ·
 [C2.14](tasks/C2.14.md) · [D2.15](tasks/D2.15.md) · [D2.16](tasks/D2.16.md). Kịch bản demo 11/10: [7 màn](demo-full.md).
 
+### Bổ sung 06/10 — sau business discovery lại (lead)
+
+Nguồn: `P-073/business/2026-10-06_01-55_ev-cx-agent-market-research-result.html` (verdict **NARROW**). Pain còn bằng chứng:
+(P-A) việc bị "chuyển bộ phận" mà không ai giữ, không có hạn; (P-B) khách không chắc quyền lợi đúng cho xe mình — chính sách đổi
+nhiều lần theo ngày mua. Phần "phát hiện lỗi rồi báo khách" **không còn là điểm mới**: VinFast đã công bố tính năng này cho VF e34 từ 19/05/2021
+(Tesla, GM, BMW, Rivian cũng làm) → proactive là **cửa vào**, khác biệt nằm ở phần sau khi báo.
+
+| Hạng mục | Quyết định | Card |
+|---|---|---|
+| KB sạc miễn phí còn ghi "đến 30/6/2027" (đã bị thay 09/02/2026) + dừng thuê pin | **Làm** | A2.20 |
+| Bảo hành VF 7 (nguồn mâu thuẫn 7 năm / 10 năm) + chu kỳ bảo dưỡng 15.000 km từ 01/01/2026 | **Xác minh rồi mới sửa** | A2.21 |
+| Chuyển người thất bại vẫn báo "đã chuyển" | **Làm** | A2.22 |
+| Việc của khách có trạng thái "Đã xác minh" sau khi theo dõi sau sửa sạch | **Làm** (ADR 010) | A2.23 |
+| Giao nhận xe tận nhà qua agent (dịch vụ VinFast đã có) | **Dư giờ** | A2.24 |
+| Kênh Zalo thật · ảnh đèn taplo · gọi điện AI · sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM | **Chỉ pitch / roadmap** | — |
+| UC4 hoá đơn · UC6 tái phát · upsell như "pain" | **Bỏ khỏi phần pain khi pitch** — không tìm thấy bằng chứng | — |
+
 > Điền tên thật: A = ______ · B = ______ · C = ______ · D = ______ · Demo Day BTC = ______ (lộ trình sách BTC ghi 6 tuần — hỏi BTC).
 
 ## 1. Mốc

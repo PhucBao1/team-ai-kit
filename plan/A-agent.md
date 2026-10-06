@@ -43,6 +43,11 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[A2.17](tasks/A2.17.md)** · 1h — Nối subgraph `charging` (B2.14), `post_repair` (B2.15), node `offer` (C2.13) vào `graph.py` — chỉ A sửa `graph.py` / `state.py`. **Chờ:** B2.14, B2.15, C2.13. · **4/10:** đã nối `post_repair` (#29); còn `charging` (UC2 hoãn tuần 3) + `offer` (chờ C2.13).
 - [x] **[A2.18](tasks/A2.18.md)** · 3h — UC1 agent làm gọn: candidate UC1 (alias `T0_DTC_WARNING`), tin chủ động "lặp N lần trong X ngày" từ `get_recent_events`, `InterventionProposal` điền tất định. **Chờ:** B2.17. *(mới 03/10)*
 - [x] **[A2.19](tasks/A2.19.md)** · 1,5h — Nội dung phiếu tiền chẩn đoán khi khách xác nhận lịch (ký trong params cho D2.16). *(mới 03/10)*
+- [ ] **[A2.20](tasks/A2.20.md)** · 3h — KB: chính sách sạc miễn phí 2026 (theo ngày mua, tối đa 10 lần/tháng) thay bản "đến 30/6/2027" + dừng thuê pin 01/3/2025; 2 kịch bản eval. *(mới 06/10)*
+- [ ] **[A2.21](tasks/A2.21.md)** · 2,5h — Xác minh bảo hành VF 7 + chu kỳ bảo dưỡng 2026 trên trang chính thức rồi mới sửa KB / fixture. **Chờ:** xác minh bằng trình duyệt. *(mới 06/10)*
+- [ ] **[A2.22](tasks/A2.22.md)** · 1,5h — Chuyển người thất bại → không nói "đã chuyển", đưa tổng đài, không hứa giờ gọi lại. *(mới 06/10)*
+- [ ] **[A2.23](tasks/A2.23.md)** · 3h — Việc của khách sang "Đã xác minh" khi `post_repair` đóng sạch (enum mới + ADR 010). *(mới 06/10)*
+- [ ] **[A2.24](tasks/A2.24.md)** · 4h — *(Dư giờ)* Tool `request_pickup_delivery`: đề nghị giao nhận xe tận nhà sau khi xác nhận lịch. **Chờ:** A2.20–A2.23. *(mới 06/10)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~30h — chỉ cải thiện
 
