@@ -1,7 +1,7 @@
 # Mục lục — Proposal EV CX Agent
 
 - [01 · Đề bài & đối chiếu — Đáp ứng đủ đề bài — rồi đi xa hơn một bước](01-brief.md)
-- [02 · Vấn đề — Phần lớn lần khách liên hệ là vì doanh nghiệp đã làm rơi việc](02-problem.md)
+- [02 · Vấn đề — Ca hậu mãi không xong trong một lần: khách phải giục, phải kể lại, không chắc quyền lợi](02-problem.md)
 - [03 · Bối cảnh nghiệp vụ — Hành trình chủ xe điện: nhiều bên, nhiều hệ thống, nhiều mốc có hệ quả thật](03-domain.md)
 - [03.1 · Anchor case — "Xe cảnh báo lặp lại, tôi chưa kịp làm gì — rồi đến xưởng lại bảo chưa có linh kiện"](03_1-anchor.md)
 - [04 · Định vị & in-flight proactive — Proactive đã là xu hướng. Khác biệt nằm ở thời điểm và loại vấn đề.](04-positioning.md)
@@ -30,3 +30,4 @@
 - [PL-E · Nghiệp vụ mở rộng — Phân khúc, bảo hiểm, Customer Success, Client Services, đặc thù xe điện & Việt Nam](domain-ext.md)
 - [Use case chi tiết (từng bước, trace)](usecases-detail.md)
 - [Rà nghiệp vụ VinFast + so sánh hãng nước ngoài (03/10, có nguồn)](../research/2026-10-03-nghiep-vu-vinfast.md)
+- [Business discovery lại từ đầu — verdict NARROW, điểm unique, pain bị loại (06/10)](../research/2026-10-06-business-discovery.md) · [báo cáo HTML đầy đủ](../research/2026-10-06-business-discovery-report.html)

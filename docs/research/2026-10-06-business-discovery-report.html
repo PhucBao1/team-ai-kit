@@ -1,0 +1,575 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Business Discovery lại từ đầu</title>
+<style>
+:root{
+  --bg:#fbfaf7;--surface:#ffffff;--ink:#1d1d1b;--muted:#5e5c57;--line:#e3e0d8;
+  --accent:#1f5f8b;--ok:#2d6a3e;--warn:#9a6a00;--bad:#a23b2a;--chip:#f1eee6;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#161616;--surface:#1f1f1e;--ink:#ecebe7;--muted:#a9a69e;--line:#36342f;
+    --accent:#7fb6dc;--ok:#7cc48e;--warn:#e0b34f;--bad:#ec8a78;--chip:#2a2926;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#161616;--surface:#1f1f1e;--ink:#ecebe7;--muted:#a9a69e;--line:#36342f;
+  --accent:#7fb6dc;--ok:#7cc48e;--warn:#e0b34f;--bad:#ec8a78;--chip:#2a2926;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:920px;margin:0 auto;padding:24px 16px 80px}
+h1{font-size:1.7rem;line-height:1.25;margin:.6em 0 .3em}
+h2{font-size:1.3rem;margin:1.8em 0 .5em;border-bottom:1px solid var(--line);padding-bottom:.25em}
+h3{font-size:1.08rem;margin:1.4em 0 .4em}
+p,li{max-width:75ch}
+a{color:var(--accent)}
+abbr{text-decoration:underline dotted;cursor:help}
+.meta{color:var(--muted);font-size:.9rem}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:14px 0}
+.warn{border-left:4px solid var(--warn)}
+.bad{border-left:4px solid var(--bad)}
+.ok{border-left:4px solid var(--ok)}
+.verdict{font-size:1.35rem;font-weight:700;color:var(--warn)}
+.tag{display:inline-block;font-size:.72rem;font-weight:600;letter-spacing:.02em;padding:1px 7px;border-radius:99px;background:var(--chip);color:var(--muted);white-space:nowrap}
+.t-fact{color:var(--ok)}.t-ev{color:var(--accent)}.t-as{color:var(--warn)}.t-hy{color:var(--warn)}.t-inf{color:var(--muted)}.t-sol{color:var(--bad)}
+.k{color:var(--bad);font-weight:700}.s{color:var(--ok);font-weight:700}.p{color:var(--warn);font-weight:700}
+.tw{overflow-x:auto;margin:10px 0}
+table{border-collapse:collapse;width:100%;font-size:.9rem;background:var(--surface)}
+th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top}
+th{background:var(--chip);font-weight:600}
+details{background:var(--surface);border:1px solid var(--line);border-radius:10px;margin:14px 0;padding:0 16px}
+details[open]{padding-bottom:12px}
+summary{cursor:pointer;font-weight:700;padding:12px 0;font-size:1.05rem}
+.drill{font-size:.88rem;white-space:nowrap}
+nav.toc ol{columns:2;column-gap:28px;padding-left:20px}
+@media (max-width:640px){nav.toc ol{columns:1}h1{font-size:1.4rem}}
+sub,.trace{color:var(--muted);font-size:.82rem}
+footer{margin-top:40px;color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);padding-top:12px}
+</style>
+</head>
+<body>
+<main>
+
+<p class="meta">Phân tích theo phương pháp Next Move Theory / Advanced Jobs To Be Done của Ivan Zamesin — <a href="https://nextmovetheory.com/?utm_source=nmt-market-research&utm_medium=skill-artifact" target="_blank" rel="noopener">nextmovetheory.com</a></p>
+
+<a id="disclaimers-top"></a>
+<div class="box warn">
+<p><strong>⚠️ Về con số.</strong> Mọi con số ước lượng trong file này là giả thuyết do mô hình ngôn ngữ tạo ra. Mỗi con số đều ghi rõ nguồn hoặc giả định. Phải kiểm chứng trước khi dùng cho bất kỳ quyết định đầu tư nào.</p>
+<p><strong>⚠️ Về sai sót.</strong> Toàn bộ tài liệu do mô hình ngôn ngữ viết, có thể sai ở những chỗ không biết trước. Với quyết định tốn kém, cần làm nghiên cứu định tính và định lượng đầy đủ; không hành động chỉ dựa trên tài liệu này.</p>
+</div>
+
+<h2 style="border:0;margin-top:1em">Cách đọc</h2>
+<p><strong>Mục 1 (Câu trả lời) là toàn bộ kết luận, gói trong một trang.</strong> Phần còn lại là 15 mục bạn yêu cầu, gập sẵn, mở ra khi cần kiểm tra lập luận.</p>
+<ul>
+<li><strong>Câu trả lời</strong>: kết luận, vấn đề cốt lõi, rủi ro quyết định, việc làm tiếp. <a href="#layer-1">nhảy ▸</a></li>
+<li><strong>Lập luận và bằng chứng</strong>: 15 mục, từ đọc đề BTC → audit → kill test → verdict. <a href="#layer-2">nhảy ▸</a></li>
+<li><strong>Phụ lục</strong>: nguồn, quy mô, dấu vết phương pháp. <a href="#layer-3">nhảy ▸</a></li>
+</ul>
+
+<!-- ============ LAYER 1 ============ -->
+<a id="layer-1"></a>
+<h1>P-073 · CSKH hậu mãi ô tô điện — làm lại business discovery</h1>
+<p class="meta">06/10/2026 · Việt Nam, chủ ô tô điện VinFast, tiếng Việt (có đối chiếu quốc tế) · giai đoạn: đang build cho cuộc thi · Deep mode</p>
+<p class="meta">⚠️ Đây là giả thuyết, chưa phải sự thật — <a href="#disclaimers">giới hạn đầy đủ ▸</a></p>
+
+<div class="box warn">
+<p><strong>Đầu vào mỏng.</strong> Không có phỏng vấn khách, không có log tổng đài, không có văn bản gốc của đề BTC (chỉ có bản đội diễn giải lại). Bằng chứng trong nước chủ yếu là lời kể lẻ trên diễn đàn và bài báo mang tính PR. Facebook group, Google Play và diễn đàn vinfast.vn đều chặn truy cập tự động. Vì vậy mọi tần suất bên dưới chỉ là khoảng ước lượng, mọi nhóm khách là giả thuyết. Ba thứ sẽ làm báo cáo này chính xác hơn nhiều: (1) văn bản gốc của đề BTC; (2) 8 cuộc phỏng vấn chủ xe vừa có một ca sửa chữa/bảo hành trong 6 tháng qua; (3) đọc tay 50 review Google Play và 100 bài gần nhất trong 2–3 group chủ xe VinFast.</p>
+</div>
+
+<h2>Câu trả lời: <span class="verdict">NARROW — thu hẹp lại, rồi đi kiểm chứng</span></h2>
+<p>Đề BTC đúng chỗ, nhưng hai bản phân tích trước (proposal và report HTML) đã kéo bài toán ra xa khỏi chỗ có bằng chứng. Pain point mà bằng chứng còn đỡ được là <strong>ca hậu mãi "không xong trong một lần"</strong>. Đó là khi khách cần câu trả lời đúng cho chính chiếc xe của mình (chính sách đổi liên tục), hoặc khi yêu cầu bị "chuyển bộ phận" mà không có người giữ, không có hạn trả lời, khách phải tự giục và kể lại. Điều này trùng với lõi bắt buộc của đề BTC: hiểu mục đích nhiều bước, tra KB có căn cứ, dùng tool, chuyển người kèm tóm tắt. Nó không trùng với hướng mà report cũ chọn ("đến xưởng không có linh kiện"): hướng đó được chọn vì hợp với code, còn bằng chứng thì yếu. <span class="drill"><a href="#l2-verdict">vì sao không phải GO thẳng ▸</a></span></p>
+
+<div class="box">
+<p><strong>Nợ kiểm chứng:</strong> kết luận này dựa trên <strong>7</strong> giả định chưa kiểm chứng, trong đó <strong>3</strong> giả định nếu sai sẽ làm sập hướng này. Ba giả định đó cần kiểm trước tiên. <a href="#l2-risks">xem ▸</a></p>
+</div>
+
+<div class="box ok"><p><strong>Cập nhật 06/10:</strong> kiểm chứng tại bàn tìm thấy mâu thuẫn thật về bảo hành VF 7 giữa các nguồn viết, và cả trong KB của đội. Ngoài ra VinFast đã công bố tính năng tự gửi mã lỗi và báo khách từ 2021. P-B mạnh lên, UC1 không còn là điểm khác biệt. <a href="#update-desk">xem cập nhật ▸</a></p></div>
+
+<h3>Vấn đề cốt lõi</h3>
+<p>Chủ ô tô điện VinFast có một việc hậu mãi kéo dài: xe đang sửa hoặc bảo hành, hỏi quyền lợi sạc / pin / bảo hành theo ngày mua, hoặc lắp sạc tại nhà. Kênh hiện có trả lời tốt ca đơn giản. Đến ca phức tạp thì gãy ở đúng hai chỗ: <strong>câu trả lời không chắc đúng cho xe của mình</strong> và <strong>chuyển đi rồi không ai chịu trách nhiệm</strong>. <span class="drill"><a href="#l2-buyer">ai, việc gì, gãy ở đâu ▸</a></span></p>
+
+<h3>Vì sao có thể tạo khác biệt</h3>
+<p>Bằng chứng quốc tế cho thấy AI làm tốt việc hẹp (Pied Piper 2025, đo độc lập trên 2.105 đại lý ở Mỹ: AI tự xử lý trọn 91% cuộc gọi dịch vụ). AI hỏng ở đúng chỗ <em>chuyển sang người</em>: 56% lần chuyển thất bại. Khách cũng sợ nhất là "bot chặn đường gặp người" (Gartner 2024, n=5.728: 64% không muốn doanh nghiệp dùng AI trong CSKH). Khác biệt vì vậy không nằm ở "có chatbot", mà ở <strong>trả lời có căn cứ + chuyển người không gãy + có người giữ việc</strong>. <span class="drill"><a href="#l2-edge">khoảng trống so với hiện tại ▸</a></span></p>
+
+<h3>Rủi ro quyết định mọi thứ</h3>
+<p>Có thể phần lớn liên hệ của chủ xe VinFast là ca đơn giản mà app (vốn được chấm số hoá 90%, cao nhất 9 hãng trong khảo sát InsightAsia) và tổng đài đã xử lý tốt. Nếu vậy thì có hay không có agent cũng không khác biệt đáng kể. <span class="drill"><a href="#l2-risks">toàn bộ danh sách rủi ro ▸</a></span></p>
+
+<h3>Làm gì tiếp</h3>
+<p>Trong 3–5 ngày, không build thêm: đọc tay ~150 bài/review gần nhất của chủ xe và phân loại lý do liên hệ; gọi thử tổng đài với 5 câu hỏi chính sách; phỏng vấn 8 chủ xe vừa có ca sửa/bảo hành. Nếu ca "chính sách theo xe + chuyển bộ phận bị đứt" chiếm dưới 20% bài liên quan dịch vụ thì bỏ hướng này. <span class="drill"><a href="#l2-next">kế hoạch theo thứ tự ▸</a></span></p>
+
+<h3>Quy mô</h3>
+<p>Đây là bài thi do hãng ra đề, không phải bán phần mềm ra thị trường. Vì vậy "quy mô" là <strong>lượng ca phức tạp mà kênh hiện tại xử lý kém</strong>, và con số này <strong>chưa đo được</strong>. Bối cảnh: VinFast bàn giao khoảng 175 nghìn ô tô điện năm 2025 (số trích từ report cũ, chưa kiểm lại), nên cơ sở chủ xe đang lớn nhanh. Tỷ lệ ca phức tạp có thể từ vài phần trăm đến vài chục phần trăm lượt liên hệ; với đầu vào hiện tại thì không thu hẹp được hơn. <span class="drill"><a href="#l3-sizing">số liệu từ đâu ▸</a></span></p>
+
+<a id="update-desk"></a>
+<details open>
+<summary>Cập nhật 06/10 — kiểm chứng tại bàn thay cho thực địa</summary>
+<p>Nhóm chưa phỏng vấn hay gọi tổng đài được, nên tôi thử thay bằng kiểm chứng tại bàn. Kết quả: <strong>không đổi verdict (vẫn NARROW)</strong>. P-B (quyền lợi theo xe) <strong>mạnh lên</strong>. UC1 (phát hiện trước) <strong>yếu đi</strong> như một điểm khác biệt.</p>
+
+<h3>1. Đọc tiếng nói chủ xe (thay bước phân loại lý do liên hệ): gần như bị chặn</h3>
+<ul>
+<li>voz.vn, Otofun, Google Maps (review xưởng), Reddit, diễn đàn vinfast.vn: <strong>không tải được</strong> từ môi trường này. Facebook cần người thao tác tay (hướng dẫn ở mục 15). Kết quả tìm kiếm trong nước chủ yếu là bài PR khen dịch vụ, ví dụ <a href="https://dantri.com.vn/o-to-xe-may/nguoi-dung-danh-gia-cao-dich-vu-hau-mai-cua-vinfast-20260330184132760.htm" target="_blank" rel="noopener">Dân Trí 30/3/2026</a>: 4 lời khen, không có số khảo sát.</li>
+<li>Đọc được 1 thread: <a href="https://www.otosaigon.com/threads/vinfast-xu-ly-the-nao-khi-chu-xe-vf9-phan-anh-cho-doi-lau-trong-thoi-gian-sua-chua-bao-hanh.10025287/" target="_blank" rel="noopener">otosaigon, ca VF9 (12/10/2024)</a>. Trong 10 comment: 4 khen cách hãng xử lý, 2 chê đền bù ít, <strong>2 chê "phải phàn nàn công khai mới được xử lý"</strong>, 2 bàn về marketing. Một thread không đủ để ra tỷ lệ; chỉ là tín hiệu cùng chiều với P-A.</li>
+<li>Tiêu đề thread tìm thấy (chưa đọc được nội dung): "Bảo hành xe vinfast lâu quá phải làm sao?", "Các bác đi xe vinfast đã làm gì để thoả mãn được cách phục vụ của services" (voz). Kết quả tìm kiếm tóm tắt có ca xe nằm đại lý 2–3 tháng không có mốc thời gian. Chưa kiểm được ngày đăng và loại xe.</li>
+</ul>
+
+<h3>2. Đối chiếu chính sách trên nguồn viết (thay bước gọi thử tổng đài): <span class="s">có mâu thuẫn thật</span></h3>
+<div class="tw"><table>
+<tr><th>Câu hỏi</th><th>Nguồn nói gì</th><th>Đánh giá</th></tr>
+<tr><td>VF 7 được bảo hành bao lâu?</td><td>· Tóm tắt kết quả tìm kiếm từ FAQ VinFast và trang đại lý: <strong>10 năm / 200.000 km</strong>, chỉ VF 5, VF 6 là 7 năm.<br>· <a href="https://vinfastvietnam.com.vn/vinfast-vf-7/" target="_blank" rel="noopener">vinfastvietnam.com.vn</a>: tiêu đề "bảo hành 10 năm" nhưng thân bài "7 năm hoặc 160.000 km".<br>· Một bài khác xếp VF 7 chung nhóm 7 năm.<br>· Có mẫu xe tên gần giống là <strong>VF MPV 7</strong>, bảo hành 7 năm / 160.000 km.<br>· <strong>KB của đội</strong> (<code>src/kb/docs/warranty/warranty_v2026.03.md:20</code>, <code>contracts/fixtures/demo_world.yaml:36</code>) ghi VF 7 = 7 năm.</td><td class="k">Mâu thuẫn chưa giải được: không mở được trang gốc VinFast (chặn truy cập tự động). Có thể KB của đội đang sai.</td></tr>
+<tr><td>Chu kỳ bảo dưỡng</td><td>Từ 01/01/2026 đổi từ 12.000 km sang 15.000 km hoặc 1 năm cho nhiều mẫu. Fixture của đội vẫn ghi <code>maintenance_interval_km: 12000</code>.</td><td class="p">Nguồn khớp nhau; dữ liệu của đội cũ</td></tr>
+<tr><td>Sạc miễn phí</td><td>Có ba tầng điều kiện:<br>· mua từ 10/2/2026: tới 10/2/2029<br>· mua trước đó: 3 năm từ ngày nhận xe<br>· chung: tối đa 10 lần/tháng; tài xế Xanh SM không giới hạn<br>Ngoài ra, xe đã chuyển từ pin thuê sang pin mua được thêm 6 tháng, tới 31/12/2027.</td><td class="p">Nhất quán nhưng nhiều tầng: dễ trả lời sai</td></tr>
+<tr><td>Pin thuê</td><td>Dừng cho thuê mới từ 01/3/2025. Người đang thuê được chọn thuê tiếp hoặc mua lại. <strong>Ngừng chương trình hỗ trợ chuyển sang pin mua từ 01/5/2026.</strong></td><td class="p">Có mốc hết hạn mà nhiều chủ xe có thể không biết</td></tr>
+</table></div>
+<p><strong>Ý nghĩa:</strong> đây là bằng chứng <em>quan sát được</em> đầu tiên cho P-B. Ngay cả nguồn viết công khai và một đội đang chủ động nghiên cứu cũng có thể ghi sai quyền lợi theo mẫu xe. Đây vẫn chưa phải tiếng nói của khách, nên tần suất khách hỏi những câu này vẫn chưa biết. <strong>Việc cần làm ngay cho repo:</strong> xác minh lại VF 7 và chu kỳ bảo dưỡng bằng trình duyệt trên trang chính thức, rồi version lại KB. Báo cáo này không sửa code.</p>
+
+<h3>3. "Phát hiện cảnh báo trước khi khách biết" — đã có ai làm?</h3>
+<div class="tw"><table>
+<tr><th>Ai</th><th>Làm gì</th><th>Từ khi</th></tr>
+<tr><td><a href="https://gmauthority.com/blog/2015/01/general-motors-announces-industry-first-prognostic-tech-to-predict-component-failure/" target="_blank" rel="noopener">GM OnStar Proactive Alerts</a></td><td>Theo dõi ắc quy, máy đề, bơm nhiên liệu; báo khách trước khi hỏng</td><td>Đời xe 2016</td></tr>
+<tr><td><a href="https://www.bmw.ca/en/topics/details/Owners0/personal-services/teleservice.html" target="_blank" rel="noopener">BMW Teleservice Battery Guard</a></td><td>Đại lý được báo và chủ động gọi khách đặt lịch</td><td>Nhiều năm</td></tr>
+<tr><td><a href="https://electrek.co/2019/05/06/tesla-diagnose-pre-order-parts-service/" target="_blank" rel="noopener">Tesla</a></td><td>Tự chẩn đoán, gửi linh kiện tới xưởng trước, nhắn khách đặt lịch</td><td>2019</td></tr>
+<tr><td><a href="https://insideevs.com/news/498456/rivian-remote-care-convenient-servicing/" target="_blank" rel="noopener">Rivian Remote Care</a></td><td>Theo dõi liên tục, chủ động liên hệ, đặt linh kiện trước, xe dịch vụ lưu động</td><td>2021</td></tr>
+<tr><td><a href="https://www.fleetowner.com/operations/article/21273210/volvos-remote-programming-reduces-faults-by-51" target="_blank" rel="noopener">Volvo Trucks</a></td><td>Chẩn đoán từ xa cho đội xe; tự công bố lỗi giảm 51% sau cập nhật phần mềm từ xa</td><td>Đang chạy</td></tr>
+<tr><td><strong><a href="https://vinfastdienchau.vn/news/tinh-nang-ho-tro-cham-soc-khach-hang-tu-dong-tu-xa-cua-vinfast-vf-e34/" target="_blank" rel="noopener">VinFast VF e34</a></strong></td><td>Xe tự gửi mã lỗi về trung tâm bảo hành; lỗi phần mềm sửa từ xa; lỗi phần cứng báo lên màn hình và app; nhắc bảo dưỡng, đặt lịch một chạm</td><td>Công bố 19/05/2021 (bài đăng lại trên trang đại lý)</td></tr>
+</table></div>
+<p><strong>Hệ quả:</strong> phát hiện trước là năng lực của chính hãng xe và <strong>VinFast đã công bố từ 2021</strong>. Câu "hôm nay không hệ thống nào nhìn thấy chuỗi tín hiệu lặp" trong <code>03_1-anchor.md</code> và câu "chưa thấy công bố" trong file research 03/10 <strong>cần sửa trước khi pitch</strong>. Chỗ có thể còn trống (giả thuyết) là <em>phần sau khi phát hiện</em>: ai giữ ca, linh kiện, lịch, kiểm lại sau sửa. Đó chính là P-A. Nên trình bày phần chủ động như một cửa vào khác của cùng lõi, không như một năng lực mới.</p>
+</details>
+
+<!-- ============ LAYER 2 : 15 SECTIONS ============ -->
+<a id="layer-2"></a>
+<h1 style="margin-top:2em">Lập luận và bằng chứng — 15 mục</h1>
+<p class="meta">Quy ước nhãn: <span class="tag t-fact">FACT</span> sự kiện có nguồn chính thức · <span class="tag t-ev">EVIDENCE</span> bằng chứng quan sát/đo · <span class="tag t-as">ASSUMPTION</span> giả định không có nguồn · <span class="tag t-hy">HYPOTHESIS</span> giả thuyết kiểm chứng được · <span class="tag t-inf">INFERENCE</span> suy luận · <span class="tag t-sol">PROPOSED SOLUTION</span> đề xuất giải pháp. Thuật ngữ phương pháp luận được giải thích ngay chỗ dùng lần đầu.</p>
+
+<nav class="toc box"><ol>
+<li><a href="#s1">Diễn giải đề BTC</a></li>
+<li><a href="#s2">Audit report HTML cũ</a></li>
+<li><a href="#s3">Sự thật đã xác nhận</a></li>
+<li><a href="#s4">Giả định chưa có căn cứ</a></li>
+<li><a href="#s5">Bằng chứng phản bác</a></li>
+<li><a href="#s6">Pain point bị loại</a></li>
+<li><a href="#s7">Pain point sống sót</a></li>
+<li><a href="#s8">Vấn đề cốt lõi mạnh nhất</a></li>
+<li><a href="#s9">Tác động tới khách</a></li>
+<li><a href="#s10">Tác động tới doanh nghiệp</a></li>
+<li><a href="#s11">Khoảng trống so với giải pháp hiện có</a></li>
+<li><a href="#s12">Giả định rủi ro nhất</a></li>
+<li><a href="#s13">Bằng chứng còn thiếu</a></li>
+<li><a href="#s14">GO / NARROW / PIVOT / NO-GO</a></li>
+<li><a href="#s15">Hành động discovery tiếp theo</a></li>
+</ol></nav>
+
+<a id="l2-input-risks"></a>
+<details open>
+<summary>0 · Những gì được đưa vào — và rủi ro tôi thấy trong đó</summary>
+<p>Mọi đầu vào được coi là giả thuyết, không phải sự thật.</p>
+<div class="tw"><table>
+<tr><th>Đầu vào</th><th>Loại</th><th>Tôi dùng thế nào</th><th>Rủi ro</th><th>Kiểm nhanh</th></tr>
+<tr><td>Đề BTC (qua <code>01-brief.md</code>, <code>01-bamde.md</code>)</td><td>bản đội diễn giải lại</td><td>Nguồn sự thật về phạm vi, theo thứ tự ưu tiên bạn đặt</td><td><strong>Không có văn bản gốc.</strong> Bản diễn giải có thể đã gộp ý mentor hoặc bỏ sót tiêu chí chấm.</td><td>Xin BTC/mentor bản đề gốc + rubric chấm</td></tr>
+<tr><td>Report HTML cũ (06/10, 01:09)</td><td>phân tích AI vòng trước</td><td>Chỉ để audit, không kế thừa kết luận</td><td>Chọn hướng theo mức hợp code; khung "bán B2B cho xưởng"</td><td>Mục 2 bên dưới</td></tr>
+<tr><td>Proposal của đội (<code>02-problem</code>, <code>03_1-anchor</code>, <code>14-faq</code>)</td><td>niềm tin của đội</td><td>Coi như danh sách giả thuyết</td><td>"Phần lớn lần khách liên hệ là vì doanh nghiệp làm rơi việc" không có số liệu Việt Nam</td><td>Phân loại lý do liên hệ (mục 15)</td></tr>
+<tr><td>PDF InsightAsia 5/2026 (n=1.247; VinFast n=223)</td><td>khảo sát, nhiều hãng</td><td>Đã đọc lại cả 30 trang, dùng làm bằng chứng định hướng</td><td>Mẫu số từng câu hỏi theo hãng không rõ; vài số tự mâu thuẫn (p3 ghi 42% đặt lịch số, p14 ghi 32%)</td><td>Hỏi tác giả; không dùng làm số vận hành</td></tr>
+</table></div>
+<p><strong>Một mâu thuẫn trong yêu cầu, cần nói rõ:</strong> bạn yêu cầu "không đề xuất AI cho tới khi problem được validate", nhưng đề BTC đã cố định hình thức giải pháp là AI agent. Báo cáo xử lý bằng cách tách hai câu hỏi. Thứ nhất: <em>vấn đề nào trong phạm vi CSKH hậu mãi là thật và đáng giải</em>, trả lời độc lập với AI. Thứ hai: <em>agent có tạo khác biệt trên vấn đề đó không</em>, chỉ trả lời sau khi câu thứ nhất đứng được.</p>
+</details>
+
+<a id="s1"></a>
+<details open>
+<summary>1 · Diễn giải đề BTC</summary>
+<div class="tw"><table>
+<tr><th>Hạng mục</th><th>Nội dung (theo bản diễn giải trong team-ai-kit)</th></tr>
+<tr><td>Bối cảnh kinh doanh</td><td>Hậu mãi ô tô điện trong hệ sinh thái VinFast / V-Green (đề "Vin Smart Future"). Dữ liệu trong bài là giả lập.</td></tr>
+<tr><td>Problem statement</td><td>Hội thoại hậu mãi hiếm khi chỉ có một câu hỏi. Khách cần một trợ lý hiểu mục đích xuyên suốt hội thoại, hoàn thành quy trình nhiều bước, và chuyển người đúng lúc mà không mất ngữ cảnh.</td></tr>
+<tr><td>Đối tượng</td><td>Chính: chủ xe (khách hậu mãi). Phụ: nhân viên CSKH / cố vấn dịch vụ nhận ca chuyển giao. Doanh nghiệp: hãng / đơn vị dịch vụ.</td></tr>
+<tr><td><strong>Năng lực bắt buộc</strong></td><td>(1) Hiểu mục đích xuyên suốt hội thoại · (2) tra cứu knowledge base · (3) dùng công cụ cho quy trình nhiều bước · (4) chuyển nhân viên kèm tóm tắt đầy đủ</td></tr>
+<tr><td><strong>Ràng buộc bắt buộc</strong></td><td>(5) Không tự tạo chính sách / giá / trạng thái · (6) hành động ảnh hưởng khách phải được khách xác nhận trước · tuân thủ pháp lý VN (minh bạch là AI, bảo vệ dữ liệu cá nhân, bảo vệ người tiêu dùng)</td></tr>
+<tr><td>Chỉ là ví dụ / gợi ý</td><td>Danh sách tool: tra đơn, đặt/đổi lịch, tạo ticket, đổi/trả phụ kiện, tra trạm sạc. Phần "chủ động" (proactive) là <strong>góp ý của mentor, không phải yêu cầu của đề</strong>.</td></tr>
+<tr><td>Ngoài phạm vi</td><td>Đề không nói rõ. Suy ra: chẩn đoán kỹ thuật thay kỹ thuật viên, quyết định bảo hành, bán hàng / upsell không được yêu cầu.</td></tr>
+<tr><td>Kết quả kinh doanh mong đợi</td><td>Đề không ghi chỉ tiêu. Suy ra: khách được giải quyết đúng, ít phải lặp lại, nhân viên nhận ca không phải hỏi lại. <span class="tag t-inf">INFERENCE</span></td></tr>
+<tr><td>Kết quả kỹ thuật mong đợi</td><td>Agent chạy được nhiều bước, có trích dẫn, có xác nhận, có handoff, có đo lường và demo.</td></tr>
+<tr><td>Điểm mơ hồ</td><td>Văn bản gốc · rubric chấm · khách là cá nhân hay cả đội xe dịch vụ · "đổi/trả" là phụ kiện hay đơn hàng gì · proactive có được cộng điểm không.</td></tr>
+</table></div>
+<div class="box ok"><p><strong>Bài toán BTC thực sự yêu cầu giải:</strong> khi một chủ xe có nhu cầu hậu mãi không xong trong một câu hỏi, họ phải được giải quyết <em>trọn trong một luồng</em>. Câu trả lời phải đúng với căn cứ, hành động chỉ diễn ra khi khách đồng ý, và nếu máy không làm được thì một người tiếp nhận <em>mà khách không phải kể lại</em>. Không có gì trong đề yêu cầu dự báo lỗi, cứu lịch xưởng, đối soát hoá đơn hay bán thêm.</p></div>
+</details>
+
+<a id="s2"></a>
+<details>
+<summary>2 · Audit report HTML cũ</summary>
+<p>Nhận xét chung: report cũ <strong>thận trọng về số liệu</strong>. Nó gắn nhãn đúng, không bịa quy mô, tự nhận thiếu bằng chứng; phần này đáng giữ. Nhưng nó <strong>sai ở khung bài toán và cách chọn hướng</strong>.</p>
+<div class="tw"><table>
+<tr><th>Claim / phần trong report cũ</th><th>Phân loại</th><th>Đúng scope BTC?</th><th>Bằng chứng đủ?</th><th>Đánh giá</th></tr>
+<tr><td>Verdict NARROW: thử trước "tránh chuyến đến xưởng không làm được việc đã hẹn" (readiness)</td><td><span class="tag t-sol">PROPOSED SOLUTION</span></td><td>Lệch: đề không yêu cầu</td><td>Không. Report tự ghi "lựa chọn vì phù hợp repo, chưa phải phân khúc tốt nhất"</td><td class="k">Sai cách chọn: chọn theo code, không theo bằng chứng</td></tr>
+<tr><td>"Người mua cần thử là bên vận hành dịch vụ/xưởng"; phép tính số bên mua × ngân sách; giá MISA CRM làm mốc</td><td><span class="tag t-hy">HYPOTHESIS</span></td><td>Lệch đề: bài thi do hãng ra đề, không phải bán SaaS</td><td>Không</td><td class="k">Over-scope. Khung thị trường B2B làm sai câu hỏi</td></tr>
+<tr><td>Bảy pain trong PDF InsightAsia p16 (chi phí 68%, chờ lâu 62%, upsell 48%, follow-up kém 38%, hết slot 36%…)</td><td><span class="tag t-ev">EVIDENCE</span></td><td>Một phần</td><td>Có, nhưng là số đa hãng</td><td class="s">Đúng, đã đối chiếu lại PDF</td></tr>
+<tr><td>(Report cũ bỏ sót) Số riêng VinFast p13: số hoá 90% (cao nhất), năng lực kỹ thuật 72% (thấp nhất), CSI 76% hạng 7/9; upsell VinFast 24% (dưới mức trung bình 37%)</td><td><span class="tag t-ev">EVIDENCE</span></td><td>Có</td><td>Có (mẫu số câu hỏi theo hãng chưa rõ)</td><td class="p">Under-use: các số này phản bác trực tiếp hướng "đặt lịch/upsell"</td></tr>
+<tr><td>Phép tính độ nhạy 1–5% lịch hẹn vướng mắc</td><td><span class="tag t-as">ASSUMPTION</span></td><td>—</td><td>Không</td><td>Đã gắn nhãn đúng; không mang thông tin</td></tr>
+<tr><td>Mục 6: audit code R1–R12 (handoff trả None vẫn nói "đã chuyển", case đánh dấu done khi mới đặt lịch…)</td><td><span class="tag t-inf">INFERENCE</span> (về code)</td><td>Ngoài phạm vi discovery</td><td>Có (đọc code)</td><td class="p">Đúng về kỹ thuật, nhưng là review code, không phải discovery. Riêng lỗi handoff giả lại trùng pain mạnh nhất, nên cần sửa</td></tr>
+<tr><td>Mục 7: upsell / bán kèm phụ kiện</td><td><span class="tag t-sol">PROPOSED SOLUTION</span></td><td>Không được đề yêu cầu</td><td>Không, và PDF cho thấy VinFast ít bị phàn nàn upsell</td><td class="k">Over-scope, nên cắt</td></tr>
+<tr><td>Bảy hướng mở rộng (sạc, fleet, triệu hồi…)</td><td><span class="tag t-sol">PROPOSED SOLUTION</span></td><td>Một phần</td><td>Không</td><td class="k">Giải pháp xuất hiện trước khi problem đứng được</td></tr>
+<tr><td>"Pain point có tín hiệu; mức độ riêng của VinFast chưa đo được"</td><td><span class="tag t-inf">INFERENCE</span></td><td>Có</td><td>—</td><td class="s">Đúng và trung thực</td></tr>
+<tr><td>(Proposal đội) "Phần lớn lần khách liên hệ là vì doanh nghiệp đã làm rơi việc" (failure demand)</td><td><span class="tag t-as">ASSUMPTION</span></td><td>Có</td><td>Không: số duy nhất tìm được là của vendor (Numa), không có mẫu số</td><td class="k">Claim thiếu bằng chứng</td></tr>
+<tr><td>(Proposal đội) "Chưa doanh nghiệp nào ở VN triển khai AI agent CSKH quy mô lớn"</td><td><span class="tag t-as">ASSUMPTION</span></td><td>—</td><td>Chưa kiểm; VinBigdata đã đưa trợ lý AI tạo sinh lên VF 8 từ 7/2024</td><td class="p">Rủi ro bị phản bác khi pitch</td></tr>
+</table></div>
+<h3>Mười câu hỏi audit, áp cho hướng chính của report cũ (readiness / thiếu linh kiện)</h3>
+<div class="tw"><table>
+<tr><th>Câu hỏi</th><th>Trả lời</th></tr>
+<tr><td>1. Đúng scope BTC?</td><td>Không trực tiếp; nó là use case proactive (ý mentor).</td></tr>
+<tr><td>2. Bằng chứng đủ?</td><td>Không. Ô tô điện 2025–2026 chỉ có đoạn trích diễn đàn; ca nặng nhất tìm được (VF9, 10/2024) không nói rõ do linh kiện.</td></tr>
+<tr><td>3. Pain của ai?</td><td>Khách (mất nửa ngày) và xưởng (slot trống).</td></tr>
+<tr><td>4. Đủ thường xuyên?</td><td>Không biết. Tham chiếu Mỹ (J.D. Power CSI 2025, mọi hãng): 12% không sửa xong lần đầu × 28% trong số đó do thiếu linh kiện ≈ 3,4% lượt sửa (<span class="tag t-inf">DERIVED</span>, nguồn thứ cấp).</td></tr>
+<tr><td>5. Đủ nặng?</td><td>Nặng khi xảy ra.</td></tr>
+<tr><td>6. Không giải thì sao?</td><td>Khách mất một chuyến đi và tức giận; xưởng phí một slot.</td></tr>
+<tr><td>7. Workaround hiện tại?</td><td>Gọi xưởng trước khi đi; đăng phàn nàn công khai để được ưu tiên.</td></tr>
+<tr><td>8. Giải pháp hiện có tốt tới đâu?</td><td>Từ 01/9/2024 VinFast cam kết cấp phụ tùng hậu mãi trong 24 giờ, qua mạng kho trung chuyển vùng. Chưa có dữ liệu độc lập về việc tuân thủ.</td></tr>
+<tr><td>9. Pain có tồn tại độc lập với AI?</td><td>Có, nhưng gốc rễ là chuỗi cung ứng. Agent chỉ báo trước được, không làm linh kiện xuất hiện.</td></tr>
+<tr><td>10. Có dấu hiệu justify giải pháp?</td><td><strong>Có, ghi thẳng trong report</strong> ("vì phù hợp repo").</td></tr>
+</table></div>
+</details>
+
+<a id="s3"></a>
+<details>
+<summary>3 · Sự thật đã xác nhận</summary>
+<div class="tw"><table>
+<tr><th>#</th><th>Sự thật</th><th>Nhãn</th><th>Nguồn</th></tr>
+<tr><td>F1</td><td>VinFast dẫn đầu về số hoá trong dịch vụ (90%) nhưng thấp nhất về năng lực kỹ thuật dịch vụ (72%). CSI tổng 76%, hạng 7/9 hãng. Mức hài lòng ở thành phố lớn 88% so với tỉnh 64%.</td><td><span class="tag t-ev">EVIDENCE</span></td><td>PDF InsightAsia 5/2026, p13–15 (VinFast n=223; mẫu số từng câu chưa rõ)</td></tr>
+<tr><td>F2</td><td>Trên toàn mẫu đa hãng, khoảng cách "giao tiếp sau dịch vụ" là 72% hài lòng so với 82% mức quan trọng; 38% từng gặp "follow-up kém"; 62% từng gặp "chờ lâu".</td><td><span class="tag t-ev">EVIDENCE</span></td><td>PDF p14, p16</td></tr>
+<tr><td>F3</td><td>Tỷ lệ VinFast bị phàn nàn "gợi ý dịch vụ không cần thiết" là 24%, thấp hơn trung bình ngành 37%.</td><td><span class="tag t-ev">EVIDENCE</span></td><td>PDF p16</td></tr>
+<tr><td>F4</td><td>App VinFast đã có: đặt lịch xưởng hoặc lưu động, duyệt báo giá, xem thời gian dự kiến sửa xong, lịch sử dịch vụ. Tổng đài 1900 23 23 89 chạy 24/7, có kênh khiếu nại riêng.</td><td><span class="tag t-fact">FACT</span></td><td><a href="https://vinfastauto.com/vn_vi/huong-dan-su-dung-tien-ich-dich-vu-tren-ung-dung-vinfast" target="_blank" rel="noopener">vinfastauto.com — hướng dẫn tiện ích</a> · <a href="https://vinfastauto.com/vn_vi/thong-bao-ve-duong-day-nong-cham-soc-khach-hang-va-kenh-tiep-nhan-khieu-nai-khach-hang" target="_blank" rel="noopener">thông báo hotline</a></td></tr>
+<tr><td>F5</td><td>Chính sách hậu mãi đổi liên tục trong 18 tháng:<br>· bỏ hỗ trợ tiền cho xe nằm xưởng từ 01/01/2025<br>· dừng gói thuê pin từ 01/3/2025<br>· đổi chu kỳ bảo dưỡng từ 01/01/2026<br>· sạc miễn phí tới 10/2/2029, tối đa 10 lần/tháng, có mốc khác nhau theo ngày mua</td><td><span class="tag t-fact">FACT</span></td><td><a href="https://thegioiphuongtien.vn/tin-tuc/trong-nuoc/vinfast-xiet-lai-cac-chinh-sach-hau-mai-dung-tang-tien-mat-cho-o-to-sua-chua-tai-xuong-tu-nam-2025.html" target="_blank" rel="noopener">thegioiphuongtien 28/12/2024</a> · <a href="https://dantri.com.vn/o-to-xe-may/vinfast-dung-goi-thue-pin-xe-dien-mien-phi-sac-them-6-thang-cho-xe-kem-pin-20250226231109137.htm" target="_blank" rel="noopener">Dân Trí 26/02/2025</a> · <a href="https://vnexpress.net/xe-dien-vinfast-sac-pin-mien-phi-den-nam-2029-5016208.html" target="_blank" rel="noopener">VnExpress 2026</a> · E5 trong report cũ</td></tr>
+<tr><td>F6</td><td>Có ca chủ VF9 Plus phàn nàn công khai về việc chờ sửa bảo hành lâu. VinFast cho nghỉ việc 4 nhân sự vì "chậm trễ trong việc tiếp nhận và xử lý các yêu cầu dịch vụ".</td><td><span class="tag t-ev">EVIDENCE</span> (1 ca)</td><td><a href="https://www.otosaigon.com/threads/vinfast-xu-ly-the-nao-khi-chu-xe-vf9-phan-anh-cho-doi-lau-trong-thoi-gian-sua-chua-bao-hanh.10025287/" target="_blank" rel="noopener">otosaigon 12/10/2024</a></td></tr>
+<tr><td>F7</td><td>Pied Piper 2025 (mystery shop độc lập, 2.105 đại lý Mỹ):<br>· AI xử lý trọn 91% cuộc gọi dịch vụ, đặt lịch được 86%<br>· điểm 72 so với mức trung bình 64<br>· nhưng 56% lần AI chuyển sang người thất bại</td><td><span class="tag t-ev">EVIDENCE</span> (Mỹ)</td><td><a href="https://www.autoremarketing.com/ar/retail/group-1-tops-annual-pied-piper-service-telephone-effectiveness-study-as-some-stores-lean-into-ai-tools" target="_blank" rel="noopener">autoremarketing</a> · <a href="https://autos.yahoo.com/articles/ai-often-beats-humans-call-172501210.html" target="_blank" rel="noopener">Yahoo Autos</a></td></tr>
+<tr><td>F8</td><td>Doanh nghiệp chịu trách nhiệm pháp lý cho chính sách mà chatbot tự bịa (Moffatt v. Air Canada, 14/02/2024).</td><td><span class="tag t-fact">FACT</span> (Canada)</td><td><a href="https://www.americanbar.org/groups/business_law/resources/business-law-today/2024-february/bc-tribunal-confirms-companies-remain-liable-information-provided-ai-chatbot/" target="_blank" rel="noopener">ABA</a></td></tr>
+<tr><td>F9</td><td>64% khách muốn doanh nghiệp không dùng AI trong CSKH; nỗi sợ số 1 là khó gặp người thật.</td><td><span class="tag t-ev">EVIDENCE</span> (toàn cầu, n=5.728)</td><td><a href="https://www.gartner.com/en/newsroom/press-releases/2024-07-09-gartner-survey-finds-64-percent-of-customers-would-prefer-that-companies-didnt-use-ai-for-customer-service" target="_blank" rel="noopener">Gartner 09/7/2024</a></td></tr>
+<tr><td>F10</td><td>J.D. Power CSI 2024 (Mỹ):<br>· 68% muốn nhận cập nhật dịch vụ qua tin nhắn, 16% qua điện thoại<br>· gửi ảnh/video kiểm tra gắn với điểm hài lòng cao hơn 31 điểm (tương quan, không phải nhân quả)</td><td><span class="tag t-ev">EVIDENCE</span> (Mỹ, nguồn thứ cấp)</td><td><a href="https://www.cars.com/articles/2024-j-d-power-customer-service-index-study-dealer-satisfaction-improved-479450/" target="_blank" rel="noopener">cars.com</a></td></tr>
+</table></div>
+</details>
+
+<a id="s4"></a>
+<details>
+<summary>4 · Giả định chưa có căn cứ</summary>
+<ul>
+<li><span class="tag t-as">ASSUMPTION</span> "Phần lớn liên hệ là failure demand (giục, hỏi lại)". Không có số Việt Nam; số duy nhất tìm được ("75% cuộc gọi buổi chiều hỏi xe xong chưa") là <a href="https://numa.com/blog/why-service-departments-struggle-high-call-volume-status-updates" target="_blank" rel="noopener">vendor Numa</a>, không có mẫu số.</li>
+<li><span class="tag t-as">ASSUMPTION</span> "1–4% lượt đến xưởng phải về" (proposal §02). Đội tự đặt ra.</li>
+<li><span class="tag t-as">ASSUMPTION</span> "Khách không biết xe sửa tới đâu". Không tìm được nguồn nào ở Việt Nam, và app đã hiển thị thời gian dự kiến sửa xong (F4). Còn mở: thời gian đó có chính xác không.</li>
+<li><span class="tag t-as">ASSUMPTION</span> "Xe gửi mã lỗi thời gian thực, đủ để phát hiện cảnh báo lặp" (UC1). VinFast không công bố; đội đã tự ghi là giả định.</li>
+<li><span class="tag t-as">ASSUMPTION</span> "Hoá đơn sạc / thuê pin bị tính sai" (UC4). Không tìm thấy một tranh chấp nào.</li>
+<li><span class="tag t-hy">HYPOTHESIS</span> "Chủ xe bối rối về quyền lợi theo xe/ngày mua". Chỉ suy ra từ độ phức tạp của chính sách (F5); chưa quan sát trực tiếp khách hỏi.</li>
+<li><span class="tag t-hy">HYPOTHESIS</span> "Khách Việt chấp nhận agent nếu luôn gặp được người". Chưa có khảo sát Việt Nam; bài VnExpress 09/7/2026 dẫn số nước ngoài.</li>
+<li><span class="tag t-hy">HYPOTHESIS</span> "Phía sau có dữ liệu và người chịu trách nhiệm để agent hứa được mốc thời gian". Nếu không có, agent chỉ chuyển tiếp sự mơ hồ.</li>
+</ul>
+</details>
+
+<a id="s5"></a>
+<details>
+<summary>5 · Bằng chứng phản bác</summary>
+<div class="tw"><table>
+<tr><th>Bằng chứng</th><th>Phản bác điều gì</th><th>Độ mạnh</th></tr>
+<tr><td>VinFast cam kết cấp phụ tùng trong 24 giờ từ 01/9/2024 (<a href="https://dantri.com.vn/o-to-xe-may/vinfast-cam-ket-cung-cap-phu-tung-hau-mai-trong-vong-24-gio-20240827171312746.htm" target="_blank" rel="noopener">Dân Trí 27/8/2024</a>)</td><td>"Đến xưởng thiếu linh kiện" là pain lớn ở hiện tại</td><td>Trung bình (là cam kết, chưa kiểm tuân thủ)</td></tr>
+<tr><td>Khoảng 450 xưởng dịch vụ phủ 34 tỉnh thành (<a href="https://dantri.com.vn/o-to-xe-may/xuong-dich-vu-phu-rong-34-tinh-thanh-tai-xe-vinfast-thuan-tien-hon-khi-cham-xe-20260924164425599.htm" target="_blank" rel="noopener">Dân Trí 24/9/2026</a>, giọng PR)</td><td>"Tỉnh lẻ thiếu xưởng"</td><td>Trung bình. Nhưng tay nghề ở tỉnh vẫn yếu (F1)</td></tr>
+<tr><td>App VinFast đã có thời gian dự kiến, duyệt báo giá, đặt lịch (F4); số hoá 90%, cao nhất 9 hãng (F1)</td><td>"Khách thiếu kênh đặt lịch / theo dõi"</td><td><strong>Mạnh.</strong> Agent đặt lịch là cộng thêm vào đúng chỗ VinFast đã mạnh nhất</td></tr>
+<tr><td>Upsell VinFast 24%, thấp hơn trung bình 37% (F3)</td><td>Nhánh upsell / bán kèm trong report cũ</td><td>Mạnh</td></tr>
+<tr><td>4 review App Store có thể đọc: 2/4 về đồng bộ trạng thái pin/sạc, 1/4 crash/login, 0/4 về đặt lịch hay tiến độ</td><td>"App yếu ở dịch vụ"</td><td>Yếu (mẫu 4)</td></tr>
+<tr><td>VinBigdata đã có trợ lý AI tạo sinh trên VF 8 từ 7/2024 (<a href="https://tuoitre.vn/nguoi-dung-xe-vinfast-co-tro-ly-ao-tich-hop-ai-tao-sinh-20240716185035471.htm" target="_blank" rel="noopener">Tuổi Trẻ 16/7/2024</a>)</td><td>"Chưa ai ở VN có AI cho chủ xe"</td><td>Trung bình (đó là trợ lý trên xe, chưa phải CSKH hậu mãi)</td></tr>
+<tr><td>Gartner 2024: 64% không muốn AI; Klarna 5/2025 tuyển lại người vì chất lượng giảm; Gartner 6/2025: hơn 40% dự án agentic AI sẽ bị huỷ trước 2027</td><td>"Agent tự động là thứ khách muốn"</td><td>Mạnh (toàn cầu)</td></tr>
+<tr><td>J.D. Power EVX Mỹ 2025: vấn đề hàng đầu của chủ EV là sạc và quãng đường, không phải dịch vụ; CCC: khoảng cách thời gian sửa EV so với xe xăng thu hẹp (59,3 → 37,6 ngày)</td><td>"EV có pain dịch vụ đặc thù rất lớn"</td><td>Trung bình (dữ liệu Mỹ, sửa va chạm)</td></tr>
+<tr><td>Bài VnExpress 29/8/2024: chủ VF 8 khen hậu mãi "nhanh gọn"</td><td>"Dịch vụ VinFast luôn kém"</td><td>Yếu (giọng PR)</td></tr>
+</table></div>
+</details>
+
+<a id="s6"></a>
+<details>
+<summary>6 · Pain point bị loại (kill test)</summary>
+<p>Một pain chỉ được giữ nếu qua đủ 8 câu: có bằng chứng thật · tần suất đáng kể · độ nặng đáng kể · ảnh hưởng tới khách · ảnh hưởng tới doanh nghiệp · giải pháp hiện có chưa đủ · khách muốn được giải · đúng scope BTC.</p>
+<div class="tw"><table>
+<tr><th>Pain</th><th>Vấp ở câu nào</th><th>Kết luận</th></tr>
+<tr><td>Hoá đơn sạc / thuê pin sai (UC4)</td><td>Không có bằng chứng thật; không tìm thấy tranh chấp nào</td><td class="k">LOẠI</td></tr>
+<tr><td>Upsell / bán kèm phụ kiện</td><td>Không phải pain của khách (đó là việc của doanh nghiệp); VinFast ít bị phàn nàn (24%); ngoài scope BTC</td><td class="k">LOẠI</td></tr>
+<tr><td>Lỗi tái phát sau sửa (UC6)</td><td>Chỉ có đoạn trích diễn đàn; không có tần suất; agent không sửa được gốc rễ</td><td class="k">LOẠI khỏi vai trò cốt lõi</td></tr>
+<tr><td>Đến xưởng không có linh kiện / lịch lệch kho (UC3, anchor cũ)</td><td>Bằng chứng 2025–26 yếu; hãng đã cam kết 24 giờ; gốc rễ là chuỗi cung ứng; ngoài lõi đề</td><td class="k">LOẠI khỏi vai trò cốt lõi</td></tr>
+<tr><td>Thiếu kênh đặt lịch / theo dõi tiến độ</td><td>Giải pháp hiện có đã tốt (app, số hoá 90%)</td><td class="k">LOẠI</td></tr>
+<tr><td>Trạm sạc hỏng, xếp hàng</td><td>Gốc rễ là hạ tầng, theo mùa; app V-Green đã báo trạng thái real-time; agent không thêm được trụ sạc</td><td class="k">LOẠI khỏi vai trò cốt lõi</td></tr>
+<tr><td>Tranh chấp từ chối bảo hành</td><td>Bằng chứng gần như chỉ về xe máy điện hoặc từ 2023</td><td class="k">LOẠI. Phần "giải thích điều kiện" gộp vào P-A</td></tr>
+<tr><td>Thông báo triệu hồi chủ động</td><td>Không phải pain khách nói ra; đó là việc của hãng</td><td class="k">LOẠI khỏi vai trò pain (có thể là use case phụ)</td></tr>
+<tr><td>Tay nghề kỹ thuật ở tỉnh yếu</td><td>Có bằng chứng mạnh (F1), nhưng agent CSKH không giải được: chỉ "trở nên hấp dẫn sau khi gắn AI"</td><td class="k">LOẠI khỏi scope agent (vẫn là vấn đề thật của hãng)</td></tr>
+<tr><td>Phát hiện cảnh báo lặp trước khi khách biết (UC1)</td><td>Phụ thuộc giả định dữ liệu telematics chưa xác minh; không có bằng chứng khách muốn được nhắn trước</td><td class="p">TẠM GÁC, chờ dữ liệu</td></tr>
+</table></div>
+</details>
+
+<a id="s7"></a>
+<details open>
+<summary>7 · Pain point sống sót</summary>
+<div class="tw"><table>
+<tr><th>Pain</th><th>Bằng chứng (đếm nguồn)</th><th>Tần suất</th><th>Độ nặng</th><th>Workaround hiện tại</th><th>Đúng scope BTC</th></tr>
+<tr><td><strong>P-A. Ca "chuyển bộ phận" mà không ai giữ, không có hạn: phải tự giục, kể lại</strong></td><td>· ca VF9 (F6), hãng thừa nhận "chậm trễ tiếp nhận và xử lý"<br>· 3 đoạn trích diễn đàn vinfast.vn: hotline "chuyển bộ phận, chờ", không mốc thời gian, một yêu cầu sạc tại nhà treo từ 9 đến 12/2025<br>· PDF: follow-up kém 38% (đa hãng)<br>· quốc tế: 56% lần chuyển AI→người thất bại (F7); Salesforce (vendor) 56% khách phải kể lại<br>= <strong>5 nguồn Việt Nam, trong đó 4 là lời kể</strong></td><td>Chưa đo. Khoảng rộng</td><td>Trung bình–cao: mất thời gian, mất xe, mất niềm tin</td><td>Gọi lại nhiều lần, đăng công khai, ra thẳng đại lý</td><td><strong>Có, trúng yêu cầu 1 và 4</strong></td></tr>
+<tr><td><strong>P-B. Không chắc quyền lợi đúng cho xe của mình</strong> (sạc miễn phí, pin mua hay thuê, bảo hành, chu kỳ bảo dưỡng theo mốc ngày)</td><td>· 4 lần đổi chính sách trong 18 tháng (F5)<br>· trang garage/SEO giải thích "lỗi ảo", điều kiện bảo hành (cho thấy có nhu cầu tìm hiểu)<br>· nhóm đã tự phát hiện sai lịch bảo dưỡng trong chính dữ liệu của mình (file research 03/10)<br>· rủi ro pháp lý nếu trả lời sai (F8)<br>= suy ra mạnh, quan sát trực tiếp yếu</td><td>Có thể cao (mọi chủ xe đều chịu ảnh hưởng)</td><td>Thấp–trung bình mỗi lần; cao nếu sai về tiền / bảo hành</td><td>Hỏi tổng đài, đại lý, group Facebook</td><td><strong>Có, trúng yêu cầu 2 và 5</strong></td></tr>
+<tr><td><strong>P-C. Đèn cảnh báo / lỗi phần mềm khó hiểu</strong></td><td>· đoạn trích diễn đàn về lỗi firmware VF5 4/2025, FOTA VF6<br>· trang garage về "lỗi ảo" VF3/VF5<br>· J.D. Power Trung Quốc: 85,5% vấn đề của chủ xe năng lượng mới là hiểu/sử dụng (theo report cũ E10)</td><td>Trung bình</td><td>Thấp, trừ cảnh báo an toàn</td><td>Khởi động lại xe, chờ FOTA, đọc bài garage</td><td>Một phần (tra KB). Chẩn đoán thì không</td></tr>
+</table></div>
+<p><strong>Ghi chú:</strong> P-A và P-B thường xảy ra <em>trong cùng một ca</em>. Đó không phải hai nhóm khách, mà là hai điểm gãy trên cùng một chuỗi bước khách đi qua. P-C sống sót nhưng yếu và nằm cạnh lõi.</p>
+</details>
+
+<a id="s8"></a><a id="l2-buyer"></a>
+<details open>
+<summary>8 · Vấn đề cốt lõi mạnh nhất</summary>
+<div class="tw"><table>
+<tr><th>Thành phần</th><th>Nội dung</th></tr>
+<tr><td>Core Problem</td><td>Khi việc hậu mãi của chủ ô tô điện VinFast không xong trong một lần hỏi, không có một đầu mối nào vừa trả lời đúng cho chính chiếc xe đó, vừa giữ việc tới khi xong. Câu trả lời phụ thuộc người nghe máy; khi chuyển bộ phận thì mất ngữ cảnh và mất hạn.</td></tr>
+<tr><td>Ai chịu pain</td><td>Chủ xe cá nhân đang có một việc hậu mãi kéo dài: xe đang sửa/bảo hành, yêu cầu lắp sạc tại nhà, câu hỏi quyền lợi gắn với ngày mua hoặc hình thức sở hữu pin. Gián tiếp: nhân viên CSKH / cố vấn dịch vụ nhận ca chuyển mà thiếu ngữ cảnh. <span class="tag t-hy">HYPOTHESIS</span></td></tr>
+<tr><td>Việc họ cố hoàn thành (Job)</td><td><em>Khi</em> xe tôi có vấn đề hoặc tôi không chắc mình được hưởng gì, và lần hỏi đầu không giải quyết xong, <em>tôi muốn</em> biết chính xác quyền lợi của xe tôi và việc của tôi đang ở đâu, <em>với tiêu chí</em>: câu trả lời đúng cho xe tôi và có căn cứ, không phải kể lại, có mốc thời gian và người chịu trách nhiệm, luôn gặp được người khi cần, <em>để</em> dùng xe bình thường mà không phải tự đi giục.<br><span class="trace">Mức của việc: đây là Core Job (việc lớn nhất mà sản phẩm tự làm trọn được). Việc ở mức trên là "dùng xe điện yên tâm, không gián đoạn" (Big Job, động cơ của khách), agent chỉ đóng góp chứ không làm trọn.</span></td></tr>
+<tr><td>Hiện tại xử lý thế nào</td><td>App cho ca đơn giản (đặt lịch, duyệt báo giá, xem thời gian dự kiến). Ca phức tạp thì gọi tổng đài 24/7 → "chuyển bộ phận" → chờ → gọi lại, hoặc ra đại lý, hoặc đăng group / báo chí để được ưu tiên.</td></tr>
+<tr><td>Bước thất bại</td><td>(1) Lúc chuyển giữa kênh / bộ phận: không có người giữ, không có hạn, khách phải kể lại. (2) Lúc trả lời quyền lợi: chính sách thay đổi theo mốc ngày và loại xe, người trả lời có thể sai.</td></tr>
+<tr><td>Hậu quả</td><td>Xem mục 9 và 10.</td></tr>
+<tr><td>Bằng chứng mạnh nhất</td><td>Ca VF9 với phản ứng kỷ luật của hãng (F6); khoảng cách follow-up trong PDF (F2); 56% lần chuyển AI→người thất bại (F7); 4 lần đổi chính sách trong 18 tháng (F5).</td></tr>
+<tr><td>Giải pháp hiện có</td><td>Xem mục 11.</td></tr>
+<tr><td>Khoảng trống còn lại</td><td>Một đầu mối trả lời có căn cứ theo chiếc xe cụ thể và giữ ca qua các lần chuyển. Không phải thêm một kênh đặt lịch.</td></tr>
+<tr><td>Confidence</td><td><strong>Thấp–Trung bình.</strong> Hướng đi có cơ sở; tần suất hoàn toàn chưa đo.</td></tr>
+<tr><td>Giả định rủi ro nhất</td><td>Ca phức tạp chiếm một phần đáng kể lượt liên hệ, và kênh hiện tại xử lý chúng kém. Nếu sai thì vấn đề không đáng làm.</td></tr>
+</table></div>
+<p><strong>Nhận xét:</strong> khi dựng lại từ bằng chứng, vấn đề quay về đúng lõi đề BTC và rời xa các use case "chủ động" mà proposal và report cũ đầu tư nhiều nhất. Đây là tín hiệu tốt cho bài thi: đề và bằng chứng cùng chỉ một hướng.</p>
+</details>
+
+<a id="s9"></a>
+<details>
+<summary>9 · Tác động tới khách</summary>
+<ul>
+<li><strong>Thời gian và công sức:</strong> gọi nhiều lần, kể lại, chờ không có mốc. Lý thuyết tâm lý chờ (Maister, proposal §02): chờ không rõ bao lâu thấy dài hơn chờ có hạn. <span class="tag t-inf">INFERENCE</span></li>
+<li><strong>Tiền:</strong> từ 01/01/2025 không còn khoản hỗ trợ 1 triệu đồng/ngày khi xe nằm xưởng quá 3 ngày (F5). Xe nằm lâu giờ khách tự chịu. <span class="tag t-fact">FACT</span> (chính sách); thiệt hại cụ thể <span class="tag t-as">chưa đo</span></li>
+<li><strong>Quyết định sai vì thông tin sai:</strong> ví dụ đi bảo dưỡng sai mốc, hiểu nhầm quyền sạc miễn phí, hiểu nhầm bảo hành pin thuê và pin mua. <span class="tag t-hy">HYPOTHESIS</span></li>
+<li><strong>Niềm tin:</strong> InsightAsia ghi "lo ngại chất lượng dịch vụ" là lý do không cân nhắc một hãng ở 46% người được hỏi (đa hãng, p10). <span class="tag t-ev">EVIDENCE</span></li>
+</ul>
+</details>
+
+<a id="s10"></a>
+<details>
+<summary>10 · Tác động tới doanh nghiệp</summary>
+<ul>
+<li><strong>Chi phí liên hệ lặp lại</strong> ở tổng đài và đại lý. Lượng thực tế chưa đo; số của vendor Mỹ không dùng được. <span class="tag t-as">ASSUMPTION</span></li>
+<li><strong>Rủi ro truyền thông:</strong> ca VF9 cho thấy một khách bực có thể buộc hãng xử lý công khai (cho nghỉ 4 nhân sự, phạt đại lý). <span class="tag t-ev">EVIDENCE</span> (1 ca)</li>
+<li><strong>Rủi ro pháp lý</strong> nếu kênh nào đó (người hay bot) trả lời sai chính sách. Án lệ Air Canada (F8); Luật Bảo vệ quyền lợi người tiêu dùng 2023 ở Việt Nam. <span class="tag t-fact">FACT</span></li>
+<li><strong>Giữ chân sau bảo hành:</strong> 74% chủ xe (đa hãng) đang hoặc dự định dùng xưởng ngoài sau khi hết bảo hành (PDF p17). Chưa chứng minh agent CSKH tác động được con số này. <span class="tag t-ev">EVIDENCE</span> / tác động <span class="tag t-hy">HYPOTHESIS</span></li>
+<li><strong>Cảnh báo:</strong> điểm yếu lớn nhất của VinFast trong khảo sát là tay nghề kỹ thuật (72%) và khoảng cách thành phố – tỉnh. Agent CSKH <strong>không</strong> giải quyết được hai điểm này. Đừng pitch như thể nó làm được.</li>
+</ul>
+</details>
+
+<a id="s11"></a><a id="l2-edge"></a>
+<details>
+<summary>11 · Khoảng trống so với giải pháp hiện có</summary>
+<div class="tw"><table>
+<tr><th>Cách khách đang giải quyết</th><th>Làm tốt</th><th>Làm kém (theo tiêu chí của khách)</th></tr>
+<tr><td>App VinFast</td><td>Đặt lịch, duyệt báo giá, thời gian dự kiến, lịch sử</td><td>Không trả lời được câu hỏi quyền lợi mở; không giữ ca khi việc rời khỏi luồng chuẩn <span class="tag t-hy">HYPOTHESIS</span></td></tr>
+<tr><td>Tổng đài 1900 23 23 89</td><td>24/7, có người thật, cứu hộ</td><td>"Chuyển bộ phận" không mốc thời gian; câu trả lời phụ thuộc người nghe (3 lời kể)</td></tr>
+<tr><td>Đại lý / cố vấn dịch vụ</td><td>Xử lý trực tiếp, có thẩm quyền</td><td>Phải tới tận nơi; chất lượng không đều giữa các tỉnh (F1)</td></tr>
+<tr><td>Group Facebook / diễn đàn</td><td>Nhanh, có kinh nghiệm thật</td><td>Không chính thức, có thể sai, không có ai chịu trách nhiệm</td></tr>
+<tr><td>Đăng công khai / báo chí</td><td>Hiệu quả (ca VF9)</td><td>Tốn công, chỉ dùng khi đã rất bực</td></tr>
+<tr><td>Trợ lý AI trên xe (VinBigdata)</td><td>Điều khiển xe, trò chuyện</td><td>Không thấy tích hợp CSKH hậu mãi (cần kiểm)</td></tr>
+<tr><td>Quốc tế (Tesla app, Hyundai Bluelink, vendor Mỹ như Numa/Impel/Xtime)</td><td>Tin nhắn cập nhật trạng thái, AI đặt lịch: <strong>đã thành hàng phổ thông</strong></td><td>Chuyển sang người vẫn hỏng (56%)</td></tr>
+</table></div>
+<p><strong>Khoảng trống:</strong> mọi kênh hiện có buộc khách chọn giữa <em>nhanh nhưng không chắc đúng</em> (group, bot) và <em>đúng nhưng chậm, phải tự giục</em> (tổng đài → bộ phận). Chỗ chưa ai làm tốt là giao của ba tiêu chí: <strong>đúng cho xe của tôi, có căn cứ</strong> + <strong>không phải kể lại khi chuyển</strong> + <strong>có người giữ và có hạn</strong>.</p>
+<h3>Nếu làm "phát hiện trước": unique ở đâu?</h3>
+<p>Riêng việc phát hiện lỗi <strong>không unique</strong>: GM, BMW, Tesla, Rivian, Volvo Trucks và VinFast (công bố 2021) đều đã làm (xem <a href="#update-desk">cập nhật 06/10</a>). Chỗ có thể unique là <strong>những gì xảy ra sau khi phát hiện</strong>. <span class="tag t-hy">HYPOTHESIS</span></p>
+<p><strong>Không unique, không pitch là điểm mới:</strong> xe tự gửi mã lỗi và báo lên app (VinFast 2021) · nhắc bảo dưỡng, đặt lịch một chạm (VinFast đã có) · đặt linh kiện trước (Tesla, Rivian).</p>
+<div class="tw"><table>
+<tr><th>Sau khi phát hiện, khách cần gì</th><th>Các hãng làm tới đâu (theo nguồn công khai)</th><th>Mình làm thêm</th><th>Bằng chứng khoảng trống</th></tr>
+<tr><td>1. Hỏi lại được. Ví dụ: "Đèn này có nguy hiểm không? Mai tôi đi Đà Lạt có kịp không?"</td><td><a href="https://www.tesla.com/support/service-visits" target="_blank" rel="noopener">Tesla app</a> đã có nhắn tin hai chiều với đội dịch vụ (người thật). <a href="https://www.geekwire.com/2024/bmw-tests-amazons-alexa-llm-for-car-expert-that-answers-questions-and-changes-drive-modes/" target="_blank" rel="noopener">BMW thử trợ lý LLM</a> trả lời theo sách hướng dẫn xe. VinFast: chưa rõ</td><td>Hội thoại hai chiều, dựa trên dữ liệu của chính chiếc xe đó</td><td class="k">Yếu, <strong>không unique trên thế giới</strong>; chỉ có thể mới ở Việt Nam nếu app VinFast chưa có (chưa kiểm)</td></tr>
+<tr><td>2. Biết ngay quyền lợi của xe mình. Ví dụ: "Lỗi này có được bảo hành không? Xe mua ngày X, pin thuê."</td><td>Không thấy gắn chính sách vào cảnh báo</td><td>Trả lời theo mẫu xe, ngày mua, loại pin, có trích dẫn</td><td class="p">Trung bình: các nguồn viết, kể cả KB của đội, mâu thuẫn về bảo hành VF 7</td></tr>
+<tr><td>3. Có người giữ việc tới khi xong: ai lo, khi nào xong, sửa rồi có hết lỗi không</td><td>Tesla/Rivian dùng người theo dõi; <a href="https://www.nio.com/nio-service" target="_blank" rel="noopener">NIO có chuyên viên dịch vụ theo trọn ca</a>, tiến độ real-time trong app (người thật). VinFast chỉ thấy "khuyên mang xe tới xưởng"</td><td>Mỗi ca có người chịu trách nhiệm, có hạn trả lời, kiểm lại bằng dữ liệu xe sau sửa</td><td class="p">Trung bình: ca VF9; 2/10 comment chê "phải đăng công khai mới được xử lý"</td></tr>
+<tr><td>4. Chuyển sang người không phải kể lại</td><td>Không công bố</td><td>Tóm tắt ca chuyển kèm dữ kiện từ xe và tool</td><td class="s">Khá: Pied Piper 2025, 56% lần AI chuyển sang người thất bại</td></tr>
+<tr><td>5. Phù hợp Việt Nam</td><td>Các hãng ngoại không hoạt động ở Việt Nam</td><td>Tiếng Việt; tỉnh xa xưởng thì gợi ý dịch vụ lưu động trước; minh bạch "đang nói chuyện với AI" theo luật</td><td class="p">Xưởng ở tỉnh bị chấm thấp hơn rõ (64% so với 88%)</td></tr>
+<tr><td>6. Liên hệ hãng ngay trên Zalo, nơi khách đã quen dùng</td><td><a href="https://www.toyota.com.vn/dich-vu/dich-vu-bao-duong" target="_blank" rel="noopener">Đại lý Toyota Việt Nam đã nhận đặt lịch qua Zalo OA</a> (nhân viên chat). Zalo OA của VinFast thiên về quảng bá</td><td>Một ca hậu mãi chạy trọn trên Zalo: nhận cảnh báo, hỏi lại, xác nhận, theo dõi tiến độ</td><td class="s">Khá về độ phủ: Zalo có <a href="https://znews.vn/gan-80-trieu-nguoi-dung-zalo-moi-thang-trong-nam-2025-post1623499.html" target="_blank" rel="noopener">80,2 triệu người dùng/tháng (Q1/2026)</a>; khảo sát Adtima (đơn vị thuộc hệ sinh thái Zalo, có thiên lệch) ghi 94% người dùng muốn nhận thông tin doanh nghiệp qua Zalo. Chưa có bằng chứng chủ xe muốn xử lý ca qua Zalo</td></tr>
+<tr><td>7. Một ca đi qua nhiều công ty trong hệ sinh thái Vingroup (VinFast · V-Green sạc · Xanh SM · lắp sạc tại nhà)</td><td>Hãng ngoại không có hệ sinh thái sạc, taxi, bất động sản chung một tập đoàn nên không gặp bài toán này</td><td>Một người giữ ca xuyên các công ty; khách không phải tự đi hỏi từng nơi</td><td class="p">Trung bình–yếu: đoạn trích diễn đàn về yêu cầu lắp sạc tại nhà treo từ tháng 9 đến 12/2025; quyền sạc miễn phí lại phụ thuộc ngày mua xe. <span class="tag t-hy">HYPOTHESIS</span>. Cần dữ liệu thật mới chứng minh</td></tr>
+<tr><td>8. Biết chương trình nào đang còn hạn với xe mình (bão lũ, triệu hồi, chuyển pin thuê, sạc miễn phí)</td><td>Thông báo chung theo đợt; khách tự đọc và tự đối chiếu</td><td>Trả lời theo "ngày hôm nay + xe này": chương trình nào còn áp dụng, hết hạn khi nào. Mùa bão thì chủ động hướng dẫn theo vùng</td><td class="p">Trung bình: <a href="https://cafebiz.vn/ty-phu-pham-nhat-vuong-tung-chinh-sach-ho-tro-khach-hang-bi-anh-huong-boi-mua-bao-bao-gom-ca-xe-xang-17625100123151679.chn" target="_blank" rel="noopener">VinFast có chính sách hỗ trợ sau bão theo vùng, có hạn</a> (hỗ trợ miễn thường bảo hiểm 500 nghìn đồng, kiểm tra miễn phí tới 20/10/2025); xe ngập nước thường không được bảo hành; hỗ trợ chuyển pin thuê hết hạn 01/5/2026. Nhiều mốc hết hạn, dễ hiểu sai</td></tr>
+<tr><td>9. Kiểm lại sau sửa bằng dữ liệu xe, nhiều ngày sau khi rời xưởng</td><td>Ngành làm thủ công: kiểm tra cuối tại xưởng và <a href="https://chriscollinsinc.com/sdr/how-dealerships-can-reduce-service-comebacks-in-fixed-ops/" target="_blank" rel="noopener">gọi khách sau 24–48 giờ</a></td><td>Theo dõi mã lỗi trong 7–14 ngày sau sửa; chỉ đóng ca khi lỗi không quay lại, nếu quay lại thì tự mở lại ca</td><td class="p">Trung bình–yếu: J.D. Power CSI 2025 ghi 12% xe không sửa xong lần đầu (Mỹ). Chưa thấy hãng nào công bố cách làm này, nhưng cũng chưa kiểm kỹ</td></tr>
+<tr><td>10. Tài xế dịch vụ (Xanh SM): xe nằm xưởng là công ty mất tiền</td><td>Khách cá nhân và đội xe được phục vụ chung một luồng</td><td>Chế độ riêng cho đội xe: ưu tiên phương án nhanh nhất, báo cho bên điều phối đội xe</td><td class="p">Trung bình: <a href="https://vietnambiz.vn/vinfast-ban-bao-nhieu-xe-cho-xanh-sm-trong-nam-2025-2026316225043812.htm" target="_blank" rel="noopener">khoảng 53 nghìn xe năm 2025 (27% lượng giao) đi tới các bên liên quan, gồm GSM</a>; GSM vẫn trả lương tài xế khi xe sửa 3–4 ngày. Đây là <strong>nhóm khách khác</strong> (bên mua là doanh nghiệp), ngoài lõi đề, cần nghiên cứu riêng</td></tr>
+</table></div>
+<p><strong>Xếp hạng</strong> theo mức bằng chứng × mức khớp đề BTC × độ khó sao chép:</p>
+<ol>
+<li><strong>Combo nên pitch:</strong> (2) quyền lợi đúng cho xe này + (8) biết chương trình đang còn hạn + (3)(4) giữ việc và chuyển người không đứt + (6) chạy trên Zalo. Từng ý riêng lẻ có thể không mới; <em>gộp lại</em> thì chưa thấy ai làm ở Việt Nam, và khớp thẳng các yêu cầu bắt buộc của đề.</li>
+<li><strong>Điểm cộng nếu có thời gian:</strong> (9) kiểm lại sau sửa, nối tiếp phần phát hiện lỗi đội đã build.</li>
+<li><strong>Không đưa vào lõi, chỉ nhắc như hướng mở rộng:</strong> (7) xuyên công ty Vingroup và (10) đội xe Xanh SM. Tiềm năng lớn nhưng là nhóm khách hoặc dữ liệu khác, chưa có bằng chứng.</li>
+<li><strong>Bỏ:</strong> (1) "hỏi lại được" như một điểm unique, vì Tesla đã có.</li>
+</ol>
+
+<a id="unique-deep"></a>
+<h3>Search sâu 06/10 — (A) chưa thấy ai làm · (B) người khác làm rồi nhưng giải pháp của đội chưa có</h3>
+<p class="meta">Đã đối chiếu với repo: 15 tool trong <code>contracts/tools.yaml</code> (tra xe, giải thích mã lỗi, kiểm tra bảo hành, đặt/đổi lịch, ticket, đổi trả, báo giá, tìm trạm sạc, cập nhật phần mềm từ xa…), handoff, theo dõi sau sửa, detector. Zalo hiện <strong>chỉ là một trường "kênh ưa thích"</strong>, chưa phải kênh thật. "Chưa thấy ai làm" nghĩa là không tìm thấy trong khoảng 20 lượt search, <strong>không có nghĩa là chắc chắn chưa ai làm</strong>.</p>
+
+<h3>(A) Chưa thấy ai làm</h3>
+<div class="tw"><table>
+<tr><th>#</th><th>Điểm</th><th>Gần nhất đã có</th><th>Phần chưa thấy ai làm</th><th>Repo đã có chưa</th><th>Mức chắc là "chưa ai làm"</th></tr>
+<tr><td>A1</td><td><strong>Trả lời quyền lợi theo "xe này + hôm nay"</strong>: bảo hành, sạc miễn phí, pin thuê/mua, chương trình đang còn hạn, có trích dẫn</td><td>Tra bảo hành theo VIN (chỉ ra thời hạn); <a href="https://www.geekwire.com/2024/bmw-tests-amazons-alexa-llm-for-car-expert-that-answers-questions-and-changes-drive-modes/" target="_blank" rel="noopener">BMW thử LLM trả lời theo sách hướng dẫn</a> (cách dùng xe, không phải chính sách)</td><td>Hội thoại gộp chính sách, ngày mua, loại pin và các chương trình có hạn vào một câu trả lời có nguồn</td><td>Một phần (<code>check_warranty</code>, KB có version). Thiếu chương trình có hạn; KB đang có thể sai VF 7</td><td class="p">Trung bình</td></tr>
+<tr><td>A2</td><td><strong>Khách chụp ảnh đèn taplo, agent đối chiếu với mã lỗi thật của xe</strong></td><td>ChatGPT/Gemini đọc được ảnh (đối thủ gián tiếp); rất nhiều trang giải thích đèn taplo (có nhu cầu); không tìm thấy app chuyên dụng</td><td>Gộp ảnh khách gửi với mã lỗi xe đã gửi về hãng → biết đèn nào, mức nào, làm gì</td><td class="k">Chưa (không có đầu vào ảnh)</td><td class="p">Trung bình–thấp</td></tr>
+<tr><td>A3</td><td><strong>Kiểm lại sau sửa bằng dữ liệu xe 7–14 ngày, lỗi quay lại thì tự mở lại ca</strong></td><td>Ngành: kiểm cuối tại xưởng + gọi khách sau 24–48 giờ (thủ công)</td><td>Tự động theo dõi sau khi xe rời xưởng và tự mở lại ca</td><td>Một phần (subgraph <code>post_repair</code>; report cũ ghi đang đóng theo mốc 14 ngày, chưa xác minh bằng dữ liệu)</td><td class="p">Trung bình–thấp</td></tr>
+<tr><td>A4</td><td><strong>Một người giữ ca xuyên công ty Vingroup</strong> (VinFast · V-Green · Xanh SM · lắp sạc tại nhà)</td><td>Không hãng ngoại nào có cấu trúc này</td><td>Toàn bộ</td><td class="k">Chưa</td><td class="s">Cao là chưa ai làm, nhưng nhu cầu còn yếu</td></tr>
+<tr><td>A5</td><td><strong>AI agent xử lý trọn ca trên Zalo</strong> (không chỉ đặt lịch)</td><td>Đại lý Toyota Việt Nam đặt lịch qua Zalo OA (nhân viên chat)</td><td>Agent xử lý trọn ca trên Zalo: cảnh báo → hỏi → xác nhận → tiến độ → kiểm lại</td><td class="k">Chưa (chỉ là trường dữ liệu)</td><td class="p">Trung bình</td></tr>
+</table></div>
+<p><strong>Đã loại khỏi (A) vì có người làm rồi:</strong> hỏi lại sau cảnh báo (Tesla) · người giữ ca (NIO, bằng người thật) · cảnh báo bão lũ (<a href="https://www.cbsnews.com/news/hurricane-idalia-electric-car-caught-fire-tesla/" target="_blank" rel="noopener">Tesla đẩy thông báo dời xe lên chỗ cao</a>) · đặt lịch qua Zalo (Toyota Việt Nam).</p>
+
+<h3>(B) Người khác làm rồi, giải pháp của đội chưa có</h3>
+<div class="tw"><table>
+<tr><th>#</th><th>Tính năng</th><th>Ai đã làm</th><th>Repo hiện tại</th><th>Khớp đề BTC?</th><th>Ưu tiên gợi ý</th></tr>
+<tr><td>B1</td><td><strong>Đặt xe mượn / giao nhận xe tận nhà</strong> qua agent</td><td><a href="https://vtv.vn/giao-nhan-xe-tan-nha-cuu-ho-24-7-muon-xe-mien-phi-hau-mai-vinfast-tao-su-khac-biet-tren-thi-truong-100251127182754514.htm" target="_blank" rel="noopener">VinFast đã có giao nhận tận nhà, mượn xe miễn phí (VTV 27/11/2025)</a>; Tesla, Rivian</td><td>Không có tool</td><td>Có (tool nhiều bước, cần xác nhận)</td><td class="s">Cao: dịch vụ đã tồn tại, agent chỉ cần nối vào</td></tr>
+<tr><td>B2</td><td><strong>Gọi điện bằng AI giọng nói</strong></td><td>Đại lý Mỹ (Pied Piper 2025); VinFast có ViVi / <a href="https://investors.cerence.com/news-events/press-releases/detail/234/vietnamese-ev-innovator-vinfast-selects-cerence-to-power-intelligent-voice-assistant-across-its-global-lineup" target="_blank" rel="noopener">Cerence</a> trên xe (không phải CSKH)</td><td>Chỉ có trong thiết kế</td><td>Một phần (đề nói hội thoại, không nói kênh)</td><td class="p">Trung bình: 58% lượt đặt lịch trong khảo sát vẫn qua điện thoại; tốn công, có thể để roadmap</td></tr>
+<tr><td>B3</td><td><strong>Ảnh/video kiểm tra xe gửi khách duyệt báo giá</strong></td><td><a href="https://mykaarma.com/solutions/service-and-parts/" target="_blank" rel="noopener">myKaarma</a>, Xtime; J.D. Power: gửi ảnh/video gắn với điểm hài lòng cao hơn 31 điểm</td><td><code>create_quote</code> có, không kèm ảnh</td><td>Một phần (không bịa giá; minh bạch)</td><td class="p">Trung bình</td></tr>
+<tr><td>B4</td><td><strong>Báo cáo sức khoẻ pin (SoH)</strong></td><td><a href="https://www.notateslaapp.com/news/2607/how-to-check-tesla-battery-health-degradation" target="_blank" rel="noopener">Tesla (phần mềm 2024.20)</a>; đại lý Hyundai/Kia; VinFast thay pin miễn phí khi SoH dưới 70%</td><td>Không có</td><td>Có (tra cứu + bảo hành pin)</td><td class="p">Trung bình: 58% người được hỏi nêu lo giá bán lại (PDF p10)</td></tr>
+<tr><td>B5</td><td><strong>Cảnh báo theo sự kiện thời tiết / thiên tai</strong></td><td>Tesla (bão Mỹ); VinFast có chính sách hỗ trợ sau bão theo vùng</td><td>Không có detector thời tiết</td><td>Một phần (mở rộng proactive)</td><td class="p">Trung bình: hợp mùa bão Việt Nam</td></tr>
+<tr><td>B6</td><td><strong>Một người chịu trách nhiệm ca + hạn hồi đáp</strong></td><td>NIO (người); CCaaS có SLA gọi lại</td><td>Có handoff, SLA 15'/5'; report cũ ghi thiếu chủ ca và hạn</td><td>Có (chuyển người kèm tóm tắt)</td><td class="s">Cao: đúng pain P-A</td></tr>
+<tr><td>B7</td><td><strong>Gửi linh kiện trước theo chẩn đoán từ xa</strong></td><td>Tesla, Rivian</td><td>Một phần (UC3 xử lý lịch lệch kho; không có tool giữ linh kiện)</td><td>Ngoài lõi</td><td class="k">Thấp: việc của kho, không phải CSKH</td></tr>
+<tr><td>B8</td><td><strong>Khảo sát sau dịch vụ + cứu khách không hài lòng</strong></td><td>Chuẩn ngành (CSI)</td><td>Không có</td><td>Một phần</td><td class="p">Trung bình–thấp</td></tr>
+<tr><td>B9</td><td><strong>Thanh toán ngay trong tin nhắn</strong></td><td>myKaarma (text-to-pay); app VinFast có thanh toán online</td><td>Không có</td><td>Ngoài lõi</td><td class="k">Thấp</td></tr>
+</table></div>
+<p><strong>Kết hợp lại:</strong> combo nên pitch là <strong>A1 + B6 + A5</strong>: quyền lợi đúng cho xe này hôm nay + có người giữ ca và có hạn + chạy trọn trên Zalo. Thêm <strong>B1</strong> (đặt xe mượn/giao nhận) vì dịch vụ VinFast đã có sẵn, agent chỉ cần nối vào. <strong>A2</strong> (ảnh đèn taplo) là điểm cộng demo dễ gây ấn tượng nếu kịp. Đây vẫn là giả thuyết. Kiểm rẻ nhất là hỏi mentor xem app/tổng đài VinFast hiện làm được tới đâu với A1, A5, B1.</p>
+<p><strong>Câu định vị gợi ý:</strong> <em>"Hãng đã biết xe lỗi. Chúng tôi lo phần sau: trả lời đúng quyền lợi của chiếc xe đó, giữ việc tới khi sửa xong, và chuyển người không phải kể lại."</em> Định vị này khớp đề BTC; phần phát hiện lỗi chỉ là cửa vào của cùng một lõi.</p>
+<p><strong>Rủi ro:</strong></p>
+<ul>
+<li>Giám khảo phía VinFast biết rõ hệ thống của họ; nếu app đã làm được 1–3 thì mất điểm unique. Kiểm rẻ nhất: hỏi một chủ xe hoặc mentor "khi app báo lỗi phần cứng, sau đó có ai liên hệ tiếp, có hỏi lại được không?".</li>
+<li>Tesla và Rivian làm phần "giữ việc" bằng người thật. Lợi thế của agent là chi phí và độ đều, chưa phải chất lượng, và chưa được chứng minh.</li>
+<li>Trong demo, dữ liệu xe là giả lập: nói rõ "giả định xe gửi mã lỗi như VinFast đã công bố năm 2021".</li>
+</ul>
+
+<p class="trace">▸ Ghi chú phương pháp: đối thủ được xác định theo việc (Job), không theo ngành. Đối thủ trực tiếp là tổng đài và app trên cùng việc cốt lõi; đối thủ gián tiếp là group Facebook, báo chí và "không làm gì", cùng phục vụ việc lớn ở mức trên. Khoảng trống được đặt ở giao của các tiêu chí thành công chưa ai đáp ứng, không ở một tính năng.</p>
+</details>
+
+<a id="s12"></a><a id="l2-risks"></a>
+<details open>
+<summary>12 · Giả định rủi ro nhất — và cách kiểm từng cái</summary>
+<p>Viết ở dạng khẳng định để có thể bác bỏ. Xếp theo: (khả năng sai × giá phải trả nếu sai) ÷ chi phí kiểm.</p>
+<div class="tw"><table>
+<tr><th>#</th><th>Giả định</th><th>Nếu sai</th><th>Kiểm nhanh nhất</th></tr>
+<tr><td>1 ☠</td><td>Ít nhất 20% bài/review liên quan dịch vụ của chủ ô tô điện VinFast là ca "quyền lợi theo xe" hoặc "chuyển rồi không ai trả lời"</td><td>Vấn đề cốt lõi không tồn tại ở quy mô đáng kể → NO-GO hoặc PIVOT sang P-C</td><td>Đọc tay ~150 bài/review gần nhất và phân loại (1–2 ngày)</td></tr>
+<tr><td>2 ☠</td><td>Tổng đài/đại lý trả lời câu hỏi chính sách không nhất quán, hoặc mất trên 5 phút cho một câu cơ bản</td><td>P-B chết (kênh hiện tại đã đủ tốt)</td><td>Mystery call: 5 câu hỏi × 2–3 lần gọi (1 ngày)</td></tr>
+<tr><td>3 ☠</td><td>Chủ xe từng có ca kéo dài chấp nhận một agent AI <em>nếu</em> luôn gặp được người và không phải kể lại</td><td>Sản phẩm bị né như mọi chatbot (Gartner 64%)</td><td>8 phỏng vấn về hành vi trong quá khứ + cho xem bản demo handoff</td></tr>
+<tr><td>4</td><td>Đề BTC gốc không cộng điểm riêng cho proactive / UC1 / UC3</td><td>Cắt nhầm phần được chấm điểm</td><td>Hỏi BTC/mentor bản gốc + rubric (1 tin nhắn)</td></tr>
+<tr><td>5</td><td>Hãng có dữ liệu và người chịu trách nhiệm để agent hứa được mốc thời gian thật</td><td>Agent chỉ chuyển tiếp sự mơ hồ</td><td>Hỏi 2–3 nhân viên CSKH/cố vấn dịch vụ: ai giữ ca khi chuyển, có SLA không</td></tr>
+<tr><td>6</td><td>Agent trả lời chính sách đúng hơn người, trên cùng bộ câu hỏi</td><td>Không có giá trị cộng thêm từ AI ở bước này</td><td>So bộ 30 câu: agent vs tổng đài vs đọc trang chính sách</td></tr>
+<tr><td>7</td><td>VinFast/VinBigdata chưa có agent CSKH hậu mãi tương đương</td><td>Mất điểm khác biệt khi pitch</td><td>Tìm thông báo VinBigdata / hỏi mentor</td></tr>
+</table></div>
+</details>
+
+<a id="s13"></a>
+<details>
+<summary>13 · Bằng chứng còn thiếu</summary>
+<ul>
+<li><strong>Văn bản gốc của đề BTC và rubric chấm.</strong> Thiếu cái này thì mọi kết luận về scope chỉ dựa trên bản diễn giải.</li>
+<li><strong>Lý do liên hệ thực tế</strong> của chủ xe VinFast (log tổng đài hoặc phân loại bài đăng). Đây là con số quan trọng nhất và hiện không có.</li>
+<li><strong>Tiếng nói chủ xe 2025–2026:</strong> Facebook group, Google Play (trang không hiển thị), diễn đàn vinfast.vn (bị chặn 403). Cả 4 agent research đều không vào được, nên phải đọc tay.</li>
+<li>Thời gian dự kiến sửa xong trên app có chính xác không; cam kết phụ tùng 24 giờ có được giữ không.</li>
+<li>Khảo sát Việt Nam về thái độ với chatbot CSKH (Q&amp;Me, Decision Lab, Cimigo): chưa tìm thấy.</li>
+<li>Mẫu số từng câu hỏi theo hãng trong PDF InsightAsia; vài chỗ tự mâu thuẫn (42% so với 32% đặt lịch số; tổng mẫu theo hãng 1.273 + 118 ≠ 1.247).</li>
+<li>Số J.D. Power và Klarna đều lấy qua nguồn thứ cấp (trang gốc chặn), cần mở bằng trình duyệt để xác nhận.</li>
+</ul>
+</details>
+
+<a id="s14"></a><a id="l2-verdict"></a>
+<details open>
+<summary>14 · Kết luận: GO / NARROW / PIVOT / NO-GO</summary>
+<p class="verdict">NARROW</p>
+<p><strong>Vì sao không phải GO:</strong> chuỗi nhân quả "có việc thật → có nhóm khách → agent tạo khác biệt → đo được" mới đứng ở mắt đầu, và chỉ đứng trên bằng chứng định tính. Tần suất chưa đo, nên chưa thể nói "có agent hay không có agent sẽ khác nhau đáng kể".</p>
+<p><strong>Vì sao không phải PIVOT:</strong> đề BTC không sai. Bằng chứng còn đỡ được đúng phần lõi đề yêu cầu. Thứ cần đổi là <em>trọng tâm của đội</em>, không phải bài toán.</p>
+<p><strong>Vì sao không phải NO-GO:</strong> có tín hiệu thật, độc lập với AI: ca VF9 với phản ứng kỷ luật của hãng, khoảng cách follow-up trong khảo sát, chính sách đổi liên tục, và dữ liệu quốc tế về điểm gãy khi chuyển người.</p>
+<p><strong>Thu hẹp cụ thể:</strong></p>
+<ul>
+<li><strong>Giữ làm lõi:</strong> hội thoại nhiều bước cho ca không xong trong một lần · trả lời quyền lợi theo đúng chiếc xe và ngày mua, có trích dẫn · chuyển người kèm tóm tắt, có người giữ và có hạn hồi đáp · xác nhận trước khi hành động.</li>
+<li><strong>Hạ xuống mức "minh hoạ, chờ dữ liệu":</strong> UC1 (cảnh báo lặp), UC3 (lịch lệch kho). Giữ một cảnh demo nếu đã có, nhưng không làm câu chuyện chính.</li>
+<li><strong>Bỏ khỏi pitch như là pain:</strong> UC4 (hoá đơn), UC6 (tái phát), upsell / bán kèm, sạc như một bài toán riêng.</li>
+</ul>
+<p><strong>Về report cũ:</strong> khung bài toán sai (bán phần mềm B2B cho xưởng); anchor chọn sai lý do (hợp code); phần upsell và 7 hướng mở rộng vượt scope; bỏ sót số riêng của VinFast trong PDF vốn phản bác hướng đặt lịch/upsell. Report cũ <em>đúng</em> ở sự thận trọng về số liệu và ở nhận định "đặt lịch thành công không có nghĩa là đã giải quyết xong".</p>
+<p class="trace">▸ Ghi chú phương pháp: đi theo chuỗi thị trường → nhóm khách + việc → giá trị → kinh tế → kênh. Mắt "nhóm khách + việc" là chỗ phần lớn dự án chết, nên phải kiểm trước mọi mắt phía sau. NARROW nghĩa là chuỗi chỉ đứng cho một tập con của việc.</p>
+</details>
+
+<a id="s15"></a><a id="l2-next"></a>
+<details open>
+<summary>15 · Hành động discovery tiếp theo</summary>
+<ol>
+<li><strong>Hôm nay, 1 tin nhắn:</strong> xin BTC/mentor bản đề gốc + rubric (giả định #4).</li>
+<li><strong>Ngày 1–2: phân loại lý do liên hệ</strong> (giả định #1, giết được cả hướng).
+<ul>
+<li><em>Cách làm:</em> 2 người đọc tay 50 review Google Play mới nhất của app VinFast và 100 bài gần nhất trong 2–3 group chủ ô tô điện VinFast. Mỗi bài gắn 1 nhãn: quyền lợi/chính sách · chuyển rồi không ai trả lời · tiến độ sửa · cảnh báo/lỗi phần mềm · sạc · khác. Hai người cùng đọc 20 bài đầu để thống nhất nhãn.</li>
+<li><em>Ngưỡng bỏ:</em> hai nhãn đầu cộng lại dưới 20% số bài liên quan dịch vụ → bỏ hướng; nếu "cảnh báo/lỗi phần mềm" lớn nhất → pivot sang P-C.</li>
+</ul></li>
+<li><strong>Ngày 2: gọi thử tổng đài</strong> (giả định #2).
+<ul>
+<li><em>Cách làm:</em> 5 câu hỏi (sạc miễn phí theo ngày mua, pin thuê sau 3/2025, chu kỳ bảo dưỡng mới, bảo hành pin mua và thuê, điều kiện cập nhật phần mềm từ xa), mỗi câu gọi 2 lần ở 2 khung giờ. Ghi thời gian chờ, độ nhất quán, có chuyển bộ phận không.</li>
+<li><em>Ngưỡng bỏ:</em> dưới 5 phút và nhất quán ở ít nhất 9/10 cuộc → P-B yếu.</li>
+</ul></li>
+<li><strong>Ngày 2–5: 8 phỏng vấn chủ xe</strong> vừa có ca sửa/bảo hành/lắp sạc trong 6 tháng qua (giả định #3), cộng 2–3 nhân viên CSKH hoặc cố vấn dịch vụ (giả định #5).
+<ul>
+<li><em>Cách làm:</em> hỏi về việc đã xảy ra, không hỏi về tương lai. "Lần gần nhất anh/chị cần hãng giải quyết việc gì? Đã liên hệ mấy lần, qua kênh nào? Có phải kể lại không? Ai báo kết quả?" Cuối buổi cho xem 2 phút demo handoff.</li>
+<li><em>Ngưỡng bỏ:</em> dưới 3/8 người từng phải liên hệ trên 2 lần cho cùng một việc → vấn đề không đủ phổ biến.</li>
+</ul></li>
+<li><strong>Chỉ sau bước 2–4:</strong> sắp lại backlog. Ưu tiên chất lượng handoff (đúng chỗ AI hỏng nhiều nhất), trích dẫn chính sách theo xe/ngày, có người giữ ca và hạn hồi đáp. Bộ eval nên đo chính các tiêu chí này.</li>
+</ol>
+<p class="trace">▸ Ghi chú phương pháp: kiểm giả định rủi ro nhất trước, chọn phép thử rẻ nhất có thể bác bỏ nó; đặt ngưỡng trước khi xem kết quả; phỏng vấn về việc thật trong quá khứ, không hỏi ý định.</p>
+</details>
+
+<!-- ============ LAYER 3 : APPENDIX ============ -->
+<a id="layer-3"></a>
+<h1 style="margin-top:2em">Phụ lục</h1>
+
+<a id="l3-sizing"></a>
+<details>
+<summary>A · Quy mô — và cách tự kiểm lại</summary>
+<p>Đây là bài thi do hãng ra đề nên không ước lượng <abbr title="Tổng thị trường: toàn bộ số tiền mọi người chi cho việc này mỗi năm">TAM</abbr> (tổng thị trường) hay <abbr title="Phần thị trường có thể giành được trong 1–2 năm">SOM</abbr> (phần giành được). Đại lượng có ý nghĩa là <strong>số ca phức tạp mỗi năm = số chủ xe đang dùng × số lần liên hệ hậu mãi mỗi năm × tỷ lệ ca không xong trong một lần</strong>.</p>
+<div class="tw"><table>
+<tr><th>Đầu vào</th><th>Giá trị</th><th>Nguồn</th><th>Độ chắc</th></tr>
+<tr><td>Ô tô điện VinFast bàn giao tại Việt Nam</td><td>175.099 (2025); 154.073 (tháng 1–8/2026)</td><td>Report cũ, E6 (VinFast 11/09/2026)</td><td>Có nguồn, chưa kiểm lại; không phải số xe đang hoạt động</td></tr>
+<tr><td>Số lần liên hệ / chủ xe / năm</td><td>chưa biết</td><td>—</td><td>Không có</td></tr>
+<tr><td>Tỷ lệ ca không xong trong một lần</td><td>chưa biết (vài % đến vài chục %)</td><td>—</td><td>Không có. Đây là giả định #1</td></tr>
+</table></div>
+<p><strong>Tự kiểm:</strong> (1) xin BTC hoặc mentor số lượt liên hệ tổng đài theo loại; (2) nếu không có, lấy tỷ lệ từ bước phân loại ở mục 15 nhân với ước lượng lượt liên hệ. Nếu kết quả lệch nhau quá 2 lần thì xem lại đầu vào yếu nhất (tỷ lệ ca phức tạp).</p>
+</details>
+
+<details>
+<summary>B · Tín hiệu đơn lẻ — kiểm trước khi dùng</summary>
+<div class="tw"><table>
+<tr><th>Tín hiệu</th><th>Nguồn</th><th>Vì sao đáng chú ý</th><th>Kiểm rẻ nhất</th></tr>
+<tr><td>VF 8 phải chờ 10–15 ngày để nhà máy thay linh kiện động cơ</td><td>Đoạn trích diễn đàn vinfast.vn (không mở được)</td><td>Nếu còn xảy ra sau 9/2024 thì cam kết 24 giờ chưa được giữ</td><td>Mở thread bằng trình duyệt</td></tr>
+<tr><td>Firmware VF5 (4/2025) gây lỗi; xưởng Đà Nẵng bảo chờ bản mới</td><td>Đoạn trích diễn đàn</td><td>Hỗ trợ P-C</td><td>Đọc thread, đếm số người xác nhận</td></tr>
+<tr><td>Yêu cầu lắp sạc tại nhà treo từ 9 đến 12/2025, gọi tổng đài 2 lần</td><td>Đoạn trích diễn đàn (ngày chưa xác minh)</td><td>Ví dụ điển hình của P-A</td><td>Mở thread</td></tr>
+<tr><td>App hiển thị 58% pin khi đã sạc đầy, dẫn tới bị phạt đỗ</td><td>App Store 16/09/2025</td><td>Lỗi telematics, ngoài lõi CSKH</td><td>Đọc thêm review</td></tr>
+<tr><td>Chủ VF 7 Plus nhầm tốc độ sạc 250 kW và 60 kW</td><td><a href="https://www.otofun.net.vn/threads/su-that-tru-sac-nhanh-cua-vinfast.1909568/" target="_blank" rel="noopener">Otofun 23/7/2024</a></td><td>Pain thông tin (P-B/P-C), không phải trạm hỏng</td><td>Phân loại ở mục 15</td></tr>
+</table></div>
+</details>
+
+<details>
+<summary>C · Ý tưởng của tôi — không phải phát hiện</summary>
+<p>Không có trong tài liệu hay nguồn nào; ghi lại để kiểm, kết luận ở trên không dựa vào chúng.</p>
+<ul>
+<li>Mỗi ca chuyển giao có một "thẻ lời hứa" hiển thị cho khách (ai giữ, hạn trả lời). Cần kiểm: khách có coi đây là giá trị không, và hãng có dám cam kết hạn không.</li>
+<li>Câu trả lời chính sách hiển thị "áp dụng cho xe mua ngày X, pin sở hữu Y" để khách tự kiểm. Cần kiểm: có giảm số lần hỏi lại không.</li>
+</ul>
+</details>
+
+<a id="disclaimers"></a>
+<details>
+<summary>D · Giới hạn, nguồn bị chặn, dấu vết phương pháp</summary>
+<p><em>Hai lưu ý ở đầu file áp dụng cho toàn bộ báo cáo.</em></p>
+<ul>
+<li><strong>Cách chạy:</strong> 4 agent research song song (xưởng · kênh CSKH · sạc/bảo hành/triệu hồi · quốc tế), mỗi agent tìm cả bằng chứng ủng hộ lẫn phản bác. Tổng cộng khoảng 67 lượt tìm kiếm/tải trang và khoảng 44 nguồn khác nhau. Phần tổng hợp, kill test và verdict do một agent làm. Khác pipeline chuẩn của skill: không chạy ước lượng quy mô bằng 3 phương pháp và không chạy nhánh pivot sang thị trường khác, vì đề BTC cố định thị trường và trọng tâm ở đây là audit và kill.</li>
+<li><strong>Bị chặn / không tới được:</strong> Facebook group (không thử) · diễn đàn vinfast.vn (403) · Google Play (không hiển thị) · trang jdpower.com (403) · App Store chỉ hiện 4 review.</li>
+<li><strong>Nguồn có giọng PR:</strong> nhiều bài báo trong nước về mạng lưới xưởng/sạc của VinFast đọc như bài quảng cáo, đã hạ trọng số.</li>
+<li><strong>PDF InsightAsia:</strong> đã trích văn bản cả 30 trang. Các số đã đối chiếu khớp với report cũ; ngoài ra lấy thêm số riêng của VinFast ở p13–16.</li>
+<li><strong>Canon NMT đã dùng:</strong> ajtbd-key-theses, segmentation, rat-key-theses (trong <code>Next-Move-Theory-Canon/</code>). Nhóm khách được dựng theo việc cốt lõi và tiêu chí thành công, không theo nhân khẩu học hay kênh mua.</li>
+<li><strong>Chưa làm:</strong> phỏng vấn, khảo sát mới, đọc log thật, kiểm thử repo.</li>
+</ul>
+<h3>Nguồn quốc tế chính</h3>
+<ul>
+<li><a href="https://www.jdpower.com/business/press-releases/2025-us-customer-service-index-csi-study/" target="_blank" rel="noopener">J.D. Power 2025 U.S. CSI</a> · <a href="https://www.carpro.com/blog/2025-j.d.-power-dealer-service-satisfaction-survey-results" target="_blank" rel="noopener">CarPro tóm tắt</a></li>
+<li><a href="https://chinaevhome.com/2025/08/21/j-d-powers-nev-csi-report-nio-and-li-auto-top-chinas-after-sales-service-rankings/" target="_blank" rel="noopener">J.D. Power China NEV-CSI 2025</a></li>
+<li><a href="https://www.cccis.com/reports/crash-course-2024/q4" target="_blank" rel="noopener">CCC Crash Course Q4 2024</a> · <a href="https://www.mitchell.com/insights/article/auto-physical-damage/plugged-in-ev-collision-insights-q3-2024" target="_blank" rel="noopener">Mitchell Plugged-In Q3 2024</a></li>
+<li><a href="https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-predicts-over-40-percent-of-agentic-ai-projects-will-be-canceled-by-end-of-2027" target="_blank" rel="noopener">Gartner 25/6/2025 — agentic AI</a></li>
+<li><a href="https://www.fastcompany.com/91468582/klarna-tried-to-replace-its-workforce-with-ai" target="_blank" rel="noopener">Fast Company — Klarna</a></li>
+<li><a href="https://www.salesforce.com/content/dam/web/en_ie/www/PDF/state-of-connected-customer-fifth-ed-comp.pdf" target="_blank" rel="noopener">Salesforce State of the Connected Customer (vendor)</a></li>
+<li><a href="https://vnexpress.net/chan-ngan-vi-tiep-xuc-ai-thay-nguoi-that-5094717.html" target="_blank" rel="noopener">VnExpress 09/7/2026 — "Chán ngán vì tiếp xúc AI thay người thật"</a> (số liệu nước ngoài)</li>
+<li><a href="https://apps.apple.com/vn/app/vinfast/id1592816336" target="_blank" rel="noopener">App Store VN — VinFast</a> (3,6/5, khoảng 1,7 nghìn đánh giá)</li>
+</ul>
+</details>
+
+<footer>
+<p>Phương pháp: Ivan Zamesin — Next Move Theory / Advanced Jobs To Be Done. Áp dụng skill <code>nmt-market-research</code> (Deep mode). Nội dung phương pháp ghi công theo <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>. Tìm hiểu thêm: <a href="https://nextmovetheory.com/?utm_source=nmt-market-research&utm_medium=skill-artifact" target="_blank" rel="noopener">nextmovetheory.com</a>.</p>
+<p>Một file HTML · tiếng Việt · kết quả nghiên cứu, không phải thay đổi đã triển khai trong code.</p>
+</footer>
+</main>
+</body>
+</html>
