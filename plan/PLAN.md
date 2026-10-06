@@ -47,15 +47,20 @@ Nguồn: `P-073/business/2026-10-06_01-55_ev-cx-agent-market-research-result.htm
 nhiều lần theo ngày mua. Phần "phát hiện lỗi rồi báo khách" **không còn là điểm mới**: VinFast đã công bố tính năng này cho VF e34 từ 19/05/2021
 (Tesla, GM, BMW, Rivian cũng làm) → proactive là **cửa vào**, khác biệt nằm ở phần sau khi báo.
 
-| Hạng mục | Quyết định | Card |
+**Thứ tự làm (A làm hết — lead chốt 06/10):**
+
+| Thứ tự | Card | Việc |
 |---|---|---|
-| KB sạc miễn phí còn ghi "đến 30/6/2027" (đã bị thay 09/02/2026) + dừng thuê pin | **Làm** | A2.20 |
-| Bảo hành VF 7 (nguồn mâu thuẫn 7 năm / 10 năm) + chu kỳ bảo dưỡng 15.000 km từ 01/01/2026 | **Xác minh rồi mới sửa** | A2.21 |
-| Chuyển người thất bại vẫn báo "đã chuyển" | **Làm** | A2.22 |
-| Việc của khách có trạng thái "Đã xác minh" sau khi theo dõi sau sửa sạch | **Làm** (ADR 010) | A2.23 |
-| Giao nhận xe tận nhà qua agent (dịch vụ VinFast đã có) | **Dư giờ** | A2.24 |
-| Kênh Zalo thật · ảnh đèn taplo · gọi điện AI · sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM | **Chỉ pitch / roadmap** | — |
-| UC4 hoá đơn · UC6 tái phát · upsell như "pain" | **Bỏ khỏi phần pain khi pitch** — không tìm thấy bằng chứng | — |
+| 1 | A2.22 | Chuyển người thất bại → không nói "đã chuyển" |
+| 2 | A2.20 (+ A2.21 song song sau khi xác minh) | KB sạc miễn phí 2026, dừng thuê pin; bảo hành VF 7, chu kỳ bảo dưỡng |
+| 3 | A2.23 | Vòng đời việc: đã xác nhận → đã sửa xong → đã theo dõi, chưa thấy lỗi / mở lại (một ADR) |
+| 4 | A2.25 | Tách "đã chuyển" và "đã có người nhận"; người giữ + hạn cập nhật |
+| 5 | A2.26 | Phát hiện quá hạn chưa ai nhận → báo trưởng ca + khách (cắt đầu tiên nếu trễ) |
+| 6 | A2.13 | Demo xuyên suốt có nhánh lỗi; đo hứa sai = 0, đóng sai = 0; tách proactive khỏi LLM |
+
+**Roadmap riêng (không vào chuỗi chính trước 11/10):** giao nhận xe tận nhà (A2.24) · kênh Zalo thật · gọi điện bằng AI · chụp ảnh đèn taplo ·
+sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM · upsell. "Đã xác minh" sau sửa (cần dữ liệu đầy đủ + xe chạy lại + khách xác nhận).
+**Không pitch như pain:** UC4 hoá đơn, UC6 tái phát (chưa có bằng chứng). Upsell: ngoài lõi đề (quyết định phạm vi).
 
 > Điền tên thật: A = ______ · B = ______ · C = ______ · D = ______ · Demo Day BTC = ______ (lộ trình sách BTC ghi 6 tuần — hỏi BTC).
 
