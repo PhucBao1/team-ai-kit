@@ -93,12 +93,12 @@ VinFast đã có báo lỗi từ xa từ 2021, không pitch là điểm mới. B
 | Tình huống | Nguồn sự kiện | Điều kiện kích hoạt | Thông tin cần kiểm tra | Hành động | Kết thúc khi | Card |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Điều kiện lịch hẹn thay đổi** (UC3 lập lại) | ERP: `parts.reservation.cancelled` | Lịch `confirmed`, còn < 72 giờ, không còn lượt giữ linh kiện khác | Lịch, slot, tồn kho các xưởng, quãng đường, quyền đặt lịch | Báo khách + 2–3 phương án đã kiểm → xác nhận → đổi lịch qua executor | Khách xác nhận lịch mới, hoặc chuyển người | đã có (A1.11, B2.04) |
-| **Chuyển người chưa ai nhận / quá hạn gọi lại** | Đồng hồ (mỗi lần tua) | `Handoff.status == open` và `card.deadline_at < now`, chưa báo lần nào | Mã ca, hàng chờ, hạn đã hứa, khách | Tin hệ thống vào ca (báo trưởng ca) + báo khách đúng là **chưa có người nhận**; **không** hứa giờ mới | Nhân viên Nhận ca hoặc Đóng ca; không báo lặp | A2.26 |
+| **Chuyển người chưa ai nhận / quá hạn gọi lại** | Đồng hồ (mỗi lần tua) | `Handoff.status == open` và `card.deadline_at < now`, chưa báo lần nào | Mã ca, hàng chờ, hạn đã hứa, khách | Chuyển ca sang hàng chờ "Trưởng ca CSKH" (vẫn chưa nhận), đọc lại kiểm; thành công → tin hệ thống + báo khách "đã chuyển tới hàng chờ trưởng ca, hiện chưa có người nhận"; **không** hứa giờ mới | Nhân viên Nhận ca hoặc Đóng ca; không báo lặp. MVP chỉ bắt "chưa nhận" | A2.26 |
 | **Chuyển người thất bại** | Executor ghi handoff lỗi | `file_handoff` trả `None` | — | Không nói "đã chuyển"; đưa tổng đài 1900 23 23 89; không hứa hạn | Khách được hướng tới kênh có người | A2.22 |
 
 **Hồ sơ và trách nhiệm** (dữ liệu đã có: `Handoff.status`, `assignee`, `HandoffCard.deadline_at`, bảng SLA `src/core/sla.py`): mỗi việc của khách hiện
 *đã chuyển (chưa ai nhận)* hay *{tên} đã nhận*, người giữ, hạn cập nhật (A2.25). **Vòng đời việc** (A2.23): đã xác nhận (thao tác thành công) →
-đã sửa xong (dịch vụ hoàn tất, `repair_order.closed`) → đã theo dõi 14 ngày, chưa thấy lỗi (hỏi khách còn triệu chứng) / **mở lại** khi lỗi báo lại.
+đã sửa xong (dịch vụ hoàn tất, `repair_order.closed`) → chỉ khi **đủ dữ liệu xe** (A2.27): "chưa ghi nhận lại mã" + hỏi khách; thiếu dữ liệu: "chưa đủ dữ liệu", tiếp tục theo dõi / **mở lại** khi mã báo lại (gắn đúng journey).
 "Đã xác minh" chỉ khi dữ liệu đầy đủ + xe đã chạy lại + khách xác nhận hết triệu chứng — **chưa làm**, roadmap. Thiếu dữ liệu không bao giờ được coi là đã giải quyết.
 
 `intervention_type` thuộc tập: `explain` (giải thích chủ động) · `self_help` (hướng dẫn từ KB) · `prepare_service_option` · `ask_confirmation` · `service_action` (đi qua UC3) · `handoff` · `no_action` (đóng / hoãn, ghi lý do).

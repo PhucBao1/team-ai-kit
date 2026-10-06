@@ -40,10 +40,11 @@ Telematics ──vehicle.dtc.raised──► Pub/Sub topic "ops-events"       # 
   9  Writer ⇄ Critic (§14): tin 5 phần (điều đã xảy ra · phương án · thời hạn · phụ trách · vì sao nhận tin)
  10  gửi vào session chat của khách + push notification theo kênh ưa thích
  11  cập nhật journey: bước hiện tại = "chờ khách chọn", promise mới, hẹn giờ nhắc (workflow)
- 12  theo kết quả (loop 5): repair_order.closed ─► việc "đã sửa xong, đang theo dõi" · hết cửa sổ không mã lỗi mới ─► "đã theo dõi, chưa thấy lỗi"
-     + hỏi khách còn triệu chứng (KHÔNG gọi là đã xác minh / đã đóng) · "đã xác minh" chỉ khi dữ liệu đủ + xe đã chạy lại + khách xác nhận (roadmap)
-     · thiếu dữ liệu ─► giữ việc mở, không coi là đã giải quyết
- 13  tái phát trong cửa sổ ─► việc "mở lại" (UC6), tối đa 2 chu kỳ tự động ─► handoff
+ 12  theo kết quả (loop 5): repair_order.closed (lưu km lúc sửa) ─► việc "đã sửa xong, đang theo dõi"
+     tới hạn đánh giá: assess_post_repair (heartbeat đúng xe sau sửa · km tăng ≥ 50 · không khoảng trống > 72h · không mã cũ) — ngưỡng GIẢ LẬP
+        đủ dữ liệu ─► "trong dữ liệu nhận được sau sửa, chưa ghi nhận lại mã X" + hỏi khách còn triệu chứng (KHÔNG gọi là đã xác minh / đã đóng)
+        thiếu dữ liệu ─► KHÔNG đóng: tiếp tục theo dõi +7 ngày, khách thấy "chưa đủ dữ liệu để đánh giá sau sửa"            # A2.27
+ 13  mã đã sửa báo lại khi việc còn đang theo dõi (kể cả quá 14 ngày vì thiếu dữ liệu) ─► "mở lại" đúng journey (UC6), tối đa 2 chu kỳ ─► handoff
 ```
 
 Nhánh lập lại của UC3: parts.reservation.cancelled · parts.eta.changed làm một lịch *đã xác nhận* mất điều kiện (còn < 72 giờ) cũng đi vào bước 3 như một candidate, rồi UC3 lập lại 2–3 phương án và xin khách xác nhận.
@@ -69,13 +70,15 @@ Khách bấm [Xác nhận] ──POST /confirm {token}──► API
   4  ghi handoff qua executor ── lỗi ─► KHÔNG nói "đã chuyển"; đưa tổng đài 1900 23 23 89; không hứa hạn          # A2.22
   5  khách thấy "đã chuyển tới {hàng chờ}, chưa có người nhận · hẹn liên hệ trước HH:MM"                          # A2.25
   6  NV bấm Nhận ca (status accepted, assignee = tên NV) ─► khách thấy "{tên} đang xử lý, cập nhật trước HH:MM"
-  7  mỗi lần tua đồng hồ: ca open quá deadline_at ─► tin hệ thống vào ca (báo trưởng ca) + báo khách đúng là chưa
-     có người nhận, KHÔNG hứa giờ mới; mỗi ca báo một lần                                                        # A2.26
+  7  mỗi lần tua đồng hồ: ca open quá deadline_at ─► chuyển assignee sang hàng chờ "Trưởng ca CSKH" (vẫn open) ─► đọc lại kiểm
+        thành công ─► tin hệ thống (nơi chuyển trước/sau + giờ) + báo khách "đã chuyển tới hàng chờ trưởng ca, hiện chưa có người nhận"
+        thất bại   ─► báo "vẫn chưa có người nhận", không đánh dấu, lần sau thử lại · KHÔNG hứa giờ mới                  # A2.26
+     MVP chỉ giám sát "quá hạn chưa nhận"; "đã nhận nhưng không tiến triển" là roadmap
   8  NV chốt trong console → tool ghi (NV là người xác nhận); auto-wrap ghi chú → NV xác nhận
-  9  NV Đóng ca ─► khách thấy "nhân viên đã xử lý xong ca"; agent nhận lại việc, tiếp tục loop 5 (theo kết quả)
+  9  NV Đóng ca ─► khách thấy "đã kết thúc trao đổi với nhân viên" (không có nghĩa đã giải quyết); agent nhận lại việc, tiếp tục loop 5
 ```
 
-**Vòng đời việc của khách** (`CustomerCase.status`, ADR 010 — A2.23, A2.25):
-`waiting` (chờ khách chọn) → `done` (đã xác nhận — thao tác thành công) → `service_done` (đã sửa xong) → `monitored_clear` (đã theo dõi, chưa thấy lỗi) /
-`reopened` (lỗi báo lại). Nhánh người: `handoff_sent` (đã chuyển, chưa ai nhận) → `handed_off` (đã có người nhận) → `handoff_closed`.
-Không có `verified` cho tới khi đủ dữ liệu xe chạy lại + khách xác nhận.
+**Vòng đời việc của khách** (`CustomerCase.status`, ADR 011 — A2.23, A2.25, A2.27; gắn theo `journey_id`, không theo "việc mới nhất của VIN"):
+`waiting` (chờ khách chọn) → `done` (đã xác nhận — thao tác thành công) → `service_done` (đã sửa xong) → `monitored_clear` (chưa ghi nhận lại mã trong dữ liệu đủ) /
+`insufficient_data` (chưa đủ dữ liệu, vẫn theo dõi) / `reopened` (mã báo lại). Nhánh người: `handoff_sent` (đã chuyển, chưa ai nhận) → `handed_off` (đã có người nhận)
+→ `handoff_closed` (đã kết thúc trao đổi). Không có `verified`: dữ liệu xe không chứng minh khách hết triệu chứng.

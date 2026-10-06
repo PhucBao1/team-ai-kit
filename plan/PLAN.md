@@ -53,13 +53,15 @@ nhiều lần theo ngày mua. Phần "phát hiện lỗi rồi báo khách" **kh
 |---|---|---|
 | 1 | A2.22 | Chuyển người thất bại → không nói "đã chuyển" |
 | 2 | A2.20 (+ A2.21 song song sau khi xác minh) | KB sạc miễn phí 2026, dừng thuê pin; bảo hành VF 7, chu kỳ bảo dưỡng |
-| 3 | A2.23 | Vòng đời việc: đã xác nhận → đã sửa xong → đã theo dõi, chưa thấy lỗi / mở lại (một ADR) |
+| 3 | A2.23 | Vòng đời việc gắn theo journey: đã xác nhận → đã sửa xong → kết quả theo dõi / mở lại (ADR 011, chung PR hợp đồng với A2.27) |
+| 3b | **A2.27** | Chỉ đánh giá sau sửa khi đủ dữ liệu xe (heartbeat, km tăng, không đứt > 72h — giả lập); thiếu dữ liệu thì tiếp tục theo dõi và vẫn mở lại được — **điều kiện** cho bước sau sửa của A2.23 và màn 7 |
 | 4 | A2.25 | Tách "đã chuyển" và "đã có người nhận"; người giữ + hạn cập nhật |
-| 5 | A2.26 | Phát hiện quá hạn chưa ai nhận → báo trưởng ca + khách (cắt đầu tiên nếu trễ) |
+| 5 | A2.26 | Quá hạn chưa ai nhận → chuyển tới hàng chờ "Trưởng ca CSKH" (kiểm lại, vẫn chưa nhận) + báo khách đúng tình trạng (cắt đầu tiên nếu trễ) |
 | 6 | A2.13 | Demo xuyên suốt có nhánh lỗi; đo hứa sai = 0, đóng sai = 0; tách proactive khỏi LLM |
 
 **Roadmap riêng (không vào chuỗi chính trước 11/10):** giao nhận xe tận nhà (A2.24) · kênh Zalo thật · gọi điện bằng AI · chụp ảnh đèn taplo ·
-sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM · upsell. "Đã xác minh" sau sửa (cần dữ liệu đầy đủ + xe chạy lại + khách xác nhận).
+sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM · upsell · kiểm lại xưởng sẵn sàng định kỳ trước giờ hẹn · duyệt phạm vi sửa + chi phí riêng ·
+"đã nhận nhưng không tiến triển" (cần dữ liệu cam kết cập nhật) · "đã xác minh" sau sửa (cần khách xác nhận hết triệu chứng).
 **Không pitch như pain:** UC4 hoá đơn, UC6 tái phát (chưa có bằng chứng). Upsell: ngoài lõi đề (quyết định phạm vi).
 
 > Điền tên thật: A = ______ · B = ______ · C = ______ · D = ______ · Demo Day BTC = ______ (lộ trình sách BTC ghi 6 tuần — hỏi BTC).
