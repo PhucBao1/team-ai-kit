@@ -49,7 +49,7 @@ sự cố màn 6 gắn lịch mới, số eval cho màn 7.
 
 **Không trình diễn (chỉ nêu trong pitch):** UC2 trạm sạc (làm tuần 3 nếu dư giờ), UC4 hoá đơn, UC5 claim bảo hành. Phần sau sửa (theo dõi, chưa đủ dữ liệu, mở lại — UC6) **có** trình diễn ở màn 7 (sửa 06/10).
 
-## Bảng kiểm tình huống (giữ từ trước 03/10)
+## Bảng kiểm tình huống (giữ từ trước 03/10 — **lịch sử**; nghiệm thu theo ma trận ở `docs/spec/02-scope.md`. Dòng 3 (trạm sạc UC2) và dòng 10 (upsell) **không** nghiệm thu 11/10)
 
 | # | Tình huống | Hệ thống phải làm | Task giao |
 |---|---|---|---|

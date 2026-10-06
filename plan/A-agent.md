@@ -50,6 +50,12 @@ Mọi task có card chi tiết (bấm mã task); card tuần 2–3 là **bản n
 - [ ] **[A2.25](tasks/A2.25.md)** · 2,5h — "Việc của tôi" tách **đã chuyển** (chưa ai nhận, hẹn trước HH:MM) với **đã có người nhận**; đóng ca = "đã kết thúc trao đổi". **Chờ:** A2.23. *(mới 06/10)*
 - [ ] **[A2.26](tasks/A2.26.md)** · 3,5h — Quá hạn chưa ai nhận → chuyển tới hàng chờ "Trưởng ca CSKH" (đọc lại kiểm, vẫn `open`) + báo khách đúng tình trạng, không hứa giờ mới. **Chờ:** A2.22. *Cắt đầu tiên nếu trễ.* *(mới 06/10)*
 - [ ] **[A2.27](tasks/A2.27.md)** · 3,5h — Đánh giá sau sửa chỉ khi đủ dữ liệu xe (`vehicle.heartbeat`, km tăng, không đứt > 72h — giả lập); thiếu dữ liệu → tiếp tục theo dõi; sửa `recurring_repair` để vẫn mở lại được sau 14 ngày. *(mới 06/10)*
+- [ ] **[A2.28](tasks/A2.28.md)** · 2h — Tin chủ động đúng xe phát sự kiện (`Candidate.vin`); xoá `response` đầu lượt. **Đường găng.** *(review code 06/10)*
+- [ ] **[A2.29](tasks/A2.29.md)** · 2h — Đường ghi: kết quả cũ khoá theo khách; đổi/trả kiểm chủ đơn; saga lỗi không nói "đã chuyển". *(review code 06/10)*
+- [ ] **[A2.30](tasks/A2.30.md)** · 3h — Frontend live: bỏ phản hồi cũ khi đổi khách, một phương án / lượt, nháp theo khách, `realNow` trong scenario (test đang fail). *(review code 06/10)*
+- [ ] **[A2.31](tasks/A2.31.md)** · 2,5h — Mọi tin chủ động qua `arbitrate` ở `deliver()`. **Chờ:** A2.28. *(review code 06/10)*
+- [ ] **[A2.32](tasks/A2.32.md)** · 3h — Eval: checker lộ tên + số, pass / partial / fail, so rule + mẫu vs rule + AI. *(review code 06/10)*
+- [ ] **[A2.33](tasks/A2.33.md)** · 2h — Dockerfile venv chạy `appuser`; trace mẫu chỉ ở development; mục "Giới hạn chế độ demo". *(review code 06/10)*
 - [ ] ~~**[A2.24](tasks/A2.24.md)**~~ · Giao nhận xe tận nhà → **roadmap** (sau Demo Day). *(06/10)*
 
 ## Tuần 3 · 12/10 → 18/10 · ~30h — chỉ cải thiện

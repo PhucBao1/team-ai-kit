@@ -61,6 +61,8 @@ nhiều lần theo ngày mua. Phần "phát hiện lỗi rồi báo khách" **kh
 
 **Chốt 06/10 (phương án A):** giữ A2.26; nhánh "xưởng chưa tái hiện được lỗi" và hồ sơ xuyên suốt đầy đủ (bổ sung A2.19 / D2.16) sang roadmap. Nhánh "khách còn triệu chứng dù không có mã lỗi" làm trong A2.23. Số liệu khảo sát dùng InsightAsia 2025 công khai (n=762); PDF "2026" chưa xác minh — không dùng. Mã lỗi `BATT-COOL-01` và mọi ngưỡng demo là giả lập.
 
+**Sau review code 06/10 (A làm hết):** A2.28 đúng xe + không phát lại câu cũ · A2.29 đường ghi an toàn · A2.30 frontend live · A2.31 một cửa kiểm tin chủ động · A2.32 eval trung thực + so rule/AI · A2.33 deploy + giới hạn chế độ demo. Thứ tự: **A2.28, A2.29, A2.30 trước** (lỗi đang có) → A2.22 → A2.20 → A2.23 → A2.27 → A2.25 → A2.31 → A2.32 → A2.26 → A2.33 → A2.13. Nghiệm thu theo **ma trận hiện hành** ở `docs/spec/02-scope.md`. Tải của A ≈ 38h cho chuỗi này + ≈ 10h card cũ còn mở (A2.10, A2.11, A2.12, A2.17) ≈ **48h trong 5 ngày — quá tải** — nếu trễ, cắt theo thứ tự: A2.26 → phần so rule/AI của A2.32 → A2.31.
+
 **Roadmap riêng (không vào chuỗi chính trước 11/10):** giao nhận xe tận nhà (A2.24) · kênh Zalo thật · gọi điện bằng AI · chụp ảnh đèn taplo ·
 "xưởng chưa tái hiện được lỗi" · hồ sơ xuyên suốt đầy đủ · sức khoẻ pin · cảnh báo thời tiết · giữ ca xuyên công ty Vingroup · đội xe Xanh SM · upsell · kiểm lại xưởng sẵn sàng định kỳ trước giờ hẹn · duyệt phạm vi sửa + chi phí riêng ·
 "đã nhận nhưng không tiến triển" (cần dữ liệu cam kết cập nhật) · "đã xác minh" sau sửa (cần khách xác nhận hết triệu chứng).
