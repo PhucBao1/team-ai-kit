@@ -80,5 +80,5 @@ Khách bấm [Xác nhận] ──POST /confirm {token}──► API
 
 **Vòng đời việc của khách** (`CustomerCase.status`, ADR 011 — A2.23, A2.25, A2.27; gắn theo `journey_id`, không theo "việc mới nhất của VIN"):
 `waiting` (chờ khách chọn) → `done` (đã xác nhận — thao tác thành công) → `service_done` (đã sửa xong) → `monitored_clear` (chưa ghi nhận lại mã trong dữ liệu đủ) /
-`insufficient_data` (chưa đủ dữ liệu, vẫn theo dõi) / `reopened` (mã báo lại). Nhánh người: `handoff_sent` (đã chuyển, chưa ai nhận) → `handed_off` (đã có người nhận)
+`insufficient_data` (chưa đủ dữ liệu, vẫn theo dõi) / `reopened` (mã báo lại) / `symptom_reported` (khách báo còn dấu hiệu bất thường — mở lại cả journey, dừng đánh giá tự động). Nhánh người: `handoff_sent` (đã chuyển, chưa ai nhận) → `handed_off` (đã có người nhận)
 → `handoff_closed` (đã kết thúc trao đổi). Không có `verified`: dữ liệu xe không chứng minh khách hết triệu chứng.
