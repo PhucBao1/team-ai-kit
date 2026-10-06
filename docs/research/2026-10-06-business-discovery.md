@@ -19,7 +19,8 @@ Hai pain này trùng lõi bắt buộc của đề (hội thoại nhiều bướ
 
 | Bằng chứng | Nguồn |
 |---|---|
-| VinFast: số hoá dịch vụ 90% (cao nhất 9 hãng), năng lực kỹ thuật 72% (thấp nhất), CSI Index 78% (thứ 6/9), Overall Service Experience 76% (thứ 7/9) — tiêu đề PDF "ranks 7th in CSI" không khớp bảng; tỉnh 64% vs thành phố 88%; bị phàn nàn upsell 24% (TB 37%) | InsightAsia 5/2026, n=1.247 (VinFast n=223), p13–16 — PDF do lead cung cấp, **không đưa vào repo** (tài liệu bên thứ ba) |
+| VinFast số hoá 92% và cơ sở vật chất 94% ở trải nghiệm bán hàng (p13, có nhãn). Bảng dịch vụ (p21): dòng số hoá 92% có kỹ thuật 70%, giá trị dịch vụ 64% — nhiều khả năng VinFast, **cần mở PDF xác nhận nhãn**. Nhiều hãng: chi phí 72%, chờ lâu 65%, upsell không cần thiết 46%, giao tiếp kém trong lúc dịch vụ 36% (p19); 78% dùng / định dùng xưởng ngoài (p22) | [InsightAsia 2025 công khai](https://insightasia.com/vietnam-automotive-customer-satisfaction-report/), n=762, khảo sát 12/2024–3/2025 |
+| ~~PDF "InsightAsia 2026", n=1.247~~ do lead cung cấp — **không dùng số liệu**: không có bản công khai, trùng câu trích với bản 2025 nhưng khác số, tự mâu thuẫn | — |
 | Ca VF9: chờ sửa bảo hành lâu; VinFast cho nghỉ 4 nhân sự vì "chậm trễ tiếp nhận và xử lý yêu cầu"; 2/10 comment chê "phải phàn nàn công khai mới được xử lý" | [otosaigon 12/10/2024](https://www.otosaigon.com/threads/vinfast-xu-ly-the-nao-khi-chu-xe-vf9-phan-anh-cho-doi-lau-trong-thoi-gian-sua-chua-bao-hanh.10025287/) |
 | AI xử lý trọn 91% cuộc gọi dịch vụ, nhưng **56% lần chuyển AI → người thất bại** | Pied Piper 2025 (2.105 đại lý Mỹ) |
 | 64% khách không muốn doanh nghiệp dùng AI trong CSKH; nỗi sợ số 1: khó gặp người | Gartner 07/2024 (n=5.728) |
@@ -58,7 +59,7 @@ người giữ ca bằng nhân viên (NIO) · cảnh báo bão (Tesla) · đặt
 **(B) Người khác có, đội chưa có:** giao nhận / xe mượn qua agent (VinFast đã có dịch vụ → A2.24) · một người chịu trách nhiệm ca + hạn (NIO) ·
 gọi điện bằng AI · ảnh / video kiểm tra kèm báo giá (myKaarma, Xtime) · sức khoẻ pin (Tesla 2024.20) · cảnh báo thời tiết · gửi linh kiện trước · khảo sát sau dịch vụ · thanh toán trong tin nhắn.
 
-**Định vị gợi ý:** *"Hãng đã biết xe lỗi. Chúng tôi lo phần sau: trả lời đúng quyền lợi của chiếc xe đó, giữ việc tới khi sửa xong, và chuyển người không phải kể lại."*
+**Định vị (chốt 06/10):** *"Cố vấn hậu mãi chủ động: phát hiện nhu cầu từ dữ liệu xe, điều phối dịch vụ và theo việc tới kết quả bằng bằng chứng — biết việc nào đang kẹt, ai chịu trách nhiệm, điều gì đã được xác nhận và khi nào chưa đủ dữ liệu để kết luận."* Không nói "các hãng khác chưa có".
 Proactive (UC1 → UC3) giữ làm **cửa vào**, không pitch là năng lực mới.
 
 ## 5. Còn thiếu để kết luận chắc hơn
@@ -70,5 +71,5 @@ Proactive (UC1 → UC3) giữ làm **cửa vào**, không pitch là năng lực 
 5. 8 phỏng vấn chủ xe vừa có ca sửa / bảo hành + 2–3 nhân viên CSKH (hỏi chuyện đã xảy ra) — để hiểu cơ chế, không đo mức phổ biến.
 6. Hỏi mentor: app / tổng đài VinFast hiện làm được tới đâu với A1, A5, giao nhận xe.
 
-> **Sửa sau review 06/10:** tách CSI Index khỏi Overall Service Experience; bỏ ngưỡng 20% và 3/8; "khoảng trống" là giả thuyết;
-> số hoá 90% / upsell 24% chỉ giảm ưu tiên; "xác minh sau sửa" cần dữ liệu đầy đủ + xe chạy lại + khách xác nhận.
+> **Sửa sau review 06/10:** số liệu khảo sát đổi sang InsightAsia 2025 công khai (PDF 2026 chưa xác minh); bỏ ngưỡng 20% và 3/8; "khoảng trống" là giả thuyết;
+> điểm số hoá cao chỉ giảm ưu tiên hướng đặt lịch; upsell bỏ vì phạm vi; mã lỗi và ngưỡng demo là giả lập; "xác minh sau sửa" cần dữ liệu đầy đủ + xe chạy lại + khách xác nhận.

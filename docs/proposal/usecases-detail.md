@@ -320,7 +320,7 @@ C2: pending_dealer >= 75% SLA · C3: pending_manufacturer >= 80% SLA (escalate n
 - Đóng lệnh sửa chữa
 - Theo dõi sau sửa
 **brk:** 4
-**breakpoint:** Không ai theo dõi sau khi đóng lệnh; tín hiệu lặp lại nằm trong telematics, xưởng không thấy.
+**breakpoint (giả thuyết, chưa kiểm chứng):** sau khi đóng lệnh, tín hiệu lặp lại có thể không được nối lại với lần sửa trước.
 **rules:**
 - Cùng hệ thống báo lại ≤ 30 ngày → candidate (comeback)
 - Tái phát lần 2 → người (trưởng kỹ thuật); không tự mở lại lần 3

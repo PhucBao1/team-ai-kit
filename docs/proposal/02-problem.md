@@ -73,7 +73,7 @@ KHÁCH → CSKH / App / Tổng đài    Xưởng · Kho · Bảo hành hãng · 
          KPI: AHT, CSAT             KPI: năng suất, tồn kho, duyệt claim
                  └──────── KHE ────────┘
             lịch hẹn lệch kho, claim bị trả về,
-            lời hứa gọi lại — không KPI nào đo
+            lời hứa gọi lại — chưa rõ KPI nào đo (giả thuyết, cần kiểm)
 ```
 
 Agent đóng vai **promise keeper**: giữ lời hứa end-to-end với khách, không thay kỹ thuật viên làm việc chuyên môn.

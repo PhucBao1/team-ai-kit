@@ -72,6 +72,8 @@ Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến
 | **NIO** (Trung Quốc) | Chuyên viên dịch vụ theo trọn ca, tiến độ real-time trong app (bằng người) | "Có người giữ ca" đã có — khác biệt là làm bằng agent + hạn hồi đáp đo được |
 | **Toyota Việt Nam** (đại lý) | Đặt lịch dịch vụ qua Zalo OA (nhân viên chat) | Zalo đã là kênh quen; agent xử lý trọn ca trên Zalo mới là chưa thấy |
 
+**Định vị (chốt 06/10):** *Cố vấn hậu mãi chủ động: phát hiện nhu cầu từ dữ liệu xe, điều phối dịch vụ và theo việc tới kết quả bằng bằng chứng — biết việc nào đang kẹt, ai chịu trách nhiệm, điều gì đã được xác nhận và khi nào chưa đủ dữ liệu để kết luận.* Không tuyên bố "các hãng khác chưa có".
+
 **Nói thẳng (viết lại 06/10 sau [business discovery](../research/2026-10-06-business-discovery.md)):** chẩn đoán từ xa, báo lỗi cho khách,
 gửi trước linh kiện, dịch vụ lưu động, người theo trọn ca là **thực hành đã có** — kể cả VinFast (VF e34, 2021) — nên đề xuất **không** tuyên bố
 "phát hiện trước" là điểm mới. Chuỗi đề xuất giữ: **chủ động phát hiện → kiểm tra → thông báo → đề xuất → xác nhận / thực hiện → chuyển người → theo kết quả.**

@@ -4,6 +4,8 @@
 
 Khách chưa đặt lịch, chưa mở ticket, chưa hỏi — hệ thống đã thấy friction dịch vụ đang hình thành, điều tra, chủ động can thiệp và xác minh.
 
+> **Ghi chú 06/10:** mọi mã lỗi (`BATT-COOL-01`…) và ngưỡng (3 lần / 14 ngày, cooldown 7 ngày) trong UC1 là **giả lập cho demo**, chưa có xác nhận kỹ thuật. Cảnh báo của xe (do xe tự hiện) khác với outreach CSKH (do agent gửi). Mã lỗi không đủ để kết luận bộ phận hỏng — xưởng kiểm tra mới kết luận. VinFast đã công bố báo lỗi từ xa cho VF e34 từ 2021 → UC1 là cửa vào, không phải điểm mới.
+
 **UC1 là flagship.** Khách chưa đặt lịch, chưa mở ticket, chưa khiếu nại, chưa hỏi trợ lý — nhưng hệ thống đã thấy một chuỗi tín hiệu cho thấy friction dịch vụ đang hình thành. Mọi kịch bản dưới đây là *Synthetic / illustrative scenario for MVP*.
 
 ### Goal
