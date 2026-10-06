@@ -35,8 +35,11 @@ xưởng — VinFast có cứu hộ và sạc pin lưu động 24/7 [V5][V6][V7]
   màn hình trung tâm của xe [V5][V6][V8].
 - **Sạc pin lưu động 24/7** toàn quốc [V7].
 - **Sạc miễn phí tại trụ V-Green:** khách cá nhân mua xe từ 10/2 đến hết 10/2/2029, tối đa 10 lần / tháng [V9].
-- **Chưa thấy công bố** việc chủ động nhắn khách dựa trên mã lỗi telematics như Tesla / Rivian → khoảng trống dự án lấp vào.
-  Khi pitch nói "chưa thấy công bố", **không** khẳng định "VinFast không có".
+- ~~**Chưa thấy công bố** việc chủ động nhắn khách dựa trên mã lỗi telematics như Tesla / Rivian~~ → **Sửa 06/10:** VinFast **đã công bố**
+  cho VF e34 (19/05/2021): xe tự gửi mã lỗi về trung tâm bảo hành, lỗi phần mềm sửa từ xa, lỗi phần cứng báo lên màn hình + app,
+  nhắc bảo dưỡng, đặt lịch một chạm ([bài đăng lại trên trang đại lý](https://vinfastdienchau.vn/news/tinh-nang-ho-tro-cham-soc-khach-hang-tu-dong-tu-xa-cua-vinfast-vf-e34/);
+  trang gốc vinfastauto.com chặn truy cập tự động). Khi pitch: **không** nói "chưa ai phát hiện trước"; khác biệt là phần sau khi báo
+  (quyền lợi đúng theo xe, có người giữ ca + hạn, xác minh sau sửa) — xem `plan/PLAN.md` mục "Bổ sung 06/10".
 
 ## 3. Các hãng nước ngoài làm gì — và dự án học được gì
 

@@ -2,7 +2,7 @@
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
-Hôm nay không hệ thống nào nhìn thấy chuỗi tín hiệu lặp cho tới khi khách tự khởi xướng; và ngay cả khi lịch đã đặt, linh kiện nằm ở một hệ thống khác. Khi linh kiện bị điều cho xe khác, lịch hẹn vẫn "đã xác nhận" — không hệ thống nào báo lỗi, vì mỗi hệ thống đều đúng theo góc nhìn của nó. Anchor case có **hai điểm gãy**: friction đang hình thành mà không ai thấy (UC1), và điều kiện của lịch đã đặt đổi sau khi khách xác nhận (nhánh lập lại của UC3).
+Hãng đã có kênh nhận mã lỗi từ xe (VinFast công bố cho VF e34 từ 05/2021: báo lỗi lên màn hình + app, khuyên mang xe tới xưởng), nhưng phần **sau khi báo** vẫn để khách tự lo: tự đặt lịch, tự giục; và ngay cả khi lịch đã đặt, linh kiện nằm ở một hệ thống khác. *(Sửa 06/10: câu cũ "không hệ thống nào nhìn thấy chuỗi tín hiệu lặp" mâu thuẫn với tính năng VinFast đã công bố; cần đồng bộ lại file HTML gốc.)* Khi linh kiện bị điều cho xe khác, lịch hẹn vẫn "đã xác nhận" — không hệ thống nào báo lỗi, vì mỗi hệ thống đều đúng theo góc nhìn của nó. Anchor case có **hai điểm gãy**: friction đang hình thành mà không ai thấy (UC1), và điều kiện của lịch đã đặt đổi sau khi khách xác nhận (nhánh lập lại của UC3).
 
 ### Quy trình hôm nay (khách phải tự khởi xướng)
 
