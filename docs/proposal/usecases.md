@@ -84,6 +84,10 @@ RESOLVED?
 | `InterventionProposal` | candidate_id · assessment {meaningful, urgency, confidence} · evidence_refs[] · intervention_type · options[] (`Option` §13) · needs_confirmation · needs_human · reason · message_draft | Agent (A) → Validator (D) |
 | `VerificationResult` | candidate_id · check · evidence_ref · outcome (resolved / pending / failed / recurred) · next_action | Verifier (D, nguồn sự kiện từ B) → Journey |
 
+> **Ghi chú 06/10 ([business discovery lại](../research/2026-10-06-business-discovery.md)):** UC4 (hoá đơn) và UC6 (tái phát) **không tìm thấy bằng chứng là pain
+> của khách VinFast** → chỉ giữ ở mức spec, không đưa vào phần "vấn đề" khi pitch. Phát hiện lỗi rồi báo khách (UC1) VinFast đã công bố từ 2021 → UC1 là cửa vào,
+> khác biệt nằm ở phần sau khi báo (`plan/PLAN.md` mục "Bổ sung 06/10").
+
 `intervention_type` thuộc tập: `explain` (giải thích chủ động) · `self_help` (hướng dẫn từ KB) · `prepare_service_option` · `ask_confirmation` · `service_action` (đi qua UC3) · `handoff` · `no_action` (đóng / hoãn, ghi lý do).
 
 ### Sáu use case một nhìn

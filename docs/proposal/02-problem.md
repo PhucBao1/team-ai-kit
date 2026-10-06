@@ -1,6 +1,12 @@
-# 02 · Vấn đề — Phần lớn lần khách liên hệ là vì doanh nghiệp đã làm rơi việc
+# 02 · Vấn đề — Ca hậu mãi không xong trong một lần: khách phải giục, phải kể lại, không chắc quyền lợi
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
+
+> **Sửa 06/10 (lead, sau [business discovery lại](../research/2026-10-06-business-discovery.md)).** Tiêu đề cũ "Phần lớn lần khách liên hệ là vì
+> doanh nghiệp đã làm rơi việc" **chưa có số liệu Việt Nam** — số duy nhất tìm được về tỷ lệ cuộc gọi hỏi tiến độ là của vendor (Numa, không mẫu số).
+> Failure demand dưới đây là **khung phân tích, không phải tỷ lệ đã đo**. Hai pain còn bằng chứng: (P-A) yêu cầu bị chuyển bộ phận không ai giữ, không hạn;
+> (P-B) khách không chắc quyền lợi đúng cho xe mình vì chính sách đổi theo ngày mua. Bảng "đến xưởng rồi phải về 1–4%" ở cuối là **giả định của đội**,
+> không pitch như số đo; VinFast cam kết cấp phụ tùng trong 24 giờ từ 01/9/2024 nên kịch bản này cần dữ liệu mới trước khi dùng.
 
 Với chủ xe điện, một cuộc hội thoại hiếm khi dừng ở một câu hỏi: hỏi đèn cảnh báo → hỏi có được bảo hành không → đặt lịch → hỏi tiến độ sửa → khiếu nại khi đến xưởng mà không có linh kiện. Nếu chatbot trả lời từng câu độc lập và không nối với dữ liệu, khách phải lặp lại thông tin — và vẫn phải tự đi giục.
 

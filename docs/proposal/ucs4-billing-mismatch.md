@@ -2,6 +2,9 @@
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
+> **Ghi chú 06/10 ([business discovery lại](../research/2026-10-06-business-discovery.md)):** không tìm thấy tranh chấp hoá đơn sạc / thuê pin nào của
+> chủ ô tô điện VinFast (báo chí, diễn đàn, review app). Giữ làm **spec kỹ thuật** (minh hoạ "không phải event nào cũng cần LLM"), **không pitch như pain của khách**.
+
 Cố ý LLM-light: không phải event proactive nào cũng cần Agent. Tiền luôn do người duyệt.
 
 **UC4 — spec / scenario only tuần này; cố ý LLM-light.** UC này tồn tại để chứng minh: **không phải event proactive nào cũng cần LLM Agent.** Liên quan tiền → Agent không bao giờ quyết định hoàn tiền; người duyệt. Mọi kịch bản là *Synthetic / illustrative scenario for MVP*.

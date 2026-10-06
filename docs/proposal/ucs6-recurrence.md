@@ -2,6 +2,9 @@
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
+> **Ghi chú 06/10 ([business discovery lại](../research/2026-10-06-business-discovery.md)):** lỗi tái phát ở VinFast chỉ có đoạn trích diễn đàn, chưa có tần suất —
+> **không pitch như pain đã chứng minh**. Phần còn giá trị là "chỉ coi là xong khi đã xác minh" → card A2.23 (trạng thái "Đã xác minh").
+
 Khép vòng chăm sóc: phát hiện tín hiệu quay lại sau khi case đã đóng, đánh giá lần can thiệp trước, can thiệp lại hoặc escalate.
 
 **UC6 — spec / scenario only tuần này; khép vòng chăm sóc.** UC6 là điều làm cho "xong" nghĩa là *được xác minh*, không chỉ *đã đóng lệnh*. Mọi kịch bản là *Synthetic / illustrative scenario for MVP*.
