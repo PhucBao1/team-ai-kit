@@ -4,7 +4,7 @@
 - [02 · Vấn đề — Ca hậu mãi không xong trong một lần: khách phải giục, phải kể lại, không chắc quyền lợi](02-problem.md)
 - [03 · Bối cảnh nghiệp vụ — Hành trình chủ xe điện: nhiều bên, nhiều hệ thống, nhiều mốc có hệ quả thật](03-domain.md)
 - [03.1 · Anchor case — "Xe cảnh báo lặp lại, tôi chưa kịp làm gì — rồi đến xưởng lại bảo chưa có linh kiện"](03_1-anchor.md)
-- [04 · Định vị & in-flight proactive — Proactive đã là xu hướng. Khác biệt nằm ở thời điểm và loại vấn đề.](04-positioning.md)
+- [04 · Định vị & in-flight proactive — Proactive đã là thực hành chung. Khác biệt (giả thuyết) nằm ở phần sau khi báo.](04-positioning.md)
 - [05 · Kiến trúc — Một bộ não, hai cửa vào](05-architecture.md)
 - [05.1 · Kỹ thuật: loop engineering & tech stack — Từ prompt → context → harness → loop engineering](05_1-tech.md)
 - [06 · Lõi hội thoại — Hiểu mục đích xuyên suốt, không bịa, luôn xác nhận](06-conversation.md)

@@ -19,7 +19,7 @@ Hai pain này trùng lõi bắt buộc của đề (hội thoại nhiều bướ
 
 | Bằng chứng | Nguồn |
 |---|---|
-| VinFast: số hoá dịch vụ 90% (cao nhất 9 hãng), năng lực kỹ thuật 72% (thấp nhất), CSI 76% hạng 7/9; tỉnh 64% vs thành phố 88%; bị phàn nàn upsell 24% (TB 37%) | InsightAsia 5/2026, n=1.247 (VinFast n=223), p13–16 — PDF do lead cung cấp, **không đưa vào repo** (tài liệu bên thứ ba) |
+| VinFast: số hoá dịch vụ 90% (cao nhất 9 hãng), năng lực kỹ thuật 72% (thấp nhất), CSI Index 78% (thứ 6/9), Overall Service Experience 76% (thứ 7/9) — tiêu đề PDF "ranks 7th in CSI" không khớp bảng; tỉnh 64% vs thành phố 88%; bị phàn nàn upsell 24% (TB 37%) | InsightAsia 5/2026, n=1.247 (VinFast n=223), p13–16 — PDF do lead cung cấp, **không đưa vào repo** (tài liệu bên thứ ba) |
 | Ca VF9: chờ sửa bảo hành lâu; VinFast cho nghỉ 4 nhân sự vì "chậm trễ tiếp nhận và xử lý yêu cầu"; 2/10 comment chê "phải phàn nàn công khai mới được xử lý" | [otosaigon 12/10/2024](https://www.otosaigon.com/threads/vinfast-xu-ly-the-nao-khi-chu-xe-vf9-phan-anh-cho-doi-lau-trong-thoi-gian-sua-chua-bao-hanh.10025287/) |
 | AI xử lý trọn 91% cuộc gọi dịch vụ, nhưng **56% lần chuyển AI → người thất bại** | Pied Piper 2025 (2.105 đại lý Mỹ) |
 | 64% khách không muốn doanh nghiệp dùng AI trong CSKH; nỗi sợ số 1: khó gặp người | Gartner 07/2024 (n=5.728) |
@@ -28,27 +28,27 @@ Hai pain này trùng lõi bắt buộc của đề (hội thoại nhiều bướ
 | VinFast đã có giao nhận xe tận nhà, cứu hộ 24/7, mượn xe miễn phí | [VTV 27/11/2025](https://vtv.vn/giao-nhan-xe-tan-nha-cuu-ho-24-7-muon-xe-mien-phi-hau-mai-vinfast-tao-su-khac-biet-tren-thi-truong-100251127182754514.htm) |
 | Lỗi KB của chính đội: sạc miễn phí còn ghi "đến 30/6/2027" (đã bị thay 09/02/2026); bảo hành VF 7 mâu thuẫn giữa các nguồn | báo cáo mục "Cập nhật 06/10" · card A2.20, A2.21 |
 
-## 3. Pain bị loại (kill test)
+## 3. Pain bị loại hoặc hạ ưu tiên (kill test)
 
 | Pain | Lý do loại |
 |---|---|
 | UC4 hoá đơn sạc / thuê pin sai | Không tìm thấy tranh chấp nào |
-| Upsell / bán kèm | Không phải pain của khách; VinFast ít bị phàn nàn (24%); ngoài đề |
+| Upsell / bán kèm | **Quyết định phạm vi** (đề không yêu cầu) — không phải bị bác bỏ; số phàn nàn 24% chỉ giảm ưu tiên |
 | UC6 lỗi tái phát (vai trò pain cốt lõi) | Chỉ đoạn trích diễn đàn, không tần suất |
 | Đến xưởng thiếu linh kiện (UC3, anchor cũ) | Bằng chứng 2025–26 yếu; VinFast cam kết phụ tùng 24 giờ từ 01/9/2024 |
-| Thiếu kênh đặt lịch / theo dõi | App VinFast đã có (đặt lịch, duyệt báo giá, thời gian dự kiến) |
+| Thiếu kênh đặt lịch / theo dõi | **Hạ ưu tiên**: app VinFast đã có đặt lịch, duyệt báo giá, thời gian dự kiến; chưa biết ngoại lệ (lịch hỏng, tiến độ sai) được xử lý tốt tới đâu |
 | Trạm sạc hỏng / xếp hàng | Gốc rễ hạ tầng, theo mùa; app V-Green có trạng thái real-time |
 | Tay nghề kỹ thuật ở tỉnh | Có thật nhưng agent CSKH không giải được |
 
 ## 4. Điểm khác biệt
 
-**(A) Chưa thấy ai làm** (≈20 lượt search — không chắc chắn tuyệt đối):
+**(A) Giả thuyết khoảng trống — chưa tìm thấy ai làm** (≈20 lượt search, nhiều nguồn bị chặn, chưa thử kênh VinFast → **cần kiểm chứng**, không pitch là "chưa ai làm"):
 
 | # | Điểm | Repo hiện có |
 |---|---|---|
 | A1 | Trả lời quyền lợi theo "xe này + hôm nay" (bảo hành, sạc, pin, chương trình còn hạn) có trích dẫn | Một phần → A2.20, A2.21 |
 | A2 | Khách chụp ảnh đèn taplo, đối chiếu mã lỗi thật của xe | Chưa — roadmap |
-| A3 | Xác minh sau sửa bằng dữ liệu xe, chỉ coi là xong khi lỗi không quay lại | Một phần (`post_repair`) → A2.23 |
+| A3 | Theo dõi sau sửa bằng dữ liệu xe; chỉ gọi là *xác minh* khi dữ liệu đầy đủ + xe đã chạy lại + khách xác nhận hết triệu chứng (không có mã lỗi mới là chưa đủ) | Một phần (`post_repair`) → A2.23 làm bước trung thực "đã theo dõi, chưa thấy lỗi" |
 | A4 | Một người giữ ca xuyên công ty Vingroup (VinFast · V-Green · Xanh SM) | Chưa — roadmap |
 | A5 | AI agent xử lý trọn ca trên Zalo (Toyota VN mới đặt lịch qua Zalo bằng nhân viên) | Chưa (Zalo chỉ là trường dữ liệu) — roadmap |
 
@@ -64,7 +64,11 @@ Proactive (UC1 → UC3) giữ làm **cửa vào**, không pitch là năng lực 
 ## 5. Còn thiếu để kết luận chắc hơn
 
 1. Văn bản gốc đề BTC + rubric chấm.
-2. Phân loại ~150 bài / review gần nhất của chủ xe (group Facebook cần copy tay — máy bị chặn); ngưỡng bỏ hướng: hai nhóm P-A + P-B < 20% bài liên quan dịch vụ.
-3. Gọi thử tổng đài 5 câu hỏi chính sách × 2 lần (thời gian chờ, độ nhất quán).
-4. 8 phỏng vấn chủ xe vừa có ca sửa / bảo hành + 2–3 nhân viên CSKH (hỏi chuyện đã xảy ra).
-5. Hỏi mentor: app / tổng đài VinFast hiện làm được tới đâu với A1, A5, giao nhận xe.
+2. **Tần suất:** xin mentor/BTC số lượt liên hệ theo lý do (log tổng đài) — đây là nguồn duy nhất đo được tỷ lệ.
+3. **Cơ chế + thiệt hại:** đọc ~150 bài / review (group Facebook copy tay) và phỏng vấn — dùng để tìm tình huống, chỗ gãy, khách mất gì; **không** dùng mẫu này để đo tần suất hay đặt ngưỡng bỏ hướng (mẫu thiên về người đang bực).
+4. Gọi thử tổng đài 5 câu hỏi chính sách × 2 lần — cho biết kênh có thể trả lời sai / chậm hay không, không đo tỷ lệ.
+5. 8 phỏng vấn chủ xe vừa có ca sửa / bảo hành + 2–3 nhân viên CSKH (hỏi chuyện đã xảy ra) — để hiểu cơ chế, không đo mức phổ biến.
+6. Hỏi mentor: app / tổng đài VinFast hiện làm được tới đâu với A1, A5, giao nhận xe.
+
+> **Sửa sau review 06/10:** tách CSI Index khỏi Overall Service Experience; bỏ ngưỡng 20% và 3/8; "khoảng trống" là giả thuyết;
+> số hoá 90% / upsell 24% chỉ giảm ưu tiên; "xác minh sau sửa" cần dữ liệu đầy đủ + xe chạy lại + khách xác nhận.

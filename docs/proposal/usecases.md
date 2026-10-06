@@ -84,9 +84,22 @@ RESOLVED?
 | `InterventionProposal` | candidate_id · assessment {meaningful, urgency, confidence} · evidence_refs[] · intervention_type · options[] (`Option` §13) · needs_confirmation · needs_human · reason · message_draft | Agent (A) → Validator (D) |
 | `VerificationResult` | candidate_id · check · evidence_ref · outcome (resolved / pending / failed / recurred) · next_action | Verifier (D, nguồn sự kiện từ B) → Journey |
 
-> **Ghi chú 06/10 ([business discovery lại](../research/2026-10-06-business-discovery.md)):** UC4 (hoá đơn) và UC6 (tái phát) **không tìm thấy bằng chứng là pain
-> của khách VinFast** → chỉ giữ ở mức spec, không đưa vào phần "vấn đề" khi pitch. Phát hiện lỗi rồi báo khách (UC1) VinFast đã công bố từ 2021 → UC1 là cửa vào,
-> khác biệt nằm ở phần sau khi báo (`plan/PLAN.md` mục "Bổ sung 06/10").
+### Chuỗi chính sau 06/10 — việc bị kẹt (viết lại theo [business discovery](../research/2026-10-06-business-discovery.md))
+
+Chuỗi: **chủ động phát hiện → kiểm tra → thông báo → đề xuất → xác nhận / thực hiện → chuyển người → theo kết quả.** UC1 (lỗi lặp) là cửa vào —
+VinFast đã có báo lỗi từ xa từ 2021, không pitch là điểm mới. Ba tình huống "việc bị kẹt" dưới đây là trọng tâm demo 11/10; UC2, UC4, UC5, UC6 giữ ở mức spec
+(UC4, UC6 chưa tìm thấy bằng chứng là pain của khách VinFast).
+
+| Tình huống | Nguồn sự kiện | Điều kiện kích hoạt | Thông tin cần kiểm tra | Hành động | Kết thúc khi | Card |
+| --- | --- | --- | --- | --- | --- | --- |
+| **Điều kiện lịch hẹn thay đổi** (UC3 lập lại) | ERP: `parts.reservation.cancelled` | Lịch `confirmed`, còn < 72 giờ, không còn lượt giữ linh kiện khác | Lịch, slot, tồn kho các xưởng, quãng đường, quyền đặt lịch | Báo khách + 2–3 phương án đã kiểm → xác nhận → đổi lịch qua executor | Khách xác nhận lịch mới, hoặc chuyển người | đã có (A1.11, B2.04) |
+| **Chuyển người chưa ai nhận / quá hạn gọi lại** | Đồng hồ (mỗi lần tua) | `Handoff.status == open` và `card.deadline_at < now`, chưa báo lần nào | Mã ca, hàng chờ, hạn đã hứa, khách | Tin hệ thống vào ca (báo trưởng ca) + báo khách đúng là **chưa có người nhận**; **không** hứa giờ mới | Nhân viên Nhận ca hoặc Đóng ca; không báo lặp | A2.26 |
+| **Chuyển người thất bại** | Executor ghi handoff lỗi | `file_handoff` trả `None` | — | Không nói "đã chuyển"; đưa tổng đài 1900 23 23 89; không hứa hạn | Khách được hướng tới kênh có người | A2.22 |
+
+**Hồ sơ và trách nhiệm** (dữ liệu đã có: `Handoff.status`, `assignee`, `HandoffCard.deadline_at`, bảng SLA `src/core/sla.py`): mỗi việc của khách hiện
+*đã chuyển (chưa ai nhận)* hay *{tên} đã nhận*, người giữ, hạn cập nhật (A2.25). **Vòng đời việc** (A2.23): đã xác nhận (thao tác thành công) →
+đã sửa xong (dịch vụ hoàn tất, `repair_order.closed`) → đã theo dõi 14 ngày, chưa thấy lỗi (hỏi khách còn triệu chứng) / **mở lại** khi lỗi báo lại.
+"Đã xác minh" chỉ khi dữ liệu đầy đủ + xe đã chạy lại + khách xác nhận hết triệu chứng — **chưa làm**, roadmap. Thiếu dữ liệu không bao giờ được coi là đã giải quyết.
 
 `intervention_type` thuộc tập: `explain` (giải thích chủ động) · `self_help` (hướng dẫn từ KB) · `prepare_service_option` · `ask_confirmation` · `service_action` (đi qua UC3) · `handoff` · `no_action` (đóng / hoãn, ghi lý do).
 
@@ -94,12 +107,12 @@ RESOLVED?
 
 | UC | Sự kiện bắt đầu (KHÔNG phải khách) | L0 phát hiện (không LLM) | LLM khi nào | Hành động chính | Xác minh bằng | MVP | Cost |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| **UC1** Preemptive Service Friction Rescue *(flagship)* | Mã lỗi WARNING lặp lại, chưa có case / lịch | Ngưỡng + cửa sổ + dedupe + không có case + arbitration | Ca nhiều nguồn, mơ hồ (L1 tuỳ chọn, L2 chỉ khi cần) | Giải thích, self-help, chuẩn bị phương án, hỏi xác nhận, handoff | Telematics N ngày không lặp lại | **Full** | CAO — chỉ ca ứng viên thật |
+| **UC1** Preemptive Service Friction Rescue *(flagship)* | Mã lỗi WARNING lặp lại, chưa có case / lịch | Ngưỡng + cửa sổ + dedupe + không có case + arbitration | Ca nhiều nguồn, mơ hồ (L1 tuỳ chọn, L2 chỉ khi cần) | Giải thích, self-help, chuẩn bị phương án, hỏi xác nhận, handoff | Theo dõi N ngày không lặp lại + hỏi khách (chưa gọi là xác minh) | **Full** | CAO — chỉ ca ứng viên thật |
 | **UC2** Charging Friction Prevention | Phiên sạc thất bại lặp lại | Số lần thất bại + tương quan trạm + cooldown | Khi trạm khoẻ nhưng nguyên nhân chưa rõ | Gợi ý thử lại, trạm khác, đề xuất dịch vụ, handoff khẩn | Phiên sạc kế tiếp thành công | **Demo-ready** | TB / CAO khi mơ hồ |
 | **UC3** Service Readiness / Intervention Orchestration | Can thiệp xưởng đã được khách chấp nhận (từ UC1/UC2/UC6) hoặc lịch đã đặt bị hỏng điều kiện | Điều kiện đầu vào + kiểm tra ràng buộc cơ bản | Luôn (suy luận đa ràng buộc) nhưng chỉ sau khi can thiệp đã được chứng minh cần | 2–3 phương án khả thi → xác nhận → đặt | Đọc lại lịch + linh kiện; telematics sau sửa | **Demo-ready** | CAO nhưng hiếm |
 | **UC4** Billing / Charging Mismatch Prevention | Phiên sạc có phí sai hoặc trừ trùng | So khớp session ↔ billing ↔ quyền ưu đãi | Chỉ khi bằng chứng mâu thuẫn *(cố ý LLM-light)* | Tự sửa (nếu policy cho), chuẩn bị điều chỉnh, người duyệt | Số tiền + liên kết + phiên sau đúng | Spec only | THẤP |
 | **UC5** Proactive Warranty / Claim Follow-up | Claim kẹt (chờ bổ sung, SLA gần) | State + thời gian + phụ thuộc | Khi lý do trả về là văn bản tự do / mơ hồ | Nhắc, xin bổ sung, đính kèm bằng chứng, escalate nội bộ | Bằng chứng nhận được, claim tiến triển | Spec only | TB |
-| **UC6** Recurrence / Return-of-Friction Prevention | Tín hiệu quay lại sau khi case đã đóng | Case cũ đã resolved + tín hiệu tương tự + ngưỡng + cooldown | Để đánh giá "lần can thiệp trước có thật sự giải quyết không" | Check-in, đề nghị kiểm tra lại, mở lại, escalate | Telematics sau lần xử lý mới | Spec only | TB / CAO |
+| **UC6** Recurrence / Return-of-Friction Prevention | Tín hiệu quay lại sau khi case đã đóng | Case cũ đã resolved + tín hiệu tương tự + ngưỡng + cooldown | Để đánh giá "lần can thiệp trước có thật sự giải quyết không" | Check-in, đề nghị kiểm tra lại, mở lại, escalate | Theo dõi sau lần xử lý mới (xác minh cần dữ liệu đủ + xe chạy lại + khách xác nhận) | Spec only | TB / CAO |
 
 ### Cost tier — mỗi use case tiêu LLM ở đâu
 

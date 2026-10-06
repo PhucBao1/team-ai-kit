@@ -40,8 +40,10 @@ Telematics ──vehicle.dtc.raised──► Pub/Sub topic "ops-events"       # 
   9  Writer ⇄ Critic (§14): tin 5 phần (điều đã xảy ra · phương án · thời hạn · phụ trách · vì sao nhận tin)
  10  gửi vào session chat của khách + push notification theo kênh ưa thích
  11  cập nhật journey: bước hiện tại = "chờ khách chọn", promise mới, hẹn giờ nhắc (workflow)
- 12  verify (loop 5): bằng chứng hệ thống (telematics · CSMS · ledger · trạng thái claim) ── chưa xong ─► retry có giới hạn ─► handoff
- 13  tái phát sau khi đóng ─► mở vòng mới (UC6), tối đa 2 chu kỳ tự động
+ 12  theo kết quả (loop 5): repair_order.closed ─► việc "đã sửa xong, đang theo dõi" · hết cửa sổ không mã lỗi mới ─► "đã theo dõi, chưa thấy lỗi"
+     + hỏi khách còn triệu chứng (KHÔNG gọi là đã xác minh / đã đóng) · "đã xác minh" chỉ khi dữ liệu đủ + xe đã chạy lại + khách xác nhận (roadmap)
+     · thiếu dữ liệu ─► giữ việc mở, không coi là đã giải quyết
+ 13  tái phát trong cửa sổ ─► việc "mở lại" (UC6), tối đa 2 chu kỳ tự động ─► handoff
 ```
 
 Nhánh lập lại của UC3: parts.reservation.cancelled · parts.eta.changed làm một lịch *đã xác nhận* mất điều kiện (còn < 72 giờ) cũng đi vào bước 3 như một candidate, rồi UC3 lập lại 2–3 phương án và xin khách xác nhận.
@@ -58,14 +60,22 @@ Khách bấm [Xác nhận] ──POST /confirm {token}──► API
      thất bại / timeout ─► KHÔNG báo "đã đặt"; đọc lại trạng thái; retry có giới hạn; báo đúng tình trạng
 ```
 
-### Luồng D — Chuyển người và nhận lại việc
+### Luồng D — Chuyển người, người nhận và quá hạn (viết lại 06/10)
 
 ```text
-  1  trigger: khách yêu cầu · sentiment ≥ annoyed · 2 lần thất bại · mức 3 · an toàn · khiếu nại
-  2  lắp HandoffCard từ goal stack + audit + promises + facts(có nguồn); LLM chỉ viết 1 câu + sentiment
-  3  định tuyến theo kỹ năng / xưởng của xe / ca trực; ngoài giờ → 24/7 (khẩn) hoặc ticket có hẹn giờ
-  4  NV nhận (accepted_at) → đồng hồ SLA gọi lại; copilot mở cho NV
-  5  NV chốt trong console → tool ghi (NV là người xác nhận, có ghi âm / ghi chú)
-  6  auto-wrap: AI soạn ghi chú + nhãn lý do liên hệ → NV xác nhận
-  7  agent nhận lại journey: gửi xác nhận cho khách, đặt nhắc, tiếp tục loop 5
+  1  trigger: khách yêu cầu · sentiment ≥ annoyed · 2 lần thất bại · mức 3 · an toàn · khiếu nại · LLM lỗi giữa lượt
+  2  lắp HandoffCard từ goal stack + audit + promises + facts (có nguồn); LLM chỉ viết 1 câu + sentiment
+  3  định tuyến theo xưởng có lịch của xe / tổng đài; hạn gọi lại từ bảng SLA (15' · an toàn 5' · ngoài giờ 09:30 hôm sau)
+  4  ghi handoff qua executor ── lỗi ─► KHÔNG nói "đã chuyển"; đưa tổng đài 1900 23 23 89; không hứa hạn          # A2.22
+  5  khách thấy "đã chuyển tới {hàng chờ}, chưa có người nhận · hẹn liên hệ trước HH:MM"                          # A2.25
+  6  NV bấm Nhận ca (status accepted, assignee = tên NV) ─► khách thấy "{tên} đang xử lý, cập nhật trước HH:MM"
+  7  mỗi lần tua đồng hồ: ca open quá deadline_at ─► tin hệ thống vào ca (báo trưởng ca) + báo khách đúng là chưa
+     có người nhận, KHÔNG hứa giờ mới; mỗi ca báo một lần                                                        # A2.26
+  8  NV chốt trong console → tool ghi (NV là người xác nhận); auto-wrap ghi chú → NV xác nhận
+  9  NV Đóng ca ─► khách thấy "nhân viên đã xử lý xong ca"; agent nhận lại việc, tiếp tục loop 5 (theo kết quả)
 ```
+
+**Vòng đời việc của khách** (`CustomerCase.status`, ADR 010 — A2.23, A2.25):
+`waiting` (chờ khách chọn) → `done` (đã xác nhận — thao tác thành công) → `service_done` (đã sửa xong) → `monitored_clear` (đã theo dõi, chưa thấy lỗi) /
+`reopened` (lỗi báo lại). Nhánh người: `handoff_sent` (đã chuyển, chưa ai nhận) → `handed_off` (đã có người nhận) → `handoff_closed`.
+Không có `verified` cho tới khi đủ dữ liệu xe chạy lại + khách xác nhận.

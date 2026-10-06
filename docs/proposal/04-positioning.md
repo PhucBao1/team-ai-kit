@@ -1,4 +1,4 @@
-# 04 · Định vị & in-flight proactive — Proactive đã là xu hướng. Khác biệt nằm ở thời điểm và loại vấn đề.
+# 04 · Định vị & in-flight proactive — Proactive đã là thực hành chung. Khác biệt (giả thuyết) nằm ở phần sau khi báo.
 
 > Trích từ Proposal EV CX Agent. Nguồn gốc: file HTML cùng tên. Sửa nội dung ở file HTML rồi chạy lại script chuyển đổi, hoặc sửa file .md này và ghi chú trong PR.
 
@@ -48,14 +48,14 @@ Chatbot thông thườngT3
 
 Khiếu nại, mạng xã hội, mất niềm tin vào thương hiệu.
 
-Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến từ xe, trạm sạc, xưởng, kho, bảo hành. Giá trị nằm ở hai cửa sổ: **T0 đang hình thành** — friction nổi lên từ nhiều tín hiệu lặp lại khi khách chưa tạo case nào (UC1, UC2); và **T1–T2** — việc đã chạy dở, doanh nghiệp đã hứa, workflow âm thầm dừng (UC3 lập lại, UC5, UC6). Khác với outreach cho sự kiện đã biết: không gửi tin cho mọi event, mà phát hiện friction bằng cơ chế rẻ, chỉ gọi LLM khi cần suy luận, và xác minh kết quả.
+Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến từ xe, trạm sạc, xưởng, kho, bảo hành. Cửa sổ **T0** (lỗi lặp khi khách chưa tạo case — UC1) là **cửa vào**, hãng đã có tính năng tương tự. Trọng tâm là **T1–T2 — việc bị kẹt**: điều kiện lịch hẹn thay đổi (UC3 lập lại), ca chuyển người quá hạn hoặc chưa ai nhận, việc sau sửa chưa có kết quả rõ. Khác với outreach cho sự kiện đã biết: không gửi tin cho mọi event, phát hiện bằng cơ chế rẻ (rule, 0 token), chỉ gọi LLM khi cần suy luận, nói đúng trạng thái và theo việc tới kết quả. UC2 (sạc), UC4 (hoá đơn), UC5 (claim), UC6 (tái phát) giữ ở mức spec.
 
 | Trục | Chatbot CSKH | Proactive outreach | Đề xuất này |
 | --- | --- | --- | --- |
 | Kích hoạt | Khách nhắn | Sự kiện đã biết | Khách nhắn *và* tín hiệu hệ thống, cùng một bộ não |
-| Kết thúc khi | Hội thoại kết thúc | Tin được gửi | Việc của khách được xác minh là xong |
+| Kết thúc khi | Hội thoại kết thúc | Tin được gửi | Việc đi hết vòng đời: đã xác nhận → đã sửa xong → đã theo dõi, chưa thấy lỗi (hoặc mở lại) |
 | Loại vấn đề | Câu hỏi, tác vụ đơn | Sự cố hệ thống biết | Cả lỗi ngầm liên hệ thống mà hệ thống không tự biết |
-| Xác minh | CSAT sau chat | Tỷ lệ mở tin | Dữ liệu thật: lịch, kho, và telematics xác nhận lỗi đã hết |
+| Theo kết quả | CSAT sau chat | Tỷ lệ mở tin | Dữ liệu thật: lịch, kho, lệnh sửa, telematics. "Đã xác minh" chỉ khi dữ liệu đầy đủ + xe đã chạy lại + khách xác nhận hết triệu chứng — không có mã lỗi mới là chưa đủ |
 
 ### Big enterprise đang làm gì — và điểm mới thật của đề xuất
 
@@ -72,11 +72,21 @@ Xử lý khiếu nại**Agent không chờ khách hỏi** — tín hiệu đến
 | **NIO** (Trung Quốc) | Chuyên viên dịch vụ theo trọn ca, tiến độ real-time trong app (bằng người) | "Có người giữ ca" đã có — khác biệt là làm bằng agent + hạn hồi đáp đo được |
 | **Toyota Việt Nam** (đại lý) | Đặt lịch dịch vụ qua Zalo OA (nhân viên chat) | Zalo đã là kênh quen; agent xử lý trọn ca trên Zalo mới là chưa thấy |
 
-> **Sửa 06/10 (lead, [business discovery lại](../research/2026-10-06-business-discovery.md)).** Đoạn "Nói thẳng" bên dưới viết trước khi biết VinFast đã có
-> chẩn đoán từ xa (2021) và NIO đã có người giữ ca. Định vị dùng khi pitch: *"Hãng đã biết xe lỗi. Chúng tôi lo phần sau: trả lời đúng quyền lợi của chiếc xe đó
-> theo ngày mua, giữ việc tới khi sửa xong và xác minh bằng dữ liệu xe, chuyển người không phải kể lại."* Proactive (UC1 → UC3) là **cửa vào**, không phải điểm mới.
+**Nói thẳng (viết lại 06/10 sau [business discovery](../research/2026-10-06-business-discovery.md)):** chẩn đoán từ xa, báo lỗi cho khách,
+gửi trước linh kiện, dịch vụ lưu động, người theo trọn ca là **thực hành đã có** — kể cả VinFast (VF e34, 2021) — nên đề xuất **không** tuyên bố
+"phát hiện trước" là điểm mới. Chuỗi đề xuất giữ: **chủ động phát hiện → kiểm tra → thông báo → đề xuất → xác nhận / thực hiện → chuyển người → theo kết quả.**
 
-**Nói thẳng:** chẩn đoán từ xa, gửi trước linh kiện và ưu tiên dịch vụ lưu động là **thực hành đã được chứng minh** ở BMW, Tesla, Rivian — đề xuất dùng lại chúng có chủ đích. Điểm mới của đề xuất nằm ở bốn chỗ: **(1)** phát hiện friction đang hình thành từ tín hiệu lặp lại *và* cứu việc đang chạy dở giữa các hệ thống (in-flight: lịch lệch kho, claim kẹt, tín hiệu quay lại sau sửa) — các hãng trên chủ yếu dừng ở phát hiện lỗi xe; **(2)** một bộ não cho cả hội thoại theo đề bài lẫn chủ động, với xác nhận và guardrail tất định; **(3)** "xong" được xác minh bằng dữ liệu xe; **(4)** bối cảnh Việt Nam và hệ sinh thái nhiều đơn vị.
+Các khác biệt dưới đây là **giả thuyết cần kiểm chứng** (chưa tìm thấy ai làm trong ≈20 lượt search; nhiều nguồn bị chặn, chưa thử kênh VinFast):
+
+| # | Khác biệt (giả thuyết) | Bằng chứng nhu cầu | Card |
+| --- | --- | --- | --- |
+| 1 | Trả lời quyền lợi **theo chính chiếc xe và ngày mua** (bảo hành, sạc miễn phí, pin, chương trình còn hạn), có trích dẫn đúng phiên bản | Chính sách VinFast đổi ≥ 4 lần trong 18 tháng; KB của chính đội từng trả bản đã hết hiệu lực | A2.20, A2.21 |
+| 2 | **Có người giữ việc + hạn cập nhật**; tách "đã chuyển" với "đã có người nhận"; phát hiện ca quá hạn chưa ai nhận | Ca VF9 (10/2024): VinFast kỷ luật 4 nhân sự vì chậm xử lý; Pied Piper 2025: 56% lần AI chuyển người thất bại | A2.22, A2.25, A2.26 |
+| 3 | **Nói đúng trạng thái khi lỗi** — không báo "đã chuyển" khi chưa chuyển, không tự hứa giờ mới | Moffatt v. Air Canada 2024: doanh nghiệp chịu trách nhiệm lời bot | A2.22, A2.26 |
+| 4 | **Không đóng việc sai** — vòng đời đã xác nhận → đã sửa xong → đã theo dõi / mở lại | J.D. Power CSI 2025 (Mỹ): 12% không sửa đúng lần đầu | A2.23 |
+| 5 | Một bộ não cho cả hội thoại theo đề bài lẫn chủ động, có xác nhận và guardrail tất định | Yêu cầu bắt buộc của đề BTC | đã có |
+
+Roadmap riêng (không thuộc chuỗi chính): kênh Zalo thật, gọi điện bằng AI, chụp ảnh đèn taplo, giao nhận xe qua agent, upsell.
 
 ### Reactive AI vs Proactive AI — và đề xuất này ở đâu
 
